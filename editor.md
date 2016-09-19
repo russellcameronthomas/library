@@ -1,7 +1,7 @@
 ---
 layout: default
-custom_js: http://webppl.org/homepage.js
-custom_css: http://webppl.org/homepage.css
+custom_js: https://webppl.org/homepage.js
+custom_css: https://webppl.org/homepage.css
 ---
 
 <div class="panel panel-default">
