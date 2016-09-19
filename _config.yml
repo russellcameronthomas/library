@@ -2,7 +2,6 @@
 title: Risk Modeling with Probabilistic Programs
 baseurl: "/riskmodels"
 url: "http://russellcameronthomas.github.io/riskmodels"
-source: "/riskmodels/"
 
 # Build settings
 markdown: kramdown
