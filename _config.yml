@@ -1,7 +1,7 @@
 # Site settings
 title: Modeling Agents with Probabilistic Programs
-baseurl: ""
-url: "http://agentmodels.org"
+baseurl: "/riskmodels"
+url: "http://russellcameronthomas.github.io/riskmodels"
 
 # Build settings
 markdown: kramdown
