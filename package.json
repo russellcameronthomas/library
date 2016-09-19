@@ -1,5 +1,5 @@
 {
-  "name": "agentmodels.org",
+  "name": "riskmodels.meritology.com",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,18 +8,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/agentmodels/agentmodels.org.git"
+    "url": "git+https://github.com/russellcameronthomas/riskmodels.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/agentmodels/agentmodels.org/issues"
+    "url": "https://github.com/russellcameronthomas/riskmodels/issues"
   },
-  "homepage": "https://github.com/agentmodels/agentmodels.org#readme",
+  "homepage": "https://github.com/russellcameronthomas/riskmodels#readme",
   "dependencies": {
     "webppl": "^0.9.1",
-    "webppl-agents": "github:agentmodels/webppl-agents",
+    "webppl-agents": "github:russellcameronthomas/riskmodels/webppl-agents",
     "webppl-dp": "^0.1.1",
     "webppl-editor": "github:probmods/webppl-editor",
     "webppl-timeit": "^0.3.0"
