@@ -1,4 +1,8 @@
-# Modeling Agents with Probabilistic Programs
+# Risk Modeling with Probabilistic Programs
+
+A set of interactive tutorials on risk modeling using the WebPPL probabilistic programming langauge.
+
+The chapters contain original content. The code behind these tutorials is cloned from agentmodels.org
 
 ## Setup
 
