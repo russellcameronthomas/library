@@ -22,10 +22,16 @@ For risk analysts, probabilistic programming has *the potential* to help us take
 Probabilistic programming is a hybrid computing system, combining a Turing-complete programming language with statistical inference algorithms.  Let's build that up in pieces.
 
 Starting with the Math of Data: statistical inference algorithms (e.g. linear models, null-hypothesis tests, etc.) take **empirical data** (a.k.a. 'evidence') as input, and produce probabilistic information (a.k.a. 'answers') as output.
-![The Math of Data: Statistical Inference]({{ site.baseurl }}/assets/img/statistical_inference_algorithms.png)
+
+<img style="float: right;" src={{ site.baseurl }}"/assets/img/statistical_inference_algorithms.png", style="width:250px;">
+
+<!--- ![The Math of Data: Statistical Inference]({{ site.baseurl }}/assets/img/statistical_inference_algorithms.png = 300x) -->
  
 Ordinary programming languages (C, Java, PHP, R, Lisp) are 'Turing-complete' because they all the full computational power of a Turing Machine. 
-![Classes of Automata]({{ site.baseurl }}/assets/img/Classes_of_automata.png)
+<img style="float: right;" src={{ site.baseurl }}"/assets/img/Classes_of_automata.png", style="width:100px;">
+
+
+<!--- ![Classes of Automata]({{ site.baseurl }}/assets/img/Classes_of_automata.png = 100x) -->
 
 
 
