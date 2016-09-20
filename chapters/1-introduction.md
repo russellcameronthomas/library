@@ -7,7 +7,7 @@ is_section: true
 
 ## In a Nutshell
 
-Probabilistic programming combines the ***math of data*** (statistics) with the ***math of thought*** (logical structures and programs).
+Probabilistic programming combines the ***"Math of Data"*** (statistics) with the ***"Math of Thought"*** (logical structures and programs).
 
 Probabilistic programming is different from other methods (i.e. ML, Bayes Nets, BUGS/STAN) for risk analysis and modeling because it is:
 
@@ -19,16 +19,18 @@ For risk analysts, probabilistic programming has *the potential* to help us take
 
 ## Big Picture
 
-Probabilistic programming is a hybrid computing system, combining a Turing-complete programming language with statistical inference algorithms.  Let's build that up in pieces.
+Probabilistic programming is a hybrid computing system, combining a Turing-complete programming language with statistical inference algorithms.  Let's build that up in pieces, starting with the "Math of Data": statistics.
 
-Starting with the Math of Data: statistical inference algorithms (e.g. linear models, null-hypothesis tests, etc.) take **empirical data** (a.k.a. 'evidence') as input, and produce probabilistic information (a.k.a. 'answers') as output.
+<img style="float: right;width:400px;" src="{{ site.baseurl }}/assets/img/statistical_inference_algorithms.png">
+Statistical inference algorithms (e.g. linear models, null-hypothesis tests, etc.) take **empirical data** (a.k.a. 'evidence') as input, and produce probabilistic information (a.k.a. 'answers') as output.
 
-<img style="float: right;width:250px;" src="{{ site.baseurl }}/assets/img/statistical_inference_algorithms.png">
 
 <!--- ![The Math of Data: Statistical Inference]({{ site.baseurl }}/assets/img/statistical_inference_algorithms.png = 300x) -->
  
+
+<img style="float: right;width:250px;" src="{{ site.baseurl }}/assets/img/Classes_of_automata.png">
 Ordinary programming languages (C, Java, PHP, R, Lisp) are 'Turing-complete' because they all the full computational power of a Turing Machine. 
-<img style="float: right;width:100px;" src="{{ site.baseurl }}/assets/img/Classes_of_automata.png">
+
 
 
 <!--- ![Classes of Automata]({{ site.baseurl }}/assets/img/Classes_of_automata.png = 100x) -->
