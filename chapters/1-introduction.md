@@ -11,11 +11,11 @@ Probabilistic programming combines the ***math of data*** (statistics) with the 
 
 Probabilistic programming is different from other methods (i.e. ML, Bayes Nets, BUGS/STAN) for risk analysis and modeling because it is:
 
-- ***More powerful and generally applicable* -- able to handle complex problems that are hard or impossible with other methods
+- ***More powerful and generally applicable*** -- able to handle complex problems that are hard or impossible with other methods
 - ***Easier to learn, iterate, extend, maintain*** ... -- you focus on your model of the system rather than computational details of inference
 - ***Still early stages*** -- Transitioning from research to practical applications
 
-For risk analysts, probabilistic programming has *the potential* to help us take on many hairy problems that we either do with highly specialized tools and models, or we do superficially, or we don't do at all.'
+For risk analysts, probabilistic programming has *the potential* to help us take on many hairy problems that we either do with highly specialized tools and models, or we do superficially, or we don't do at all.
 
 ## Big Picture
 
