@@ -9,14 +9,29 @@ is_section: true
 
 Probabilistic programming combines the ***math of data*** (statistics) with the ***math of thought*** (logical structures and programs).
 
-Probabilistic programming is different from other tools (ML, Bayes Nets, BUGS/STAN) for risk analysis and modeling because it is:
+Probabilistic programming is different from other methods (i.e. ML, Bayes Nets, BUGS/STAN) for risk analysis and modeling because it is:
 
-- *Has more representational & logical power*
-- *Is more generally applicable*
-- *Easier to learn, iterate, extend, maintain ... * -- compared to ML tools and methods
-- *Still early stages* -- Transitioning from research to practical applications
+- ***More powerful and generally applicable* -- able to handle complex problems that are hard or impossible with other methods
+- ***Easier to learn, iterate, extend, maintain*** ... -- you focus on your model of the system rather than computational details of inference
+- ***Still early stages*** -- Transitioning from research to practical applications
 
-## OLD
+For risk analysts, probabilistic programming has *the potential* to help us take on many hairy problems that we either do with highly specialized tools and models, or we do superficially, or we don't do at all.'
+
+## Big Picture
+
+Probabilistic programming is a hybrid computing system, combining a Turing-complete programming language with statistical inference algorithms.  Let's build that up in pieces.
+
+Starting with the Math of Data: statistical inference algorithms (e.g. linear models, null-hypothesis tests, etc.) take **empirical data** (a.k.a. 'evidence') as input, and produce probabilistic information (a.k.a. 'answers') as output.
+![The Math of Data: Statistical Inference]({{ site.baseurl }}/assets/img/statistical_inference_algorithms.png)
+ 
+Ordinary programming languages (C, Java, PHP, R, Lisp) are 'Turing-complete' because they all the full computational power of a Turing Machine. 
+![Classes of Automata]({{ site.baseurl }}/assets/img/Classes_of_automata.png)
+
+
+
+
+
+
 
 Imagine a dataset that records how individuals move through a city. The figure below shows what a datapoint from this set might look like. It depicts an individual, who we'll call Bob, moving along a street and then dwelling in the location of a restaurant. This restaurant is one of two nearby branches of a chain of Donut Stores. Two other nearby restaurants are also shown on the map.
 
