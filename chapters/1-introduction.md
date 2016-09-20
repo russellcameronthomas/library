@@ -23,12 +23,12 @@ Probabilistic programming is a hybrid computing system, combining a Turing-compl
 
 Starting with the Math of Data: statistical inference algorithms (e.g. linear models, null-hypothesis tests, etc.) take **empirical data** (a.k.a. 'evidence') as input, and produce probabilistic information (a.k.a. 'answers') as output.
 
-<img style="float: right;" src={{ site.baseurl }}"/assets/img/statistical_inference_algorithms.png", style="width:250px;">
+<img style="float: right;width:250px;" src={{ site.baseurl }}"/assets/img/statistical_inference_algorithms.png">
 
 <!--- ![The Math of Data: Statistical Inference]({{ site.baseurl }}/assets/img/statistical_inference_algorithms.png = 300x) -->
  
 Ordinary programming languages (C, Java, PHP, R, Lisp) are 'Turing-complete' because they all the full computational power of a Turing Machine. 
-<img style="float: right;" src={{ site.baseurl }}"/assets/img/Classes_of_automata.png", style="width:100px;">
+<img style="float: right;width:100px;" src={{ site.baseurl }}"/assets/img/Classes_of_automata.png">
 
 
 <!--- ![Classes of Automata]({{ site.baseurl }}/assets/img/Classes_of_automata.png = 100x) -->
