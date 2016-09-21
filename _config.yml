@@ -1,6 +1,6 @@
 # Site settings
 title: Risk Modeling with Probabilistic Programs
-baseurl: "/"
+baseurl: "http://riskmodels.meritology.com/"
 url: "http://riskmodels.meritology.com"
 
 # Build settings
