@@ -1,7 +1,7 @@
 # Site settings
 title: Risk Modeling with Probabilistic Programs
-baseurl: "/riskmodels"
-url: "http://russellcameronthomas.github.io/riskmodels"
+baseurl: "/"
+url: "http://riskmodels.meritology.com"
 
 # Build settings
 markdown: kramdown

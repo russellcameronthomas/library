@@ -9,36 +9,64 @@ is_section: true
 
 Probabilistic programming combines the ***"Math of Data"*** (statistics) with the ***"Math of Thought"*** (logical structures and programs).
 
-Probabilistic programming is different from other methods (i.e. ML, Bayes Nets, BUGS/STAN) for risk analysis and modeling because it is:
+Probabilistic programming is different from other methods (i.e. ML, Bayes Nets, BUGS/STAN) and better for many types of risk analysis and modeling because it is:
 
 - ***More powerful and generally applicable*** -- able to handle complex problems that are hard or impossible with other methods
 - ***Easier to learn, iterate, extend, maintain*** ... -- you focus on your model of the system rather than computational details of inference
 - ***Still early stages*** -- Transitioning from research to practical applications
 
-For risk analysts, probabilistic programming has *the potential* to help us take on many hairy problems that we either do with highly specialized tools and models, or we do superficially, or we don't do at all.
+For risk analysts, the main of benefit probabilistic programming is that it has *the potential* to help us take on many hairy problems that we either do with great difficulty now, or we don't do at all.
 
 ## Big Picture
 
-Probabilistic programming is a hybrid computing system, combining a Turing-complete programming language with statistical inference algorithms.  Let's build that up in pieces, starting with the "Math of Data": statistics.
+Probabilistic programming is a hybrid computing system, combining a Turing-complete programming language with statistical inference algorithms.  Let's build that up in pieces, starting with the 
 
-<img style="float: right;width:400px;" src="{{ site.baseurl }}/assets/img/statistical_inference_algorithms.png">
-Statistical inference algorithms (e.g. linear models, null-hypothesis tests, etc.) take **empirical data** (a.k.a. 'evidence') as input, and produce probabilistic information (a.k.a. 'answers') as output.
+### "Math of Data": Statistical Inference 
 
+<img style="float: right;width:350px;" src="{{ site.baseurl }}/assets/img/statistical_inference_algorithms.png">
+Statistical inference algorithms (e.g. linear models, null-hypothesis tests, etc.) take **empirical data** (a.k.a. "evidence") as input, a set of specifications (a.k.a. "query") and produce analysis results (a.k.a. "answers") as output.
 
-<!--- ![The Math of Data: Statistical Inference]({{ site.baseurl }}/assets/img/statistical_inference_algorithms.png = 300x) -->
+Buried in every statistical inference algorithm are assumptions that can be interpreted as its **model** of the **data generation process**. It's called "inference" because the algorithm finds the model parameters ("answers") that give the best fit to the empirical data ("evidence"). Examples:
+
+- Linear regression algorithm models data generation as a linear process plus independent Gaussian noise.  
+- K-means clustering algorithm takes a parameter $$K$$, and models the data generation process as $$K$$ centroids spaced reasonably far apart, plus independent Gaussian noise.  
+
+What if the evidence doesn't fit the model of data generation? With statistical inference tools, you need to switch algorithms, or maybe chain them together in some way.  Unless you write your own statistical inference algorithms, you can't programmatically specify the data generation process.
  
+### "Math of Thought": Logic and Programs
+<img style="float: right;width:350px;" src="{{ site.baseurl }}/assets/img/generative_probabilistic_model.png">
+Now we switch our attention from the data to the system that generates the data. Computer programs are the tools we use to simulate the system, taking model parameters and initial conditions as inputs.  If there is no randomness in the programs, then the simulations produce the same outputs each run.  If there is randomness, then each run ("realization") produces a different outputs.  The "Monte Carlo method" involves running a stochstic program many times to generate a large sample of realizations for later statistical analysis.
 
-<img style="float: right;width:250px;" src="{{ site.baseurl }}/assets/img/Classes_of_automata.png">
-Ordinary programming languages (C, Java, PHP, R, Lisp) are 'Turing-complete' because they all the full computational power of a Turing Machine. 
+---
+
+|-----------------:|:---------------------------------------:|
+|*Edsger Dijkstra* : |  "Deterministic"|
+|-----------------:|:---------------------------------------|
+|  Programs =| Algorithms + Data Structures |
+| | |
+|-----------------:|:---------------------------------------:|
+|*Stanislaw Ulam* : | "Monte Carlo method"|
+|-----------------:|:---------------------------------------|
+| Stochastic Programs =| Algorithms + Data Structures + Randomness|
+
+---
+
+
+### 
+
+<img style="float: right;width:250px;" src="{{ site.baseurl }}/assets/img/Classes_of_automata.png">Bayes Networks is a method for explicitly and programmatically defining structure of a 
+
+
+Ordinary programming languages (C, Java, PHP, R, Lisp) are 'Turing-complete' because they all the full computational power of a Turing Machine.
 
 
 
-<!--- ![Classes of Automata]({{ site.baseurl }}/assets/img/Classes_of_automata.png = 100x) -->
 
 
+<!---
 
 
-
+## OLD
 
 
 Imagine a dataset that records how individuals move through a city. The figure below shows what a datapoint from this set might look like. It depicts an individual, who we'll call Bob, moving along a street and then dwelling in the location of a restaurant. This restaurant is one of two nearby branches of a chain of Donut Stores. Two other nearby restaurants are also shown on the map.
@@ -111,3 +139,5 @@ viz.auto(boundedGeometric);
 ~~~~
 
 In the [next chapter](/chapters/2-webppl.html), we will introduce WebPPL in more detail.
+
+-->

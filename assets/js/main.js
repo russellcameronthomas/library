@@ -142,7 +142,7 @@ function format_refp(citation) {
   return textohtml(s);
 }
 
-$.get("/riskmodels/bibliography.bib", function (bibtext) {
+$.get("/bibliography.bib", function (bibtext) {
     $(function () {
         var bibs = doParse(bibtext);
         $.each(
