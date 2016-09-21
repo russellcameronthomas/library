@@ -23,7 +23,7 @@ Probabilistic programming is a hybrid computing system, combining a Turing-compl
 
 ### "Math of Data": Statistical Inference 
 
-<img style="float: right;width:350px;" src="{{ site.baseurl }}/assets/img/statistical_inference_algorithms.png">
+<img style="float: right;width:350px;" src="{{ site.baseurl }}assets/img/statistical_inference_algorithms.png">
 Statistical inference algorithms (e.g. linear models, null-hypothesis tests, etc.) take **empirical data** (a.k.a. "evidence") as input, a set of specifications (a.k.a. "query") and produce analysis results (a.k.a. "answers") as output.
 
 Buried in every statistical inference algorithm are assumptions that can be interpreted as its **model** of the **data generation process**. It's called "inference" because the algorithm finds the model parameters ("answers") that give the best fit to the empirical data ("evidence"). Examples:
@@ -34,7 +34,7 @@ Buried in every statistical inference algorithm are assumptions that can be inte
 What if the evidence doesn't fit the model of data generation? With statistical inference tools, you need to switch algorithms, or maybe chain them together in some way.  Unless you write your own statistical inference algorithms, you can't programmatically specify the data generation process.
  
 ### "Math of Thought": Logic and Programs
-<img style="float: right;width:350px;" src="{{ site.baseurl }}/assets/img/generative_probabilistic_model.png">
+<img style="float: right;width:350px;" src="{{ site.baseurl }}assets/img/generative_probabilistic_model.png">
 Now we switch our attention from the data to the system that generates the data. Computer programs are the tools we use to simulate the system, taking model parameters and initial conditions as inputs.  If there is no randomness in the programs, then the simulations produce the same outputs each run.  If there is randomness, then each run ("realization") produces a different outputs.  The "Monte Carlo method" involves running a stochstic program many times to generate a large sample of realizations for later statistical analysis.
 
 ---
