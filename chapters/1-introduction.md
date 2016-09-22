@@ -1,9 +1,10 @@
 ---
 layout: chapter
 title: Introduction
-description: "Big picture introduction to probabilistic programming, why it's different and better than previous tools, and how it applies to risk analysis and modeling."
+description: "'Big picture'on probabilistic programming, why it's different and better than previous tools, and how it applies to risk analysis and modeling."
 is_section: true
 ---
+In this introduction, you'll find *general* concepts that will help you make sense of probabilistic programming. If you understand these, it should increase your motivation and curiousity to learn more and will help you avoid confusion later.
 
 ## In a Nutshell
 
@@ -12,10 +13,18 @@ Probabilistic programming combines the ***"Math of Data"*** (statistics) with th
 Probabilistic programming is different from other methods (i.e. ML, Bayes Nets, BUGS/STAN) and better for many types of risk analysis and modeling because it is:
 
 - ***More powerful and generally applicable*** -- able to handle complex problems that are hard or impossible with other methods
-- ***Easier to learn, iterate, extend, maintain*** ... -- you focus on your model of the system rather than computational details of inference
+- ***Easier* to learn, iterate, extend, maintain*** ... -- you focus on your model of the system rather than computational details of inference
 - ***Still early stages*** -- Transitioning from research to practical applications
 
+## Why is it Good For Risk Analysis?
+
 For risk analysts, the main of benefit probabilistic programming is that it has *the potential* to help us take on many hairy problems that we either do with great difficulty now, or we don't do at all.
+
+From statistics, you will be familiar with discrete and continuous probability distributions, where the *support* is either a finite discrete set or a range of real numbers.
+
+![]({{ site.baseurl }}/assets/img/Discrete_probability_distribution.png)
+
+
 
 ## Big Picture
 
