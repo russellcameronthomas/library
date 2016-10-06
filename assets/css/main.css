@@ -18,6 +18,7 @@ h2 {
 h3 {
     font-size: 120%;
     margin: 1.5em 0 1em 0;
+    font-style: italic;
 }
 
 .site-title {
@@ -51,6 +52,18 @@ a.chapter-link {
     margin-right: auto;
     margin-left: auto;
     overflow: visible;
+    text-align: justify;
+}
+
+.note {
+    font-size: 80%;
+    padding-left: 22px ;
+}
+
+.hangingindent {
+    padding-left: 22px ;
+    text-indent: -22px ;
+    text-align: left;
 }
 
 /* Increase max-height of editor so that we can show bigger gridworlds */

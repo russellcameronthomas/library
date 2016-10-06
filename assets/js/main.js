@@ -74,6 +74,8 @@ function replace_html(source, target) {
     });
 }
 
+/* OLD citation format
+ 
 function format_citation(citation) {
     var s = "";
     if (citation["URL"]) {
@@ -85,6 +87,140 @@ function format_citation(citation) {
     if (citation["JOURNAL"]) {
         s += " <em>" + citation["JOURNAL"] + "</em>.";
     }
+    return textohtml(s);
+}
+ */
+
+// RCT added
+function removeDupDashes (pageString){
+    return pageString.replace(/-+/, '-');
+}
+
+// RCT added
+function toTitleCase(str)
+{
+    return removeBraces(str.replace(/\w\S*/g,
+                         function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();})
+                        );
+}
+
+// RCT added
+function toSentenceCase(str){
+    //var s = str.replace(/(?!^.*[A-Z]{2,}.*$)^[A-Za-z]*$/g,
+    var s = removeBraces(String(str))
+    
+    //s.replace(/[A-Z][a-z]*/g
+    
+    // Javascript does not support positive or negative lookbehind. This mimics it
+    //http://blog.stevenlevithan.com/archives/mimic-lookbehind-javascript
+    //// Mimic leading, negative lookbehind like replace(/(?<!es)t/g, 'x')
+   // var output = 'testt'.replace(/(es)?t/g, function($0, $1){
+   //                              return $1 ? $0 : 'x';
+   //                              });
+    s = s.replace(/([A-Z]{2,}[a-z]*)?[A-Z]\S*/g,function($0, $1){return $1 ? $0 : $0.toLowerCase();});
+    s = s.charAt(0).toUpperCase() + s.substr(1);
+    
+    // Javascript does not support positive or negative lookbehind. This mimics it
+    //http://blog.stevenlevithan.com/archives/mimic-lookbehind-javascript
+    // Mimic leading, positive lookbehind like replace(/(?<=es)t/g, 'x')
+    //var output = 'testt'.replace(/(es)?t/g, function($0, $1){
+    //                             return $1 ? $1 + 'x' : $0;
+    //                             });
+    // output: tesxt
+   // $0.charAt(0).toUpperCase() + $0.substr(1)
+    s = s.replace(/([:;\-] +)?[A-Za-z]+/g,
+                  function($0, $1){return $1 ? $1 + $0.charAt(2).toUpperCase() + $0.substr(3) : $0;})
+    return s ;
+    
+}
+
+// RCT added
+function replaceAnds(str) { // if more than one " and " joining names, the replace all but last with ", "
+    var nth = 0;
+    var s = String(str);
+    var lim = s.match(/ and /g) === null ? 0 : s.match(/ and /g).length;
+    if (lim > 1) {
+        s = s.replace(/ and /g, function (match, i, original) {
+                      nth++;
+                      return (nth < lim) ? ', ' : match;
+                      });
+    }
+    return s;
+}
+
+
+// RCT added
+
+function toInitials(str){
+    var s = String(str);
+    if (s.length > 0){
+        s = s.replace(/([A-Z][A-Za-z0-9_\-'']+, )([A-Z][A-Za-z0-9_\-\.]+)( [A-Z][A-Za-z0-9_\-\.]*)*/g,
+                      function($0, $1,$2,$3, $4) {
+                      var sr = '';
+                      //if ($4) {
+                      //  sr= $1 + $2.charAt(0).toUpperCase() + ". " + $3.charAt(1).toUpperCase() + ". " + $4.charAt(1).toUpperCase() + ".";
+                      //} else
+                      if ($3) {
+                        sr= $1 + $2.charAt(0).toUpperCase() + ". " + $3.charAt(1).toUpperCase() + ".";
+                      } else {
+                        sr= $1 + $2.charAt(0).toUpperCase() + ".";
+                      }
+                      return sr;
+                      });
+    }
+    return replaceAnds(s);
+}
+
+
+
+//RCT added
+function extractYear(str){
+    var s = String(str);
+    return s.match(/[0-9]{4}/);
+}
+
+// RCT added
+function removeBraces (str){
+    var s = String(str)
+    s = s.replace(/\}+/g,'');
+    s = s.replace(/\{+/g,'');
+    return s;
+}
+
+// RCT modified for HARVARD style
+function format_citation(citation) {
+    var s = "";
+    s += toInitials(citation["AUTHOR"]) + " (" + extractYear(citation["YEAR"]) + ")";
+    if (citation["entryType"] == "BOOK"){
+        s += ". <em>" + toTitleCase(citation["TITLE"]) + "</em>";
+    } else {
+        s += ". " + toSentenceCase(citation["TITLE"]);
+    }
+    if (citation["JOURNAL"]) {
+        s += ". <em>" + toTitleCase(citation["JOURNAL"]) + "</em>";
+    } else if (citation["entryType"]== "INPROCEEDINGS") {
+        s += ". In <em>" + removeBraces(citation["BOOKTITLE"]) + "</em>, " + citation["YEAR"];
+    }
+
+    if (citation["VOLUME"] && citation["NUMBER"] && citation["PAGES"]) {
+        s += " <b>" + citation["VOLUME"] + "</b>" + "(" + citation["NUMBER"] + ")" + ": " + removeDupDashes(citation["PAGES"]);
+    } else if (citation["VOLUME"] && citation["PAGES"]) {
+        s += " <b>" + citation["VOLUME"] + "</b>" +  ": " + removeDupDashes(citation["PAGES"]);
+    }else{
+        if (citation["PAGES"]){
+            s += ", p " + removeDupDashes(citation["PAGES"]) ;
+        }
+    }
+    if (citation["ADDRESS"] && citation["PUBLISHER"]) {
+        s += ", " + removeBraces(citation["ADDRESS"]) + ": " + removeBraces(citation["PUBLISHER"]);
+    } else if (citation["PUBLISHER"]) {
+        s += ", " + removeBraces(citation["PUBLISHER"]) ;
+    }
+    if (citation["URL"]) {
+        s += ", <a href='" + citation["URL"] + "'>" + citation["URL"] + "</a>";
+    }
+    s += ".";
+    
     return textohtml(s);
 }
 
@@ -122,7 +258,7 @@ function cite_url(citation) {
   if (citation["URL"]) {
     return citation["URL"];
   }
-  return 'https://scholar.google.com/scholar?q="' + citation["TITLE"] + '"';
+  return 'https://scholar.google.com/scholar?q="' + removeBraces(citation["TITLE"]) + '"';
 }
 
 function format_reft(citation) {
@@ -142,7 +278,7 @@ function format_refp(citation) {
   return textohtml(s);
 }
 
-$.get("/bibliography.bib", function (bibtext) {
+$.get("/riskmodels.bib", function (bibtext) {
     $(function () {
         var bibs = doParse(bibtext);
         $.each(

@@ -1,76 +1,146 @@
 ---
 layout: chapter
 title: Introduction
-description: "'Big picture'on probabilistic programming, why it's different and better than previous tools, and how it applies to risk analysis and modeling."
+description: "'Big picture' on probabilistic programming, why it's different and better than previous tools, and how it applies to risk analysis and modeling."
 is_section: true
 ---
 In this introduction, you'll find *general* concepts that will help you make sense of probabilistic programming. If you understand these, it should increase your motivation and curiousity to learn more and will help you avoid confusion later.
 
 ## In a Nutshell
 
-Probabilistic programming combines the ***"Math of Data"*** (statistics) with the ***"Math of Thought"*** (logical structures and programs).
+Probabilistic programming combines the ***"Math of Data"*** (statistics) with the ***"Math of Thought"*** (logical structures and programs)<sup id="a1">[1](#f1)</sup>.
 
 Probabilistic programming is different from other methods (i.e. ML, Bayes Nets, BUGS/STAN) and better for many types of risk analysis and modeling because it is:
 
 - ***More powerful and generally applicable*** -- able to handle complex problems that are hard or impossible with other methods
-- ***Easier* to learn, iterate, extend, maintain*** ... -- you focus on your model of the system rather than computational details of inference
-- ***Still early stages*** -- Transitioning from research to practical applications
+- ***Easier to learn, iterate, extend, maintain*** ... -- you focus your time on the model rather than computational details of inference
 
-## Why is it Good For Risk Analysis?
+Compared to Deep Learning, probabilistic programming has advantages<sup id="a2">[2](#f2)</sup>:
+
+- Easier to incorporate rich domain knowledge
+- Can work well even with "Small Data"
+- More explainable and understandable
+- Can make probabilistic inferences on complex data types of variable size
+
+
+### Why is it Good For Risk Analysis?
 
 For risk analysts, the main of benefit probabilistic programming is that it has *the potential* to help us take on many hairy problems that we either do with great difficulty now, or we don't do at all.
 
 From statistics, you will be familiar with discrete and continuous probability distributions, where the *support* is either a finite discrete set or a range of real numbers.
+ 
+|:---------------------------------------:|:---------------------------------------:|
+|<img style="float: left;width:300px;" src="{{ site.baseurl }}/assets/img/Discrete_probability_distribution.png"> | <img style="float: right;width:300px;" src="{{ site.baseurl }}/assets/img/Continuous_probability_distribution.png">|
 
-![]({{ site.baseurl }}/assets/img/Discrete_probability_distribution.png)
+What's *different* and *better* about probabilistic programming is that you can work with probability distributions over infinite sets of complex objects.
 
+
+<img style="display:block;width:500px;" src="{{ site.baseurl }}/assets/img/probability_distributions_over_infinite_set.png">
+
+Unlike Bayesian Networks, you aren't limited to dependence or conditional structures that are directed acyclic graphs (DAGs). You can model  dependence or conditional structures of *arbitrary*<sup>*</sup> complexity, including circular or recursive systems.
+
+<p align="right"><font size="2"><sup>*</sup>As long as they are finite and computable.</font></p>
+
+
+<img style="display:block;width:350px;" src="{{ site.baseurl }}/assets/img/probabilistic_models_of_recursive_reasoning.png">
+
+That should **blow**...**your**...**mind**!
+
+### Caveats
+
+Probabilistic programming is fairly new -- just now transitioning from research to practical applications.  Not everything is as simple, easy, and "no-brainer" as we might like. But things are improving fast.  Now is the time to start learning and experimenting.
 
 
 ## Big Picture
 
 Probabilistic programming is a hybrid computing system, combining a Turing-complete programming language with statistical inference algorithms.  Let's build that up in pieces, starting with the 
 
-### "Math of Data": Statistical Inference 
+### "Math of Data": Statistical Inference<sup id="a3">[3](#f3)</sup>
 
-<img style="float: right;width:350px;" src="{{ site.baseurl }}assets/img/statistical_inference_algorithms.png">
-Statistical inference algorithms (e.g. linear models, null-hypothesis tests, etc.) take **empirical data** (a.k.a. "evidence") as input, a set of specifications (a.k.a. "query") and produce analysis results (a.k.a. "answers") as output.
+<img style="float: right;width:350px;" src="{{ site.baseurl }}/assets/img/statistical_inference_algorithms.png">
+Statistical inference algorithms (e.g. linear models, null-hypothesis tests, etc.) take **empirical data** (a.k.a. "evidence") as input, a set of **specifications** (a.k.a. "query") and produce **fitted parameters** (a.k.a. "answers") as output.
 
 Buried in every statistical inference algorithm are assumptions that can be interpreted as its **model** of the **data generation process**. It's called "inference" because the algorithm finds the model parameters ("answers") that give the best fit to the empirical data ("evidence"). Examples:
 
-- Linear regression algorithm models data generation as a linear process plus independent Gaussian noise.  
-- K-means clustering algorithm takes a parameter $$K$$, and models the data generation process as $$K$$ centroids spaced reasonably far apart, plus independent Gaussian noise.  
+- *Linear regression* algorithm models data generation as a linear process plus independent Gaussian noise.  
+- *K-means clustering* algorithm takes a parameter $$K$$, and models the data generation process as $$K$$ centroids spaced reasonably far apart, plus independent Gaussian noise.  
 
 What if the evidence doesn't fit the model of data generation? With statistical inference tools, you need to switch algorithms, or maybe chain them together in some way.  Unless you write your own statistical inference algorithms, you can't programmatically specify the data generation process.
  
-### "Math of Thought": Logic and Programs
-<img style="float: right;width:350px;" src="{{ site.baseurl }}assets/img/generative_probabilistic_model.png">
-Now we switch our attention from the data to the system that generates the data. Computer programs are the tools we use to simulate the system, taking model parameters and initial conditions as inputs.  If there is no randomness in the programs, then the simulations produce the same outputs each run.  If there is randomness, then each run ("realization") produces a different outputs.  The "Monte Carlo method" involves running a stochstic program many times to generate a large sample of realizations for later statistical analysis.
+### "Math of Thought": Logic and Programs<sup id="a3">[3](#f3)</sup>
+<img style="float: right;width:350px;" src="{{ site.baseurl }}/assets/img/generative_probabilistic_model.png">
+Now we switch our attention from the data to the system that generates the data. Computer programs are the tools we use to simulate the system, taking model parameters and initial conditions as inputs.  If there is no randomness in the programs, then the simulations produce the same outputs each run.  
 
 ---
 
-|-----------------:|:---------------------------------------:|
-|*Edsger Dijkstra* : |  "Deterministic"|
-|-----------------:|:---------------------------------------|
-|  Programs =| Algorithms + Data Structures |
-| | |
-|-----------------:|:---------------------------------------:|
-|*Stanislaw Ulam* : | "Monte Carlo method"|
-|-----------------:|:---------------------------------------|
-| Stochastic Programs =| Algorithms + Data Structures + Randomness|
+*Edsger Dijkstra* (Patron Saint of Deterministic Programs):
+
+**Programs** = Algorithms + Data Structures 
 
 ---
 
+If there is randomness, then each run ("realization") produces different outputs.  
 
-### 
+---
+*Stanislaw Ulam* (Patron Saint of the Monte Carlo Method):
 
-<img style="float: right;width:250px;" src="{{ site.baseurl }}/assets/img/Classes_of_automata.png">Bayes Networks is a method for explicitly and programmatically defining structure of a 
+**Stochastic Programs** = Algorithms + Data Structures + Randomness
 
+---
+
+Here is an example of two simple programs, one deterministic and one stochastic. Click "run" several times and notice the changes in output.
+~~~~
+///fold:
+var gauss_legendre_iteration = function(n, a,b,t,p){
+var a1 = (a + b) / 2;
+if (n > 0) {
+gauss_legendre_iteration(
+n - 1,
+a1,
+Math.sqrt(a * b),
+t - p * Math.pow(a - a1,2),
+2 * p
+)
+} else {
+return Math.pow(a + b,2) / (4 * t)
+}
+}
+
+var gauss_legendre = function(n){
+var a = 1
+var b = 1 / Math.sqrt(2);
+var t = 1 / 4;
+var p = 1;
+
+return gauss_legendre_iteration(n, a,b,t,p);
+}
+///
+
+var x = uniform(0,1.0);
+
+var pi = gauss_legendre(10); // 10 iterations
+
+print("Deterministic program: Gauss-Legendre algorithm for computing digits of pi\n pi = " + pi + "\n");
+
+print("Stochastic program: A random draw from uniform distribution\n x =" + x);
+
+~~~~
+
+The Monte Carlo method involves running a stochastic program $$N$$ times and analyzing the distribution of outcomes.
+
+<img style="display:block;width:500px;" src="{{ site.baseurl }}/assets/img/monte_carlo_example.png">
 
 Ordinary programming languages (C, Java, PHP, R, Lisp) are 'Turing-complete' because they all the full computational power of a Turing Machine.
 
+----
 
+*Endnotes and Credits*
 
+<span id="f1">1.</span> [↩](#a1) This pithy phrase comes from Joshua Epstein's presentation: ["How to Grow a Mind: Statistics, Structure and Abstraction"](https://www.youtube.com/watch?v=97MYJ7T0xXU)
 
+<span id="f2">2.</span> [↩](#a2) These points are adapted from Avi Pfeffer's MLconf presentation: ["Probabilistic Programming with Figaro"](https://youtu.be/eO4ZXLQjba8?t=5m9s)
+
+<span id="f3">3.</span> [↩](#a3) These diagrams are adapted from cite:pfeffer_practical_2016
 
 <!---
 
