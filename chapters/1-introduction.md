@@ -11,10 +11,11 @@ In this introduction, you'll find *general* concepts that will help you make sen
 
 Probabilistic programming combines the ***"Math of Data"*** (statistics) with the ***"Math of Thought"*** (logical structures and programs)<sup id="a1">[1](#f1)</sup>.
 
-Probabilistic programming is different from other methods (i.e. machine learning (ML), Bayes Nets, markov chain monte carlo (MCMC) using BUGS or STAN, etc.) and better for many types of risk analysis and modeling because it is:
+Probabilistic programming is different from other methods (i.e. machine learning (ML), Bayes Nets, markov chain monte carlo (MCMC) using BUGS or STAN, etc.) and better for many types of risk analysis and modeling because it is has the potential to be:
 
 - ***More powerful and generally applicable*** -- able to handle complex problems that are hard or impossible with other methods
 - ***Easier to learn, iterate, extend, maintain*** ... -- you focus your time on the model rather than computational details of inference
+- ***The "spreadsheet" of risk modeling*** --- i.e a multi-purpose tool with a low barrier to entry and a smooth learning curve<sup id="a4">[4](#f4)</sup>.
 
 Compared to Deep Learning, probabilistic programming has advantages<sup id="a2">[2](#f2)</sup>:
 
@@ -60,7 +61,7 @@ There are many probabilistic programming languages (PPL) in development and use.
 - <a href="http://docs.webppl.org/en/master/" target="_blank"><em>Anglican</em></a> -- A functional programming language built on top of Clojure (a dialect of Lisp designed for functional programming on the JVM). Like other Lisps, Clojure treats code as data, which is nice for symbolic AI.  It also has a macro system. Some good inference algorithms for certain classes of models.
 - <a href="http://probabilistic-programming.org/wiki/Home#Existing_probabilistic_programming_systems" target="_blank">... and many more</a> -- click <a href="http://probabilistic-programming.org/wiki/Home#Existing_probabilistic_programming_systems" target="_blank">here</a> for descriptions and links.
 
-For real<sup style="font-size:60%;">tm</sup> development, I prefer *Figaro*. For teaching and interactive tutorials like this one, I prefer *WebPPL*. I have some experience with *Anglican*, and it was pretty good once I figured out Clojure.
+For real™ development, I prefer *Figaro*. For teaching and interactive tutorials like this one, I prefer *WebPPL*. I have some experience with *Anglican*, and it was pretty good once I figured out Clojure.
 
 
 ## Big Picture
@@ -153,4 +154,6 @@ Ordinary programming languages (C, Java, PHP, R, Lisp) are 'Turing-complete' bec
 <span id="f2">2.</span> [↩](#a2) These points are adapted from Avi Pfeffer's MLconf presentation: ["Probabilistic Programming with Figaro"](https://youtu.be/eO4ZXLQjba8?t=5m9s)
 
 <span id="f3">3.</span> [↩](#a3) These diagrams are adapted from cite:pfeffer_practical_2016
+
+<span id="f4">4.</span> [↩](#a4) The spreadsheet is arguably the ***greatest programmer productivity tool of all time*** because it eliminated the need to write so many of the most common number processing programs. The DARPA [Probabilistic Programming for Advancing Machine Learning (PPAML)](http://www.darpa.mil/program/probabilistic-programming-for-advancing-machine-Learning) program has aims in this direction, at least regarding machine learning and some aspects of AI.
 
