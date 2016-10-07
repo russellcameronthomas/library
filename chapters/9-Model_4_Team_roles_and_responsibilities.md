@@ -358,6 +358,7 @@ viz.line(mapN(function(t) {return t;},stepCount),results);
 This model implements "Level One" adaptation in reft:ethiraj_bounded_2004 (described above). Each step, every agent randomly picks one of their decisions to flip, and keeps the result of the agent's individual performance improves.
 
 Try varying the two boolean experimental variables -- "hierarchical" and "tightlyCoupled" and notice the results.
+
 ~~~~
 // Global parameters:
 var N = 30;  // number of team decisions; Best to keep this below 40 to avoid excess run times
