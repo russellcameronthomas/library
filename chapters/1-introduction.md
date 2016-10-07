@@ -102,6 +102,7 @@ If there is randomness, then each run ("realization") produces different outputs
 ---
 
 Here is an example of two simple programs, one deterministic and one stochastic. Click "run" several times and notice the changes in output.
+
 ~~~~
 ///fold:
 var gauss_legendre_iteration = function(n, a,b,t,p){
