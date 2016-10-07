@@ -633,6 +633,7 @@ viz.line(mapN(function(t) {return t;},stepCount),results);
 ~~~~
 
 ---
+
 ## End Notes
 
 <span id="f1">1.</span> [↩](#a1) This model is drawn from reft:ethiraj_bounded_2004, but we substitute "designer agent" for "department" and "team" for "organization". reft:ethiraj_bounded_2004 use a population evolution mechanism (i.e. blind variation followed by fitness-based selection refp:golberg_genetic_1989 refp:simonton_campbells_2011) to model the search and adaptation process, whereas we use agent conception, reasoning, and negotiation mechanisms.
