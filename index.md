@@ -6,11 +6,11 @@ layout: default
 {% assign sorted_pages = site.pages | sort:"name" %}
 
 <div class = "author-block">
-by <br>
-{{ site.author }}<br>
+<a href="{{ site.author_url }}" target="_blank" style="font-weight: bold;font-size:120%;">{{ site.author }}</a><br>
 {{ site.author_title }}<br>
 {{ site.author_affiliation }}<br>
 </div>
+
 {% for p in sorted_pages %}
     {% if p.hidden %}
     {% else %}
