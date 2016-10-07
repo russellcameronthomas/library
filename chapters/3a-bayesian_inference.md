@@ -1,34 +1,28 @@
 ---
 layout: chapter
-title: Bayesian Statistical Inference
-description: "This chapter shows how you can do Bayesian statistical inference with probabilistic programs."
-is_section: true
+title: Bayesian Inference
+description: "Bayesian inference (a.k.a. conditioning) is a method for using observed/empirical data to improve your estimate of the probability distribution of a random variable."
+is_section: false
 ---
-
-<p class="note">
-(<em>Note:</em>: This chapter is optional and not necessary to understand the rest. It will help readers who are less familiar with statistical inference, especially Bayesian inference, to fill in some gaps and to avoid later confusion.)
-</p>
-
-Before diving into full-blown probabilistic programs and inference, this chapter shows how you can do Bayesian statistical inference with probabilistic programs.  While other tools can do this (e.g. BUGS/STAN, PyMC, etc.) and they might be better for some applications, it might be illuminating to see how these tasks can be done using probabilistic programming languages.
 
 ## Background: Bayes Rule and Bayesian Inference
 
-Here's a quick refresher: [Wikipedia](https://en.wikipedia.org/wiki/Bayes%27_rule): "In probability theory and applications, Bayes's rule relates the odds of events ... after (posterior to) conditioning on another event."
+Here's a quick refresher from [Wikipedia](https://en.wikipedia.org/wiki/Bayes%27_rule): "In probability theory and applications, Bayes's rule relates the odds of events ... after (posterior to) conditioning on another event."
  
 $$
 P(A \mid B) \propto   P(A) P(B \mid A)
 $$
 
-This reads: "the probability of $$A$$ given that $$B$$ is observed is proportional to the probability of A (over all values of $$B$$) *times* the probability of  $$B$$ given that $$A$$ is observed." 
+This reads: "the probability of $$A$$ given that $$B$$ is observed is proportional to the probability of $$A$$ *times* the probability of  $$B$$ given that $$A$$ is observed". 
 <p class="note">
-(<em>A</em> is a member of a set possible events or states, and, likewise, <em>B</em> is a member of a different set.)
+(Note: "...probability of <em>A</em>..." is unconditional on <em>B</em>, i.e. "...the probability of <em>A</em> <em>for all possible</em> values of <em>B</em>...". Also, <em>A</em> is a member of a set possible events or states, and, likewise, <em>B</em> is a member of a different set.)
 </p>
 
 In even simpler terms, Bayes rule can be used to *update* our estimate of the probability distribution a random variable ("the prior") using information from observed events ("conditioning"), to arrive at a better estimate of the distribution ("the posterior"). [Wikipedia](https://en.wikipedia.org/wiki/Bayes%27_rule): "The **posterior** probability is proportional to **prior** probability times likelihood."
 
 ## Bayesian Networks with Point Probabilities
 
-Often there are conditional relationships among several random variables, and Bayesian Networks are used to represent these relationships.
+Often there are conditional relationships among several random variables, and Bayesian Networks are used to represent these relationships. Here is an example:
 
 <figure>
 <img style="display:block;width:400px;" src="{{ site.baseurl }}/assets/img/simple_bayesian_network.png">

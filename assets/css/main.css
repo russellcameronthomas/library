@@ -1,29 +1,76 @@
 html {
     font-family: Merriweather, Georgia, 'Times New Roman', serif;
     color: #fff;
-    background-color: #333333;    
+    background-color: #333333;
+}
+
+@media screen {
+    html {
+        font-family: Merriweather, Georgia, 'Times New Roman', serif;
+        color: #fff;
+        background-color: #333333;
+        font-size: 16px; }
+    .page-break	{ display: none; }
+}
+
+@media print {
+    body {
+        background: white;
+        font-size: 12px;
+    }
+    
+    #menu {
+        display: none;
+    }
+    
+    #wrapper,
+    #content {
+        width: auto; margin: 0 5%;
+        padding: 0;
+        border: 0;
+        float: none !important;
+        color: black; 
+        background: transparent;
+        
+    }
+    .page-break	{ display: block; page-break-before: always; }
+    .site-title {
+        display: none;
+    }
+    header{
+        display: none;
+    }
+    img.resize{
+        width:50% !important;
+        height:auto;
+        page-break-inside: avoid;
+    }
 }
 
 h1 {
     font-size: 160%;
     color: #444;
     margin: 1em 0 1.5em 0;
+    line-height: 1.5;
+    text-align: left;
 }
 
 h2 {
     font-size: 140%;
     margin: 1.5em 0 1em 0;
+    text-align: left;
 }
 
 h3 {
     font-size: 120%;
     margin: 1.5em 0 1em 0;
     font-style: italic;
+    text-align: left;
 }
 
 .site-title {
     display: block;
-    font-size: 120%;
+    font-size: 140%; /*120%;*/
     color: #eee;
     text-decoration: none;
     text-align: center;
@@ -43,7 +90,7 @@ a.chapter-link {
 }
 
 .page-content {
-    line-height: 23px;
+    line-height: 160%; /*23px;*/
     padding: 40px;
     background-color: #fff;
     color: #000;
@@ -57,6 +104,7 @@ a.chapter-link {
 
 .note {
     font-size: 80%;
+    line-height: 160%;
     padding-left: 22px ;
 }
 
@@ -70,6 +118,12 @@ a.chapter-link {
 
 .page-content .wpedit .result {
     max-height: 1200px;
+}
+
+.author-block {
+    font-size:80%;
+    line-height: 140%;
+    text-align:center;
 }
 
 /* Prettier editor buttons */
@@ -156,6 +210,6 @@ footer {
     text-align: center;
 }
 
-footer a {
+header a, footer a {
     color: #bbb
 }

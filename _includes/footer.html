@@ -1,5 +1,32 @@
+{% assign sorted_pages = site.pages | sort:"name" %}
+
+
+{% for p in sorted_pages %}
+   {% if p.name == page.name %}
+       {% assign currPageIndex = forloop.index %}
+       {% break %}
+   {% endif %}
+{% endfor %}
+
+{% assign prevIndex = currPageIndex | minus: 1 %}
+{% assign nextIndex = currPageIndex | plus: 1 %}
+
+{% for p in sorted_pages %}
+   {% if forloop.index == prevIndex %}
+      {% assign prevURL = p.url %}
+   {% endif %}
+   {% if forloop.index == nextIndex %}
+     {% assign nextURL = p.url %}
+   {% endif %}
+{% endfor %}
+
+
 <footer class="site-footer">
-  <a href="/riskmodels/">Table of Contents</a> | <a href="/editor.html">Interactive Editor</a> <!-- | <a href="https://github.com/russellcameronthomas/riskmodels" id="github-edit-link">Edit on Github</a> -->
+{% if page.title.size > 0 %}
+    <span style="float:left;"><a href="{{ prevURL }}">◀︎ Previous</a></span>
+    <span style="float:right;"><a href="{{ nextURL }}">Next ▶︎</a></span>
+{% endif %}
+  <a href="/">Table of Contents</a> | <a href="/editor.html" target="_blank">Interactive Editor</a> <!-- | <a href="https://github.com/russellcameronthomas/riskmodels" id="github-edit-link">Edit on Github</a> -->
 </footer>
 
 <script type="text/javascript">

@@ -1,5 +1,9 @@
 # Site settings
-title: Risk Modeling with Probabilistic Programs
+title: "Tutorial: Risk Modeling with Probabilistic Programs"
+author: "Russell Cameron Thomas"
+author_title: "PhD Candidate"
+author_dept: "Computational & Data Sciences"
+author_affiliation: "George Mason University"
 baseurl: ""
 #baseurl: "http://riskmodels.meritology.com"
 url: "http://riskmodels.meritology.com"

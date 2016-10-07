@@ -1,3 +1,29 @@
+{% assign sorted_pages = site.pages | sort:"name" %}
+
+
+{% for p in sorted_pages %}
+{% if p.name == page.name %}
+{% assign currPageIndex = forloop.index %}
+{% break %}
+{% endif %}
+{% endfor %}
+
+{% assign prevIndex = currPageIndex | minus: 1 %}
+{% assign nextIndex = currPageIndex | plus: 1 %}
+
+{% for p in sorted_pages %}
+{% if forloop.index == prevIndex %}
+{% assign prevURL = p.url %}
+{% endif %}
+{% if forloop.index == nextIndex %}
+{% assign nextURL = p.url %}
+{% endif %}
+{% endfor %}
+
 <header class="site-header">
+    {% if page.title.size > 0 %}
+    <span style="float:left;font-size:80%"><a href="{{ prevURL }}">◀︎ Previous</a></span>
+    <span style="float:right;font-size:80%"><a href="{{ nextURL }}">Next ▶︎</a></span>
+    {% endif %}
   <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
 </header>

@@ -1,24 +1,22 @@
 ---
 layout: chapter
-title: Negotiating Team Roles and Responsibilities
-description: "An example of recursive agent reasoning and repeated interaction in a somewhat non-cooperative game with incomplete and imperfect information."
+title: Model 4 - Negotiating Team Roles and Responsibilities
+description: "A multi-level model with recursive agent reasoning and repeated interaction, where agents reason about a somewhat non-cooperative game with incomplete and imperfect information."
 is_section: true
 ---
+This model is drawn from reft:ethiraj_bounded_2004<sup id="a1">[1](#f1)</sup>, which is a stochastic evolutionary program (blind variation and selective retention). After replicating their model, we add cognitive elements and then frame it as a problem of team negotiation rather than blind search.
+
 
 ## Model 
 
 The model consists of a single team $$T$$ (i.e. an engineering design team) with $$K$$ designer agents:  $$T = \{D_1, D_2,\ldots,D_K\}$$. As a whole the team must make $$N$$ design decisions, where each decision $$a_i$$ is a binary choice (for simplicity), thus the team's decisions are represented by a binary vector $$A = \{a_1, a_2, a_3, \ldots , a_N\}$$. Each designer agent is initially assigned $$n$$ design decisions, where $$n = N / K$$.
-
-<p class="note">
-(<em>Note</em>: This model is drawn from reft:ethiraj_bounded_2004, but we substitute "designer agent" for "department" and "team" for "organization". reft:ethiraj_bounded_2004 use a population evolution mechanism (i.e. blind variation followed by fitness-based selection refp:golberg_genetic_1989 refp:simonton_campbells_2011) to model the search and adaptation process, whereas we use agent conception, reasoning, and negotiation mechanisms.)
-</p>
 
 ### Decisions and Dependencies
 
 Design decisions sometimes depend on each other, either one-way or two-way (mutual). (We model dependencies as a As state of Nature.) For each decision, there is a vector of other decisions on which it depends, denoted with a prime: $$a^\prime_i = \{a_x, a_y, \ldots, a_z\}$$ where $$x, y, z \in [1,N]$$ and $$\neq i$$. The overall structure of dependency can be represented as a Design Dependency Matrix refp:clarkson_predicting_2004, where an X in any cell denotes that the column element is dependent on the row element (e.g. in Figure 1a, $$b_2$$ is dependent on $$a_1$$, but not the reverse).  Two-way (mutual) dependence is denoted by X's in corresponding cells above and below the diagonal (Figure 1b and 1d).
 
 <figure>
-<img style="display:block;width:550px;" src="{{ site.baseurl }}/assets/img/Fig 1 Design_Dependency_Matrix_examples.png">
+<img style="display:block;width:550px;" src="{{ site.baseurl }}/assets/img/Fig_1_Design_Dependency_Matrix_examples.png">
 <figcaption>Figure 1. Examples of Design Dependency Matrices with four different structure types. In these examples, the team consists of three agents: A, B, and C, and each is responsible for four decisions. (<em>source</em>: Ethiraj and Levinthal, 2004)</figcaption>
 </figure>
 
@@ -630,6 +628,11 @@ print("N = " + N + "; K = " + K + "; n = " + n);
 print ("Average number of dependencies = " + listMean(dependenciesCounts));
 viz.line(mapN(function(t) {return t;},stepCount),results);
 ~~~~
+
+---
+## End Notes
+
+<span id="f1">1.</span> [↩](#a1) This model is drawn from reft:ethiraj_bounded_2004, but we substitute "designer agent" for "department" and "team" for "organization". reft:ethiraj_bounded_2004 use a population evolution mechanism (i.e. blind variation followed by fitness-based selection refp:golberg_genetic_1989 refp:simonton_campbells_2011) to model the search and adaptation process, whereas we use agent conception, reasoning, and negotiation mechanisms.
 
 
 ---
