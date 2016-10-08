@@ -14,16 +14,26 @@
 {% for p in sorted_pages %}
 {% if forloop.index == prevIndex %}
 {% assign prevURL = p.url %}
+{% assign prevTitle = p.title %}
 {% endif %}
 {% if forloop.index == nextIndex %}
 {% assign nextURL = p.url %}
+{% assign nextTitle = p.title %}
 {% endif %}
 {% endfor %}
 
 <header class="site-header">
     {% if page.title.size > 0 %}
-    <span style="float:left;font-size:80%"><a href="{{ prevURL }}">◀︎ Previous</a></span>
-    <span style="float:right;font-size:80%"><a href="{{ nextURL }}">Next ▶︎</a></span>
+    {% if prevTitle.size > 0 %}
+    <div class ="prevLinks">
+        <a href="{{ prevURL }}">◀︎ {{ prevTitle }}</a>
+    </div>
+    {% endif %}
+    {% if nextTitle.size > 0 %}
+    <div class ="nextLinks">
+        <a href="{{ nextURL }}">{{ nextTitle }} ▶︎</a>
+    </div>
+    {% endif %}
     {% endif %}
   <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
 </header>

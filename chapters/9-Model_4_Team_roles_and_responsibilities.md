@@ -1,7 +1,7 @@
 ---
 layout: chapter
 title: Model 4 - Negotiating Team Roles and Responsibilities
-description: "A multi-level model with recursive agent reasoning and repeated interaction, where agents reason about a somewhat non-cooperative game with incomplete and imperfect information."
+description: "Though not a risk model, this model uses recursive multi-agent reasoning and repeated social interaction, where agents reason about each other, their collective performance, and the structure of a somewhat non-cooperative game with incomplete and imperfect information."
 is_section: true
 ---
 This model is drawn from reft:ethiraj_bounded_2004<sup id="a1">[1](#f1)</sup>, which is a stochastic evolutionary program (blind variation and selective retention). After replicating their model, we add cognitive elements and then frame it as a problem of team negotiation rather than blind search.

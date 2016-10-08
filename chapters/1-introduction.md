@@ -1,160 +1,79 @@
 ---
 layout: chapter
 title: Introduction
-description: "'Big picture' on probabilistic programming, why it's different and better than previous tools, and how it applies to risk analysis and modeling."
+description: "Overview of the tutorial, the intended reader, and how to get the most out of it. Credits."
 is_section: true
 ---
-In this introduction, you'll find *general* concepts that will help you make sense of probabilistic programming. If you understand these, it should increase your motivation and curiousity to learn more and will help you avoid confusion later.
 
+## Description
 
-## Probabilistic Programming (PP) In a Nutshell
+This is a tutorial for probabilistic programming (PP) as applied to risk modeling and related applications, using [WebPPL](2-webppl.html) -- a recently-developed PPL on top of Javascript.  We walk through the basic concepts, both conceptual and practical, and frequently demonstrate each concept or method with an interactive code example.
 
-Probabilistic programming combines the ***"Math of Data"*** (statistics) with the ***"Math of Thought"*** (logical structures and programs)<sup id="a1">[1](#f1)</sup>.
+## Intended Readers and Prerequisite Knowledge 
 
-Probabilistic programming is different from other methods (i.e. machine learning (ML), Bayes Nets, markov chain monte carlo (MCMC) using BUGS or STAN, etc.) and better for many types of risk analysis and modeling because it is has the potential to be:
+This tutorial should be accessible to anyone who is comfortable with 1) computer programming (Java, Javascript, or similar), 2)probability (point probabilities, probability density functions, etc.) and 3) statistical inference (e.g. linear regression, conditional probability, Bayes Rule, etc.).  It will be helpful, especially for the case study models, if the reader understands some basic concepts in modern information security management and risk analysis.
 
-- ***More powerful and generally applicable*** -- able to handle complex problems that are hard or impossible with other methods
-- ***Easier to learn, iterate, extend, maintain*** ... -- you focus your time on the model rather than computational details of inference
-- ***The "spreadsheet" of risk modeling*** --- i.e a multi-purpose tool with a low barrier to entry and a smooth learning curve<sup id="a4">[4](#f4)</sup>.
+## Reading Order and Navigation
 
-Compared to Deep Learning, probabilistic programming has advantages<sup id="a2">[2](#f2)</sup>:
+The tutorial can be read sequentially, or semi-randomly guided by your curiosity.  I recommend that everyone read the remaining subchapters in the introduction (["In a Nutshell"](1a-In_a_Nutshell.html) and ["Big Picture"](1b-Big_Picture)) and at least scan the chapter on "WebPPL" so you can read the code examples.
 
-- Easier to incorporate rich domain knowledge
-- Can work well with "Small Data"
-- More explainable and understandable
-- Can make probabilistic inferences on complex data types of variable size
+You can navigate through the content by either using the [Table of Contents]({{ site.baseurl }}/index.html) (links on header and footer of every page) or sequentially by using the "(Next)  ▶︎" and "◀︎ (Previous)" links in the header and footer of each page.
 
+## Using the Interactive Code Examples
 
-### Why is PP Good For Risk Analysis?
+Nearly all the code examples are *interactive*, meaning that you can both run the examples and also modify them using valid WebPPL statements. You can go through the whole tutorial and get value by only running the examples to see the output.  
 
-For risk analysts, the main of benefit probabilistic programming is that it has *the potential* to help us take on many hairy problems that we either do with great difficulty now, or we don't do at all.
-
-From statistics, you will be familiar with discrete and continuous probability distributions, where the *support* is either a finite discrete set or a range of real numbers.
- 
-|:---------------------------------------:|:---------------------------------------:|
-|<img style="float: left;width:300px;" src="{{ site.baseurl }}/assets/img/Discrete_probability_distribution.png"> | <img style="float: right;width:300px;" src="{{ site.baseurl }}/assets/img/Continuous_probability_distribution.png">|
-
-What's *different* and *better* about probabilistic programming is that you can work with probability distributions over infinite sets of complex objects.
-
-
-<img style="display:block;width:500px;" src="{{ site.baseurl }}/assets/img/probability_distributions_over_infinite_set.png">
-
-Unlike Bayesian Networks, you aren't limited to dependence or conditional structures that are directed acyclic graphs (DAGs). You can model  dependence or conditional structures of *arbitrary*<sup>*</sup> complexity, including circular or recursive systems.
-
-<p align="right"><font size="2"><sup>*</sup>As long as they are finite and computable.</font></p>
-
-
-<img style="display:block;width:350px;" src="{{ site.baseurl }}/assets/img/probabilistic_models_of_recursive_reasoning.png">
-
-That should **blow**...**your**...**mind**!
-
-### Caveats
-
-Probabilistic programming is fairly new -- just now transitioning from research to practical applications.  Not everything is as simple, easy, and "no-brainer" as we might like. But things are improving fast.  Now is the time to start learning and experimenting.
-
-### Probabilistic Programming languages (PPL)
-
-There are many probabilistic programming languages (PPL) in development and use. None is perfect, and each has pros and cons. 
-
-- <a href="{{ site.baseurl }}/chapters/2-webppl.html" target="_blank"><em>WebPPL</em></a> -- **used in this tutorial**. A functional programming language built on top of Javascript. Good for interactive development, web demos, web applications, and teaching. Has R interface. Pronounced "web people". Successor to the *Church* language.
-- <a href="http://docs.webppl.org/en/master/" target="_blank"><em>Figaro</em></a> -- A functional programming language implemented as Scala libraries, which is implemented as Java libraries.  Good if you want/need the benefits of a mixed functional/object language like Scala (e.g. Akka actor framework, etc.).
-- <a href="http://docs.webppl.org/en/master/" target="_blank"><em>Anglican</em></a> -- A functional programming language built on top of Clojure (a dialect of Lisp designed for functional programming on the JVM). Like other Lisps, Clojure treats code as data, which is nice for symbolic AI.  It also has a macro system. Some good inference algorithms for certain classes of models.
-- <a href="http://probabilistic-programming.org/wiki/Home#Existing_probabilistic_programming_systems" target="_blank">... and many more</a> -- click <a href="http://probabilistic-programming.org/wiki/Home#Existing_probabilistic_programming_systems" target="_blank">here</a> for descriptions and links.
-
-For real™ development, I prefer *Figaro*. For teaching and interactive tutorials like this one, I prefer *WebPPL*. I have some experience with *Anglican*, and it was pretty good once I figured out Clojure.
-
-
-## Big Picture
-
-Probabilistic programming is a hybrid computing system, combining a Turing-complete programming language with statistical inference algorithms.  Let's build that up in pieces, starting with the 
-
-### "Math of Data": Statistical Inference<sup id="a3">[3](#f3)</sup>
-
-<img style="float: right;width:350px;" src="{{ site.baseurl }}/assets/img/statistical_inference_algorithms.png">
-Statistical inference algorithms (e.g. linear models, null-hypothesis tests, etc.) take **empirical data** (a.k.a. "evidence") as input, a set of **specifications** (a.k.a. "query") and produce **fitted parameters** (a.k.a. "answers") as output.
-
-Buried in every statistical inference algorithm are assumptions that can be interpreted as its **model** of the **data generation process**. It's called "inference" because the algorithm finds the model parameters ("answers") that give the best fit to the empirical data ("evidence"). Examples:
-
-- *Linear regression* algorithm models data generation as a linear process plus independent Gaussian noise.  
-- *K-means clustering* algorithm takes a parameter $$K$$, and models the data generation process as $$K$$ centroids spaced reasonably far apart, plus independent Gaussian noise.  
-
-What if the evidence doesn't fit the model of data generation? With statistical inference tools, you need to switch algorithms, or maybe chain them together in some way.  Unless you write your own statistical inference algorithms, you can't programmatically specify the data generation process.
- 
-### "Math of Thought": Logic and Programs<sup id="a3">[3](#f3)</sup>
-<img style="float: right;width:350px;" src="{{ site.baseurl }}/assets/img/generative_probabilistic_model.png">
-Now we switch our attention from the data to the system that generates the data. Computer programs are the tools we use to simulate the system, taking model parameters and initial conditions as inputs.  If there is no randomness in the programs, then the simulations produce the same outputs each run.  
-
----
-
-*Edsger Dijkstra* (Patron Saint of Deterministic Programs):
-
-**Programs** = Algorithms + Data Structures 
-
----
-
-If there is randomness, then each run ("realization") produces different outputs.  
-
----
-*Stanislaw Ulam* (Patron Saint of the Monte Carlo Method):
-
-**Stochastic Programs** = Algorithms + Data Structures + Randomness
-
----
-
-Here is an example of two simple programs, one deterministic and one stochastic. Click "run" several times and notice the changes in output.
+Here is a code example:
 
 ~~~~
-///fold:
-var gauss_legendre_iteration = function(n, a,b,t,p){
-var a1 = (a + b) / 2;
-if (n > 0) {
-gauss_legendre_iteration(
-n - 1,
-a1,
-Math.sqrt(a * b),
-t - p * Math.pow(a - a1,2),
-2 * p
-)
-} else {
-return Math.pow(a + b,2) / (4 * t)
+// These are a couple of very simple WebPPL statements
+
+var test = 2 + 4;
+
+print("The immutable variable 'test' = " + test);
+
+// Unlike ordinary Javascript, variables are immutable
+//  (the can't be modified once they are assigned)
+
+// This won't work:
+//    test = 8;
+// Nor will this:
+//    test = test * test;
+
+// This overwrites the previous variable "test"
+var test = function(x){
+   return x * x;
 }
-}
 
-var gauss_legendre = function(n){
-var a = 1
-var b = 1 / Math.sqrt(2);
-var t = 1 / 4;
-var p = 1;
+//Notice that the syntace of functions is different than Javascript
+//  which looks would look like this (won't work in WebPPL):
+// function test(x) = { return x * x;}
 
-return gauss_legendre_iteration(n, a,b,t,p);
-}
-///
-
-var x = uniform(0,1.0);
-
-var pi = gauss_legendre(10); // 10 iterations
-
-print("Deterministic program: Gauss-Legendre algorithm for computing digits of pi\n pi = " + pi + "\n");
-
-print("Stochastic program: A random draw from uniform distribution\n x =" + x);
-
+print("The NEW immutable function 'test(4)' = " +test(4));
 ~~~~
 
-The Monte Carlo method involves running a stochastic program $$N$$ times and analyzing the distribution of outcomes.
+Click the <span class="buttonText">run</span> button, and it will first compile WebPPL into Javascript, and then execute the Javascript -- in this case it prints two lines with results.
 
-<img style="display:block;width:500px;" src="{{ site.baseurl }}/assets/img/monte_carlo_example.png">
+Now try editing the code yourself.  Perhaps you could change the `2 + 4;` expression to `4 + 4 * Math.pow(2,12)`. You could change the name of the function from `test` to `squared` and change the second print statement to `squared(4)`.  Click <span class="buttonText">run</span>  again to see the effects of your changes.
 
-Ordinary programming languages (C, Java, PHP, R, Lisp) are 'Turing-complete' because they all the full computational power of a Turing Machine.
+To restore *all* the example code on a given page to the original versions, refresh/reload the browser window.
 
-----
+***Caution #1:*** Though it is hard to "crash" the system by typing your own code, it is possible to create (effectively) infinite loops or programs that take a *loooooooooooong* time to finish.  Thankfully, the WebPPL interactive interpreter has a <span class="buttonText">cancel</span> button that you can click that (*most of the time*) will stop your program and return to a normal web browsing state.  If that doesn't work, you may need to close the web page, or maybe even close your browser ("Force Quit" on Macintosh).
 
-*Endnotes and Credits*
+***Caution #2:*** The error messages emitted by WebPPL interactive interpreter are frequently cryptic, not very helpful, or and sometimes not understandable. Therefore, it is best for new programmers to make a few changes or write a few statements at a time, and check that they compile and run before continuing.  
 
-<span id="f1">1.</span> [↩](#a1) This pithy phrase comes from Joshua Epstein's presentation: ["How to Grow a Mind: Statistics, Structure and Abstraction"](https://www.youtube.com/watch?v=97MYJ7T0xXU)
+## Writing Your Own WebPPL Code
 
-<span id="f2">2.</span> [↩](#a2) These points are adapted from Avi Pfeffer's MLconf presentation: ["Probabilistic Programming with Figaro"](https://youtu.be/eO4ZXLQjba8?t=5m9s)
+At some point, you may want to write your own WebPPL code, along with some documentation, like you see in this tutorial.  While you could go all the way to using an integrated development environment (IDE) and run WebPPL via the command line, it may be easier to start with the interactive interpreter and a "blank sheet" for documentation.
 
-<span id="f3">3.</span> [↩](#a3) These diagrams are adapted from cite:pfeffer_practical_2016
+For this purpose we provide an [Interactive Editor](interactive_editor.html) that allows you to create code blocks, text blocks, and to combine them into ["markdown"](https://en.wikipedia.org/wiki/Markdown) format that you can copy/paste into a text file and save locally. (This is the workflow used to create this tutorial.)
 
-<span id="f4">4.</span> [↩](#a4) The spreadsheet is arguably the ***greatest programmer productivity tool of all time*** because it eliminated the need to write so many of the most common number processing programs. The DARPA [Probabilistic Programming for Advancing Machine Learning (PPAML)](http://www.darpa.mil/program/probabilistic-programming-for-advancing-machine-Learning) program has aims in this direction, at least regarding machine learning and some aspects of AI.
+
+---
+
+## Credits
+
+This tutorial draws significantly on the tutorial ["Modeling Agents With Probabilistic Programming"](http://agentmodels.org), both content and the various templates used to generate the web pages.  The authors made the content and templates available [here on Github](https://github.com/agentmodels/agentmodels.org/tree/gh-pages/chapters) for to promote use, reuse, remixing, and other extensions.
+
+Other more specific credits are given on individual pages of this tutorial.
 

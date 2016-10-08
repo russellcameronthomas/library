@@ -1,22 +1,24 @@
 html {
     font-family: Merriweather, Georgia, 'Times New Roman', serif;
     color: #fff;
-    background-color: #333333;
+    background-color: #303;/*#333333;*/
 }
 
 @media screen {
     html {
         font-family: Merriweather, Georgia, 'Times New Roman', serif;
         color: #fff;
-        background-color: #333333;
-        font-size: 16px; }
+        background-color: #303;/*#333333;*/
+        }
     .page-break	{ display: none; }
 }
 
 @media print {
+
     body {
         background: white;
         font-size: 12px;
+        font-family: Garamond, 'Times New Roman', serif;
     }
     
     #menu {
@@ -24,6 +26,7 @@ html {
     }
     
     #wrapper,
+    
     #content {
         width: auto; margin: 0 5%;
         padding: 0;
@@ -40,14 +43,52 @@ html {
     header{
         display: none;
     }
-    img.resize{
+    /*img.resize{
         width:50% !important;
         height:auto;
         page-break-inside: avoid;
+    }*/
+    .katex { font-size: 12px !important; }
+    h1 {
+        font-family: 'Lucida Grande','Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
+        font-weight: bold;
+        letter-spacing: 1px;
+        font-size: 160%;
+        color: #444;
+        margin: 1em 0 1.5em 0;
+        line-height: 1.5;
+        text-align: left;
+    }
+    
+    h2 {
+        font-family: 'Lucida Grande','Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
+        font-size: 140%;
+        letter-spacing: 1px;
+        margin: 1.5em 0 1em 0;
+        text-align: left;
+    }
+    
+    h3 {font-family: 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
+        font-size: 110%;
+            font-weight: lighter;
+        margin: 1.5em 0 1em 0;
+        /*font-style: italic;*/
+        text-align: left;
+    }
+    
+    .wpedit button {
+        display:none;
+    }
+
+    .footer-nav {
+        display:none;
     }
 }
 
 h1 {
+    font-family: 'Lucida Grande','Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
+    letter-spacing: -0.8px;
+    font-weight: bold;
     font-size: 160%;
     color: #444;
     margin: 1em 0 1.5em 0;
@@ -56,16 +97,24 @@ h1 {
 }
 
 h2 {
+    font-family: 'Lucida Grande','Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
+    letter-spacing: -0.4px;
     font-size: 140%;
     margin: 1.5em 0 1em 0;
     text-align: left;
 }
 
-h3 {
-    font-size: 120%;
+h3 {font-family: 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
+    font-size: 110%;
     margin: 1.5em 0 1em 0;
+    font-weight: lighter;
     font-style: italic;
     text-align: left;
+}
+
+
+.highlight {
+    font-size: 80%;
 }
 
 .site-title {
@@ -201,15 +250,54 @@ ol li ol li {
     list-style-type: decimal;
 }
 
+.nextLinks {
+    font-size: 90%;
+    color: #bbb;
+    float:right;
+    max-width: 250px;
+}
+.prevLinks {
+    font-size: 90%;
+    color: #bbb;
+    float:left;
+    max-width: 250px;
+}
+
+.highlighter-rouge {
+    background-color: #EEE;
+}
+
+
+.buttonText {
+    outline: 1px solid rgb(204,204,204) !important;
+    font-family: Tahoma, 'Arial', serif;
+    color: #000;
+    font-size:80%;
+    background-color: #e0e0e0 !important;
+    background-image: linear-gradient(to bottom,#fff 0,#e0e0e0 100%);
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
+    letter-spacing: 1px;
+}
+
+
 header, footer {
     padding: 30px;
+    color: #bbb;
 }
 
 footer {
-    font-size: 80%;
+    /*font-size: 80%;*/
     text-align: center;
 }
 
 header a, footer a {
-    color: #bbb
+    text-decoration: none;
+    color: #bbb;
+}
+
+header a:hover, footer a:hover {
+    text-decoration: underline;
 }

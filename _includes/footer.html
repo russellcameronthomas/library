@@ -12,21 +12,33 @@
 {% assign nextIndex = currPageIndex | plus: 1 %}
 
 {% for p in sorted_pages %}
-   {% if forloop.index == prevIndex %}
-      {% assign prevURL = p.url %}
-   {% endif %}
-   {% if forloop.index == nextIndex %}
-     {% assign nextURL = p.url %}
-   {% endif %}
+    {% if forloop.index == prevIndex %}
+        {% assign prevURL = p.url %}
+        {% assign prevTitle = p.title %}
+    {% endif %}
+    {% if forloop.index == nextIndex %}
+        {% assign nextURL = p.url %}
+    {% assign nextTitle = p.title %}
+    {% endif %}
 {% endfor %}
 
 
 <footer class="site-footer">
-{% if page.title.size > 0 %}
-    <span style="float:left;"><a href="{{ prevURL }}">◀︎ Previous</a></span>
-    <span style="float:right;"><a href="{{ nextURL }}">Next ▶︎</a></span>
-{% endif %}
+    <div class="footer-nav">
+    {% if page.title.size > 0 %}
+        {% if prevTitle.size > 0 %}
+            <div class ="prevLinks">
+                <a href="{{ prevURL }}">◀︎ {{ prevTitle }}</a>
+            </div>
+        {% endif %}
+        {% if nextTitle.size > 0 %}
+            <div class ="nextLinks">
+                <a href="{{ nextURL }}">{{ nextTitle }} ▶︎</a>
+            </div>
+        {% endif %}
+    {% endif %}
   <a href="/">Table of Contents</a> | <a href="/editor.html" target="_blank">Interactive Editor</a> <!-- | <a href="https://github.com/russellcameronthomas/riskmodels" id="github-edit-link">Edit on Github</a> -->
+  </div>
 <br />
 <br />
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="vertical-align:middle;line-height:31px;">
