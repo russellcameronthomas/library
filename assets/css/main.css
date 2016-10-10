@@ -297,10 +297,17 @@ ol li ol li {
 }
 
 
-header, footer {
+header {
+    padding: 30px;
+    color: #bbb;
+    border-style: solid;
+    border-bottom: medium solid #FFFF00;
+}
+footer {
     padding: 30px;
     color: #bbb;
 }
+
 
 footer {
     /*font-size: 80%;*/
