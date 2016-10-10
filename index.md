@@ -2,6 +2,14 @@
 layout: default
 
 ---
+<style type="text/css">
+ol li {
+list-style-type: upper-roman
+}
+ol li ol li {
+list-style-type: decimal;
+}
+</style>
 
 {% assign sorted_pages = site.pages | sort:"name" %}
 
@@ -34,7 +42,7 @@ layout: default
 
 A. <a href="{{ site.baseurl }}/editor.html" target="_blank">Interactive editor</a> -- to create and modify your own markdown pages, saved in your browser's cache.
 
-B. <a href="https://probmods.org" target="_blank"><em>Probabilistic Models of Cognition</em></a> -- an on-line book for the cognitive science applications of WebPPL.
+B. <a href="https://probmods.org/v2/" target="_blank"><em>Probabilistic Models of Cognition</em></a> -- an on-line book for the cognitive science applications of WebPPL.
 
 C.  <a href="http://dippl.org/chapters/02-webppl.html" target="_blank">WebPPL Language Manual</a> -- a tutorial introduction to the design of WebPPL, which can help you understand how the language is interpreted and executed, and therefore why the language is designed the way it is (e.g. functional programming).
 

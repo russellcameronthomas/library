@@ -22,6 +22,9 @@
     {% endif %}
 {% endfor %}
 
+{% assign prevTitle = prevTitle | truncate: 35 %}
+{% assign nextTitle = nextTitle | truncate: 35 %}
+
 
 <footer class="site-footer">
     <div class="footer-nav">
@@ -30,11 +33,15 @@
             <div class ="prevLinks">
                 <a href="{{ prevURL }}">◀︎ {{ prevTitle }}</a>
             </div>
+        {% else %}
+        <div class ="prevLinks"><p></p></div>
         {% endif %}
         {% if nextTitle.size > 0 %}
             <div class ="nextLinks">
                 <a href="{{ nextURL }}">{{ nextTitle }} ▶︎</a>
             </div>
+        {% else %}
+            <div class ="nextLinks"><p></p></div>
         {% endif %}
     {% endif %}
   <a href="/">Table of Contents</a> | <a href="/editor.html" target="_blank">Interactive Editor</a> <!-- | <a href="https://github.com/russellcameronthomas/riskmodels" id="github-edit-link">Edit on Github</a> -->

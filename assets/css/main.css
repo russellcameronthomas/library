@@ -93,7 +93,7 @@ h1 {
     color: #444;
     margin: 1em 0 1.5em 0;
     line-height: 1.5;
-    text-align: left;
+    text-align: center;
 }
 
 h2 {
@@ -118,9 +118,11 @@ h3 {font-family: 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
 }
 
 .site-title {
+    font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
     display: block;
     font-size: 140%; /*120%;*/
-    color: #eee;
+    font-weight: bolder;
+    color: #CC9; /*#DDA;*/
     text-decoration: none;
     text-align: center;
 }
@@ -243,24 +245,35 @@ a.ref:hover {
     display: none
 }
 
+/*
+
 ol li {
     list-style-type: upper-roman
 }
 ol li ol li {
     list-style-type: decimal;
 }
+ */
+ol li {
+    list-style-type: decimal;
+}
+
+ol li ol li {
+    list-style-type: decimal;
+}
 
 .nextLinks {
-    font-size: 90%;
+    font-size: 80%;
     color: #bbb;
     float:right;
-    max-width: 250px;
+    width: 280px;
+    text-align: right;
 }
 .prevLinks {
-    font-size: 90%;
+    font-size: 80%;
     color: #bbb;
     float:left;
-    max-width: 250px;
+    width: 280px;
 }
 
 .highlighter-rouge {
@@ -277,6 +290,7 @@ ol li ol li {
     background-image: linear-gradient(to bottom,#fff 0,#e0e0e0 100%);
     padding-right: 10px;
     padding-left: 10px;
+    padding-bottom: 3px;
     margin-right: 5px;
     margin-left: 5px;
     letter-spacing: 1px;

@@ -22,18 +22,26 @@
 {% endif %}
 {% endfor %}
 
+
+
 <header class="site-header">
+ <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
     {% if page.title.size > 0 %}
-    {% if prevTitle.size > 0 %}
-    <div class ="prevLinks">
-        <a href="{{ prevURL }}">◀︎ {{ prevTitle }}</a>
-    </div>
+        {% if prevTitle.size > 0 %}
+            {% assign prevTitle = prevTitle | truncate: 35 %}
+                <div class ="prevLinks">
+                    <a href="{{ prevURL }}">◀︎ {{ prevTitle }}</a>
+                </div>
+        {% else %}
+            <div class ="prevLinks"><p></p></div>
+        {% endif %
+        {% if nextTitle.size > 0 %}
+            {% assign nextTitle = nextTitle | truncate: 35 %}
+                <div class ="nextLinks">
+                    <a href="{{ nextURL }}">{{ nextTitle }} ▶︎</a>
+                </div>
+        {% else %}
+                <div class ="nextLinks"><p></p></div>
+        {% endif %
     {% endif %}
-    {% if nextTitle.size > 0 %}
-    <div class ="nextLinks">
-        <a href="{{ nextURL }}">{{ nextTitle }} ▶︎</a>
-    </div>
-    {% endif %}
-    {% endif %}
-  <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
 </header>

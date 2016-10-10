@@ -1,5 +1,6 @@
 ---
 layout: default
+title: "Interactive Editor"
 custom_js: http://webppl.org/homepage.js
 custom_css: http://webppl.org/homepage.css
 ---

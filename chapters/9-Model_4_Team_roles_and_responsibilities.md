@@ -356,9 +356,9 @@ viz.line(mapN(function(t) {return t;},stepCount),results);
 
 ## Version 2: Organization and Design Adaptation 
 
-This model implements "Level One" adaptation in reft:ethiraj_bounded_2004 (described above). Each step, every agent randomly picks one of their decisions to flip, and keeps the result of the agent's individual performance improves.
+*UNDER CONSTRUCTION*
 
-Try varying the two boolean experimental variables -- "hierarchical" and "tightlyCoupled" and notice the results.
+<!--
 
 ~~~~
 // Global parameters:
@@ -631,6 +631,8 @@ print("N = " + N + "; K = " + K + "; n = " + n);
 print ("Average number of dependencies = " + listMean(dependenciesCounts));
 viz.line(mapN(function(t) {return t;},stepCount),results);
 ~~~~
+
+-->
 
 ---
 
