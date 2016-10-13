@@ -9,7 +9,9 @@ Empirical Bayesian data analysis are a set of methods that are an attractive alt
 
 ## Testing the Fairness of a Coin
 
-Someone tosses a coin once...twice...three times and you see three "heads" in a row.  Is that strong evidence that the coin is unfair (not 50/50)?  How many more consecutive "heads" would you need to see to decide whether this was a fair or unfair coin?  
+How many coin tosses do you need to see before you can decide whether a coin is fair or unfair?
+
+Imagine that someone tosses a coin once...twice...three times and you see three "heads" in a row.  Is that strong evidence that the coin is unfair (not 50/50)?  How many more consecutive "heads" would you need to see to decide whether this was a fair or unfair coin?  
 
 [Checking whether a coin is fair](https://en.wikipedia.org/wiki/Checking_whether_a_coin_is_fair) is a "a simple problem on which to illustrate basic ideas of statistical inference also provides a simple problem that can be used to compare various competing methods of statistical inference"<sup>*</sup> given limited information.
 
@@ -20,11 +22,27 @@ Though this problem is simple enough to calculate probabilities analytically, it
 
 <img style="display:block;width:550px;" src="{{ site.baseurl }}/assets/img/analytic_vs_estimated.png">
 
-Here's the experimental setup.  There are `K` total coin tosses, with `numH` = number of heads ("H") out of `K`, but only the first `N` will be observed.  Thus `numH / K` is the "ground truth" of the probability of tossing "heads" (a.k.a. $$p$$).  If $$p$$ is close to 0.5, then the coin is fair.
+## What is "Fair"?
+
+While we commonly think of a fair coin as having *exactly* 0.5 probability of heads, this is an idealization that assumes that we can (or must) toss the coin very many times (arbitrarily many).  If we know ahead of time that we will only toss the coin a few or many times, we may accept a coin as "fair" of the probability of heads is close to 0.5.  How close?  This depends on the decision maker and what you will do with the information.  Are you placing bets?  Are you comparing coins, to chose the most fair (or unfair)?
+
+In our case, we'll define "fair" as $$0.4 \leq p \leq 0.6$$.  The *probability that a coin is fair* given the probability distribution of heads, $$p$$, is defined as the area under the curve between the limits 0.4 and 0.6, as shown in the figure below.
+
+<p class = "note">Area under curves. This is why probability and statistics requries calculus.)</p>
+
+<img style="display:block;width:550px;" src="{{ site.baseurl }}/assets/img/probability_of_fair.png">
+
+What if this were a uniform (flat) distribution? Then the probability of a fair coin would be quite low, because much more probability mass lies outside that range than inside.  The reverse is true if the distribution were narrow and concentrated within that range.  You'll see these effects in the experiment that follows.
+
+## Bayesian Analysis in an Experiment with Limited Information 
+
+Here's the experimental setup.  There are `K` total coin tosses, with `numH` = number of heads ("H") out of `K`, but only the first `N` will be observed.  Thus `K` defines the "longest possible run" or "all possible datat" and the ratio `numH / K` is the "ground truth" of the probability of tossing "heads" (a.k.a. $$p$$).  If $$p$$ is close to 0.5, then the coin is fair.
 
 Click <span class="buttonText">run</span> button at the bottom of the codebox to execute the program and generate estimates.
 
-Initially `N == K` and $$p = 0.7$$, but you can set these to what ever you want, as long as $$N \leq K$$.  Try setting `N = 1` (a single toss), or  `N = 3`, or set `K` to a large number, with proportionate `numH`.  Notice what happens in each of these settings with the three cases of prior knowledge: 1) uninformed (uniform distribution); 2) somewhat informed (beta distribution); and 3) very informed (narrow Gaussian distribution). 
+Initially `K = 10; N = 10; numH = 7`, therefore $$p = 0.7$$.  When $$N = K$$, that means you are seeing *all* of the available data.  If $$N < K$$, you are only seeing some of it. You can set these to any positive integer as long as $$N \leq K$$; $$H \leq K$$ and $$K > 0$$; $$N > 0$$.  Try setting `N = 1` (a single toss), or  `N = 3`, or set `K` to a large number, with proportionate `numH`.  
+
+Notice what happens in each of these settings with the three cases of prior knowledge: 1) uninformed (uniform distribution); 2) somewhat informed (beta distribution); and 3) very informed (narrow Gaussian distribution). 
 
 ~~~~
 //********************************************************************
