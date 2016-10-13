@@ -28,7 +28,7 @@ While we commonly think of a fair coin as having *exactly* 0.5 probability of he
 
 In our case, we'll define "fair" as $$0.4 \leq p \leq 0.6$$.  The *probability that a coin is fair* given the probability distribution of heads, $$p$$, is defined as the area under the curve between the limits 0.4 and 0.6, as shown in the figure below.
 
-<p class = "note">Area under curves. This is why probability and statistics requries calculus.)</p>
+<p class = "note">"...area under the curve...": This is why probability and statistics requries calculus once you start dealing with continuous probability distributions.</p>
 
 <img style="display:block;width:550px;" src="{{ site.baseurl }}/assets/img/probability_of_fair.png">
 
