@@ -1,7 +1,7 @@
 ---
 layout: chapter
 title: Big Picture
-description: "Describes probabilistic programming at conceptual level -- i.e. what kind of computational system is it? Understanding this is really important before you dive into the details of writing and using probabilistic programs."
+description: "Describes probabilistic programming at conceptual level -- i.e. what kind of computational system is it?"
 is_section: false
 ---
 
