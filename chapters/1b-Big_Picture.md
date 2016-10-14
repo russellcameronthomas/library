@@ -79,7 +79,7 @@ print("Stochastic program: A random draw from uniform distribution\n x =" + x);
 
 ~~~~
 
-The Monte Carlo method involves running a stochastic program $$N$$ times and analyzing the distribution of outcomes.
+<a id="monte_carlo">The Monte Carlo method</a> involves running a stochastic program $$N$$ times and analyzing the distribution of outcomes.
 
 <img style="display:block;width:500px;" src="{{ site.baseurl }}/assets/img/monte_carlo_example.png">
 

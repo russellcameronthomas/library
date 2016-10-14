@@ -1,13 +1,13 @@
 ---
 layout: chapter
-title: Empirical Bayesian Data Analysis
+title: Empirical Bayesian Analysis
 description: "Empirical Bayesian data analysis methods are an attractive alternative to frequentist methods -- e.g. Null Hypothesis Significance Testing -- to evaluate the results of experiments, etc."
 is_section: false
 --- 
 
 Empirical Bayesian data analysis are a set of methods that are an attractive alternative to frequentist methods, e.g. Null Hypothesis Significance Testing, linear regression, logistic regression, Analysis of Variance (ANOVA). Though there are specialized tools (e.g. STAN) for Bayesian data analysis, this use case shows the versitility and general applicablity of probabilistic programming.
 
-## Testing the Fairness of a Coin
+## Testing the Fairness of a Coin With Limited Information 
 
 How many coin tosses do you need to see before you can decide whether a coin is fair or unfair?
 
@@ -22,7 +22,7 @@ Though this problem is simple enough to calculate probabilities analytically, it
 
 <img style="display:block;width:550px;" src="{{ site.baseurl }}/assets/img/analytic_vs_estimated.png">
 
-## What is "Fair"?
+## What is "Fair"? (A bit of subjectivity)
 
 While we commonly think of a fair coin as having *exactly* 0.5 probability of heads, this is an idealization that assumes that we can (or must) toss the coin very many times (arbitrarily many).  If we know ahead of time that we will only toss the coin a few or many times, we may accept a coin as "fair" of the probability of heads is close to 0.5.  How close?  This depends on the decision maker and what you will do with the information.  Are you placing bets?  Are you comparing coins, to chose the most fair (or unfair)?
 
@@ -30,20 +30,26 @@ In our case, we'll define "fair" as $$0.4 \leq p \leq 0.6$$.  The *probability t
 
 <p class = "note">"...area under the curve...": This is why probability and statistics requries calculus once you start dealing with continuous probability distributions. Notice that if we only accepted p = 0.5 as "fair", then the shaded area would be zero!</p>
 
-<img style="display:block;width:550px;" src="{{ site.baseurl }}/assets/img/probability_of_fair.png">
+<img style="display:block;width:400px;" src="{{ site.baseurl }}/assets/img/probability_of_fair.png">
 
-What if this were a uniform (flat) distribution? Then the probability of a fair coin would be quite low, because much more probability mass lies outside that range than inside.  The reverse is true if the distribution were narrow and concentrated within that range.  You'll see these effects in the experiment that follows.
+What if this were a uniform (flat) distribution? Then the probability of a fair coin would be quite low, because much more probability mass lies outside that range than inside. *Think about this for a few seconds*.  Analysts and modelers are often inclined to use uniform distributions as prior distributions if the random variable is bounded (in this case $$0 \leq p \leq 1$$), because it feels safer to not assume *anything* about the likely value of $$p$$. But the implication, in this case, is that you are also making a fairly *strong* assumption that most coins are biased. If you only have a little evidence (i.e. a few tosses), that could lead to some weird inferences and decisions.
 
-## Bayesian Analysis in an Experiment with Limited Information 
+The reverse would be true if your prior or posterior distribution were narrow and concentrated within the "fair" range.  You'll see these effects in the experiment that follows.
 
-Here's the experimental setup.  There are `K` total coin tosses, with `numH` = number of heads ("H") out of `K`, but only the first `N` will be observed.  Thus `K` defines the "longest possible run" or "all possible datat" and the ratio `numH / K` is the "ground truth" of the probability of tossing "heads" (a.k.a. $$p$$).  If $$p$$ is close to 0.5, then the coin is fair.
+## Bayesian Analysis of Coin Tossing Experiment 
 
-Click <span class="buttonText">run</span> button at the bottom of the codebox to execute the program and generate estimates.
+Here's the experimental setup.  There are `K` total coin tosses, with `numH` = number of heads ("H") out of `K`, but only the first `N` will be observed.  Thus `K` defines the "longest possible run" or "all possible data" and the ratio `numH / K` is the "ground truth" of the probability of tossing "heads" (a.k.a. $$p$$).  If $$p$$ is close to 0.5, then the coin is fair.
 
-Initially `K = 10; N = 10; numH = 7`, therefore $$p = 0.7$$.  When $$N = K$$, that means you are seeing *all* of the available data.  If $$N < K$$, you are only seeing some of it. You can set these to any positive integer as long as $$N \leq K$$; $$H \leq K$$ and $$K > 0$$; $$N > 0$$.  Try setting `N = 1` (a single toss), or  `N = 3`, or set `K` to a large number, with proportionate `numH`.  
+To execute the program and generate results, click <span class="buttonText">run</span> button below the codebox that follows.
+
+Initially `K = 10; N = 10; numH = 7`, therefore $$p = 0.7$$.  When $$N = K$$, that means you are seeing *all* of the available data.  If $$N < K$$, you are only seeing some of it. You can set these to any positive integer as long as $$N \leq K$$; $$H \leq K$$ and $$K > 0$$; $$N > 0$$.  Try setting `N = 1` (a single toss), or  `N = 3`, or set `K` to a large number, with proportionate `numH`. 
+
+### Three Models With Different Prior Distributions 
 
 Notice what happens in each of these settings with the three cases of prior knowledge: 1) uninformed (uniform distribution); 2) somewhat informed (beta distribution); and 3) very informed (narrow Gaussian distribution). 
 
+<p class="note">Code and comments that are less important in understanding the experiment is hidden by the `///fold:` macro. To view this code, simply click on the <span class="buttonText" style="background-color: #FFC !important;
+background-image: none;font-weight: bold; border: 1px solid #000 !important;">. . .</span> button in the codebox.</p>
 ~~~~
 //********************************************************************
 // UTILITY FUNCTIONS
@@ -165,7 +171,8 @@ var posterior = function(prior) {
             // Count the number of heads, since we don't care about the order
             var dataH = count("H",data);
             // Upweight likelihood when # of "H" in data = # of "H" in observed
-            //observe(Gaussian({mu: dataH, sigma: 0.2}), obsH);
+            observe(Gaussian({mu: dataH, sigma: 0.2}), obsH);
+            // ^^^^^ try commenting this out, and uncomment "factor(...)" below
 
             // "factor()" is a second method for weighting likelihood.
             //   This is a "softer" method because it downweights non-matching
@@ -173,7 +180,7 @@ var posterior = function(prior) {
             //   as opposed to downweight by -Infinity, as in condition() and observe().
             //   The justification is that with few tosses, you have less justification
             //   for modifying your prior beliefs
-            factor (dataH == obsH ? 0 : -( N / 2.5));
+            // factor (dataH == obsH ? 0 : -( N / 2.5));
             //  ^^^^^ try uncommenting this, 
             //          while also commenting out "observe(...)" above
             return {p: p};
@@ -223,3 +230,38 @@ viz.auto(trialC);
 viz.auto(fairC);
 ///
 ~~~~
+
+*Analysis of results* -- With the default parameters (7 of 10 tosses are "H"), you'll notice first that all three inference queries returned a mean estimate for $$p$$ that is above 0.5, suggesting that the coin is biased toward heads.  But the statistical test for fairness returns different results in all three.  Model A (Uninformative prior) puts most of the probability on $$fair? = false$$ (about 0.75).  Model B (Somewhat informative prior) is about the same.  But Model C (Very informative prior) returns the opposite result, where $$fair? = true$$ has probability of about 0.69. 
+
+***Why?***
+
+Because, of the three models, Model C is the most resistant to change with new information.  In a sense, it takes a *lot* of evidence to pull it off the prior knowledge (assumption) that nearly all coins are fair.  In contrast, Model A is most easily swayed by even a fragment of evidence.  To see this, change `N = 1;` (a single coin toss)and click <span class="buttonText">run</span> button again.
+
+You'll see the probability density function (PDF) output for $$p$$ in Model A is dramatically affected, while Model B output is somewhat affected, and Model C output is hardly affected. As Bayesian analysts and modelers, we should always be thinking:
+
+## How Much Influence Should Evidence Have?<br/> (more subjectivity)
+
+What ever model, conditioning, and inference methods you use, you should always be conscious of how much influence observations (evidence, constraints, etc.) will have on prior distributions. As mentioned in previous chapters, the `Infer()` function is used by WebPPL to tally likelihood weights for all (or nearly all common) traces of your model (i.e. the rest of the program).  Functions like `observe()`, `condition()`, and `factor()` perform the likelihood weighting operations.  In the default configuration, we use an `observe(...)` function:
+
+> `observe(Gaussian({mu: dataH, sigma: 0.2}), obsH);`
+
+...which does this: "set the likelihood for the current trace high if the observed number of heads `obsH` is approximately the same as the data (number of heads) generated by this trace `dataH`, with a small Gaussian noise term; Otherwise set likelhood to a low value."
+
+This approach has some benefits but also negatives.  For example, it does not take into account the amount of evidence, i.e. number of tosses $$N$$.  Most people have the intuition that a single toss of a coin is not much evidence and that a hundred tosses is a lot, and the latter should be weighted more than the former.
+
+You can edit the code, above, to account for this by uncommenting the `factor(...)` statement, and also commenting out the `observe(...)` statement.  Rerun the experiment with different values of $$N$$, i.e. 1, 3, and 10.  What you'll see is that the most senstive models (A and B) are much less sensitive to a single toss than before. The `factor()` statement used is:
+
+> `factor (dataH == obsH ? 0 : -( N / 2.5));`
+
+...which does this: "if the number of generated heads `dataH` exactly equals the number of observed heads `obsH`, then don't change the log likelihood (note: $$exp(0) = 1$$), otherwise reduce the log likelihood by $$-N / 2.5$$.".  The larger $$N$$ is, the greater then penalty for program traces that don't match the condition.  *You may be wondering*: "Where did the 2.5 come from?"  That came from the analyst (me) and my 'trial and error.  When I tried $$-N$$, the likelihood penalty was too great.  When I tried $$-N/4$$ and $$-N/3$$, the likelihood penalty was too small.  What ever likelihood weighting functions you chose, you should explore different values and functions to understand what effects they might have on the results, and then develop a justification for your final choices.  (In this case, we could run human experiments to see how much they changed their probability estimates for $$p$$, given information from additional tosses.)
+
+The conclusion is that the influence of evidence has a degree of subjectivity, but you as analyst can explore alternatives and (usually) arrive at a reasonable and justifiable choice of functions and parameters.
+
+## Why These Inference Methods?
+
+So far we have not discussed the two inference methods chosen for this model, but it is worthwhile explaining these choices.
+
+The main model uses `method : "MCMC"`, which stands for "Markov Chain Monte Carlo" (MCMC), and uses `kernal : "MH"`(MH), which stands for "Metropolis-Hastings".  MCMC is a pretty good inference method if your model includes at least some continuous random variables, and if the distribution is "well behaved" (i.e most of the mass is near the mean, not too "spikey", not really heavy tails, etc.).  The MH kernal is a fairly safe one to use, but it can be slow to converge.  Since we aren't concerned with execution time during conditioning, we can be satisfied with MCMC and MH.  Because the random variables have continuous distributions, we can't use inference methods that only work with discrete random variables, e.g. "Enumerate".
+
+The "fairTest" model uses `method : "forward"`, which simply means: "run the program a specified number of times (`samples : 1000`) and weight the likelihood traces by their frequency over those runs".  This is just a [Monte Carlo simulation](1b-big_picture.html#monte_carlo).  We choose this inference method because 1) there are no observations to condition the data and 2) the random variable $$p$$ is continuous.
+

@@ -277,12 +277,13 @@ ol li ol li {
 }
 
 .highlighter-rouge {
-    background-color: #EEE;
+    background-color: #EEEEEE;
 }
 
 
 .buttonText {
-    outline: 1px solid rgb(204,204,204) !important;
+    border-radius: 4px;
+    border: 1px solid rgb(204,204,204) !important;
     font-family: Tahoma, 'Arial', serif;
     color: #000;
     font-size:80%;
@@ -290,7 +291,7 @@ ol li ol li {
     background-image: linear-gradient(to bottom,#fff 0,#e0e0e0 100%);
     padding-right: 10px;
     padding-left: 10px;
-    padding-bottom: 3px;
+    padding-bottom: 2px;
     margin-right: 5px;
     margin-left: 5px;
     letter-spacing: 1px;

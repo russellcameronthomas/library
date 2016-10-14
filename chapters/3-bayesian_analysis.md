@@ -10,7 +10,5 @@ This chapter is optional and not necessary to understand the rest. It will help 
 
 Here are the sections in this chapter:
 
-- [Bayesian Inference]({{ base.url }}/chapters/3a-bayesian_inference.html) -- shows how you can do Bayesian conditioning and inference with probabilistic programs.  
-- [Empirical Bayesian Data Analysis]({{ base.url }}/chapters/3b-bayesian_data_analysis.html) -- shows how you can do Empirical Bayesian data analysis, an alternative to frequentist inference, e.g. Null Hypothesis Significance Testing.
-
-{{ site.title }}
+- [Bayesian Conditioning](3a-bayesian_conditioning.html) -- shows how you can do Bayesian conditioning and inference with probabilistic programs.  
+- [Empirical Bayesian Analysis](3b-empirical_bayesian_analysis.html) -- shows how you can do Empirical Bayesian data analysis, an alternative to frequentist inference, e.g. Null Hypothesis Significance Testing.
