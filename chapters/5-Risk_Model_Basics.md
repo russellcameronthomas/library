@@ -209,48 +209,48 @@ Let's combine them with addition, and no dependency between them.
 
 ~~~~
 var riskModel = Infer({method: "forward", samples: 10000},
-function(){ 
-// primarily loss
-var m = Math.exp(sample(Gaussian({mu : Math.log(80), 
-sigma:Math.log(1.5)})));
-// seconary risk
-var trigger = flip(0.4);
-var s = trigger 
-? Math.exp(sample(Gaussian({mu : Math.log(100), 
-sigma:Math.log(3.5)}))) 
-: 0;
-var loss = m + s;
-return {magnitude: loss};
+    function(){ 
+        // primarily loss
+        var m = Math.exp(sample(Gaussian({mu : Math.log(80), 
+        sigma:Math.log(1.5)})));
+        // seconary risk
+        var trigger = flip(0.4);
+        var s = trigger 
+            ? Math.exp(sample(Gaussian({mu : Math.log(100), 
+                        sigma:Math.log(3.5)}))) 
+            : 0;
+        var loss = m + s;
+        return {magnitude: loss};
 }); 
 
-print("Loss Magnitude Probability Density");
-viz.auto(magnitudeModel);
-viz.density(magnitudeModel,{bounds:[0,400]});
-viz.density(magnitudeModel,{bounds:[400,10000]});
+print("Risk Probability Density");
+viz.auto(riskModel);
+viz.density(riskModel,{bounds:[0,400]});
+viz.density(riskModel,{bounds:[400,10000]});
 ~~~~
 
 ## Risk Model V2
 
 ~~~~
 var riskModel = Infer({method: "forward", samples: 10000},
-function(){ 
-// Loss Event Frequency
-var threatEvents = sample(Poisson({mu : 40})); 
-// a real number 0..1, probability of success
-var vulnerability = beta({a : 1.05, b: 10});   
-var events = sample(Binomial({p:vulnerability, n: threatEvents}) );
-// primarily loss
-var m = Math.exp(sample(Gaussian({mu : Math.log(80), 
-sigma:Math.log(1.5)})));
-// seconary risk
-var trigger = flip(0.4);
-var s = trigger 
-? Math.exp(sample(Gaussian({mu : Math.log(100), 
-sigma:Math.log(3.5)}))) 
-: 0;
-var loss = m + s;
-var risk = loss * events;
-return {risk: risk};
+        function(){ 
+            // Loss Event Frequency
+            var threatEvents = sample(Poisson({mu : 40})); 
+            // a real number 0..1, probability of success
+            var vulnerability = beta({a : 1.05, b: 10});   
+            var events = sample(Binomial({p:vulnerability, n: threatEvents}) );
+            // primarily loss
+            var m = Math.exp(sample(Gaussian({mu : Math.log(80), 
+            sigma:Math.log(1.5)})));
+            // seconary risk
+            var trigger = flip(0.4);
+            var s = trigger 
+                    ? Math.exp(sample(Gaussian({mu : Math.log(100), 
+                                    sigma:Math.log(3.5)}))) 
+                    : 0;
+            var loss = m + s;
+            var risk = loss * events;
+            return {risk: risk};
 }); 
 
 print("Risk Probability Density");
