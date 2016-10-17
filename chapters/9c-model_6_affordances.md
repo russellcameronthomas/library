@@ -1,6 +1,6 @@
 ---
 layout: chapter
-title: Affordances as Probabilistic Interrelations
+title: Model 6 - Affordances as Probabilistic Interrelations
 description: "This model uses on-line probabilistic reasoning to perform a task in the face of various forms of ignorance and uncertainty, using the construct of 'affordance' from Ecological Psychology."
 status: draft
 is_section: true
