@@ -1,6 +1,6 @@
 ---
 layout: chapter
-title: Model 4 - Negotiating Team Roles and Responsibilities
+title: Model 5 - Negotiating Team Roles and Responsibilities
 description: "Though not a risk model, this model uses recursive multi-agent reasoning and repeated social interaction, where agents reason about each other, their collective performance, and the structure of a somewhat non-cooperative game with incomplete and imperfect information."
 status: draft
 is_section: true
