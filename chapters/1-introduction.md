@@ -27,9 +27,9 @@ The tutorial can be read sequentially, or semi-randomly guided by your curiosity
 
 You can navigate through the content by either using the [Table of Contents]({{ site.baseurl }}/index.html) (links on header and footer of every page) or sequentially by using the "(Next)  ▶︎" and "◀︎ (Previous)" links in the header and footer of each page.
 
-## Using the Interactive Code Examples
+## Using the Interactive Code Boxes
 
-Nearly all the code examples are *interactive*, meaning that you can both run the examples and also modify them using valid WebPPL statements. You can go through the whole tutorial and get value by only running the examples to see the output.  
+Nearly all the code boxes are in *interactive* frames, meaning that you can both run the examples and also modify them using valid WebPPL statements. You can go through the whole tutorial and get value by only running the examples to see the output.  
 
 Here is a code example:
 

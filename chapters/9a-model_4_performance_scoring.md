@@ -1,6 +1,6 @@
 ---
 layout: chapter
-title: Model 5 - Thomas Scoring System
+title: Model 4 - Aggregate Performance Scoring
 description: ""
 status: stub
 is_section: true
