@@ -10,7 +10,7 @@ In this chapter we'll model an agent's reasoning and behavior while they are in 
 
 ## Background
 
-This (optional) section gives some conceptual and theoretical background on the model.
+This (optional) section gives some conceptual and theoretical background.
 
 ### What is "Know How"?
 
