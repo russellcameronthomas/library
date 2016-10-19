@@ -126,6 +126,8 @@ h3 {font-family: 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
     color: #CC9; /*#DDA;*/
     text-decoration: none;
     text-align: center;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 a.site-title:hover {
@@ -317,8 +319,6 @@ ol li ol li {
 header {
     padding-top: 25px;
     padding-bottom: 30px;
-    padding-right: 15px;
-    padding-left: 15px;
     color: #bbb;
     border-style: solid;
     border-bottom: medium solid #FFFF00;
@@ -326,7 +326,10 @@ header {
     max-height : 150px;
 }
 footer {
-    padding: 30px;
+    padding-top: 25px;
+    padding-bottom: 30px;
+    padding-right: 15px;
+    padding-left: 15px;
     color: #bbb;
 }
 
