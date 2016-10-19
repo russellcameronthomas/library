@@ -31,7 +31,7 @@
     <div>
         {% if page.title.size > 0 %}
         {% if prevTitle.size > 0 %}
-            {% assign prevTitle = prevTitle | truncate: 35 %}
+            {% assign prevTitle = prevTitle | truncate: 20 %}
                 <div class ="prevLinks">
                     <a href="{{ prevURL }}">◀︎ {{ prevTitle }}</a>
                 </div>
@@ -40,7 +40,7 @@
         {% endif %}
         
         {% if nextTitle.size > 0 %}
-            {% assign nextTitle = nextTitle | truncate: 35 %}
+            {% assign nextTitle = nextTitle | truncate: 20 %}
                 <div class ="nextLinks">
                     <a href="{{ nextURL }}">{{ nextTitle }} ▶︎</a>
                 </div>

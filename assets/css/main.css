@@ -268,16 +268,16 @@ ol li ol li {
     float:right;
     width: 280px;
     text-align: right;
-   /* max-width: 280px;
-    min-width: 200px; */
+    max-width: 200px;
+    min-width: 80px;
 }
 .prevLinks {
     font-size: 80%;
     color: #bbb;
     float:left;
     text-align: left;
-    /*max-width: 280px;
-    min-width: 200px;*/
+    max-width: 200px;
+    min-width: 80px;*/
 }
 
 .highlighter-rouge {
