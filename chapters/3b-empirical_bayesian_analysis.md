@@ -20,7 +20,7 @@ Imagine that someone tosses a coin once...twice...three times and you see three 
 
 Though this problem is simple enough to calculate probabilities analytically, it makes a nice problem to start demonstrating how probabilistic programming can be used for empirical data analysis and empirical inference, in part because we can compare our results with the exact results from analysis.  For example, here are two plots with the same conditions: prior = uniform distribution, with evidence of 7 heads out of 10 tosses.  On the left is the analytical solution, and on the right is output from the program below.
 
-<img style="display:block;width:85%;" src="{{ site.baseurl }}/assets/img/analytic_vs_estimated.png">
+<img style="display:block;width:90%;" src="{{ site.baseurl }}/assets/img/analytic_vs_estimated.png">
 
 ## What is "Fair"? (A bit of subjectivity)
 
@@ -30,7 +30,7 @@ In our case, we'll define "fair" as $$0.4 \leq p \leq 0.6$$.  The *probability t
 
 <p class = "note">"...area under the curve...": This is why probability and statistics requries calculus once you start dealing with continuous probability distributions. Notice that if we only accepted p = 0.5 as "fair", then the shaded area would be zero!</p>
 
-<img style="display:block;width:65%;" src="{{ site.baseurl }}/assets/img/probability_of_fair.png">
+<img style="display:block;width:70%;" src="{{ site.baseurl }}/assets/img/probability_of_fair.png">
 
 What if this were a uniform (flat) distribution? Then the probability of a fair coin would be quite low, because much more probability mass lies outside that range than inside. *Think about this for a few seconds*.  Analysts and modelers are often inclined to use uniform distributions as prior distributions if the random variable is bounded (in this case $$0 \leq p \leq 1$$), because it feels safer to not assume *anything* about the likely value of $$p$$. But the implication, in this case, is that you are also making a fairly *strong* assumption that most coins are biased. If you only have a little evidence (i.e. a few tosses), that could lead to some weird inferences and decisions.
 
