@@ -208,12 +208,12 @@ viz.density(secondaryRiskModel,{bounds:[100,5000]});
 Let's combine them with addition, and no dependency between them.
 
 ~~~~
-var riskModel = Infer({method: "forward", samples: 10000},
+var lossMagnitude = Infer({method: "forward", samples: 10000},
     function(){ 
         // primarily loss
         var m = Math.exp(sample(Gaussian({mu : Math.log(80), 
         sigma:Math.log(1.5)})));
-        // seconary risk
+        // secondary risk
         var trigger = flip(0.4);
         var s = trigger 
             ? Math.exp(sample(Gaussian({mu : Math.log(100), 
@@ -223,39 +223,68 @@ var riskModel = Infer({method: "forward", samples: 10000},
         return {magnitude: loss};
 }); 
 
-print("Risk Probability Density");
-viz.auto(riskModel);
-viz.density(riskModel,{bounds:[0,400]});
-viz.density(riskModel,{bounds:[400,10000]});
+print("Loss Magnitude Probability Density");
+viz.auto(lossMagnitude);
+viz.density(lossMagnitude,{bounds:[0,400]});
+viz.density(lossMagnitude,{bounds:[400,10000]});
 ~~~~
 
-## Risk Model V2
+### Risk Model V2
+
+Finally, we combine the version 2 model of Loss Event Frequency and Loss Magnitude to get Risk V2.
 
 ~~~~
-var riskModel = Infer({method: "forward", samples: 10000},
-        function(){ 
-            // Loss Event Frequency
+
+var lossMagnitude = Infer({method: "forward", samples: 20000},
+    function(){ 
+        // primarily loss
+        var m = Math.exp(sample(Gaussian({mu : Math.log(80), 
+        sigma:Math.log(1.5)})));
+        // secondary risk
+        var trigger = flip(0.4);
+        var s = trigger 
+                    ? Math.exp(sample(Gaussian({mu : Math.log(100), 
+                                        sigma:Math.log(3.5)}))) 
+                    : 0;
+        var loss = m + s;
+        return loss;
+}); 
+
+var lossFreq = Infer({method: "forward", samples: 5000},
+        function(){
+            // this returns an integer
             var threatEvents = sample(Poisson({mu : 40})); 
             // a real number 0..1, probability of success
             var vulnerability = beta({a : 1.05, b: 10});   
-            var events = sample(Binomial({p:vulnerability, n: threatEvents}) );
-            // primarily loss
-            var m = Math.exp(sample(Gaussian({mu : Math.log(80), 
-            sigma:Math.log(1.5)})));
-            // seconary risk
-            var trigger = flip(0.4);
-            var s = trigger 
-                    ? Math.exp(sample(Gaussian({mu : Math.log(100), 
-                                    sigma:Math.log(3.5)}))) 
-                    : 0;
-            var loss = m + s;
-            var risk = loss * events;
+            var successes = sample(Binomial({p:vulnerability, n: threatEvents}) );
+        return successes;
+});
+
+
+var riskModel = Infer({method: "forward", samples: 50000},
+        function(){ 
+            // Loss Event Frequency
+            var events = sample(lossFreq);
+
+            var risk = sum(
+                        repeat(events,function(){return sample(lossMagnitude)})
+            );
             return {risk: risk};
 }); 
 
 print("Risk Probability Density");
-viz.auto(riskModel);
-viz.density(riskModel,{bounds:[0,400]});
-viz.density(riskModel,{bounds:[400,10000]});
+var resultSamples = repeat(5000,
+    function () {
+        var samp = sample(riskDist);
+        return samp.risk;});
+var mean = listMean(resultSamples);
+var sd = listStdev(resultSamples,mean);
+print("Risk Distribution, mean = " + mean + ", std dev = " + sd);
+
+viz.auto(riskDist);
+viz.density(riskDist,{bounds:[0,400]});
+viz.density(riskDist,{bounds:[400,10000]});
+// NOTICE: This takes a lot of execution time because so many samples are
+//         are being drawn, in order to get decent estimates in the tail
 ~~~~
 
