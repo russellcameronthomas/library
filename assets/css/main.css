@@ -268,12 +268,16 @@ ol li ol li {
     float:right;
     width: 280px;
     text-align: right;
+    max-width: 280px;
+    min-width: 200px;
 }
 .prevLinks {
     font-size: 80%;
     color: #bbb;
     float:left;
-    width: 280px;
+    text-align: left;
+    max-width: 280px;
+    min-width: 200px;
 }
 
 .highlighter-rouge {
@@ -303,6 +307,8 @@ header {
     color: #bbb;
     border-style: solid;
     border-bottom: medium solid #FFFF00;
+    min-height : 30px;
+    max-height : 150px;
 }
 footer {
     padding: 30px;

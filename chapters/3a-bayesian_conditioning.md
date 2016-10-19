@@ -25,7 +25,7 @@ In even simpler terms, Bayes rule can be used to *update* our estimate of the pr
 Often there are conditional relationships among several random variables, and Bayesian Networks are used to represent these relationships. Here is an example:
 
 <figure>
-<img style="display:block;width:400px;" src="{{ site.baseurl }}/assets/img/simple_bayesian_network.png">
+<img style="display:block;width:80%;" src="{{ site.baseurl }}/assets/img/simple_bayesian_network.png">
 <br>
 <figcaption>A simple Bayesian Network. Boxes are random variables, arrows are conditional relationships, and the tables show the conditional probabilities. (<em>source</em>: <a href="http://math.stackexchange.com/questions/1219042/cluster-probabilites-bayesian-network-sprinkler-example-russel-norvig-as-a">Math Stack Exchange</a>)</figcaption>
 </figure>
@@ -127,7 +127,7 @@ print('Probability of rain, given the sprinkler was on = '
 
 Let's look at this program in detail, built up in steps starting in the middle. This will show you all the basic ingredients for *any* WebPPL probabilistic program.
 
-<img style="display:block;width:550px;" src="{{ site.baseurl }}/assets/img/grassGetsWet1.png">
+<img style="display:block;width:95%;" src="{{ site.baseurl }}/assets/img/grassGetsWet1.png">
 
 Starting in the middle, the code highlighted in yellow is the **generative model** that specifies the random variables and their probability distributions. **Notice that the logic in this section is simply a transcription of the Bayesian Network, above.**  Short and simple!
 
@@ -135,15 +135,15 @@ Starting in the middle, the code highlighted in yellow is the **generative model
 
 The function "*predicate* `?` *if_true* `:` *if_false*" is "syntatic sugar" for an `ifelse( )` function that you might recognize in other languages. It returns *if_true* statement if *predicate* is true, and *if_false* otherwise.  This function is very useful and often necessary functional programming to conditionally assign a value of a variable.
 
-<img style="display:block;width:550px;" src="{{ site.baseurl }}/assets/img/grassGetsWet2.png">
+<img style="display:block;width:95%;" src="{{ site.baseurl }}/assets/img/grassGetsWet2.png">
 
 After the generative model is a `condition(...);` statement. **This is how WebPPL introduces observations** (a.k.a. empirical data, constraints, etc.).  Condition statements are optional.
 
-<img style="display:block;width:550px;" src="{{ site.baseurl }}/assets/img/grassGetsWet3.png">
+<img style="display:block;width:95%;" src="{{ site.baseurl }}/assets/img/grassGetsWet3.png">
 
 The last statement is a return statement, which is the posterior distribution you are trying to make inferences on.
 
-<img style="display:block;width:550px;" src="{{ site.baseurl }}/assets/img/grassGetsWet4.png">
+<img style="display:block;width:95%;" src="{{ site.baseurl }}/assets/img/grassGetsWet4.png">
 
 The final ingredient to a WebPPL program is the `Infer(...);` statement.  **This function does the "magic" of conditioning the random variables on the observations**.  It takes two parameters: 1) an inference method (e.g. "Enumerate"); and 2) the generative function that encompasses your model plus observed data (via `condition` statements.)
 
@@ -200,7 +200,7 @@ viz.auto(generateXconditioned(4));
 
 But when the distributions aren't simple or "nice", the math gets messy real fast, looking something like this:
 
-<img style="display:block;width:350px;" src="{{ site.baseurl }}/assets/img/integral_equation.png">
+<img style="display:block;width:45%;" src="{{ site.baseurl }}/assets/img/integral_equation.png">
 
 In the next code window is essentially the same program, but with more complex distributions.  Notice that the program is not really much more complex, and the execution times (complile and run) are about the same.
 

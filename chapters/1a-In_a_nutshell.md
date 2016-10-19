@@ -28,19 +28,19 @@ For risk analysts, the main of benefit probabilistic programming is that it has 
 From statistics, you will be familiar with discrete and continuous probability distributions, where the *support* is either a finite discrete set or a range of real numbers.
 
 |:---------------------------------------:|:---------------------------------------:|
-|<img style="float: left;width:300px;" src="{{ site.baseurl }}/assets/img/Discrete_probability_distribution.png"> | <img style="float: right;width:300px;" src="{{ site.baseurl }}/assets/img/Continuous_probability_distribution.png">|
+|<img style="float: left;width:95%;" src="{{ site.baseurl }}/assets/img/Discrete_probability_distribution.png"> | <img style="float: right;width:95%;" src="{{ site.baseurl }}/assets/img/Continuous_probability_distribution.png">|
 
 What's *different* and *better* about probabilistic programming is that you can work with probability distributions over infinite sets of complex objects.
 
 
-<img style="display:block;width:500px;" src="{{ site.baseurl }}/assets/img/probability_distributions_over_infinite_set.png">
+<img style="display:block;width:70%;" src="{{ site.baseurl }}/assets/img/probability_distributions_over_infinite_set.png">
 
 Unlike Bayesian Networks, you aren't limited to dependence or conditional structures that are directed acyclic graphs (DAGs). You can model  dependence or conditional structures of *arbitrary*<sup>*</sup> complexity, including circular or recursive systems.
 
 <p align="right"><font size="2"><sup>*</sup>As long as they are finite and computable.</font></p>
 
 
-<img style="display:block;width:350px;" src="{{ site.baseurl }}/assets/img/probabilistic_models_of_recursive_reasoning.png">
+<img style="display:block;width:55%;" src="{{ site.baseurl }}/assets/img/probabilistic_models_of_recursive_reasoning.png">
 
 That should **blow**...**your**...**mind**!
 

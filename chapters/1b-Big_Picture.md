@@ -9,7 +9,7 @@ Probabilistic programming is a hybrid computing system, combining a Turing-compl
 
 ### "Math of Data": Statistical Inference<sup id="a3">[3](#f3)</sup>
 
-<img style="float: right;width:350px;" src="{{ site.baseurl }}/assets/img/statistical_inference_algorithms.png">
+<img style="float: right;width:45%;" src="{{ site.baseurl }}/assets/img/statistical_inference_algorithms.png">
 Statistical inference algorithms (e.g. linear models, null-hypothesis tests, etc.) take **empirical data** (a.k.a. "evidence") as input, a set of **specifications** (a.k.a. "query") and produce **fitted parameters** (a.k.a. "answers") as output.
 
 Buried in every statistical inference algorithm are assumptions that can be interpreted as its **model** of the **data generation process**. It's called "inference" because the algorithm finds the model parameters ("answers") that give the best fit to the empirical data ("evidence"). Examples:
@@ -20,7 +20,7 @@ Buried in every statistical inference algorithm are assumptions that can be inte
 What if the evidence doesn't fit the model of data generation? With statistical inference tools, you need to switch algorithms, or maybe chain them together in some way.  Unless you write your own statistical inference algorithms, you can't programmatically specify the data generation process.
 
 ### "Math of Thought": Logic and Programs<sup id="a3">[3](#f3)</sup>
-<img style="float: right;width:350px;" src="{{ site.baseurl }}/assets/img/generative_probabilistic_model.png">
+<img style="float: right;width:45%;" src="{{ site.baseurl }}/assets/img/generative_probabilistic_model.png">
 Now we switch our attention from the data to the system that generates the data. Computer programs are the tools we use to simulate the system, taking model parameters and initial conditions as inputs.  If there is no randomness in the programs, then the simulations produce the same outputs each run.  
 
 ---
@@ -81,7 +81,7 @@ print("Stochastic program: A random draw from uniform distribution\n x =" + x);
 
 <a id="monte_carlo">The Monte Carlo method</a> involves running a stochastic program $$N$$ times and analyzing the distribution of outcomes.
 
-<img style="display:block;width:500px;" src="{{ site.baseurl }}/assets/img/monte_carlo_example.png">
+<img style="display:block;width:90%;" src="{{ site.baseurl }}/assets/img/monte_carlo_example.png">
 
 Ordinary programming languages (C, Java, PHP, R, Lisp) are 'Turing-complete' because they all the full computational power of a Turing Machine.
 
