@@ -25,7 +25,7 @@ In even simpler terms, Bayes rule can be used to *update* our estimate of the pr
 Often there are conditional relationships among several random variables, and Bayesian Networks are used to represent these relationships. Here is an example:
 
 <figure>
-<img style="display:block;width:80%;" src="{{ site.baseurl }}/assets/img/simple_bayesian_network.png">
+<img style="display:block;width:95%;" src="{{ site.baseurl }}/assets/img/simple_bayesian_network.png">
 <br>
 <figcaption>A simple Bayesian Network. Boxes are random variables, arrows are conditional relationships, and the tables show the conditional probabilities. (<em>source</em>: <a href="http://math.stackexchange.com/questions/1219042/cluster-probabilites-bayesian-network-sprinkler-example-russel-norvig-as-a">Math Stack Exchange</a>)</figcaption>
 </figure>
@@ -200,7 +200,7 @@ viz.auto(generateXconditioned(4));
 
 But when the distributions aren't simple or "nice", the math gets messy real fast, looking something like this:
 
-<img style="display:block;width:45%;" src="{{ site.baseurl }}/assets/img/integral_equation.png">
+<img style="display:block;width:65%;" src="{{ site.baseurl }}/assets/img/integral_equation.png">
 
 In the next code window is essentially the same program, but with more complex distributions.  Notice that the program is not really much more complex, and the execution times (complile and run) are about the same.
 
