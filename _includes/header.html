@@ -25,10 +25,10 @@
 
 
 <header class="site-header">
-    <div>
+    <div >
         <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
     </div>
-    <div>
+    <div class = "navLinks">
         {% if page.title.size > 0 %}
         {% if prevTitle.size > 0 %}
             {% assign prevTitle = prevTitle | truncate: 20 %}
