@@ -32,15 +32,15 @@ The construct of affordances has become well known in the field of Design, espec
 
 Here are several quotes from reft:rietveld_rich_2014 that give further explanations:
 
-> "Affordances are relations between aspects of a material [or social] environment and abilities available in a form of life."
+<p class="note">"Affordances are relations between aspects of a material [or social] environment and abilities available in a form of life."</p>
 
-> "Affordances are possibilities for action the environment offers to a form of life, and an ecological niche is a network of interrelated affordances available in a particular form of life on the basis of the abilities manifested in its practices -- its stable ways of doing things. An individual affordance is an aspect of such a niche."
+<p class="note">"Affordances are possibilities for action the environment offers to a form of life, and an ecological niche is a network of interrelated affordances available in a particular form of life on the basis of the abilities manifested in its practices -- its stable ways of doing things. An individual affordance is an aspect of such a niche."</p>
 
-> "Affordances are real in much the same way as colors are real.  Both are there independent of any particular individual's action but not independent of the *practices* and *abilities* that characterize our form of life as a whole."
+<p class="note">"Affordances are real in much the same way as colors are real.  Both are there independent of any particular individual's action but not independent of the <em>practices</em> and <em>abilities</em> that characterize our form of life as a whole."</p>
 
-> "Affordances are publicly available and in principle detectable by any individual with the right experience and training. At this level of the acting individual, affordances can be seen as usable resources already available in the environment to be picked up by an individual equipped with the relevant abilities."
+<p class="note">"Affordances are publicly available and in principle detectable by any individual with the right experience and training. At this level of the acting individual, affordances can be seen as usable resources already available in the environment to be picked up by an individual equipped with the relevant abilities."</p>
 
-> "The ability to act adequately on affordances in the particular situation is dependent on an individual animal’s dynamically changing abilities and concerns. The particular affordances one is engaged with in the concrete situation will vary with the current activity and concerns of the individual. We can be drawn to act on one affordance rather than another."
+<p class="note">"The ability to act adequately on affordances in the particular situation is dependent on an individual animal’s dynamically changing abilities and concerns. The particular affordances one is engaged with in the concrete situation will vary with the current activity and concerns of the individual. We can be drawn to act on one affordance rather than another."</p>
 
 While much of the literature of affordances treat the implications as binary -- *possible* vs. *impossible* -- we will adopt and extend the idea of reft:franchak_affordances_2014 to treat affordance implications as fuzzy.
 
@@ -68,113 +68,460 @@ The agent's interaction with the "doorway affordance" is two-fold: 1) on-going v
 Here is a *reactive* version of this simple model, meaning that the agent only reacts to *immediate perceptions* and doesn't make inferences about the future.  Notice that I've set the size of the doorway $$o$$ to equal the agent's width $$w$$. This means that the agent must decide to turn sideways if it attempts to walk through the doorway, otherwise it will fail.
 
 ~~~~
-var startingDistance = 10;
+// Model Parameters
+var startX = 0;
+var startY = 10;
 var maxDistance = 12;       // beyond maxDistance, 
-                            // the agent is no longer able to perceive 
-                            // relative size (i.e. knowledge = 0)
+// the agent is no longer able to perceive 
+// relative size (i.e. knowledge = 0)
+
+var o = 4.1; // doorway opening
+var w = 4;   // agent width
+var d = 2;   // agent depth, which becomes width if agent turns sideways
+
+// walking parameters
+var lamda = 0.7;  // 70% of path error will be corrected each step
+var driftX = 0.2;   //  sigma parameter in Gaussian drift term
 
 // sensitivity: parameter controlling vaguness/clarity (steepness) in 
 //   the logistic function, given complete knowledge
-var sensitivity = 5;   
-var o = 4;
-var w = 4;
-var d = 2;
+var sensitivity = 5;
+// pTurn: the max probability the agent will actually turn, 
+//    if the belief conditions for turning are true
+var pTurn = 1;
+var belSmallerTurn = 0.4; // belief SMALLER must be greater than this
+var belBiggerTurn = 0.4;  // AND belief BIGGER must be less than this
+
+
+// pStop: the max probability the agent will actually stop, 
+//    if the belief conditions for stopping are true
+var pStop = 1;
+// If already turned sideways
+// (knowledge > 0.5 && smaller > 0.5 && bigger < 0.5)
+var knowledgeStopSide = 0.5;
+var belSmallerStopSide = 0.5;
+var belBiggerStopSide = 0.5;
+// If facing forward
+// (knowledge > 0.2 && smaller > 0.4 && bigger < 0.01)
+var knowledgeStop = 0.2;
+var belSmallerStop = 0.4;
+var belBiggerStop = 0.01;
+
+///fold:
+//#######################################################
+// Utility functions
+var roundN = function(x, N){
+var multiplier = Math.pow(10,N);
+var rounded = Math.round(x * multiplier) / multiplier;
+return rounded
+}
+
+var printAll = function(arr,i){
+    if (i < arr.length){
+        print(arr[i]);
+        printAll(arr, i + 1);
+    }
+}
 
 //https://en.wikipedia.org/wiki/Logistic_function
 var logistic = function(deltaX, k){
-    return 1 / (1 + Math.exp(-k * deltaX));
+return 1 / (1 + Math.exp(-k * deltaX));
 }
-
+//#######################################################
+///
 // Size perception is both vague and noisy
+///fold:
 //   It returns D-S Belief for two propositions: bigger and  smaller
 //   Also knowledge: weight of evidence, a function of distance. 
 //                = 0 at maxDistance, and = 1.0 when distance == 0
 
-var perceivedOpening = function(distance, opening, myWidth, state){
+var perceivedOpening = function(x, distance, opening, myWidth, state){
     // knowlege is the amount of subjective belief available allocate 
     //   the other variables: "bigger" and "smaller".
     var knowledge = Math.max(0, (1 - (distance / maxDistance)));
     // here is the "noisy" aspect, relative to agent's width w
     var perceivedO = Math.max(0,gaussian({mu: opening, 
-                                        sigma: ((w / 8) * (1 - knowledge)) })
-                    );
+        sigma: ((w / 8) * (1 - knowledge)) })
+    );
     // here is the "vague" aspect
     var bigger = logistic(perceivedO - myWidth, 
-                            1  + (sensitivity * knowledge)) * knowledge;
+                    1  + (sensitivity * knowledge)) * knowledge;
     var smaller = logistic(myWidth - perceivedO,  
-                            1  + (sensitivity * knowledge)) * knowledge;
-
-    return {dist : distance,
-            state : state,
-            bigger : bigger,
-            smaller : smaller,
-            k : knowledge};
+                    1  + (sensitivity * knowledge)) * knowledge;
+    return {
+        x : x,
+        y : distance,
+        state : state,
+        bigger : roundN(bigger, 4),
+        smaller : roundN(smaller, 4),
+        k : roundN(knowledge, 4)
+    };
+}
+///
+// Decision functions
+///fold:
+var decideToTurn = function(bigger, smaller, knowledge, distance){
+    return smaller > belSmallerTurn && bigger < belBiggerTurn
+                    ? distance >= 1 ? flip((1 / distance) * pTurn) : true
+                    : false;
 }
 
-var decideToTurn = function(bigger, smaller, knowledge){
-    return knowledge > 0.2 && smaller > 0.3 && bigger < 0.2;
-}
-
-var decideToStop = function(bigger, smaller, knowledge, state){
+var decideToStop = function(bigger, smaller, knowledge, state, distance){
     return state === "side" 
-            ? knowledge > 0.5 && smaller > 0.5 && bigger < 0.5
-            : knowledge > 0.2 && smaller > 0.5 && bigger < 0.01;
+        ? (knowledge > knowledgeStopSide 
+            && smaller > belSmallerStopSide 
+            && bigger < belBiggerStopSide)
+                ? distance >= 1 ? flip((1 / distance) * pStop) : true
+                : false
+        : (knowledge > knowledgeStop // 0.2 
+            && smaller > belSmallerStop //0.5 
+            && bigger < belBiggerStop // 0.01
+            )
+                ? distance >= 1 ? flip((1 / distance) * pStop) : true
+                : false ;
+}
+///
+//State change functions
+///fold:
+var throughDoorWay = function(x, opWidth, doorway){
+    //return opWidth < doorway ? "success" : "fail";
+    var minX = - doorway / 2; // the doorway is centered on the x axis
+    var maxX = doorway / 2;
+    return (x - (opWidth / 2) > minX) 
+        && (x + (opWidth / 2) < maxX)
+            ? "success"
+        : "fail";
 }
 
-var step = function(distance, perceptions, state, opWidth){
-    if (distance <=0 || state === "stopped" ){
+var walk = function(currentX, goalX){
+    // this is a mean-reverting random walk
+    return currentX 
+        + (goalX - currentX) * lamda        // error correction term
+        + gaussian({mu: 0, sigma: driftX}) // random drift term
+        ;
+}
+///
+
+// Main simulation function
+var step = function(x, y, perceptions, state, opWidth){
+    if (y <=0 || state === "stopped" ){
         var finalState = state === "stopped" 
             ? "stopped"
-            : o > opWidth 
-                ? "success"
-                : "fail";
-        var percept = perceivedOpening(distance, o, opWidth, state);
-        var newPercept = {dist: distance,
+            : throughDoorWay(x, opWidth, o); 
+        var percept = perceivedOpening(x, y, o, opWidth, state);
+        var newPercept = {
+                        x: x,
+                        y: y,
                         state:  finalState,
                         bigger: percept.bigger, 
                         smaller:  percept.smaller, 
                         k:   percept.k
-                    };
+        };
         var newPerceptions = Array.prototype.concat(perceptions,newPercept);
         return state === "stopped"
-                        ? perceptions
-                        : newPerceptions;
+                    ? perceptions
+                    : newPerceptions;
     } else {
-        var percept = perceivedOpening(distance, o, opWidth, state);
+        var newX = walk(x, 0);
+        var percept = perceivedOpening(newX, y, o, opWidth, state);
 
         var newOpWidth = opWidth > d && 
-                decideToTurn(percept.bigger, 
-                            percept.smaller, 
-                            percept.k) 
-                ? d
-                : opWidth;
+                        decideToTurn(percept.bigger, 
+                                    percept.smaller, 
+                                    percept.k,
+                                    y) 
+                        ? d
+                        : opWidth;
         var newState = decideToStop(percept.bigger, 
                                     percept.smaller, 
                                     percept.k,
-                                    state)
+                                    state,
+                                    y)
                         ? "stopped"
-                        : opWidth == w ? "forward" : "side";
+                        : newOpWidth == w ? "forward" : "side";
         // update in case the state changed
-        var newPercept = {dist: distance,
-                        state:  newState,
-                        bigger: percept.bigger, 
-                        smaller:  percept.smaller, 
-                        k:   percept.k
-                        };
+        var newPercept = {x: newX,
+                          y: y,
+                          state:  newState,
+                          bigger: percept.bigger, 
+                          smaller:  percept.smaller, 
+                          k:   percept.k
+        };
         var newPerceptions = Array.prototype.concat(perceptions,newPercept);
-        step(distance - 1, newPerceptions, newState, newOpWidth);
+
+        step(newX, y - 1, newPerceptions, newState, newOpWidth);
     }
 }
 
-var results = step(startingDistance,[],"forward",w);
+
+var singleRun = step(startX,startY,[],"forward",w);
+
+print("Doorway width = " + o + "; Agent w X d = " + w + " X " + d + 
+        "; sensitivity = " + sensitivity + "; max_distance = " + maxDistance);
+print("Single Run:");
+printAll(singleRun,0);
+
+~~~~
+
+This verision makes slight additions to the model to make it *reflective*, meaning that the agent makes a forward inference (in time) to estimate the probabilities over final states.
+
+We'd like to find out what doorway opening $$o$$ would yield a $$Pr(success)=0.5$$.  We'll create a prior distribution on $$o$$, assuming a Gaussian with a mean is just above the agent's width $$w$$, and a minimum constraint of the agent's depth $$d$$.  The *sigma* will be $$d/2$$, which expresses our belief that the posterior for $$o$$ is most likely to be in the range 2 to 6 (two standard deviations above and below the mean of about 4).
+
+~~~~
+
+var startX = 0;
+var startY = 10;
+var maxDistance = 12;       // beyond maxDistance, 
+// the agent is no longer able to perceive 
+// relative size (i.e. knowledge = 0)
+
+var o = 4.3; // doorway opening
+var w = 4;   // agent width
+var d = 2;   // agent depth, which becomes width if agent turns sideways
+
+///fold:
+// walking parameters
+var lamda = 0.7;  // 70% of path error will be corrected each step
+var driftX = 0.2;   //  sigma parameter in Gaussian drift term
+
+// sensitivity: parameter controlling vaguness/clarity (steepness) in 
+//   the logistic function, given complete knowledge
+var sensitivity = 5;
+// pTurn: the max probability the agent will actually turn, 
+//    if the belief conditions for turning are true
+var pTurn = 1;
+var belSmallerTurn = 0.4; // belief SMALLER must be greater than this
+var belBiggerTurn = 0.4;  // AND belief BIGGER must be less than this
+
+
+// pStop: the max probability the agent will actually stop, 
+//    if the belief conditions for stopping are true
+var pStop = 1;
+// If already turned sideways
+// (knowledge > 0.5 && smaller > 0.5 && bigger < 0.5)
+var knowledgeStopSide = 0.5;
+var belSmallerStopSide = 0.5;
+var belBiggerStopSide = 0.5;
+// If facing forward
+// (knowledge > 0.2 && smaller > 0.4 && bigger < 0.01)
+var knowledgeStop = 0.2;
+var belSmallerStop = 0.4;
+var belBiggerStop = 0.01;
+///
+
+// Utility functions
+///fold:
+var roundN = function(x, N){
+var multiplier = Math.pow(10,N);
+var rounded = Math.round(x * multiplier) / multiplier;
+return rounded
+}
 
 var printAll = function(arr,i){
     if (i < arr.length){
-    print(arr[i]);
-    printAll(arr, i + 1);
+        print(arr[i]);
+        printAll(arr, i + 1);
     }
 }
-printAll(results,0);
+
+var findIndexed = function(arr, item){
+  var m = mapIndexed(function(i, x){return x === item ? i : -1 ;}, arr);
+  var matches = remove(-1,m);
+  return matches.length > 0 ? first(matches) : -1;
+}
+
+var getDiscretePr = function(distr,key){
+  // "dist" must be an object with "params" and "supp"
+  //   e.g. {"params":[1],"supp":["success"]}
+  var index = findIndexed(distr.supp,key,0);
+  if (index >= 0){
+    var dist = Object.values(distr.params.dist);
+    return dist[index].prob;
+  } else {
+    return 0;
+  }
+}
+
+//https://en.wikipedia.org/wiki/Logistic_function
+var logistic = function(deltaX, k){
+return 1 / (1 + Math.exp(-k * deltaX));
+}
+///
+// Size perception is both vague and noisy
+///fold:
+//   It returns D-S Belief for two propositions: bigger and  smaller
+//   Also knowledge: weight of evidence, a function of distance. 
+//                = 0 at maxDistance, and = 1.0 when distance == 0
+
+var perceivedOpening = function(x, distance, opening, myWidth, state){
+    // knowlege is the amount of subjective belief available allocate 
+    //   the other variables: "bigger" and "smaller".
+    var knowledge = Math.max(0, (1 - (distance / maxDistance)));
+    // here is the "noisy" aspect, relative to agent's width w
+    var perceivedO = Math.max(0,gaussian({mu: opening, 
+        sigma: ((w / 8) * (1 - knowledge)) })
+    );
+    // here is the "vague" aspect
+    var bigger = logistic(perceivedO - myWidth, 
+                    1  + (sensitivity * knowledge)) * knowledge;
+    var smaller = logistic(myWidth - perceivedO,  
+                    1  + (sensitivity * knowledge)) * knowledge;
+    return {
+        x : x,
+        y : distance,
+        state : state,
+        bigger : roundN(bigger, 4),
+        smaller : roundN(smaller, 4),
+        k : roundN(knowledge, 4)
+    };
+}
+///
+// Decision functions
+///fold:
+var decideToTurn = function(bigger, smaller, knowledge, distance){
+    return smaller > belSmallerTurn && bigger < belBiggerTurn
+                    ? distance >= 1 ? flip((1 / distance) * pTurn) : true
+                    : false;
+}
+
+var decideToStop = function(bigger, smaller, knowledge, state, distance){
+    return state === "side" 
+        ? (knowledge > knowledgeStopSide 
+            && smaller > belSmallerStopSide 
+            && bigger < belBiggerStopSide)
+                ? distance >= 1 ? flip((1 / distance) * pStop) : true
+                : false
+        : (knowledge > knowledgeStop // 0.2 
+            && smaller > belSmallerStop //0.5 
+            && bigger < belBiggerStop // 0.01
+            )
+                ? distance >= 1 ? flip((1 / distance) * pStop) : true
+                : false ;
+}
+///
+//State change functions
+///fold:
+var throughDoorWay = function(x, opWidth, doorway){
+    //return opWidth < doorway ? "success" : "fail";
+    var minX = - doorway / 2; // the doorway is centered on the x axis
+    var maxX = doorway / 2;
+    return (x - (opWidth / 2) > minX) 
+        && (x + (opWidth / 2) < maxX)
+            ? "success"
+        : "fail";
+}
+
+var walk = function(currentX, goalX){
+    // this is a mean-reverting random walk
+    return currentX 
+        + (goalX - currentX) * lamda        // error correction term
+        + gaussian({mu: 0, sigma: driftX}) // random drift term
+        ;
+}
+///
+
+// Main simulation function
+///fold:
+var step = function(x, y, perceptions, state, opWidth,opening){
+    if (y <=0 || state === "stopped" ){
+        var finalState = state === "stopped" 
+            ? "stopped"
+            : throughDoorWay(x, opWidth, opening); 
+        var percept = perceivedOpening(x, y, opening, opWidth, state);
+        var newPercept = {
+                        x: x,
+                        y: y,
+                        state:  finalState,
+                        bigger: percept.bigger, 
+                        smaller:  percept.smaller, 
+                        k:   percept.k
+        };
+        var newPerceptions = Array.prototype.concat(perceptions,newPercept);
+        return state === "stopped"
+                    ? perceptions
+                    : newPerceptions;
+    } else {
+        var newX = walk(x, 0);
+        var percept = perceivedOpening(newX, y, opening, opWidth, state);
+
+        var newOpWidth = opWidth > d && 
+                        decideToTurn(percept.bigger, 
+                                    percept.smaller, 
+                                    percept.k,
+                                    y) 
+                        ? d
+                        : opWidth;
+        var newState = decideToStop(percept.bigger, 
+                                    percept.smaller, 
+                                    percept.k,
+                                    state,
+                                    y)
+                        ? "stopped"
+                        : newOpWidth == w ? "forward" : "side";
+        // update in case the state changed
+        var newPercept = {x: newX,
+                          y: y,
+                          state:  newState,
+                          bigger: percept.bigger, 
+                          smaller:  percept.smaller, 
+                          k:   percept.k
+        };
+        var newPerceptions = Array.prototype.concat(perceptions,newPercept);
+
+        step(newX, y - 1, newPerceptions, newState, newOpWidth,opening);
+    }
+}
+///
+/*
+var singleRun = step(startX,startY,[],"forward",w);
+
+print("Doorway width = " + o + "; Agent w X d = " + w + " X " + d + 
+        "; sensitivity = " + sensitivity + "; max_distance = " + maxDistance);
+print("Single Run:");
+printAll(singleRun,0);
+*/
+var K = 300;
+
+var projection = function(opening) {
+  return Infer({method:"forward",samples : K},
+    function(){
+        var aRun = step(startX,startY,[],"forward",w,opening);
+        return last(aRun).state;
+     });
+}
+print("Summary of " + K +  " runs with opening = " + o);
+var result = projection(o);
+viz.auto(result);
+
+
+
+var openingsPrior = function(){
+  var mu = w * 1.1 ;
+  var sigma = d / 2;
+  var draw = gaussian({mu:mu, sigma:sigma});
+  return Math.max(d,draw);
+}
+
+var openings = Infer({method:"MCMC", kernal: "HMC", samples : 3000, burn: 100},
+       function(){
+           var op = openingsPrior();
+           var state = projection(op);
+           var success = getDiscretePr(state,"success");
+           //observe(Gaussian({mu: 0.5,sigma : 0.1}),success);
+           var penalty = // -5;
+                 (1 - 
+                            Math.pow(
+                               Math.exp(
+                                Math.abs(0.5 - success)
+                               ), 10)
+                            );
+                            
+           factor(success >= 0.49 && success <= 0.51 ? 0 : penalty);
+           return {o : op};
+        });
+        
+viz.auto(openings);
+
 
 ~~~~
 
