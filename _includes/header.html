@@ -25,7 +25,11 @@
 
 
 <header class="site-header">
-    {% if page.title.size > 0 %}
+    <div>
+        <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+    </div>
+    <div>
+        {% if page.title.size > 0 %}
         {% if prevTitle.size > 0 %}
             {% assign prevTitle = prevTitle | truncate: 35 %}
                 <div class ="prevLinks">
@@ -42,7 +46,7 @@
                 </div>
         {% else %}
                 <div class ="nextLinks"><p></p></div>
-        {% endif %
+        {% endif %}
     {% endif %}
-    <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+    </div>
 </header>
