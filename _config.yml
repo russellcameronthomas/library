@@ -1,13 +1,13 @@
 # Site settings
-title: "Tutorial: Risk Modeling with Probabilistic Programs"
+title: "Tutorials"
 author: "Russell Cameron Thomas"
 author_title: "PhD Candidate"
 author_dept: "Computational & Data Sciences"
 author_affiliation: "George Mason University"
 author_url: "http://exploringpossibilityspace.blogspot.com"
 baseurl: ""
-#baseurl: "http://riskmodels.meritology.com"
-url: "http://riskmodels.meritology.com"
+#baseurl: "http://tutorials.meritology.com"
+url: "http://tutorials.meritology.com"
 
 # Build settings
 markdown: kramdown
