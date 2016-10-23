@@ -40,14 +40,17 @@ html {
     .site-title {
         display: none;
     }
+    .home {
+        display: none;
+    }
     header{
         display: none;
     }
-    /*img.resize{
+    img.resize{
         width:50% !important;
         height:auto;
         page-break-inside: avoid;
-    }*/
+    }
     .katex { font-size: 12px !important; }
     h1 {
         font-family: 'Lucida Grande','Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
@@ -126,12 +129,29 @@ h3 {font-family: 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
     color: #DDA;
     text-decoration: none;
     text-align: center;
+    padding-top: 20px;
     padding-right: 15px;
     padding-left: 15px;
 }
 
 a.site-title:hover {
     text-decoration: underline
+}
+
+.home {
+    float: left;
+    text-decoration: none;
+    text-align: left;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+a.home:hover {
+    background-color: #FF0;
+}
+
+img.home-icon:hover {
+    filter: brightness(0);
 }
 
 a.chapter-link {
@@ -317,7 +337,7 @@ ol li ol li {
 
 
 header {
-    padding-top: 25px;
+    padding-top: 5px; 
     padding-bottom: 30px;
     color: #bbb;
     border-style: solid;

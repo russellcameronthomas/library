@@ -1,5 +1,23 @@
 # Site settings
-title: "Tutorials"
+title: "Library"
+collections:
+  riskmodels:
+    output: true
+    sort_order: 0
+    title: "Tutorial: Risk Modeling with Probabilistic Programming"
+  institutions:
+    output: true
+    sort_order: 1
+    title: "Models of Teams, Institutions, and Innovation"
+
+tutorial_title_1: "Risk Modeling with Probabilistic Programming"
+tutorial_title_2: "Teams, Institutions, and Innovation"
+tutorial_title_3: ""
+tutorial_title_4: ""
+tutorial_directory_1: "riskmodels"
+tutorial_directory_2: "institutions"
+tutorial_directory_3: ""
+tutorial_directory_4: ""
 author: "Russell Cameron Thomas"
 author_title: "PhD Candidate"
 author_dept: "Computational & Data Sciences"

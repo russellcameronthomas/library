@@ -1,26 +1,51 @@
-{% assign sorted_pages = site.pages | sort:"name" %}
-
-
-{% for p in sorted_pages %}
-   {% if p.name == page.name %}
-       {% assign currPageIndex = forloop.index %}
-       {% break %}
-   {% endif %}
+{% for c in site.collections %}
+    {% if c.label == page.collection %}
+        {% assign myCollection = c %}
+    {% endif %}
 {% endfor %}
 
+
+{% for p in myCollection.docs %}
+{% if forloop.index > 0 %}
+{% assign len = unsorted_pages.size %}
+{% assign unsorted_pages[len] =  p %}
+{% endif %}
+{% endfor %}
+
+{% assign sorted_pages = myCollection.docs %}
+{% assign p_count = myCollection.docs | size %}
+
+{% assign currPageIndex = -1 %}
+{% for p in myCollection.docs %}
+{% if p.title == page.title  %}
+{% assign currPageIndex = forloop.index0 %}
+{% break %}
+{% endif %}
+{% endfor %}
+
+{% if currPageIndex >= 0 %}
 {% assign prevIndex = currPageIndex | minus: 1 %}
-{% assign nextIndex = currPageIndex | plus: 1 %}
+{% if prevIndex < 0 %}
+{% assign prevIndex = prevIndex | plus : p_count %}
+{% endif %}
 
-{% for p in sorted_pages %}
-    {% if forloop.index == prevIndex %}
-        {% assign prevURL = p.url %}
-        {% assign prevTitle = p.title %}
-    {% endif %}
-    {% if forloop.index == nextIndex %}
-        {% assign nextURL = p.url %}
-    {% assign nextTitle = p.title %}
-    {% endif %}
+{% assign nextIndex = currPageIndex | plus: 1 %}
+{% if nextIndex >= p_count %}
+{% assign nextIndex = nextIndex | minus : p_count %}
+{% endif %}
+
+{% for p in myCollection.docs %}
+{% if forloop.index0 == prevIndex %}
+{% assign prevURL = p.url %}
+{% assign prevTitle = p.title %}
+{% endif %}
+{% if forloop.index0 == nextIndex %}
+{% assign nextURL = p.url %}
+{% assign nextTitle = p.title %}
+{% endif %}
 {% endfor %}
+{% endif %}
+
 
 {% assign prevTitle = prevTitle | truncate: 20 %}
 {% assign nextTitle = nextTitle | truncate: 20 %}
@@ -46,7 +71,12 @@
     {% endif %}
     <br/>
     <br/>
-  <a href="/">Table of Contents</a> | <a href="/editor.html" target="_blank">Interactive Editor</a> <!-- | <a href="https://github.com/russellcameronthomas/riskmodels" id="github-edit-link">Edit on Github</a> -->
+    {% if page.collection %}
+    {% assign toc = "/{{ page.collection }}/index.html" %}
+    {% else %}
+    {% assign toc = "/" %}
+    {% endif %}
+  <a href={{ toc }}>Table of Contents</a> | <a href="/editor.html" target="_blank">Interactive Editor</a> <!-- | <a href="https://github.com/russellcameronthomas/riskmodels" id="github-edit-link">Edit on Github</a> -->
   </div>
 <br />
 <br />

@@ -1,8 +1,9 @@
 ---
 layout: chapter
-title: Model 5 - Negotiating Team Roles and Responsibilities
+title: Negotiating Team Roles and Responsibilities
 description: "This model uses recursive multi-agent reasoning and repeated social interaction, where agents reason about each other, their collective performance, and the structure of a somewhat non-cooperative game with incomplete and imperfect information."
 status: draft
+sort_order: 2
 is_section: true
 ---
 This model is drawn from reft:ethiraj_bounded_2004<sup id="a1">[1](#f1)</sup>, which is a stochastic evolutionary program (blind variation and selective retention). After replicating their model, we add cognitive elements and then frame it as a problem of team negotiation rather than blind search.

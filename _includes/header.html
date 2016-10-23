@@ -1,32 +1,66 @@
-{% assign sorted_pages = site.pages | sort:"name" %}
+{% for c in site.collections %}
+    {% if c.label == page.collection %}
+        {% assign myCollection = c %}
+    {% endif %}
+{% endfor %}
 
 
-{% for p in sorted_pages %}
-{% if p.name == page.name %}
-{% assign currPageIndex = forloop.index %}
+{% for p in myCollection.docs %}
+{% if forloop.index > 0 %}
+{% assign len = unsorted_pages.size %}
+{% assign unsorted_pages[len] =  p %}
+{% endif %}
+{% endfor %}
+
+{% assign sorted_pages = myCollection.docs %}
+{% assign p_count = myCollection.docs | size %}
+
+{% assign currPageIndex = -1 %}
+{% for p in myCollection.docs %}
+{% if p.title == page.title  %}
+{% assign currPageIndex = forloop.index0 %}
 {% break %}
 {% endif %}
 {% endfor %}
 
+{% if currPageIndex >= 0 %}
 {% assign prevIndex = currPageIndex | minus: 1 %}
-{% assign nextIndex = currPageIndex | plus: 1 %}
+{% if prevIndex < 0 %}
+{% assign prevIndex = prevIndex | plus : p_count %}
+{% endif %}
 
-{% for p in sorted_pages %}
-{% if forloop.index == prevIndex %}
+{% assign nextIndex = currPageIndex | plus: 1 %}
+{% if nextIndex >= p_count %}
+{% assign nextIndex = nextIndex | minus : p_count %}
+{% endif %}
+
+{% for p in myCollection.docs %}
+{% if forloop.index0 == prevIndex %}
 {% assign prevURL = p.url %}
 {% assign prevTitle = p.title %}
 {% endif %}
-{% if forloop.index == nextIndex %}
+{% if forloop.index0 == nextIndex %}
 {% assign nextURL = p.url %}
 {% assign nextTitle = p.title %}
 {% endif %}
 {% endfor %}
+{% endif %}
 
+
+{% if myCollection %}
+    {% assign thisTitle = myCollection.title %}
+{% else %}
+    {% assign thisTitle = site.title %}
+{% endif %}
 
 
 <header class="site-header">
+
     <div >
-        <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+    <a  href="/" class="home">
+       <img class="home-icon" src="{{ site.baseurl }}/assets/img/home-icon.png">
+      </a>
+        <a class="site-title" href="/{{ page.collection }}/index.html">{{ thisTitle }}</a>
     </div>
     <div class = "navLinks">
         {% if page.title.size > 0 %}

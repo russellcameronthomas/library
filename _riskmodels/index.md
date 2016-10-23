@@ -1,5 +1,6 @@
 ---
 layout: default
+title: "Table of Contents"
 
 ---
 <style type="text/css">
@@ -11,7 +12,7 @@ list-style-type: decimal;
 }
 </style>
 
-{% assign sorted_pages = site.pages | sort:"name" %}
+{% assign sorted_pages = site.riskmodels | sort:"name" %}
 
 <div class = "author-block">
 <a href="{{ site.author_url }}" target="_blank" style="font-weight: bold;font-size:120%;">{{ site.author }}</a><br>

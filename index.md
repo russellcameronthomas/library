@@ -18,5 +18,12 @@ list-style-type: decimal;
 {{ site.author_affiliation }}<br>
 </div>
 
+## Tutorials, Working Papers, and Interactive Models
 
-1. **<a class="chapter-link" href="{{ site.baseurl }}/riskmodels/index.html" target="_blank">Risk Models using Probabilistic Programming</a>**<br>
+{% assign sorted_col = site.collections | sort : "sort_order" %}
+
+{% for col in sorted_col %}
+{% if col.title %}
+1. **<a class="chapter-link" href="/{{ col.label }}/index.html" target="_blank">{{ col.title }}</a>**<br>
+{% endif %}
+{% endfor %}
