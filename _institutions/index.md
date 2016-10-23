@@ -43,7 +43,7 @@ list-style-type: decimal;
 
 ### Other Resources
 
-A. <a href="{{ site.baseurl }}/editor.html" target="_blank">Interactive editor</a> -- to create and modify your own markdown pages, saved in your browser's cache.
+A. <a href="{{ site.baseurl }}/editor.html" target="_blank">Interactive WebPPL editor</a> -- to create and modify your own markdown pages, saved in your browser's cache.
 
 B. <a href="https://probmods.org/v2/" target="_blank"><em>Probabilistic Models of Cognition</em></a> -- an on-line book for the cognitive science applications of WebPPL. *CAUTION*: This book uses an older version of WebPPL and the syntax and functions are somewhat different than used in this tutorial.
 

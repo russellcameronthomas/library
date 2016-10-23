@@ -62,16 +62,20 @@
        <img class="home-icon" src="{{ site.baseurl }}/assets/img/home-icon.png">
       </a>
       {% endif %}
-        <a class="site-title" href="/{{ page.collection }}/index.html">
+      
 
         {% if myCollection %}
+            <a class="site-title" href="/{{ page.collection }}/index.html">
+                {{ thisTitle }}
+            </a>
         {% else %}
                 <!--
         <img  style ="max-width = auto; max-height: 45px; margin-top: - 20px;" src="{{ site.baseurl }}/assets/img/Meritology_logo.gif"> &nbsp; &nbsp; -->
-        <span class = "meritology">Meritology</span><span style="font-size: 70%;color: #bbb;">&nbsp; ▻ &nbsp;</span>
+        <span class = "site-title" >
+         <a class = "meritology" href="http://meritology.com">Meritology</a>
+         <span style="font-size: 70%;color: #bbb;">&nbsp; ▻ &nbsp;</span>
+         {{ thisTitle }}</span>
         {% endif %}
-        {{ thisTitle }}
-        </a>
     </div>
     <div class = "navLinks">
         {% if page.title.size > 0 and p_count > 1 %}
