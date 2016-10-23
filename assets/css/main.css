@@ -51,6 +51,11 @@ html {
         height:auto;
         page-break-inside: avoid;
     }
+    img{
+        width:45% !important;
+        height:auto;
+        page-break-inside: avoid;
+    }
     .katex { font-size: 12px !important; }
     h1 {
         font-family: 'Lucida Grande','Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
@@ -81,6 +86,14 @@ html {
     
     .wpedit button {
         display:none;
+    }
+    
+    .wpedit {
+        font-size : 10px;
+    }
+    .footer img {
+        width : 50px;
+        height : auto;
     }
 
     .footer-nav {
@@ -144,8 +157,7 @@ a.site-title:hover {
     text-align: left;
     margin-top: 5px;
     margin-left: 10px;
-    /*padding-right: 5px;
-    padding-left: 5px;*/
+
 }
 
 a.home:hover {
@@ -166,7 +178,7 @@ a.chapter-link {
 }
 
 .page-content {
-    line-height: 160%; /*23px;*/
+    line-height: 160%;
     padding: 20px;
     background-color: #fff;
     color: #000;
@@ -311,8 +323,8 @@ ol li ol li {
 }
 
 .footer-nav {
-        padding-right: 10px;
-        padding-left: 10px;
+        padding-right: 15px;
+        padding-left: 15px;
         
 }
 
@@ -350,8 +362,8 @@ header {
 footer {
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 5px;
+    padding-left: 5px;
     color: #bbb;
 }
 

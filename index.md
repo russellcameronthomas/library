@@ -18,7 +18,7 @@ list-style-type: decimal;
 {{ site.author_affiliation }}<br>
 </div>
 
-### Tutorials, Working Papers, and Computer Models
+## Tutorials, Working Papers, and Computer Models
 
 {% assign sorted_col = site.collections | sort : "sort_order" %}
 

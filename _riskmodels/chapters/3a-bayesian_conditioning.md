@@ -24,7 +24,7 @@ In even simpler terms, Bayes rule can be used to *update* our estimate of the pr
 
 Often there are conditional relationships among several random variables, and Bayesian Networks are used to represent these relationships. Here is an example:
 
-<figure>
+<figure style="display:block;">
 <img style="display:block;width:95%;" src="{{ site.baseurl }}/assets/img/simple_bayesian_network.png">
 <br>
 <figcaption>A simple Bayesian Network. Boxes are random variables, arrows are conditional relationships, and the tables show the conditional probabilities. (<em>source</em>: <a href="http://math.stackexchange.com/questions/1219042/cluster-probabilites-bayesian-network-sprinkler-example-russel-norvig-as-a">Math Stack Exchange</a>)</figcaption>
