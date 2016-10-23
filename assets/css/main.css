@@ -348,8 +348,8 @@ header {
     max-height : 150px;
 }
 footer {
-    padding-top: 25px;
-    padding-bottom: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     padding-right: 15px;
     padding-left: 15px;
     color: #bbb;
