@@ -23,7 +23,10 @@ list-style-type: decimal;
 {% assign sorted_col = site.collections | sort : "sort_order" %}
 
 {% for col in sorted_col %}
-{% if col.title %}
+{% if col.title and col.index == true %}
 1. **<a class="chapter-link" href="/{{ col.label }}/index.html" target="_blank">{{ col.title }}</a>**<br>
 {% endif %}
 {% endfor %}
+<br />
+**<a class="chapter-link" href="/other/colophon.html" target="_blank">Colophon</a>**<br>
+

@@ -50,20 +50,31 @@
 {% if myCollection %}
     {% assign thisTitle = myCollection.title %}
 {% else %}
-    {% assign thisTitle = site.title %}
+    {% assign thisTitle = "site.title %}
 {% endif %}
 
 
 <header class="site-header">
 
     <div >
+    {% if myCollection  %}
     <a  href="/" class="home">
        <img class="home-icon" src="{{ site.baseurl }}/assets/img/home-icon.png">
       </a>
-        <a class="site-title" href="/{{ page.collection }}/index.html">{{ thisTitle }}</a>
+      {% endif %}
+        <a class="site-title" href="/{{ page.collection }}/index.html">
+
+        {% if myCollection %}
+        {% else %}
+                <!--
+        <img  style ="max-width = auto; max-height: 45px; margin-top: - 20px;" src="{{ site.baseurl }}/assets/img/Meritology_logo.gif"> &nbsp; &nbsp; -->
+        <span class = "meritology">Meritology</span><span style="font-size: 70%;color: #bbb;">&nbsp; ▻ &nbsp;</span>
+        {% endif %}
+        {{ thisTitle }}
+        </a>
     </div>
     <div class = "navLinks">
-        {% if page.title.size > 0 %}
+        {% if page.title.size > 0 and p_count > 1 %}
         {% if prevTitle.size > 0 %}
             {% assign prevTitle = prevTitle | truncate: 20 %}
                 <div class ="prevLinks">

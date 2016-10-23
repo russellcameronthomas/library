@@ -4,12 +4,18 @@ collections:
   riskmodels:
     output: true
     sort_order: 0
+    index : true
     title: "Tutorial: Risk Modeling with Probabilistic Programming"
   institutions:
     output: true
     sort_order: 1
+    index : true
     title: "Models of Teams, Institutions, and Innovation"
-
+  other:
+    output: true
+    sort_order: 2
+    index : false
+    title: "Other"
 tutorial_title_1: "Risk Modeling with Probabilistic Programming"
 tutorial_title_2: "Teams, Institutions, and Innovation"
 tutorial_title_3: ""

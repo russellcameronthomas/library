@@ -1,14 +1,14 @@
 html {
     font-family: Merriweather, Georgia, 'Times New Roman', serif;
     color: #fff;
-    background-color: #303;/*#333333;*/
+    background-color: #203;/*#333333;*/
 }
 
 @media screen {
     html {
         font-family: Merriweather, Georgia, 'Times New Roman', serif;
         color: #fff;
-        background-color: #303;/*#333333;*/
+        background-color: #203;/*#333333;*/
         }
     .page-break	{ display: none; }
 }
@@ -166,6 +166,15 @@ a.home:hover {
 
 img.home-icon:hover {
     filter: brightness(0);
+}
+
+.meritology {
+    font-family: 'Copperplate', 'Copperplate Gothic Light', fantasy;
+    font-size: 130%;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 300;
+    color : #FFF;
 }
 
 a.chapter-link {
