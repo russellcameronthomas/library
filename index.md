@@ -27,6 +27,8 @@ list-style-type: decimal;
 1. **<a class="chapter-link" href="/{{ col.label }}/index.html" target="_blank">{{ col.title }}</a>**<br>
 {% endif %}
 {% endfor %}
-<br />
+
+____
+
 **<a class="chapter-link" href="/other/colophon.html" target="_blank">Colophon</a>**<br>
 
