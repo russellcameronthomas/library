@@ -141,7 +141,7 @@ h3 {font-family: 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
     font-family: 'Optima', 'Segoe', 'Segoe UI', 'Candara', 'Calibri', 'Arial', sans-serif;
     display: block;
     font-size: 130%; /*120%;*/
-    font-weight: bolder;
+    font-weight: bold;
     color: #EEEEBB;
     text-shadow: 2px 2px #000000;
     text-decoration: none;
@@ -150,6 +150,31 @@ h3 {font-family: 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
     padding-right: 15px;
     padding-left: 15px;
     z-index: 5;
+}
+
+
+.meritology-title {
+    font-family: 'Optima', 'Segoe', 'Segoe UI', 'Candara', 'Calibri', 'Arial', sans-serif;
+    display: block;
+    font-size: 130%; /*120%;*/
+    font-weight: bold;
+    color: #EEEEBB;
+    text-shadow: 2px 2px #000000;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+    z-index: 5;
+}
+
+.meritology-title img {
+    position: relative;
+    opacity: 100%;
+    width: auto;
+    height: 120px;
+    display: inline-block;
+
 }
 
 a.site-title:hover {

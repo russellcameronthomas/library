@@ -59,7 +59,7 @@
     <div class = "nav">
     {% if myCollection  %}
     <a  href="/" class="home">
-       <img class="home-icon" src="{{ site.baseurl }}/assets/img/home-icon.png">
+       <img class="home-icon" src="{{ site.baseurl }}/assets/img/home-icon.png"/>
       </a>
       {% endif %}
       
@@ -70,16 +70,14 @@
                 {{ thisTitle }}
             </a>
             <div class = "site-logo-right">
-            <img src="/assets/img/Meritology_logo.svg">
+            <img src="/assets/img/Meritology_logo.svg"/>
             </div>
         {% else %}
-
-        <span class = "site-title" >
+         <span class = "meritology-title">
          <a class = "meritology" href="http://meritology.com">Meritology</a>
          <span style="font-size: 70%;color: #bbb;">&nbsp; ▻ &nbsp;</span>
          {{ thisTitle }}
-
-        </span>
+         </span>
         <div class = "site-logo-right-full">
         <img src="/assets/img/Meritology_logo.svg">
         </div>
