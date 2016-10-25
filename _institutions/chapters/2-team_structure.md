@@ -18,7 +18,7 @@ The model consists of a single team $$T$$ (i.e. an engineering design team) with
 Design decisions sometimes depend on each other, either one-way or two-way (mutual). (We model dependencies as a As state of Nature.) For each decision, there is a vector of other decisions on which it depends, denoted with a prime: $$a^\prime_i = \{a_x, a_y, \ldots, a_z\}$$ where $$x, y, z \in [1,N]$$ and $$\neq i$$. The overall structure of dependency can be represented as a Design Dependency Matrix refp:clarkson_predicting_2004, where an X in any cell denotes that the column element is dependent on the row element (e.g. in Figure 1a, $$b_2$$ is dependent on $$a_1$$, but not the reverse).  Two-way (mutual) dependence is denoted by X's in corresponding cells above and below the diagonal (Figure 1b and 1d).
 
 <figure>
-<img style="display:block;width:80%;" src="{{ site.baseurl }}/assets/img/Fig_1_Design_Dependency_Matrix_examples.png">
+<img style="display:block;width:100%;" src="{{ site.baseurl }}/assets/img/Fig_1_Design_Dependency_Matrix_examples.png">
 <figcaption>Figure 1. Examples of Design Dependency Matrices with four different structure types. In these examples, the team consists of three agents: A, B, and C, and each is responsible for four decisions. (<em>source</em>: Ethiraj and Levinthal, 2004)</figcaption>
 </figure>
 
