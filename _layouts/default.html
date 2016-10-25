@@ -1,13 +1,31 @@
 <!DOCTYPE html>
 <html>
 
+
   {% include head.html %}
 
   <body>
 
     {% include header.html %}
 
+
     <div class="page-content-wrapper">
+    <div class ="search-wrapper">
+        <div class ="search">
+<script>
+  (function() {
+    var cx = '005432527129711060447:-x6-wafsvqo';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+        </div>
+        </div>
       <div class="page-content">
         {{ content }}
       </div>

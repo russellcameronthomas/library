@@ -18,7 +18,8 @@ list-style-type: decimal;
 {{ site.author_affiliation }}<br>
 </div>
 
-## Tutorials, Working Papers, and Computer Models
+
+**Tutorials, Working Papers, and Computer Models**
 
 {% assign sorted_col = site.collections | sort : "sort_order" %}
 
@@ -30,5 +31,28 @@ list-style-type: decimal;
 
 ____
 
-**<a class="chapter-link" href="/other/colophon.html" target="_blank">Colophon</a>**<br>
+**Site**
+
+{% for p in site.other %}
+    {% if p.hidden %}
+    {% else %}
+        {% if p.layout == 'chapter' %}
+            {% if p.is_section %}
+                {% if p.status == 'stub' %}
+1. **{{ p.title }}**<br>{% else %}
+1. **<a class="chapter-link" href="{{ site.baseurl }}{{ p.url }}" target="_blank">{{ p.title }}</a>**<br>{% endif %}
+            {% else %}
+                {% if p.status == 'stub' %}
+1. **{{ p.title }}**<br>{% else %}
+1. **<a class="chapter-link" href="{{ site.baseurl }}{{ p.url }}" target="_blank">{{ p.title }}</a>**<br>{% endif %}     
+            {% endif %}
+        {% endif %}
+    {% endif %}
+{% endfor %}
+
+____
+
+The goal of this library is to help us all learn about some exciting new tools (e.g. probabilistic programming) and to explore interesting and challenging applications.  I say "...help *us* all..." because I'm learning in the process of writing and presenting. 
+
+The libary is aimed at both academic and industry audiences.  These are perpetual works-in-progress, and are written mostly in a tutorial, semi-informal style. I recommend against citation or hyperlinks to specific web pages. You can link to this home page: [http://libary.meritology.com](http://libary.meritology.com).
 

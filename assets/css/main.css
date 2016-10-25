@@ -168,6 +168,18 @@ img.home-icon:hover {
     filter: brightness(0);
 }
 
+.search {
+  float:right;
+  max-width: 300px;
+  max-height: 20px;
+  color: #000;
+}
+.search-wrapper {
+  float:right;
+  width: 600px;
+  height: auto;
+}
+
 .meritology {
     font-family: 'Copperplate', 'Copperplate Gothic Light', fantasy;
     font-size: 140%;
