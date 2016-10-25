@@ -410,6 +410,7 @@ ol li ol li {
 
 .nextLinks {
     font-size: 80%;
+    text-shadow: 2px 2px #000000;
     color: #bbb;
     float:right;
     width: 280px;
@@ -420,6 +421,7 @@ ol li ol li {
 .prevLinks {
     font-size: 80%;
     color: #bbb;
+    text-shadow: 2px 2px #000000;
     float:left;
     text-align: left;
     max-width: 200px;
