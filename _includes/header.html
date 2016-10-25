@@ -55,7 +55,8 @@
 
 
 <header class="site-header">
-    <div >
+
+    <div class = "nav">
     {% if myCollection  %}
     <a  href="/" class="home">
        <img class="home-icon" src="{{ site.baseurl }}/assets/img/home-icon.png">
@@ -64,16 +65,24 @@
       
 
         {% if myCollection %}
+
             <a class="site-title" href="/{{ page.collection }}/index.html">
                 {{ thisTitle }}
             </a>
+            <div class = "site-logo-right">
+            <img src="/assets/img/Meritology_logo.svg">
+            </div>
         {% else %}
-                <!--
-        <img  style ="max-width = auto; max-height: 45px; margin-top: - 20px;" src="{{ site.baseurl }}/assets/img/Meritology_logo.gif"> &nbsp; &nbsp; -->
+
         <span class = "site-title" >
          <a class = "meritology" href="http://meritology.com">Meritology</a>
          <span style="font-size: 70%;color: #bbb;">&nbsp; ▻ &nbsp;</span>
-         {{ thisTitle }}</span>
+         {{ thisTitle }}
+
+        </span>
+        <div class = "site-logo-right-full">
+        <img src="/assets/img/Meritology_logo.svg">
+        </div>
         {% endif %}
     </div>
     <div class = "navLinks">
@@ -97,4 +106,5 @@
         {% endif %}
     {% endif %}
     </div>
+
 </header>

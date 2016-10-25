@@ -37,6 +37,9 @@ html {
         
     }
     .page-break	{ display: block; page-break-before: always; }
+    .site-header {
+        display: none;
+    }
     .site-title {
         display: none;
     }
@@ -139,17 +142,47 @@ h3 {font-family: 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
     display: block;
     font-size: 130%; /*120%;*/
     font-weight: bolder;
-    color: #DDA;
+    color: #EEEEBB;
+    text-shadow: 2px 2px #000000;
     text-decoration: none;
     text-align: center;
     padding-top: 20px;
     padding-right: 15px;
     padding-left: 15px;
+    z-index: 5;
 }
 
 a.site-title:hover {
     text-decoration: underline
 }
+
+
+.site-header {
+    opacity: 1.0;
+}
+
+.site-logo-right-full img {
+    position: absolute;
+    left: 75%;
+    top: -25px;
+    width: auto;
+    height: 160px;
+    z-index: -1;
+}
+
+.site-logo-right img {
+    position: absolute;
+    left: 75%;
+    top: -25px;
+    width: auto;
+    height: 160px;
+    z-index: -1;
+    opacity: 0.5;
+    -webkit-filter: brightness(160%) contrast(70%) grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: brightness(160%) contrast(70%) grayscale(100%);
+}
+
+
 
 .home {
     float: left;

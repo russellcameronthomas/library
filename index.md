@@ -31,6 +31,14 @@ list-style-type: decimal;
 
 ____
 
+**Description**
+
+The goal of this library is to help us all learn about some exciting new tools (e.g. probabilistic programming) and to explore interesting and challenging applications.  I say "...help *us* all..." because I'm learning in the process of writing and presenting. 
+
+The intended audience both academia and industry.  These are perpetual works-in-progress, and are written mostly in a tutorial, semi-informal style. Don't cite these pages and I'd recommend against hyperlinking to specific web pages.
+
+____
+
 **Site**
 
 {% for p in site.other %}
@@ -49,10 +57,3 @@ ____
         {% endif %}
     {% endif %}
 {% endfor %}
-
-____
-
-The goal of this library is to help us all learn about some exciting new tools (e.g. probabilistic programming) and to explore interesting and challenging applications.  I say "...help *us* all..." because I'm learning in the process of writing and presenting. 
-
-The libary is aimed at both academic and industry audiences.  These are perpetual works-in-progress, and are written mostly in a tutorial, semi-informal style. I recommend against citation or hyperlinks to specific web pages. You can link to this home page: [http://libary.meritology.com](http://libary.meritology.com).
-
