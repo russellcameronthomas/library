@@ -176,9 +176,9 @@ h3 {font-family: 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
 .meritology-title img {
     opacity: 100%;
     width: auto;
-    height: 50px;
+    height: 60px;
     display: inline-block;
-    vertical-align: -40%;
+    vertical-align: -50%;
 }
 
 a.site-title:hover {
