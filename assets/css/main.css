@@ -12,10 +12,11 @@ html {
         }
     .page-break	{ display: none; }
 }
-
+ /*
 @media screen and (max-device-width: 480px) {
-    /*.katex { font-size: 100% !important; } */
+   .katex { font-size: 100% !important; }
 }
+*/
 
 @media print {
 
