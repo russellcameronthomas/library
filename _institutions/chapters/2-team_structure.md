@@ -31,7 +31,10 @@ a^\prime_i = \{ a_x, a_y,\ldots, a_z\};  x, y, \ldots,z \in \{1,\ldots,N\}^{\neg
 $$
 
 $$
-(a_i, a^\prime_i)\in\{(0,0,0,\ldots,0),(0,0,0,\ldots,1),\ldots,(1,1,1,\ldots,1)\}
+(a_i, a^\prime_i)\in\{(0,0,0,\ldots,0),(0,0,0,\ldots,1),\ldots
+$$
+$$
+,(1,1,1,\ldots,1)\}
 $$
 
 $$
