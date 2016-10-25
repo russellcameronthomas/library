@@ -56,7 +56,7 @@
 
 <header class="site-header">
 
-    <div class = "nav">
+    <div class = "title">
     {% if myCollection  %}
     <a  href="/" class="home">
        <img class="home-icon" src="{{ site.baseurl }}/assets/img/home-icon.png"/>
@@ -73,6 +73,7 @@
             <img src="/assets/img/Meritology_logo.svg"/>
             </div>
         {% else %}
+        <!--
          <span class = "meritology-title">
          <a class = "meritology" href="http://meritology.com">Meritology</a>
          <span style="font-size: 70%;color: #bbb;">&nbsp; ▻ &nbsp;</span>
@@ -80,6 +81,12 @@
          </span>
         <div class = "site-logo-right-full">
         <img src="/assets/img/Meritology_logo.svg">
+        </div>
+        -->
+        <div class = "meritology-title">
+        <img src="/assets/img/meritology_logo_text_white.svg" />
+        <span style="font-size: 70%;color: #bbb;">&nbsp; ▻ &nbsp;</span>
+        {{ thisTitle }}
         </div>
         {% endif %}
     </div>

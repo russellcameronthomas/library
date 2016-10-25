@@ -167,19 +167,18 @@ h3 {font-family: 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
     text-shadow: 2px 2px #000000;
     text-decoration: none;
     text-align: center;
-    padding-top: 15px;
+    padding-top: 10px;
     padding-right: 15px;
     padding-left: 15px;
     z-index: 5;
 }
 
 .meritology-title img {
-    position: relative;
     opacity: 100%;
     width: auto;
-    height: 120px;
+    height: 50px;
     display: inline-block;
-
+    vertical-align: -40%;
 }
 
 a.site-title:hover {
@@ -210,6 +209,19 @@ a.site-title:hover {
     opacity: 0.5;
     -webkit-filter: brightness(160%) contrast(70%) grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: brightness(160%) contrast(70%) grayscale(100%);
+}
+.site-logo-center-full {
+    display:block;
+    padding: 0px;
+}
+
+.site-logo-center-full img {
+    position: absolute;
+    left: 46%;
+    top: -100px;
+    width: auto;
+    height: 280px;
+
 }
 
 
