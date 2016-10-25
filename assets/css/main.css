@@ -244,15 +244,18 @@ img.home-icon:hover {
 }
 
 .search {
-  float:right;
-  max-width: 300px;
-  max-height: 20px;
-  color: #000;
+    line-height: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #000;
+    min-height: 40px;
+    max-width: 650px;
+    margin-right: auto;
+    margin-left: auto;
 }
 .search-wrapper {
-  float:right;
-  width: 600px;
-  height: auto;
+  background-color: #EEEEEE;
+
 }
 
 .meritology {
