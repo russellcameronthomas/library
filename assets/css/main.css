@@ -224,8 +224,6 @@ a.site-title:hover {
 
 }
 
-
-
 .home {
     float: left;
     text-decoration: none;
@@ -252,6 +250,7 @@ img.home-icon:hover {
     max-width: 650px;
     margin-right: auto;
     margin-left: auto;
+    text-align: center;
 }
 .search-wrapper {
   background-color: #EEEEEE;
