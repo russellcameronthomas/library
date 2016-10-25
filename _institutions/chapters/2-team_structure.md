@@ -66,7 +66,8 @@ During a single simulation run, each designer agent searches for better choice v
 $$
 a_i \leftarrow \left\{
 \begin{array}{ll}
-\neg a_i : \frac{1}{n}\sum_{k=1}^n{\omega_k(\neg a_k,a^\prime_k ) } > \frac{1}{n}\sum_{k=1}^n{ \omega_k(a_k,a^\prime_k )} \\
+\neg a_i : \frac{1}{n}\sum_{k=1}^n{\omega_k(\neg a_k,a^\prime_k ) } \\ 
+               > \frac{1}{n}\sum_{k=1}^n{ \omega_k(a_k,a^\prime_k )} \\
 \\
 a_i : \text{otherwise}
 \end{array}
