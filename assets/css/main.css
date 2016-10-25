@@ -179,12 +179,12 @@ h3 {font-family: 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
 
 .meritology-title img {
     opacity: 100%;
-    width: 45%;
-
+    width: 50%;
     padding-top: 10px;
-    max-height: 75px;
+    max-height: 70px;
+    max-width: 250px;
     display: inline-block;
-    vertical-align: -40%;
+    vertical-align: -50%;
     
 }
 
