@@ -223,9 +223,9 @@ a.site-title:hover {
     width: auto;
     height: 80px;
     z-index: -1;
-    opacity: 0.5;
-    -webkit-filter: brightness(160%) contrast(70%) grayscale(100%); /* Safari 6.0 - 9.0 */
-    filter: brightness(160%) contrast(70%) grayscale(100%);
+    opacity: 0.4;
+    -webkit-filter: brightness(90%) contrast(50%) grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: brightness(90%) contrast(50%) grayscale(100%);
 }
 .site-logo-center-full {
     display:block;
@@ -283,20 +283,28 @@ a.chapter-link {
 
 .page-content-wrapper {
     background-color: #fff;
+    background-image: url("/assets/img/beige_background.png");
+    background-repeat: repeat;
     overflow: visible;
 }
 
 .page-content {
     line-height: 160%;
-    padding: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
     background-color: #fff;
     color: #000;
     min-height: 500px;
     max-width: 650px;
     margin-right: auto;
     margin-left: auto;
+    margin-bottom: 30px;
     overflow: visible;
     text-align: justify;
+    box-shadow: 0px -1px 20px 0px #999999;
+    
 }
 
 .note {
