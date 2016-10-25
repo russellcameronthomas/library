@@ -5,9 +5,11 @@ title: "Table of Contents"
 ---
 <style type="text/css">
 ol li {
+text-align:left
 list-style-type: upper-roman
 }
 ol li ol li {
+text-align:left
 list-style-type: decimal;
 }
 </style>

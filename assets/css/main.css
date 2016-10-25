@@ -224,6 +224,7 @@ img.home-icon:hover {
 
 a.chapter-link {
     color: #095AD3;
+    text-align: left;
 }
 
 .page-content-wrapper {
@@ -233,7 +234,7 @@ a.chapter-link {
 
 .page-content {
     line-height: 160%;
-    padding: 20px;
+    padding: 25px;
     background-color: #fff;
     color: #000;
     min-height: 500px;
