@@ -14,7 +14,7 @@ html {
 }
 
 @media screen and (max-device-width: 480px) {
-    /*.katex { font-size: 150% !important; } */
+    /*.katex { font-size: 100% !important; } */
 }
 
 @media print {
