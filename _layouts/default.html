@@ -14,12 +14,13 @@
       </div>
       </div>
     </div>
-
+    
     <div class="page-content-wrapper">
-     
       <div class="page-content">
+        <div class="last_modified" >Last modified: {{ page.last_modified_at }}</div>
         {{ content }}
       </div>
+         
     </div>
 
     {% include footer.html %}
