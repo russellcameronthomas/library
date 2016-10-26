@@ -1,7 +1,5 @@
 # Site settings
 title: "Library"
-gems:
-  - jekyll-last-modified-at
 collections:
   fundamentals:
     output: true

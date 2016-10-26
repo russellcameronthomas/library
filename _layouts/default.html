@@ -10,14 +10,25 @@
     <div class="search-wrapper">
       <div class=search>
         <div style="margin:auto;width:100%;">
-<iframe src="https://duckduckgo.com/search.html?width=300&site=http://library.meritology.com&prefill=Search library.meritology.com&bgcolor=EEEEEE" style="overflow:hidden;margin:0;padding:0;width:360px;height:40px;" frameborder="0"></iframe>
+        <!--
+        <iframe src="https://duckduckgo.com/search.html?width=300&site=http://library.meritology.com&prefill=Search library.meritology.com&bgcolor=EEEEEE" style="overflow:hidden;margin:0;padding:0;width:360px;height:40px;" frameborder="0"></iframe> -->
+        <form class="ddg" name="x" action="//duckduckgo.com/">
+            <input type="hidden" value="library.meritology.com" name="sites"></input>
+            <input type="hidden" value="1" name="kh"></input>
+            <input type="hidden" value="1" name="kn"></input>
+            <input type="hidden" value="1" name="kac"></input>
+            <input type="search" placeholder="Search" name="q"></input>
+            <button class="button" type="submit">GO</button>
+        </form>
       </div>
       </div>
     </div>
     
     <div class="page-content-wrapper">
       <div class="page-content">
-        <div class="last_modified" >Last modified: {{ page.last_modified_at }}</div>
+        {% if page.last_modified %}
+        <div class="last_modified" >Last modified: {{ page.last_modified }}</div>
+        {% endif %}
         {{ content }}
       </div>
          

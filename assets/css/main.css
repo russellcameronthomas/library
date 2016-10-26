@@ -281,12 +281,17 @@ img.home-icon:hover {
     filter: brightness(0);
 }
 
-.search {
+.ddg {
+    font-family: 'Tahoma', 'Geneva', sans-serif;
+    font-size: 90%;
     line-height: 100%;
+}
+
+.search {
     padding-left: 10px;
     padding-right: 10px;
     color: #000;
-    min-height: 40px;
+    min-height: 28px;
     max-width: 650px;
     margin-right: auto;
     margin-left: auto;

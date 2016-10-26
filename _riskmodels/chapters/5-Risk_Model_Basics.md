@@ -3,6 +3,7 @@ layout: chapter
 title: Basics of Risk Modeling
 description: "Presents a few basic models that arise in risk analysis and modeling.  These set the stage for the more sophisticated and realistic models in following chapters."
 status: draft
+last_modified: "25-Oct-16"
 is_section: true
 ---
 

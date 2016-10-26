@@ -2,6 +2,7 @@
 layout: chapter
 title: "Overview of WebPPL"
 description: "WebPPL, the language used in this tutorial, is a functionalistic language built on and a subset of Javascript, with primitives for sampling from random variables and for Bayesian inference."
+last_modified: "25-Oct-16"
 is_section: true
 ---
 

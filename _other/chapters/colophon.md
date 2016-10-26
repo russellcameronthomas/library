@@ -1,6 +1,7 @@
 ---
 layout: chapter
 title: Colophon
+last_modified: "25-Oct-16"
 ---
 
 The following information might be useful for anyone who wants to create a web site and content similar to this Library.
