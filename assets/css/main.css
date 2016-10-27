@@ -19,6 +19,9 @@ html {
 
 
 @media print {
+  * {
+    box-shadow: none !important;
+  }
 
     body {
         background: white;
@@ -37,15 +40,22 @@ html {
         padding: 0;
         border: 0;
         float: none !important;
-        color: black; 
-        background: transparent;
-        
+        color: black;
     }
-    page-content-wrapper{
+    .page-content-wrapper{
     background-image: none;
     }
-    page-content {
-        box-shadow: none !important;
+    .page-content {
+     
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    /*
+    box-shadow: 0px 0px 0px 0px #FFFFFF;
+    -webkit-box-shadow:  0px 0px 0px 0px #FFFFFF;
+    -moz-box-shadow:  0px 0px 0px 0px #FFFFFF;
+    */
+    
     }
     .page-break	{ display: block; page-break-before: always; }
     .site-header {
@@ -66,15 +76,10 @@ html {
     .search-wrapper {
     display: none;
     }
-    img.resize{
-        width:50% !important;
-        height:auto;
-        page-break-inside: avoid;
-    }
     img{
         width:45% !important;
         height:auto;
-        page-break-inside: avoid;
+        page-break-inside: avoid !important;
     }
     .katex { font-size: 12px !important; }
     h1 {
@@ -98,7 +103,7 @@ html {
     
     h3 {font-family: 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
         font-size: 110%;
-            font-weight: lighter;
+        font-weight: lighter;
         margin: 1.5em 0 1em 0;
         /*font-style: italic;*/
         text-align: left;
@@ -144,7 +149,7 @@ h2 {
 h3 {font-family: 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
     font-size: 110%;
     margin: 1.5em 0 1em 0;
-    font-weight: bolder;
+    font-weight: normal;
     font-style: italic;
     text-align: left;
 }
@@ -210,15 +215,29 @@ h3 {font-family: 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
     display: inline-block;
 }
 
-.last_modified {
+.status {
+    float:left;
+    min-width: 200px;
     font-family: 'Tahoma', 'Geneva', sans-serif;
     font-size: 70%;
-    line-height: 80%;
+    line-height: 100%;
+    font-style: italic;
+    color: #AAAAAA;
+    text-align: left;
+    display: block;
+    padding-bottom: 5px;
+}
+
+.last_modified {
+    font-family: 'Tahoma', 'Geneva', sans-serif;
+    min-width: 200px;
+    font-size: 70%;
+    line-height: 100%;
     font-style: italic;
     color: #AAAAAA;
     text-align: right;
     display: block;
-    
+    padding-bottom: 5px;
 }
 
 a.site-title:hover {
@@ -332,7 +351,8 @@ a.chapter-link {
     overflow: visible;
     text-align: justify;
     box-shadow: 0px -1px 20px 0px #999999;
-    
+    -webkit-box-shadow: 0px -1px 20px 0px #999999;
+    -moz-box-shadow: 0px -1px 20px 0px #999999;
 }
 
 .note {

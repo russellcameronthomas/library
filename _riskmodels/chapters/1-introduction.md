@@ -67,9 +67,9 @@ Now try editing the code yourself.  Perhaps you could change the `2 + 4;` expres
 
 To restore *all* the example code on a given page to the original versions, refresh/reload the browser window.
 
-***Caution #1:*** Though it is hard to "crash" the system by typing your own code, it is possible to create (effectively) infinite loops or programs that take a *loooooooooooong* time to finish.  Thankfully, the WebPPL interactive interpreter has a <span class="buttonText">cancel</span> button that you can click that (*most of the time*) will stop your program and return to a normal web browsing state.  If that doesn't work, you may need to close the web page, or maybe even close your browser ("Force Quit" on Macintosh).
+*Caution #1:* Though it is hard to "crash" the system by typing your own code, it is possible to create (effectively) infinite loops or programs that take a *loooooooooooong* time to finish.  Thankfully, the WebPPL interactive interpreter has a <span class="buttonText">cancel</span> button that you can click that (*most of the time*) will stop your program and return to a normal web browsing state.  If that doesn't work, you may need to close the web page, or maybe even close your browser ("Force Quit" on Macintosh).
 
-***Caution #2:*** The error messages emitted by WebPPL interactive interpreter are frequently cryptic, not very helpful, or and sometimes not understandable. Therefore, it is best for new programmers to make a few changes or write a few statements at a time, and check that they compile and run before continuing.  
+*Caution #2:* The error messages emitted by WebPPL interactive interpreter are frequently cryptic, not very helpful, or and sometimes not understandable. Therefore, it is best for new programmers to make a few changes or write a few statements at a time, and check that they compile and run before continuing.  
 
 ## Writing Your Own WebPPL Code
 

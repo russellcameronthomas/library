@@ -33,7 +33,7 @@ Often there are conditional relationships among several random variables, and Ba
 
 In this case, we have four random variables: *cloudy*, *sprinklers*, *rain*, and *wet grass*.  The probability of *cloudy* is 0.5.  Given that *cloudy* = TRUE on a given day, the probability of *rain* is 0.8, and so on. 
 
-***Bayesian Inference*** is the process of using Bayes Rule over and over to modify the prior probabilities, given the actual (observed) values for some other random variables. The model can answer questions like "What is the probability that it is raining, given the grass is wet?" and "What is the probability that it is cloudy, given that the grass is not wet?".
+*Bayesian Inference* is the process of using Bayes Rule over and over to modify the prior probabilities, given the actual (observed) values for some other random variables. The model can answer questions like "What is the probability that it is raining, given the grass is wet?" and "What is the probability that it is cloudy, given that the grass is not wet?".
 
 ~~~~
 // Implements the Bayesian Network, above

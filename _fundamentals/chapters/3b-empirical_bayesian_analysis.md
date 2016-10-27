@@ -52,9 +52,9 @@ Notice what happens in each of these settings with the three cases of prior know
 <p class="note">Code and comments that are less important in understanding the experiment is hidden by the `///fold:` macro. To view this code, simply click on the <span class="buttonText" style="background-color: #FFC !important;
 background-image: none;font-weight: bold; border: 1px solid #000 !important;">. . .</span> button in the codebox.</p>
 ~~~~
-//********************************************************************
+//************************
 // UTILITY FUNCTIONS
-//********************************************************************
+//************************
 //   count(item,arr); takeN(n, arr); shuffle(arr), truncatedGaussian() 
 ///fold:
 // count: count the number of "item" in "arr"
@@ -104,25 +104,25 @@ var truncatedGaussian = function(mu, sigma){
 }
 ///
 
-//********************************************************************
+//************************
 // EXPERIMENT PARAMETERS
-//********************************************************************
+//************************
 
 var K = 10; // total number of observations in trial
 var numH = 7; // number of Heads in all observations in the trial
 var N = 10; // number of (randomly selected) observations in observedData
 
-//********************************************************************
+//************************
 // OBSERVED DATA ("EVIDENCE")
-//********************************************************************
+//************************
 var trial = mapN(function(x){return x < numH ? "H": "T";},K);
 var observations = shuffle(trial);
 var observedData = takeN(N,observations);
 var obsH = count("H", observedData);
 
-//********************************************************************
+//************************
 // PRIOR KNOWLEDGE
-//********************************************************************
+//************************
 
 // Uniformative prior:
 ///fold:
@@ -151,9 +151,9 @@ var informativePrior = function(){return beta(2,2);}
 ///
 var highlyInformativePrior = function(){return truncatedGaussian(0.5,0.1);}
 
-//********************************************************************
+//************************
 // MODEL and INFERENCE
-//********************************************************************
+//************************
 
 // toss: function that returns "H" with probability r, otherwise "T"
 var toss = function(r) {return flip(r) ? "H" : "T";}
@@ -188,9 +188,9 @@ var posterior = function(prior) {
         });
 }
 
-//********************************************************************
+//************************
 // FAIR COIN INFERENCE: Is it fair, given prior knowledge and evidence?
-//********************************************************************
+//************************
 
 var upperLimit = 0.6;
 var lowerLimit = 0.4;
@@ -204,9 +204,9 @@ var fairTest = function(dist,lower,upper){
     });
 }
 
-//********************************************************************
+//************************
 // RUN MODELS AND VISUALIZE RESULTS
-//********************************************************************
+//************************
 ///fold:
 
 var trialString = "(Observe " + obsH +" heads in "+ N +" tosses)";
@@ -234,7 +234,7 @@ viz.auto(fairC);
 
 *Analysis of results* -- With the default parameters (7 of 10 tosses are "H"), you'll notice first that all three inference queries returned a mean estimate for $$p$$ that is above 0.5, suggesting that the coin is biased toward heads.  But the statistical test for fairness returns different results in all three.  Model A (Uninformative prior) puts most of the probability on $$fair? = false$$ (about 0.75).  Model B (Somewhat informative prior) is about the same.  But Model C (Very informative prior) returns the opposite result, where $$fair? = true$$ has probability of about 0.69. 
 
-***Why?***
+*Why?*
 
 Because, of the three models, Model C is the most resistant to change with new information.  In a sense, it takes a *lot* of evidence to pull it off the prior knowledge (assumption) that nearly all coins are fair.  In contrast, Model A is most easily swayed by even a fragment of evidence.  To see this, change `N = 1;` (a single coin toss)and click <span class="buttonText">run</span> button again.
 

@@ -26,6 +26,9 @@
     
     <div class="page-content-wrapper">
       <div class="page-content">
+      {% if page.status %}
+        <div class="status" >Status: {{ page.status }}</div>
+        {% endif %}
         {% if page.last_modified %}
         <div class="last_modified" >Last modified: {{ page.last_modified }}</div>
         {% endif %}

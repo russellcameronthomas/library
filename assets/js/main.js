@@ -3,9 +3,7 @@
 
 // Github links
 
-//var github_repository = "https://github.com/agentmodels/agentmodels.org/";
-
-var github_repository = "https://github.com/russellcameronthomas/riskmodels/";
+var github_repository = "https://github.com/russellcameronthomas/library/";
 
 function markdown_url(page_url) {
     return page_url.slice(0, -4) + "md";
@@ -54,7 +52,8 @@ var textohtml_map = {
   "\\\"{A}": "&Auml;",
   "\\\"{O}": "&Ouml;",
   "\\'{E}": "&Eacute;",
-  "\\'{A}": "&Aacute;"  
+  "\\'{A}": "&Aacute;",
+  "\\&": "&"  
 };
 
 function textohtml(tex) {
@@ -278,7 +277,7 @@ function format_refp(citation) {
   return textohtml(s);
 }
 
-$.get("/riskmodels.bib", function (bibtext) {
+$.get("/library_meritology.bib", function (bibtext) {
     $(function () {
         var bibs = doParse(bibtext);
         $.each(

@@ -6,13 +6,13 @@ last_modified: "25-Oct-16"
 is_section: false
 ---
 
-Probabilistic programming (PP) combines the ***"Math of Data"*** (statistics) with the ***"Math of Symbols & Logic"*** (computer programs)<sup id="a1">[1](#f1)</sup>.
+Probabilistic programming (PP) combines the *"Math of Data"* (statistics) with the *"Math of Symbols & Logic"* (computer programs)<sup id="a1">[1](#f1)</sup>.
 
 Probabilistic programming is different from other methods (i.e. machine learning (ML), Bayes Nets, markov chain monte carlo (MCMC) using BUGS or STAN, etc.) and better for many types of risk analysis and modeling because it is has the potential to be:
 
-- ***More powerful and generally applicable*** -- able to handle complex problems that are hard or impossible with other methods
-- ***Easier to learn, iterate, extend, maintain*** ... -- you focus your time on the model rather than computational details of inference
-- ***The "spreadsheet" of risk modeling*** --- i.e a multi-purpose tool with a low barrier to entry and a smooth learning curve<sup id="a2">[2](#f2)</sup>.
+- *More powerful and generally applicable* -- able to handle complex problems that are hard or impossible with other methods
+- *Easier to learn, iterate, extend, maintain* ... -- you focus your time on the model rather than computational details of inference
+- *The "spreadsheet" of risk modeling* --- i.e a multi-purpose tool with a low barrier to entry and a smooth learning curve<sup id="a2">[2](#f2)</sup>.
 
 Compared to Deep Learning, probabilistic programming has advantages<sup id="a3">[3](#f3)</sup>:
 
@@ -66,6 +66,6 @@ For real™ development, I prefer *Figaro*. For teaching and interactive tutoria
 
 <span id="f1">1.</span> [↩](#a1) This pithy phrase comes from Joshua Epstein's presentation: ["How to Grow a Mind: Statistics, Structure and Abstraction"](https://www.youtube.com/watch?v=97MYJ7T0xXU)
 
-<span id="f2">2.</span> [↩](#a2) The spreadsheet is arguably the ***greatest programmer productivity tool of all time*** because it eliminated the need to write so many of the most common number processing programs. The DARPA [Probabilistic Programming for Advancing Machine Learning (PPAML)](http://www.darpa.mil/program/probabilistic-programming-for-advancing-machine-Learning) program has aims in this direction, at least regarding machine learning and some aspects of AI.
+<span id="f2">2.</span> [↩](#a2) The spreadsheet is arguably the *greatest programmer productivity tool of all time* because it eliminated the need to write so many of the most common number processing programs. The DARPA [Probabilistic Programming for Advancing Machine Learning (PPAML)](http://www.darpa.mil/program/probabilistic-programming-for-advancing-machine-Learning) program has aims in this direction, at least regarding machine learning and some aspects of AI.
 
 <span id="f3">3.</span> [↩](#a3) These points are adapted from Avi Pfeffer's MLconf presentation: ["Probabilistic Programming with Figaro"](https://youtu.be/eO4ZXLQjba8?t=5m9s)

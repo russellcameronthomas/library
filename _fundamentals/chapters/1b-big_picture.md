@@ -2,6 +2,7 @@
 layout: chapter
 title: Big Picture
 description: "Describes probabilistic programming at conceptual level -- i.e. what kind of computational system is it?"
+status: work-in-progress
 last_modified: "25-Oct-16"
 is_section: false
 ---
