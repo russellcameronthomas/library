@@ -1,7 +1,7 @@
 ---
 layout: chapter
 title: "Security and Privacy"
-last_modified: "25-Oct-16"
+last_modified: "2016-10-25 18:35"
 ---
 
 *(Last Updated: October 24, 2016)*

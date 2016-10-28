@@ -3,7 +3,7 @@ layout: chapter
 title: Negotiating Team Roles and Responsibilities
 description: "This model uses recursive multi-agent reasoning and repeated social interaction, where agents reason about each other, their collective performance, and the structure of a somewhat non-cooperative game with incomplete and imperfect information."
 status: work-in-progress
-last_modified: "25-Oct-16"
+last_modified: "2016-10-27 03:59"
 is_section: true
 ---
 

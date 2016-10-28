@@ -2,7 +2,7 @@
 layout: chapter
 title: In a Nutshell
 description: "Executive summary description of probabilistic programming (PP) and how it is better and different, and also why might be good for risk analysis and modeling."
-last_modified: "25-Oct-16"
+last_modified: "2016-10-26 16:43"
 is_section: false
 ---
 

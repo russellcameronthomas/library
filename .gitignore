@@ -4,7 +4,5 @@ _site/*
 assets/_site/*
 *.*~
 node_modules
-chapters/#3d-pomdp-test.md#
-
-chapters/owain_notes.md
+*.bu
 _codeboxes/*

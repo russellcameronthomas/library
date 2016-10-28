@@ -2,7 +2,7 @@
 layout: chapter
 title: Introduction
 description: "Overview of the tutorial, the intended reader, and how to get the most out of it. Credits."
-last_modified: "25-Oct-16"
+last_modified: "2016-10-26 16:43"
 is_section: true
 ---
 

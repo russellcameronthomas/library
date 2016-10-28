@@ -2,7 +2,7 @@
 layout: chapter
 title: Empirical Bayesian Analysis
 description: "Empirical Bayesian data analysis methods are an attractive alternative to frequentist methods -- e.g. Null Hypothesis Significance Testing -- to evaluate the results of experiments, etc."
-last_modified: "25-Oct-16"
+last_modified: "2016-10-26 16:43"
 is_section: false
 --- 
 
