@@ -185,23 +185,22 @@ h3 {font-family: 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
     text-decoration: none;
     text-align: center;
     padding-top: 0px;
+    padding-bottom: 0px;
     padding-right: 15px;
     padding-left: 15px;
     z-index: 5;
     margin: auto;
-    max-height: 50px;
-    max-width: 650px;
     vertical-align: middle;
 }
 
 .meritology-title img {
     opacity: 100%;
-    width: 50%;
+    width: 70%;
     padding-top: 10px;
-    max-height: 70px;
-    max-width: 250px;
+    max-height: 90px;
+    max-width: 350px;
     display: inline-block;
-    vertical-align: -45%;
+    vertical-align: -30%;
     
 }
 
