@@ -6,12 +6,12 @@ last_modified: "2016-10-27 23:01"
 ---
 <style type="text/css">
 ol li {
-text-align:left
+text-align:left;
 list-style-type: upper-roman;
 }
 ol li ol li {
 list-style-type: decimal;
-text-align:left
+text-align:left;
 }
 </style>
 

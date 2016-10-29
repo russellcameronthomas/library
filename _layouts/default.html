@@ -22,10 +22,19 @@
         </form>
       </div>
       </div>
+    <div id="textsizer-classnames">
+        <p>Font Size:</p>
+        <ul class="textresizer">
+            <li><a href="#nogo" class="small-text" title="Small">S</a></li>
+            <li><a href="#nogo" class="medium-text" title="Medium">M</a></li>
+            <li><a href="#nogo" class="large-text" title="Large">L</a></li>
+        </ul>
+    </div>
+
     </div>
     
     <div class="page-content-wrapper">
-      <div class="page-content">
+      <div id="pagecontent">
       {% if page.status %}
         <div class="status" >Status: {{ page.status }}</div>
         {% endif %}

@@ -6,7 +6,7 @@ last_modified: "2016-10-27 23:01"
 ---
 <style type="text/css">
 ol li {
-list-style-type: upper-roman
+list-style-type: upper-roman;
 }
 ol li ol li {
 list-style-type: decimal;

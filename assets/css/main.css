@@ -45,7 +45,7 @@ html {
     .page-content-wrapper{
     background-image: none;
     }
-    .page-content {
+    #pagecontent {
      
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
@@ -134,7 +134,7 @@ h1 {
     font-size: 160%;
     color: #444;
     margin: 1em 0 1.5em 0;
-    line-height: 1.5;
+    line-height: 1.0; /* 1.5; */
     text-align: center;
 }
 
@@ -293,7 +293,7 @@ a.site-title:hover {
 }
 
 a.home:hover {
-    background-color: #FF0;
+    background-color: #BBBBBB;
 }
 
 img.home-icon:hover {
@@ -312,16 +312,15 @@ img.home-icon:hover {
     color: #000;
     min-height: 28px;
     max-width: 650px;
-    margin-right: auto;
-    margin-left: auto;
+    /*margin-right: auto;
+    margin-left: auto;*/
+    float:right;
     text-align: center;
 }
 .search-wrapper {
   background-color: #EEEEEE;
 
 }
-
-
 
 a.chapter-link {
     color: #095AD3;
@@ -333,13 +332,14 @@ a.chapter-link {
     background-image: url("/assets/img/beige_background.png");
     background-repeat: repeat;
     overflow: visible;
+    padding-bottom: 10px;
 }
 
-.page-content {
+#pagecontent {
     line-height: 160%;
     padding-left: 25px;
     padding-right: 25px;
-    padding-top: 25px;
+    padding-top: 30px;
     padding-bottom: 25px;
     background-color: #fff;
     color: #000;
@@ -347,13 +347,33 @@ a.chapter-link {
     max-width: 650px;
     margin-right: auto;
     margin-left: auto;
-    margin-bottom: 30px;
     overflow: visible;
     text-align: justify;
-    box-shadow: 0px -1px 20px 0px #999999;
-    -webkit-box-shadow: 0px -1px 20px 0px #999999;
-    -moz-box-shadow: 0px -1px 20px 0px #999999;
+    box-shadow: 0px 5px 15px 0px #999999;
+    -webkit-box-shadow: 0px 5px 15px 0px #999999;
+    -moz-box-shadow: 0px 5px 15px 0px #999999;
 }
+
+
+#page-content.small-text
+   {
+      font-size: /*90%;*/12px;
+   }
+    
+#page-content.medium-text
+   {
+      font-size: /*100%;*/ 14px;
+   }
+    
+#page-content.large-text
+   {
+      font-size: /*110%;*/16px;
+   }
+    
+#page-content.larger-text
+   {
+      font-size: /*115%;*/18px;
+   }
 
 .note {
     font-size: 80%;
@@ -369,7 +389,7 @@ a.chapter-link {
 
 /* Increase max-height of editor so that we can show bigger gridworlds */
 
-.page-content .wpedit .result {
+#pagecontent .wpedit .result {
     max-height: 1200px;
 }
 
@@ -401,25 +421,25 @@ a.chapter-link {
 
 /* Make errors less jarring */
 
-.page-content .wpedit .result pre.error {
+#pagecontent .wpedit .result pre.error {
     color: red;
     background-color: #fff;
 }
 
 /* Decrease line-height a bit, add padding to code and result box */
 
-.page-content .CodeMirror-lines, .page-content .wpedit .result {
+#pagecontent .CodeMirror-lines, #pagecontent .wpedit .result {
     padding: 5px;
     line-height: 18px;
 }
 
 
-.page-content .wpedit .result pre {
+#pagecontent .wpedit .result pre {
     font-size: 12px;
     margin: 5px;
 }
 
-.page-content > p > img {
+#pagecontent > p > img {
     display: block;
     margin: auto;
     padding: 20px;
@@ -481,7 +501,7 @@ ol li ol li {
     float:left;
     text-align: left;
     max-width: 200px;
-    min-width: 80px;*/
+    min-width: 80px;
 }
 
 .navLinks {
@@ -542,9 +562,81 @@ footer {
 
 header a, footer a {
     text-decoration: none;
-    color: #bbb;
+    color: #bbbbbb;
 }
 
 header a:hover, footer a:hover {
     text-decoration: underline;
 }
+
+#textsizer-classnames
+{
+   margin-bottom: 6px;
+   float:left;
+   font-size: 80%;
+   color: #bbbbbb;
+   padding-left: 10px;
+   padding-top: 5px;
+}
+#textsizer-classnames p
+   {
+      display: inline;
+   }
+
+ul.textresizer
+{
+   list-style: none;
+   display: inline;
+   margin: 0px;
+   padding: 0px;
+}
+   ul.textresizer li
+   {
+      display: inline;
+      margin: 0px;
+      margin-right: 5px;
+      padding: 0px;
+   }
+ 
+   ul.textresizer a
+   {
+      border: solid 1px #bbbbbb;
+      padding: 2px 3px 2px 2px;
+      /*font-weight: bold; */
+      text-decoration: none;
+      color: #bbbbbb;
+   }
+     
+   ul.textresizer a:hover
+   {
+      background: #e5e5e5;
+      border: solid 1px #777777;
+      color: #777777;
+         
+   }
+ 
+   ul.textresizer .small-text
+   {
+      font-size: 12px;
+   }
+    
+   ul.textresizer .medium-text
+   {
+      font-size: 14px;
+   }
+    
+   ul.textresizer .large-text
+   {
+      font-size: 16px;
+   }
+
+ 
+   ul.textresizer a.textresizer-active
+   {
+      border: solid 1px #220033;
+      background: #FFFFDD;
+      color: #777777;
+   }
+
+ 
+

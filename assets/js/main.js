@@ -234,7 +234,7 @@ function author_lastname(authorString) {
 
 function short_authors(authorsString) {
   if (!authorsString) {
-    console.warn('short_authors got:' + authorsString);
+   console.warn('short_authors got:' + authorsString);
     return;
   }
   var authors = authorsString.split(" and ");
@@ -261,20 +261,28 @@ function cite_url(citation) {
 }
 
 function format_reft(citation) {
+  if (! citation["AUTHOR"]){
+  return;
+  } else {
   var s = "";
   s += "<a class='ref' href='" + cite_url(citation) + "'>";
   s += short_authors(citation["AUTHOR"]) + " (" + citation["YEAR"] + ")";
   s += "</a>";
   return textohtml(s);
+  }
 }
 
 function format_refp(citation) {
+  if (! citation["AUTHOR"]){
+  return;
+  } else {
   var s = "(";
   s += "<a class='ref' href='" + cite_url(citation) + "'>";
   s += short_authors(citation["AUTHOR"]) + ", " + citation["YEAR"];
   s += "</a>";
   s += ")";
   return textohtml(s);
+  }
 }
 
 $.get("/library_meritology.bib", function (bibtext) {
@@ -318,7 +326,7 @@ $(function(){
 
 
 // Analytics
-
+/*
 (function(i, s, o, g, r, a, m) {
   i['GoogleAnalyticsObject'] = r;
   i[r] = i[r] || function() {
@@ -333,3 +341,4 @@ $(function(){
 
 ga('create', 'UA-54996-14', 'auto');
 ga('send', 'pageview');
+*/
