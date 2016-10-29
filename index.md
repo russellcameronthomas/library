@@ -1,6 +1,6 @@
 ---
 layout: default
-last_modified: "25-Oct-16"
+last_modified: "2016-10-29"
 
 ---
 <style type="text/css">
@@ -36,13 +36,21 @@ ____
 
 **Description**
 
-The goal of this library is to help us all learn about some exciting new tools (e.g. probabilistic programming) and to explore interesting and challenging applications.  I'm learning, too, in the course of writing and presenting. 
+This library site is a workbench. Documents here are the process of being created and revised. The goal is to help all of us learn new topics and tools (e.g. probabilistic programming) and to explore interesting and challenging applications. 
 
-The intended audience both academia and industry.  These are perpetual works-in-progress, and are written mostly in a tutorial, semi-informal style. Don't cite these pages and I'd recommend against hyperlinking to specific web pages.
+The intended audience both academia and industry.  To make them widely accessible, the writing style is mostly tutorial and semi-informal. References and citations are included for people who want to dive deeper. 
+
+Because the documents and pages are work-in-progress and perpetually changing, I recommend *against* citing them or hyperlinking to specific web pages.  When they reach a point of completion, I'll post them in online archive services.
 
 ____
 
 **Site**
+
+1. *Issues*
+
+   1. Font resizing buttons aren't working yet.
+   1. Search functionality is currently inadequate. It seems that DuckDuckGo is not indexing the site very often. Hopefully this should improve in the future.
+   1. Need to add stats for each document in each Table of Contents: a) chapter count, b) status, and c) last modified
 
 {% for p in site.other %}
     {% if p.hidden %}
