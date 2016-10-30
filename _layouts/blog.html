@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    {% include header.html %}
+    <div class="search-wrapper">
+      <div class=search>
+        <div style="margin:auto;width:100%;">
+        <!--
+        <iframe src="https://duckduckgo.com/search.html?width=300&site=http://library.meritology.com&prefill=Search library.meritology.com&bgcolor=EEEEEE" style="overflow:hidden;margin:0;padding:0;width:360px;height:40px;" frameborder="0"></iframe> -->
+        <form class="ddg" name="x" action="//duckduckgo.com/">
+            <input type="hidden" value="library.meritology.com" name="sites"></input>
+            <input type="hidden" value="1" name="kh"></input>
+            <input type="hidden" value="1" name="kn"></input>
+            <input type="hidden" value="1" name="kac"></input>
+            <input type="search" placeholder="Search" name="q"></input>
+            <button class="button" type="submit">GO</button>
+        </form>
+      </div>
+      </div>
+    <div id="textsizer-classnames">
+        <p>Font:</p>
+        <ul class="textresizer">
+            <li><a href="#nogo" class="small-text" title="Small">S</a></li>
+            <li><a href="#nogo" class="medium-text" title="Medium">M</a></li>
+            <li><a href="#nogo" class="large-text" title="Large">L</a></li>
+        </ul>
+    </div>
+
+    </div>
+    
+    <div class="page-content-wrapper">
+      <div id="pagecontent">
+      {% if page.status %}
+        <div class="status" >Status: {{ page.status }}</div>
+        {% endif %}
+        {% if page.last_modified %}
+        <div class="last_modified" >Last modified: {{ page.last_modified }}</div>
+        {% endif %}
+        {{ content }}
+      </div>
+         
+    </div>
+
+    {% include footer.html %}
+
+  </body>
+
+</html>

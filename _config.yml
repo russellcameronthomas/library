@@ -1,6 +1,11 @@
 # Site settings
 title: "Library"
 collections:
+  posts:
+    output: false
+    sort_order: -1
+    index: false
+    title: "Meritology Blog"
   fundamentals:
     output: true
     sort_order: 0
@@ -32,8 +37,10 @@ author_dept: "Computational & Data Sciences"
 author_affiliation: "George Mason University"
 author_url: "http://exploringpossibilityspace.blogspot.com"
 baseurl: ""
-#baseurl: "http://tutorials.meritology.com"
-url: "http://tutorials.meritology.com"
+url: "http://library.meritology.com"
+
+# Put blob posts in their own directory
+permalink: /blog/:year/:month/:title.html
 
 # Build settings
 markdown: kramdown

@@ -21,8 +21,10 @@ list-style-type: decimal;
 {{ site.author_affiliation }}<br>
 </div>
 
+**[Blog](/blog/index.html)** -- *(stub)*
 
-**Tutorials, Working Papers, and Computer Models**
+
+**Documents in Progress**
 
 {% assign sorted_col = site.collections | sort : "sort_order" %}
 
@@ -46,11 +48,12 @@ ____
 
 **Site**
 
-1. *Issues*
+1. **Issues**
 
-   1. Font resizing buttons aren't working yet.
-   1. Search functionality is currently inadequate. It seems that DuckDuckGo is not indexing the site very often. Hopefully this should improve in the future.
-   1. Need to add stats for each document in each Table of Contents: a) chapter count, b) status, and c) last modified
+   1. Font resizing buttons aren't working yet. *(10/29)*
+   1. Search functionality is currently inadequate. It seems that DuckDuckGo is not indexing the site very often. Hopefully this should improve in the future. *(10/29)*
+   1. Need to add stats for each document in each Table of Contents: a) chapter count, b) status, and c) last modified. *(10/29)*
+   1. Make blog functional. *(10/29)*
 
 {% for p in site.other %}
     {% if p.hidden %}
