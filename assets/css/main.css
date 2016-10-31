@@ -45,7 +45,7 @@ html {
     .page-content-wrapper{
     background-image: none;
     }
-    #pagecontent {
+    #maincontent {
      
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
@@ -335,45 +335,7 @@ a.chapter-link {
     padding-bottom: 10px;
 }
 
-#pagecontent {
-    line-height: 160%;
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-top: 30px;
-    padding-bottom: 25px;
-    background-color: #fff;
-    color: #000;
-    min-height: 500px;
-    max-width: 650px;
-    margin-right: auto;
-    margin-left: auto;
-    overflow: visible;
-    text-align: justify;
-    box-shadow: 0px 5px 15px 0px #999999;
-    -webkit-box-shadow: 0px 5px 15px 0px #999999;
-    -moz-box-shadow: 0px 5px 15px 0px #999999;
-}
 
-
-#page-content.small-text
-   {
-      font-size: /*90%;*/12px;
-   }
-    
-#page-content.medium-text
-   {
-      font-size: /*100%;*/ 14px;
-   }
-    
-#page-content.large-text
-   {
-      font-size: /*110%;*/16px;
-   }
-    
-#page-content.larger-text
-   {
-      font-size: /*115%;*/18px;
-   }
 
 .note {
     font-size: 80%;
@@ -387,11 +349,7 @@ a.chapter-link {
     text-align: left;
 }
 
-/* Increase max-height of editor so that we can show bigger gridworlds */
 
-#pagecontent .wpedit .result {
-    max-height: 1200px;
-}
 
 .author-block {
     font-size:80%;
@@ -419,31 +377,6 @@ a.chapter-link {
     background-image: none;
 }
 
-/* Make errors less jarring */
-
-#pagecontent .wpedit .result pre.error {
-    color: red;
-    background-color: #fff;
-}
-
-/* Decrease line-height a bit, add padding to code and result box */
-
-#pagecontent .CodeMirror-lines, #pagecontent .wpedit .result {
-    padding: 5px;
-    line-height: 18px;
-}
-
-
-#pagecontent .wpedit .result pre {
-    font-size: 12px;
-    margin: 5px;
-}
-
-#pagecontent > p > img {
-    display: block;
-    margin: auto;
-    padding: 20px;
-}
 
 a.ref {
     text-decoration: none;
@@ -467,15 +400,7 @@ a.ref:hover {
     display: none
 }
 
-/*
 
-ol li {
-    list-style-type: upper-roman
-}
-ol li ol li {
-    list-style-type: decimal;
-}
- */
 ol li {
     list-style-type: decimal;
 }
@@ -578,6 +503,7 @@ header a:hover, footer a:hover {
    padding-left: 10px;
    padding-top: 5px;
 }
+
 #textsizer-classnames p
    {
       display: inline;
@@ -594,14 +520,14 @@ ul.textresizer
    {
       display: inline;
       margin: 0px;
-      margin-right: 5px;
+      margin-right: 8px;
       padding: 0px;
    }
  
    ul.textresizer a
    {
       border: solid 1px #bbbbbb;
-      padding: 2px 3px 2px 2px;
+      padding: 2px 5px 3px 5px;
       /*font-weight: bold; */
       text-decoration: none;
       color: #bbbbbb;
@@ -617,7 +543,7 @@ ul.textresizer
  
    ul.textresizer .small-text
    {
-      font-size: 12px;
+      font-size: 13px;
    }
     
    ul.textresizer .medium-text
@@ -629,6 +555,10 @@ ul.textresizer
    {
       font-size: 16px;
    }
+   ul.textresizer .larger-text
+   {
+      font-size: 18px;
+   }
 
  
    ul.textresizer a.textresizer-active
@@ -638,5 +568,77 @@ ul.textresizer
       color: #777777;
    }
 
+#maincontent {
+    line-height: 160%;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 30px;
+    padding-bottom: 25px;
+    background-color: #fff;
+    color: #000;
+    min-height: 500px;
+    max-width: 650px;
+    margin-right: auto;
+    margin-left: auto;
+    overflow: visible;
+    text-align: justify;
+    box-shadow: 0px 5px 15px 0px #999999;
+    -webkit-box-shadow: 0px 5px 15px 0px #999999;
+    -moz-box-shadow: 0px 5px 15px 0px #999999;
+}
+
+
+#maincontent.small-text
+   {
+      font-size: 13px;
+   }
+    
+#maincontent.medium-text
+   {
+      font-size: 14px;
+   }
+    
+#maincontent.large-text
+   {
+      font-size: 16px;
+   }
+
+#maincontent.larger-text
+   {
+      font-size: 18px;
+   }
+
+
+   /* Make errors less jarring */
+
+#maincontent .wpedit .result pre.error {
+    color: red;
+    background-color: #fff;
+}
+
+/* Decrease line-height a bit, add padding to code and result box */
+
+#maincontent .CodeMirror-lines, #maincontent .wpedit .result {
+    padding: 5px;
+    line-height: 18px;
+}
+
+
+#maincontent .wpedit .result pre {
+    font-size: 12px;
+    margin: 5px;
+}
+
+#maincontent > p > img {
+    display: block;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Increase max-height of editor so that we can show bigger gridworlds */
+
+#maincontent .wpedit .result {
+    max-height: 1200px;
+}
  
 

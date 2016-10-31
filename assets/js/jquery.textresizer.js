@@ -292,12 +292,13 @@ Documentation: http://angstrey.com/index.php/projects/jquery-text-resizer-plugin
             $resizeButton.addClass("textresizer-active");
         }
 
+        debug("attaching resizer to " + index);
         // Apply the font size to target element when its 
         // corresponding resize button is clicked
         $resizeButton.on("click", { index: index }, function (e) {
             var currentElement = this;
-            
-            debug("Click");
+
+            debug("Click " + index);
     
 
             if (settings.suppressClickThrough) {

@@ -21,10 +21,10 @@ list-style-type: decimal;
 {{ site.author_affiliation }}<br>
 </div>
 
-**[Blog](/blog/index.html)** -- *(stub)*
+**Blog<!--(/blog/index.html)-->** -- *(coming soon)*
 
 
-**Documents in Progress**
+**Document Workbench**
 
 {% assign sorted_col = site.collections | sort : "sort_order" %}
 
@@ -38,7 +38,7 @@ ____
 
 **Description**
 
-This library site is a workbench. Documents here are the process of being created and revised. The goal is to help all of us learn new topics and tools (e.g. probabilistic programming) and to explore interesting and challenging applications. 
+This library site is a authoring workbench, containing documents that are in the process of being created and revised. The Blog is a chronological journal of the process and observations along the way. The goal is to help us learn new topics and tools (e.g. probabilistic programming) and to explore interesting and challenging applications. 
 
 The intended audience both academia and industry.  To make them widely accessible, the writing style is mostly tutorial and semi-informal. References and citations are included for people who want to dive deeper. 
 

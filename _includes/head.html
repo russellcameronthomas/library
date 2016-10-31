@@ -4,25 +4,24 @@
   {% if page.collection %}{% assign subtitle = page.collection %}{% else %}{% assign subtitle = "" %}{% endif %}
   <title>Meritology/{% if page.title %}{{ site.title | downcase}}/{{subtitle}} - {{ page.title }}{% else %}{{ site.title | downcase}} - Home{% endif %}</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/pure/0.6.0/pure-min.css">
-<link rel='stylesheet' id='syntax-merriweather-css'  href='https://fonts.googleapis.com/css?family=Merriweather%3A400%2C300italic%2C300%2C400italic%2C700%2C700italic&#038;subset=latin%2Clatin-ext&#038;ver=4.4-alpha-34640' type='text/css' media='all' />
-
-  <link rel="stylesheet" href="{{ "/assets/css/main.css" | prepend: site.baseurl }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+   <link rel="stylesheet" href="{{ "/assets/css/main.css" | prepend: site.baseurl }}">
    <!--RCT updated -->
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
-  <!-- <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script> OLD-->
+ <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
+  
   <script src="{{ "/assets/js/parse-bibtex.js" | prepend: site.baseurl }}" type="text/javascript"></script>
   <script src="{{ "/assets/js/main.js" | prepend: site.baseurl }}" type="text/javascript"></script>
-  <!--RCT added -->
+
+  <!-- RCT added -->
   <script src="{{ "/assets/js/jquery.cookie.js" | prepend: site.baseurl }}" type="text/javascript"></script>
   <script src="{{ "/assets/js/jquery.textresizer.js" | prepend: site.baseurl }}" type="text/javascript"></script>
-  <!-- RCT added -->
-  <script>
-   $(document).ready(function () {
+
+<script>
+   $(function () {
       $("#textsizer-classnames a").textresizer({
-         target: "#pagecontent",
+         target: "#maincontent",
          type: "cssClass",
          sizes: [ 
             "small-text", 
@@ -33,7 +32,8 @@
       });
    });
 </script>
-
+  
+<!-- end RCT added -->
 
   <script src="http://cdn.webppl.org/webppl-editor-1.0.0.js"></script>
   <link rel="stylesheet" href="http://cdn.webppl.org/webppl-editor-1.0.0.css">
@@ -42,6 +42,8 @@
   <link rel="stylesheet" href="http://cdn.webppl.org/webppl-viz-0.7.4.css">
   
   <script src="{{ "/assets/js/webppl.min.js" | prepend: site.baseurl }}" defer async></script>
+  
+   <link rel='stylesheet' id='syntax-merriweather-css'  href='https://fonts.googleapis.com/css?family=Merriweather%3A400%2C300italic%2C300%2C400italic%2C700%2C700italic&#038;subset=latin%2Clatin-ext&#038;ver=4.4-alpha-34640' type='text/css' media='all' />
 
   {% if page.custom_css %}
     {% for stylesheet in page.custom_css %}
@@ -54,6 +56,7 @@
     <script src='{{ js_file }}' type="text/javascript"></script>
     {% endfor %}
   {% endif %}
- 
+
+
       
 </head>

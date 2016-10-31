@@ -30,6 +30,7 @@ $(function(){
 });
 
 
+
 // References and bibliography
 
 var textohtml_map = {
@@ -67,28 +68,30 @@ function textohtml(tex) {
 }
 
 function replace_html(source, target) {
-    $('p, li').each(function () {
+        $('p, li:not(.control)').each(function () {  // RCT added :not(.control), to exclude font size and other controls
         var html = $(this).html();
         $(this).html(html.replace(new RegExp(source, "ig"), target));
     });
 }
 
-/* OLD citation format
+// OLD citation format
  
-function format_citation(citation) {
-    var s = "";
-    if (citation["URL"]) {
-        s += "<a href='" + citation["URL"] + "'>" + citation["TITLE"] + "</a>. ";
-    } else {
-        s += citation["TITLE"] + ". ";
-    };
-    s += citation["AUTHOR"] + " (" + citation["YEAR"] + ").";
-    if (citation["JOURNAL"]) {
-        s += " <em>" + citation["JOURNAL"] + "</em>.";
-    }
-    return textohtml(s);
-}
- */
+// function format_citation(citation) {
+//     var s = "";
+//     if (citation["URL"]) {
+//         s += "<a href='" + citation["URL"] + "'>" + citation["TITLE"] + "</a>. ";
+//     } else {
+//         s += citation["TITLE"] + ". ";
+//     };
+//     s += citation["AUTHOR"] + " (" + citation["YEAR"] + ").";
+//     if (citation["JOURNAL"]) {
+//         s += " <em>" + citation["JOURNAL"] + "</em>.";
+//    }
+//     return textohtml(s);
+// }
+
+
+
 
 // RCT added
 function removeDupDashes (pageString){
@@ -285,19 +288,23 @@ function format_refp(citation) {
   }
 }
 
+
+
 $.get("/library_meritology.bib", function (bibtext) {
     $(function () {
         var bibs = doParse(bibtext);
         $.each(
             bibs,
             function (citation_id, citation) {
-              replace_html("cite:" + citation_id, format_citation(citation));
-              replace_html("reft:" + citation_id, format_reft(citation));
-              replace_html("refp:" + citation_id, format_refp(citation));
+                console.log("saw a bib");
+                replace_html("cite:" + citation_id, format_citation(citation));
+                replace_html("reft:" + citation_id, format_reft(citation));
+                replace_html("refp:" + citation_id, format_refp(citation));
             }
         );
     });
 });
+
 
 
 // LaTeX math
@@ -306,7 +313,7 @@ $.get("/library_meritology.bib", function (bibtext) {
 $(function(){
   var scripts = document.getElementsByTagName("script");
   for (var i = 0; i < scripts.length; i++) {
-    /* TODO: keep going after an individual parse error. */
+    // TODO: keep going after an individual parse error.
     var script = scripts[i];
     if (script.type.match(/^math\/tex/)) {
       var text = script.text === "" ? script.innerHTML : script.text;
