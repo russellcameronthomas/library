@@ -38,11 +38,11 @@ ____
 
 **Description**
 
-This site is primarily an authoring workbench. Documents here are in the process of being created and revised. Posts in the Blog are more stable, since they are a chronological journal of observations along the way. Overall, the goal of this site is to help us -- both you and me -- learn new topics and tools (e.g. probabilistic programming) and to explore interesting and challenging applications. 
+This site is primarily an authoring workbench. Documents here are in the process of being created and revised. Posts in the Blog are are a chronological journal of observations along the way, and thus more stable and cumulative. Overall, the goal of this site is to help us -- both you and me -- learn new topics and tools (e.g. probabilistic programming) and to explore interesting and challenging applications. 
 
 The intended audience both academia and industry.  The writing style is mostly tutorial and informal. References and citations are included for people who want to dive deeper. 
 
-Because the documents and pages are work-in-progress and perpetually changing, I recommend *against* citing them or hyperlinking to specific web pages.  When they reach a point of completion, I'll post them in online archive services.
+Because the documents and pages are work-in-progress and perpetually changing, I recommend *against* citing to articles or hyperlinking to any specific web pages.  When they reach a point of completion, I'll post them in online archive services.
 
 ____
 
