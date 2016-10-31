@@ -521,14 +521,14 @@ ul.textresizer
    {
       display: inline;
       margin: 0px;
-      margin-right: 5px;
+      margin-right: 4px;
       padding: 0px;
    }
  
    ul.textresizer a
    {
       border: solid 1px #bbbbbb;
-      padding: 1px 6px 1px 6px;
+      padding: 1px 7px 1px 7px;
       /*font-weight: bold; */
       text-decoration: none;
       color: #bbbbbb;
@@ -565,9 +565,10 @@ ul.textresizer
    ul.textresizer a.textresizer-active
    {
       border: solid 1px #220033;
-      background: #FFEECC;
+      background: #FFFFBB;
       color: #777777;
    }
+
 
 #maincontent {
     line-height: 160%;
@@ -594,10 +595,21 @@ ul.textresizer
       font-size: 13px;
    }
 
+#maincontent.small-text img.resize
+   {
+      width: 55% !important;
+      height: auto;
+   }
+
     
 #maincontent.medium-text
    {
       font-size: 14px;
+   }
+#maincontent.medium-text img.resize
+   {
+      width: 75% !important;
+      height: auto;
    }
     
 #maincontent.large-text
@@ -605,9 +617,21 @@ ul.textresizer
       font-size: 16px;
    }
 
+#maincontent.large-text img.resize
+   {
+      width: 85% !important;
+      height: auto;
+   }
+
 #maincontent.larger-text
    {
       font-size: 18px;
+   }
+
+#maincontent.larger-text img.resize
+   {
+      width: 100% !important;
+      height: auto;
    }
 
 

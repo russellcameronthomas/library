@@ -45,20 +45,20 @@ A key concern is the distribution of performance values.  If there is a single p
 
 <center>
 <a href="http://www.thp.uni-koeln.de/~hwang/ss15/reference/NRG_published.pdf">
-<img  src="{{ site.baseurl }}/assets/img/performance_landscapes.png" style="display:block; width: 90%;"></a>
+<img class="resize" class="resize" src="{{ site.baseurl }}/assets/img/performance_landscapes.png" style="display:block; width: 90%;"></a>
 </center>
 
  Conversely, if any point in the space is randomly and arbitrarily different from every other, then the landscape is maximally "rugged".  There can be no local notion of "making progress" or "improvement" -- only is *this* point better/worse than *that* point.  
  
 <center>
-<img  src="{{ site.baseurl }}/assets/img/random_landscape.gif" style="display:block; width: 65%;">
+<img class="resize" src="{{ site.baseurl }}/assets/img/random_landscape.gif" style="display:block; width: 65%;">
 A random performance landscape.
 </center>
  
 
 But ruggedness is not the only challenge of searching performance landscapes. For most complex designs there will be regions of *infeasibility or impossibility* where the design "falls apart" or "never comes together".  (Some surfaces can't be painted.  Some materials can't be glued together. Two solid objects can't occupy the same space at the same time.) These are "sink holes", where once you get in them (by making design choices), it may be hard to get out of them through incremental changes.  Here's a nice diagram from reft:greenwood_use_1998 illustrating "sink holes" of infeasability.
 
-<img src="{{ site.baseurl }}/assets/img/sink_holes.png" style="display:block; width: 95%;" />
+<img class="resize" src="{{ site.baseurl }}/assets/img/sink_holes.png" style="display:block; width: 95%;" />
 
 Following reft:greenwood_use_1998, we can define a metric of ruggedness $$\mathscr{R}$$ as "neighborhood correlation". If we define a neighborhood of $$m$$ points within $$d$$ distance from a given point $$x_0$$, then we can quantify ruggedness by the average correlation of performance from that point $$p_0 = f(x_0)$$ to the other points $$x_1, x_2, \ldots x_m$$ via some number of random walks. The ruggedness metric a set of "correlation lengths", i.e. a correlation defined for each length (number of steps $$s$$) on the random walks (limited to the neighborhood around $$x_0$$):
 
@@ -72,7 +72,7 @@ If we have a set of correlation lengths $$\mathscr{R}(s)$$, and also a function 
 
 <center>
 <a href="http://davis.wpi.edu/~matt/courses/fractals/islands.html">
-<img  src="{{ site.baseurl }}/assets/img/boundary_of_brownian_motion.png" style="display:block; width: 65%;"></a>
+<img class="resize" src="{{ site.baseurl }}/assets/img/boundary_of_brownian_motion.png" style="display:block; width: 65%;"></a>
 A random fractal island
 </center>
 

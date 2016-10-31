@@ -53,7 +53,6 @@ ____
    1. Search functionality is currently inadequate. Switch to static search engine. *(10/29)*
    1. Need to add stats for each document in each Table of Contents: a) chapter count, b) status, and c) last modified. *(10/29)*
    1. Make blog functional. *(10/29)*
-   1. Need to resize images when resizing fonts. *(10/30)*
 
 {% for p in site.other %}
     {% if p.hidden %}

@@ -13,7 +13,7 @@ This purpose of this chapter is to *begin* to show how probabilistic programming
 
 The [Factor Analysis of Information Risk (FAIR)](https://en.wikipedia.org/wiki/Factor_analysis_of_information_risk) framework has an ontology as a key element.  At the highest level, the ontology looks like this (source: [FAIR Institute](http://www.fairinstitute.org), developers and promoters of FAIR):
 
-<img style="display:block;width:400px;" src="{{ site.baseurl }}/assets/img/FAIR_ontology.png">
+<img class="resize" style="display:block;width:400px;" src="{{ site.baseurl }}/assets/img/FAIR_ontology.png">
 
 We'll use this to build a simplistic model of loss event risk.  
 

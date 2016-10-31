@@ -54,7 +54,7 @@ The agent's task is to open a door and walk through it.  To make it interesting,
 
 We'll start with an open doorway refp:franchak_affordances_2014, and treat it as a 1D problem in a 2D space, i.e. fitting through the doorway width-wise. The size of doorway is $$o$$ in the $$x$$ dimension. Agents are abstracted as rectangles with width $$w$$ (in the $$x$$ dimension) and depth $$d$$ (in the $$y$$ dimension), with $$ w > d $$.  The agent walks in the $$y$$ dimension, and so presents its width to the door.  If the doorway is too narrow, the agent can turn to "go in sideways".  If $$o < d $$ then the agent cannot get through the door at all.
 
-<img style="display:block;max-width:80%;" src="{{ site.baseurl }}/assets/img/open_doorway_setting.png">
+<img class="resize" style="display:block;max-width:80%;" src="{{ site.baseurl }}/assets/img/open_doorway_setting.png">
 
 What makes this a cognitive system is that agents establish *beliefs* about whether they will fit through the doorway and will update these beliefs as they get closer, and even while trying to get through.  If, at any time, the agent comes to believe that it is impossible to get through the door, i.e. $$Bel(success) \approx 0$$, then it will stop.
 
