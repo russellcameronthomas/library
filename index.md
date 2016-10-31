@@ -38,9 +38,9 @@ ____
 
 **Description**
 
-This library site is a authoring workbench, containing documents that are in the process of being created and revised. The Blog is a chronological journal of the process and observations along the way. The goal is to help us learn new topics and tools (e.g. probabilistic programming) and to explore interesting and challenging applications. 
+This site is primarily an authoring workbench which contains documents that are in the process of being created and revised. The Blog is a chronological journal of the process and observations along the way. Each blog post is more or less frozen in time. Overall, the goal is to help you and me learn new topics and tools (e.g. probabilistic programming) and to explore interesting and challenging applications. 
 
-The intended audience both academia and industry.  To make them widely accessible, the writing style is mostly tutorial and semi-informal. References and citations are included for people who want to dive deeper. 
+The intended audience both academia and industry.  The writing style is mostly tutorial and informal. References and citations are included for people who want to dive deeper. 
 
 Because the documents and pages are work-in-progress and perpetually changing, I recommend *against* citing them or hyperlinking to specific web pages.  When they reach a point of completion, I'll post them in online archive services.
 
@@ -50,9 +50,14 @@ ____
 
 1. **Issues**
 
-   1. Search functionality is currently inadequate. Switch to static search engine. *(10/29)*
-   1. Need to add stats for each document in each Table of Contents: a) chapter count, b) status, and c) last modified. *(10/29)*
-   1. Make blog functional. *(10/29)*
+<ol class="note">
+<ol>
+<li>Search functionality is currently inadequate. Switch to static search engine. <em>(10/29)</em></li>
+<li>Need to add stats for each document in each Table of Contents: a) chapter count, b) status, and c) last modified. <em>(10/29)</em></li>
+<li>Make blog functional. <em>(10/29)</em></li>
+</ol>
+</ol>
+
 
 {% for p in site.other %}
     {% if p.hidden %}
