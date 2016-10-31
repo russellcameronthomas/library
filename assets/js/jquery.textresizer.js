@@ -234,6 +234,7 @@ Documentation: http://angstrey.com/index.php/projects/jquery-text-resizer-plugin
 
             if (!isNaN(selectedIndex)) {
                 settings.selectedIndex = selectedIndex;
+                // mark as active??  RCT
             }
 
             if (settings.debugMode) {
@@ -290,6 +291,7 @@ Documentation: http://angstrey.com/index.php/projects/jquery-text-resizer-plugin
         // Mark this button as active if necessary
         if (index === settings.selectedIndex) {
             $resizeButton.addClass("textresizer-active");
+            thisPlugin.markActive($resizeButton);    // RCT added, to clear this button when a new button clicked
         }
 
         debug("attaching resizer to " + index);
@@ -315,7 +317,7 @@ Documentation: http://angstrey.com/index.php/projects/jquery-text-resizer-plugin
     };
 
     TextResizerPlugin.prototype.init = function () {
-        var numberOfElements = this.$elements.length, //size(),          //RCT modified
+        var numberOfElements = this.$elements.length, //size(),   //RCT modified, since size() doesn't work in 3.0
             debugMode = TextResizerPlugin.defaults.debugMode;
 
         if (debugMode) {

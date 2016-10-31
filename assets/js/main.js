@@ -296,7 +296,6 @@ $.get("/library_meritology.bib", function (bibtext) {
         $.each(
             bibs,
             function (citation_id, citation) {
-                console.log("saw a bib");
                 replace_html("cite:" + citation_id, format_citation(citation));
                 replace_html("reft:" + citation_id, format_reft(citation));
                 replace_html("refp:" + citation_id, format_refp(citation));
