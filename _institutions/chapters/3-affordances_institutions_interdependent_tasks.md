@@ -14,7 +14,7 @@ Because the environment is open and evolving, we can't just pre-program our agen
 The two biggest ideas in this chapter are in the last two subsections of "Foundations":
 
 - "[Affordances Provide Informational Resources](#Affordances_Provide_Informational_Resources)"
-- "[Institutions as Modified Affordances](#Institutions_as_Informational_Resources_in_Affordances)"
+- "[Institutions as Modified Affordances](#Institutions_as_Resources_and_Constraints_in_Affordances)"
 
 To get there, we first build up a model of interdependent tasks, performance, and agent capabilities. If I succeed in my role as author/tutor, at the end you will see affordances and institutions in a whole new way.
 
