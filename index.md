@@ -21,7 +21,7 @@ list-style-type: decimal;
 {{ site.author_affiliation }}<br>
 </div>
 
-**Blog<!--(/blog/index.html)-->** -- (*coming soon*)
+**Blog<!--(/blog/index.html)-->** ⛔️
 
 
 **Document Workbench**
@@ -30,7 +30,9 @@ list-style-type: decimal;
 
 {% for col in sorted_col %}
 {% if col.title and col.index == true %}
-1. **<a class="chapter-link" href="/{{ col.label }}/index.html" target="_blank">{{ col.title }}</a>**<br>
+{% assign num_chap = col.docs | size  | minus: 1 %}
+1. {% if num_chap > 0 %}**<a class="chapter-link" href="/{{ col.label }}/index.html" target="_blank">{{ col.title }}</a>**<br>
+<span class="annotate">{{ col.docs | size  | minus: 1 }} chapters</span>{% else %}**{{ col.title }}** ⛔️{% endif %}<br/>
 {% endif %}
 {% endfor %}
 
@@ -53,7 +55,7 @@ ____
 <ol class="note">
 <ol>
 <li>Search functionality is currently inadequate. Switch to static search engine. <em>(10/29)</em></li>
-<li>Need to add stats for each sub-book in this Table of Contents: a) chapter count, b) status, and c) last modified. <em>(10/29)</em></li>
+<li>Need to add stats for each sub-book in this Table of Contents: a) count by status, and b) max last modified. <em>(10/29)</em></li>
 <li>Make blog functional. <em>(10/29)</em></li>
 <li>Citation for book section omits book title and book editor. <em>(10/31)</em></li>
 </ol>
