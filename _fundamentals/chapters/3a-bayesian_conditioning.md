@@ -2,7 +2,9 @@
 layout: chapter
 title: Bayesian Inference
 description: "Bayesian inference (a.k.a. conditioning) is a method for using observed/empirical data to improve your estimate of the probability distribution of a random variable."
-last_modified: "2016-10-26 16:43"
+status: work-in-progress
+pct_complete: 70%
+last_modified: "2016-10-26"
 is_section: false
 ---
 

@@ -3,6 +3,7 @@ layout: chapter
 title: Negotiating Team Roles and Responsibilities
 description: "Agents self-organize into teams. The model uses recursive multi-agent reasoning and repeated social interaction in a somewhat non-cooperative game with incomplete and imperfect information."
 status: work-in-progress
+pct_complete: "5%"
 last_modified: "2016-10-31"
 is_section: true
 ---

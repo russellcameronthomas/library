@@ -2,7 +2,8 @@
 layout: chapter
 title: "Affordances as Probabilistic Interrelations"
 description: "This model uses on-line probabilistic reasoning to perform a task in the face of various forms of ignorance and uncertainty, using the construct of 'affordance' from Ecological Psychology."
-status: draft
+status: work-in-progress
+pct_complete: "90%"
 sort_order: 1
 last_modified: "2016-10-27 03:31"
 is_section: true

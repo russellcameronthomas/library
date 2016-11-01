@@ -3,7 +3,8 @@ layout: chapter
 title: Evolving Team Structure 
 description: "This model replicates reft:ethiraj_bounded_2004, which is a stochastic evolutionary model of team structure given dependency between tasks."
 status: work-in-progress
-last_modified: "2016-10-27 03:31"
+pct_complete: "60%"
+last_modified: "2016-10-27"
 is_section: true
 ---
 

@@ -21,7 +21,7 @@ list-style-type: decimal;
 {{ site.author_affiliation }}<br>
 </div>
 
-**Blog<!--(/blog/index.html)-->** -- *(coming soon)*
+**Blog<!--(/blog/index.html)-->** -- (*coming soon*)
 
 
 **Document Workbench**
@@ -53,8 +53,9 @@ ____
 <ol class="note">
 <ol>
 <li>Search functionality is currently inadequate. Switch to static search engine. <em>(10/29)</em></li>
-<li>Need to add stats for each document in each Table of Contents: a) chapter count, b) status, and c) last modified. <em>(10/29)</em></li>
+<li>Need to add stats for each sub-book in this Table of Contents: a) chapter count, b) status, and c) last modified. <em>(10/29)</em></li>
 <li>Make blog functional. <em>(10/29)</em></li>
+<li>Citation for book section omits book title and book editor. <em>(10/31)</em></li>
 </ol>
 </ol>
 

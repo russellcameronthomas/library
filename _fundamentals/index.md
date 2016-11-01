@@ -29,13 +29,13 @@ text-align:left;
         {% if p.layout == 'chapter' %}
             {% if p.is_section %}
                 {% if p.status == 'stub' %}
-1. **{{ p.title }}**<br>{% else %}
-1. **<a class="chapter-link" href="{{ site.baseurl }}{{ p.url }}" target="_blank">{{ p.title }}</a>**<br>{% endif %}
+1. **{{ p.title }}** ⛔️<br>{% else %}
+1. **<a class="chapter-link" href="{{ site.baseurl }}{{ p.url }}" target="_blank">{{ p.title }}</a>**{% if p.status == 'work-in-progress' %}&nbsp;<img src = "{{ site.baseurl }}/assets/img/under_construction_icon2b.png" style = "height:20px;width:25px;vertical-align:-4px;"/>&nbsp;<span class ="annotate">{{ p.pct_complete }}</span>{% endif %}<br>{% endif %}
         <em>{{ p.description }}</em>
             {% else %}
                 {% if p.status == 'stub' %}
-    1. **{{ p.title }}**<br>{% else %}
-    1. **<a class="chapter-link" href="{{ site.baseurl }}{{ p.url }}" target="_blank">{{ p.title }}</a>**<br>{% endif %}
+    1. **{{ p.title }}** ⛔️<br>{% else %}
+    1. **<a class="chapter-link" href="{{ site.baseurl }}{{ p.url }}" target="_blank">{{ p.title }}</a>**{% if p.status == 'work-in-progress' %}&nbsp;<img src = "{{ site.baseurl }}/assets/img/under_construction_icon2b.png" style = "height:20px;width:25px;vertical-align:-4px;"/>&nbsp;<span class ="annotate">{{ p.pct_complete }}</span>{% endif %}<br>{% endif %}
             <em>{{ p.description }}</em>        
             {% endif %}
         {% endif %}

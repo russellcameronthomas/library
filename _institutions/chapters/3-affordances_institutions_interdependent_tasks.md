@@ -3,6 +3,7 @@ layout: chapter
 title: Affordances, Institutions, and Interdependent Tasks
 description: "In this chapter we model interdependent tasks that are embedded in an institutional field, using the construct of affordances."
 status: work-in-progress
+pct_complete: "70%"
 last_modified: "2016-10-31"
 is_section: true
 ---

@@ -215,6 +215,14 @@ h3 {font-family: 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
     display: inline-block;
 }
 
+.annotate {
+    font-family: 'Tahoma', 'Geneva', sans-serif;
+    font-size: 95%;
+    line-height: 100%;
+    font-style: italic;
+    color: #AAAAAA;
+}
+
 .status {
     float:left;
     min-width: 200px;
