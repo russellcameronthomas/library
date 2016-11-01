@@ -1,21 +1,26 @@
 ---
 layout: chapter
-title: Negotiating Team Roles and Responsibilities
-description: "This model uses recursive multi-agent reasoning and repeated social interaction, where agents reason about each other, their collective performance, and the structure of a somewhat non-cooperative game with incomplete and imperfect information."
+title: Affordances, Institutions, and Interdependent Tasks
+description: "In this chapter we model interdependent tasks that are embedded in an institutional field, using the construct of affordances."
 status: work-in-progress
-last_modified: "2016-10-27 03:59"
+last_modified: "2016-10-31"
 is_section: true
 ---
 
-This is a model of self-organizing teams -- specifically small teams of design engineers ("agents") -- but it could be any type of team doing any type of work. It draws on two other models -- [Affordances as Probabilistic Interrelations](1_affordances.html) and [Evolving Team Structure](2-team_structure.html) -- but goes beyond them to include higher-order reasoning about the tasks, each agent's capabilities, and probable outcomes given ways of assigning roles and responsibilities.  The base model involves agents reasoning privately.  The extended model adds *institutions* -- norms and rules -- that influence and constrain agent choices and behaviors.
+How can we understand agent performance in an open and evoloving environment (vs. static and pre-set) on complex tasks where there is interdependency?  This is the question we'll address in this chapter.
 
-The goal of this model is to study the effects of team member migration.  Agents on a given team become aculturated to that team, including its institutions.  When an agent moves to a new team with different culture and institutions, conflicts can arise. Is this conflict positive or negative?  How does it affect team versatility and creativity?  Is it a temporary disturbance or a permanent change?  If new members challenge or reconfigure the team's 'institutions, are the effects positive, negative, or mixed?
+Because the environment is open and evolving, we can't just pre-program our agents with the rules, capabilities, and reasoning systems that fits a static environment.  And because of the complexity and interdependency between tasks, it will be no simple job even to figure out how to subdivide tasks, where to start, and how to gauge progress.  These conditions apply to many settings, but I have small engineering design teams in mind to start with.
 
-## Model Components
+The two biggest ideas in this chapter are in the last two subsections of "Foundations":
 
-We'll build up the model stepwise, piece by piece, starting first with the tasks in a design project.  We abstract design as the process of making a set of $$N$$ decisions in a way that optimizes (or satisfices) a single performance metric $$p$$.
+- "[Affordances Provide Informational Resources](#Affordances_Provide_Informational_Resources)"
+- "[Institutions as Modified Affordances](#Institutions_as_Informational_Resources_in_Affordances)"
 
-### Tasks 
+To get there, we first build up a model of interdependent tasks, performance, and agent capabilities. If I succeed in my role as author/tutor, at the end you will see affordances and institutions in a whole new way.
+
+# Foundations
+
+## Interdependent Tasks 
 
 Following the model in [Evolving Team Structure](2-team_structure.html), we'll model a set of tasks inside a project as a vector of binary decisions.  The assumption here is that we could translate any coding of a realistic project into this expanded-but-primative coding.  For example, let's say the project is to design a doorway.  Focusing only on the width of the opening, this decision for this variable is a continuous value, i.e. positive-but-constrained real number.  But we could code it as a set of binary decisions by binning the values and coding it as an eight element vector $$a$$ of mutually exclusive decisions:
 
@@ -36,7 +41,7 @@ A similar binary encoding procedure can be applied to decisions about structure 
 
 If we concatenate all the decision vectors together, we'll get one long binary vector of length $$N$$. For the base model, we'll treat this vector as fixed and exogenous (i.e. not influenced by agents or their decisions).
 
-### Performance 
+## Performance 
 
 The performance $$p$$ of any given design is the *weighted sum* (we assume) of contributions of individual decisions, accounting for interdependencies.  Following the model in [Evolving Team Structure](2-team_structure.html), we can model dependency between decisions through a matrix -- Design Dependency Matrix (DDM) refp:clarkson_predicting_2004. Interdependent performance is coded by assigning a performance value for all combinations of dependent decisions. Example, if decision $$a_1$$ is dependent on four others $$a_2, a_3, b_3, c_1$$, then there are $$2^5=32$$ possible performance values for $$a_1$$.  While reft:ethiraj_bounded_2004 assume uncorrelated performance values (i.e. maximally rugged landscape), we'll be more realistic and assume correlated performance for nearby decision choices.
 
@@ -54,7 +59,6 @@ A key concern is the distribution of performance values.  If there is a single p
 <img class="resize" src="{{ site.baseurl }}/assets/img/random_landscape.gif" style="display:block; width: 65%;">
 A random performance landscape.
 </center>
- 
 
 But ruggedness is not the only challenge of searching performance landscapes. For most complex designs there will be regions of *infeasibility or impossibility* where the design "falls apart" or "never comes together".  (Some surfaces can't be painted.  Some materials can't be glued together. Two solid objects can't occupy the same space at the same time.) These are "sink holes", where once you get in them (by making design choices), it may be hard to get out of them through incremental changes.  Here's a nice diagram from reft:greenwood_use_1998 illustrating "sink holes" of infeasability.
 
@@ -76,7 +80,7 @@ If we have a set of correlation lengths $$\mathscr{R}(s)$$, and also a function 
 A random fractal island
 </center>
 
-### Agent Capabilities
+## Agent Capabilities
 
 Agents are endowed with a set of *capabilites*.  A *capability* is a generalized ability to perform some function or achieve some goal to some degree of excellence. In the model in [Affordances as Probabilistic Interrelations](1_affordances.html), the agent had a capability to estimate a distance span (e.g. doorway opening) relative to the agent's body size and orientation. The *realization* of a capability *always* depends on the concrete details of context, especially the interaction processes with *affordances*.
 
@@ -88,7 +92,7 @@ We'll model three classes of capabilities: 1) *Design capabilities* -- specific 
 
 Because we are abstracting the design process as the search for good or better design decisions, we'll model capabilities as (abstract) alternative search strategies, whose effectiveness in any situation is governed my the affordances associated with the design tasks.
 
-### Affordances as (Probabilistic) Interrelations
+## Affordances as (Probabilistic) Interrelations
 
 An **affordance** is an *interrelation* between an agent and its environment that serves as a resource for action, or facilitates action, given the agent's capabilities, intentions, purposes, and attention. In other words, an "affordance" is not just a signal (i.e. sensory data) or an interface or a protocol for action.  Instead it is a *resource for action*, both before, during, and after task execution.
 
@@ -104,7 +108,8 @@ Agents perform tasks by engaging with them.  They start with a general approach 
 
 In a sense, affordances are the *interface* between the *generality* of an agent's capabilities and the *concrete* requirements and constraints of specific tasks (or, more generally, action settings).  But it's more than an interface, which might be modeled simply as a translation or interpretation process (e.g. converting AC to DC current in electrical circuits).  It's also more than a *communication protocol*, which is "a system of [codes and] rules that allow two or more entities of a communications system to transmit information" ([Wikipedia](https://en.wikipedia.org/wiki/Communications_protocol)).  As mentioned in the previous section, affordances serve as *resources* to agents with adequate *capabilities*.
 
-### Affordances Provide Informational Resources 
+<span id = "Affordances_Provide_Informational_Resources"></span>
+## Affordances Provide Informational Resources 
 
 There are four<sup>*</sup> general classes of informational resources that affordances provide.  The **first** is information about <em>progress</em>. As the agent engages in a task, it often needs to gauge progress, either toward a goal, or toward completion, or diminishing returns on effort, or even just some "getting warmer...getting colder..." indications. This is vital in complex combinatorial problems in order to identify and "save" good intermediate results ("building blocks").  Without this, agents would need to complete all steps in a task before assessing performance (if they can), and then start over to search for an improvement.  This is a factor of 10, 100, or thousands of times slower, depending on the size of the search space.
 
@@ -124,24 +129,116 @@ I call these resources "framing *signs*" in order to invoke the field of Semioti
 
 For designers starting any set of tasks, they will begin with some frame about the nature of the task, what the action process will look like, what they might experience along the way, and what "completion" looks like. But whatever framing they start with will be subject to testing and validation all along the way.  The designer's frame helps set expectations, and the fulfillment or failure of expectations create information for the designer that either confirm or refute the current frame.  The difference between novices and experts is often in the sophistication of their mental frames, and also in how frames will be modified or replaced as circumstances change.
 
-The **fourth** (and final<sup>*</sup>) class of informational resources are <em>institutions</em>. Institutions are norms and rules that govern social interaction, organization, identity, and behavior.  Most sociologists and economists construe institutions within a framework of individual incentives, rational utility maximization, and especially punative social processes/mechanisms when norms and rules are violated.
+<span id = "Institutions_as_Resources_and_Constraints_in_Affordances"></span>
+## Institutions as Resources and Constraints in Affordances
+
+The **fourth** (and final<sup>*</sup>) class of informational resources provided by affordances are <em>institutions</em>. Another way of saying this is that, to a certain extent, <em>institutions are embedded in affordances</em>. Institutions are norms and rules that govern social interaction, organization, identity, and behavior.  Most sociologists and economists construe institutions within a framework of individual incentives, rational utility maximization, and especially punative social processes/mechanisms when norms and rules are violated.
 
 <p class="note"><sup>*</sup>For now.</p>
 
 Taking a *cognitive turn*<sup id="a1">[1](#f1)</sup>, we will construe institutions differently. Institutions are part of the way people think, embedded in mental frames, in behavioral dispositions, and (crucially) in affordances. "It's just how things work." In contrast to the traditional view on institutions, most of the time most people are not thinking about all the possible negative consequences of violating norms and rules, and weighing them against the possible benefits of violations.  This is especially true for people who are inculturated in those norms and rules. They are *pro-social* because it has become a part of their thinking, not because of cost/benefit analysis.
 
+Institutions, as resources and constraints, have several affects on agents and their interrelations with affordances. First, they reduce uncertainty and ambiguity for agents, especially regarding cause-effect relationships, exception handling, and relevant information (including signs).  Second, institutions provide alternatives and constraints.  Essentially, agents can call upon these alternatives or constraints when the need arises, without knowing or planning everything in advance.  Finally, institutions greatly facilitate both *codification* and *abstraction* of social behavior, and conversely institutions are frequently realized through codified and abstracted information and knowledge.  
 
-Institutions are resources in several ways. First, they reduce uncertainty and ambiguity, especially regarding cause-effect relationships, exception handling, and relevant information (including signs).  Second, institutions provide alternatives and constraints.  Agents can, essentially, call upon these alternatives or constraints when the need arises, without knowing or planning everything in advance.  Finally, institutions greatly facilitate both *codification* and *abstraction* of social behavior, and conversely institutions are frequently realized through codified and abstracted information and knowledge.  
+Teams, whether formal or informal, are constituted and sustained through institutions.  Otherwise, they are merely accidental or emergent social phenomena.  Examples include *authority*, *governance*, *power* (i.e. control over resources, opportunity, or other people) *dispute resolution*, *rewards and sanctions*, *autonomy*, *collaboration*, *affiliation*, and *member identity*.
 
-Teams, whether formal or informal, are constituted and sustained through institutions.  Otherwise, they are merely accidental or emergent social phenomena.  Examples include *authority*, *governance*, *power* (control over resources, opportunity, or other people) *dispute resolution*, *rewards and sanctions*, *autonomy*, *collaboration*, *affiliation*, and *member identity*.
+## Coding Institutions
 
-### Agent Reasoning about Capabilities, Tasks, and Affordances
+This institutional phenomena just listed may appear to some readers to be a squishy mess, and therefore very hard to codify in computer programs or other formal systems.  Luckily, Elinor Ostrom and her colleagues devised a "Grammar<sup>*</sup> of Institutions" refp:ostrom_grammar_2009 that are well suited to our purposes.
 
-[TBD]
+<p class="note"><sup>*</sup>It is not a really grammar in the usual sense: production rules over terminal and nonterminal symbols.  It is more like a nested set of templates or patterns. Even so, we will use the original label.</p>  
 
-## Basic Model
+The components of the grammar are identifed using the acronym **ADICO**, which stands for:
 
-[TBD]
+- **A**ttributes -- the characteristics of agents to which the institution applies, including existental qualifiers "at least one" or "some" (∃) and "all" (∀)
+- **D**eonic -- a modal operation $$D \in \{P,O,F\} = $$ *P*ermitted, *O*bliged, and *F*orbidden.
+- A**I**m -- the actions or routines that are invoked (or forbidden) by the instituion
+- **C**onditions -- characteristics of the situation define when and where the insitution applies
+- **O**r else -- consequences to the agents for noncompliance
+
+Part of what makes these a "grammar" is that they can be taken in subsets to codify three different manifestations (statement types) of institutions:
+
+|Statement type| Acronym | Elements |
+|:----- |:----- |:------|
+|1. Shared moves (strategies) | AIC | [ATTRIBUTES][AIM][CONDITION] |
+|2. Norms | ADIC | [ATTRIBUTES][DEONIC][AIM][CONDITION] |
+|3. Regulative rules | ADICO | [ATTRIBUTES][DEONIC][AIM][CONDITION][OR ELSE] |
+
+### Shared Moves 
+
+<em>Shared moves</em><sup>*</sup> are choices, decisions, or courses of action relating to some function. "Shared" means that they are held in common among a social group of agents, through language, stories, folk theories, and expectations.   
+
+<p class="note"><sup>*</sup>a.k.a. "strategies" in Game Theory. While Ostrom and most others use "strategy", I prefer "move" so that we can reserve "strategy" for usage in the sense of "management strategy" or "military strategy".</p>  
+
+Notice how the coding of Shared Moves map nicely to the Beliefs-Desires-Intentions (BDI) formalism for specifing reactive agent behavior rules.  "Beliefs" are the conditions that need to be true in order to trigger the behavior.  "Desires" are the end goals or terminating conditions for the behavior.  "Intentions" are the actions that constitute the behavior (a.k.a routines in the ontology of Functional Ecosystems).
+
+- [ATTRIBUTES] ↔︎ << qualifying characteristics of agents >>
+- [AIM]  ↔︎  Intentions and Desires
+- [CONDITION]  ↔︎  Beliefs
+
+There is an important difference, however.  Shared moves are "in" the affordance, while BDI are "in" individual agents.  Viewed as a computational system, we can say that "[AIM] invokes the matching Intentions and Desires" in a given agent that has matching qualifying characteristics ([ATTRIBUTES]), and vice versa.  Likewise, we can say that "[CONDITION] invokes the matching Beliefs"in a given agent that has matching qualifying characteristics ([ATTRIBUTES]).  The difference from ordinary BDI agents is that our agents carry out behaviors by "plugging into" the relevant/matching affordances through out the process, whereas BDI agents do it all on their own, including sensing the state of their envionment to match against Beliefs.
+
+Shared moves are the most volitional. Given the specifics of any situation, an agent might or might not choose to execute any of the relevant shared moves. We can think of them as common "tendencies", "defaults", "priors", or (in some cases) "habits".  In terms of social cognition, the effect of shared moves is reduced cognitive load on any individual agent because they have ready access to what other agents are most likely to do in common situations.
+
+### Norms 
+
+*Norms* are shared moves that also have a prescriptive or nonprescriptive element: "can"/"may"; "should"/"must"; or "should not"/"must not".  They also convey what (agents collectively believe) is physically or ontologically possible, if that is germane to the institution.
+
+### Rules 
+
+*Rules* are norms that have punishments, penalties, sanctions, or other negative consequences on agents who violate the rule.  This means more than a raised eyebrow or disapproving scoff.  Agents are assigned a social identity of "violator", at least for a period of time.  The [OR ELSE] actions specify the methods and procedures for carrying out the negative consequences, which may be physical, material, status/role, or negative social interaction ("shunning").  Implied in this codification is that there are some social processes or mechanisms to carrry out the [OR ELSE] actions.  Because they can be any combination of moves/actions, norms, and rules, we model the enforcement institutions in a social group using the same **ADICO** grammar.  For example, for an employee of a company who leaks company secrets, the [OR ELSE] consequence might be "the violator loses his job", which would invoke a matching set of shared moves, norms, and rules by that employee's manager, the HR department, the Legal department, and so on.
+
+reft:ostrom_grammar_2009 chose to model norms in a way that fits Game Theory and rational expectations calculations by agents regarding subjective payoffs (utility). She defines "delta parameters" that add or subtract a fixed amount or percentage from the expected payoffs from the relevant moves or actions: add $$\delta_o$$ for *obeying* a prescription and subtract $$\delta_b$$ for *breaking* it, with $$\Delta = \delta_o + \delta_b$$.  Ostrom further subdivides the deltas into "internal" and "external" depending on the "source", i.e intrinsic vs. extrinsic incentives.
+
+### A New Modeling Approach 
+
+<span style="font-size:140%;">☞</span> **Here's where things get interesting** and we part company with reft:ostrom_grammar_2009 and also BDI agent modelers. 
+
+We will implement *norms* through affordance interrelations that *directly shape* what agents can and can't do, and what they (feel) compelled to do nor not do.  This is a much more direct way to model norms, it is more cognitively and behaviorally plausible, and has nice characteristics in open/evolving environments that we care about.
+
+Any norm that has a "can/may" deonic (or "cannot/may not") will have [AIMs] and/or [CONDITIONs] added (or taken away), thus increasing (or decreasing) the available/possible Intentions, Desires, and Beliefs that will be invoked when a given agent engages with that affordance.
+
+### Example 
+
+To illustrate, here is an example.  Let's say a design team has a norm that specifies that "Any designer MAY make a change to any other designer's decisions at any time."  We'll call this affordance "Changable"<sup>*</sup>.  The [ATTRIBUTES] for this norm would be "any designer" (subject of the action) and "any decision (regardless of owner)" for the object of the action. The [AIMs] would include any design change that a given is designer is capable of making. The [CONDITION] would be "any time".
+
+<p class="note"><sup>*</sup>I think clarifies if we label affordances with action terms ending in "-able".</p>  
+
+This affordance is engaged when a given designer wants to make *some* change (pre-specified or not) to *some* decision (pre-specified or not).  In the course of engaging, a specific change and decision are identified, which enables the [AIMs] to be carried out, which in turn involves invoking that agent's capabilities and associated routines.
+
+Flip our example norm around.  Say the norm is "ONLY the designer who owns a decision MAY make a change to that decisions at any time."  Replay the sequence we just walked through, where some other agent (not the owner) tries to make a change.  That agent no longer matches the [ATTRIBUTES], and therefore that agent will no longer have the informational resources provided by the affordance to carry out the change.  The agent, being purposeful and volitional, might still try to make the change, but their likelihood of succeeding will be much lower -- *purely due to the extra cogntive and behavioral load of working outside of the norm*.
+
+**This last point is very important.**
+
+As I said when I introduced institutions, the way they work (mostly) is by providing informational resources that make life easier for agents (so to speak).  If you conform to the norms of your social group, your thinking and actions effectively "stand on the shoulders" of the collective cognitive and behavioral resources of the group.  If you choose not to conform to the norms, then you are going alone.  
+
+In our affordance-based modeling approach, we don't need to invent bonus and penalty parameters for agent utility functions.  How would you do that in an open and evolving environment, anyway?
+
+Back to the task of implementing norms through affordance interrelations, we can use similar mechanisms for "should/should not" and also "must/must not" deonics.  In essense, these would be implemented as fuzzy match requirements (for "should/should not") and hard match requirements (for "must/must not").  "Fuzziness" is simply "degree of match", where the parameters of the fuzzy match logic are created through the combined agent-plus-affordance engagement.
+
+### How Institutions Become Part of Thinking/Seeing/Doing   
+
+So how do agents incorporate norms into their thinking (i.e. planning, reasoning, evaluating, etc.), perceiving, and behaiving?  There are five possible ways:
+
+1. They unknowingly violate a norm, and then reflect on their experience of the consequences.
+2. They reason forward to estimate the probable outcomes of conforming to a norm, or not.
+3. They observe other agents conforming (or not) to a norm, and reason about those outcomes.
+4. They learn a norm through instruction or other social interaction (e.g. imitation)
+5. They internalize a norm by shaping their own conception and behavior processes, effectively habituating the norm.
+
+Not all agents will internalize norms (and rules) in all of these ways.  Circumstances, capabilities, and past experience will determine how it happens.
+
+The fifth way is very important, because this is the state of agents who are *incultrated in the norm* (or rule), and therefore the agents no longer consider any courses of action other than conforming to the norm (or rule).  Sociologists see institutions as largely taken-for-granted, and not something that people in society constantly thinking about. Effectively: "This is just the way we do things."
+
+----
+
+With these foundational ideas established, we are now in a position to begin modeling. (*At long last!*)
+
+# The Model
+
+
+
+
 
 ____
 
@@ -166,6 +263,9 @@ cite:greenwood_use_1998
 </p>
 <p class="hangingindent">
 cite:north_economics_2010
+</p>
+<p class="hangingindent">
+cite:ostrom_grammar_2009
 </p>
 <p class="hangingindent">
 cite:rietveld_rich_2014

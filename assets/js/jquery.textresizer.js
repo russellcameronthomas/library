@@ -314,10 +314,15 @@ Documentation: http://angstrey.com/index.php/projects/jquery-text-resizer-plugin
 
             thisPlugin.markActive(currentElement);
         });
+        //RCT added in order to initialize the font size setting on the page
+        if (index === settings.selectedIndex) {
+           $resizeButton.trigger("click");
+        }
     };
 
     TextResizerPlugin.prototype.init = function () {
-        var numberOfElements = this.$elements.length, //size(),   //RCT modified, since size() doesn't work in 3.0
+        var numberOfElements = this.$elements.length, //size(),   //RCT modified,
+                                                                 // since size() doesn't work in jQuery 3.0
             debugMode = TextResizerPlugin.defaults.debugMode;
 
         if (debugMode) {
@@ -333,7 +338,8 @@ Documentation: http://angstrey.com/index.php/projects/jquery-text-resizer-plugin
         this.settings = $.extend(
             {
                 selector: this.$elements.selector,
-                sizes: this.buildDefaultFontSizes(numberOfElements)     // Default font sizes based on number of resize buttons.
+                sizes: this.buildDefaultFontSizes(numberOfElements)     // Default font sizes
+                                                                        // based on number of resize buttons.
             },
             $.fn.textresizer.defaults,
             this.settings
@@ -358,7 +364,6 @@ Documentation: http://angstrey.com/index.php/projects/jquery-text-resizer-plugin
         }
 
         this.loadPreviousState();
-
         return this;
     };
 

@@ -102,7 +102,7 @@ html {
     }
     
     h3 {font-family: 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
-        font-size: 110%;
+        font-size: 120%;
         font-weight: lighter;
         margin: 1.5em 0 1em 0;
         /*font-style: italic;*/
@@ -147,7 +147,7 @@ h2 {
 }
 
 h3 {font-family: 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
-    font-size: 110%;
+    font-size: 120%;
     margin: 1.5em 0 1em 0;
     font-weight: normal;
     font-style: italic;
@@ -460,6 +460,23 @@ ol li ol li {
     margin-right: 5px;
     margin-left: 5px;
     letter-spacing: 1px;
+}
+
+table {
+    text-align:left;
+    font-size: 88%;
+
+}
+
+th {
+    padding-left: 2px;
+    padding-right: 8px;
+    border-bottom: thin solid #999999;
+}
+
+td {
+    padding-left: 2px;
+    padding-right: 8px
 }
 
 
