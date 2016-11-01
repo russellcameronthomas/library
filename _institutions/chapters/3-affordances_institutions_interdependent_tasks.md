@@ -109,6 +109,7 @@ Agents perform tasks by engaging with them.  They start with a general approach 
 In a sense, affordances are the *interface* between the *generality* of an agent's capabilities and the *concrete* requirements and constraints of specific tasks (or, more generally, action settings).  But it's more than an interface, which might be modeled simply as a translation or interpretation process (e.g. converting AC to DC current in electrical circuits).  It's also more than a *communication protocol*, which is "a system of [codes and] rules that allow two or more entities of a communications system to transmit information" ([Wikipedia](https://en.wikipedia.org/wiki/Communications_protocol)).  As mentioned in the previous section, affordances serve as *resources* to agents with adequate *capabilities*.
 
 <span id = "Affordances_Provide_Informational_Resources"></span>
+
 ## Affordances Provide Informational Resources 
 
 There are four<sup>*</sup> general classes of informational resources that affordances provide.  The **first** is information about <em>progress</em>. As the agent engages in a task, it often needs to gauge progress, either toward a goal, or toward completion, or diminishing returns on effort, or even just some "getting warmer...getting colder..." indications. This is vital in complex combinatorial problems in order to identify and "save" good intermediate results ("building blocks").  Without this, agents would need to complete all steps in a task before assessing performance (if they can), and then start over to search for an improvement.  This is a factor of 10, 100, or thousands of times slower, depending on the size of the search space.
@@ -130,6 +131,7 @@ I call these resources "framing *signs*" in order to invoke the field of Semioti
 For designers starting any set of tasks, they will begin with some frame about the nature of the task, what the action process will look like, what they might experience along the way, and what "completion" looks like. But whatever framing they start with will be subject to testing and validation all along the way.  The designer's frame helps set expectations, and the fulfillment or failure of expectations create information for the designer that either confirm or refute the current frame.  The difference between novices and experts is often in the sophistication of their mental frames, and also in how frames will be modified or replaced as circumstances change.
 
 <span id = "Institutions_as_Resources_and_Constraints_in_Affordances"></span>
+
 ## Institutions as Resources and Constraints in Affordances
 
 The **fourth** (and final<sup>*</sup>) class of informational resources provided by affordances are <em>institutions</em>. Another way of saying this is that, to a certain extent, <em>institutions are embedded in affordances</em>. Institutions are norms and rules that govern social interaction, organization, identity, and behavior.  Most sociologists and economists construe institutions within a framework of individual incentives, rational utility maximization, and especially punative social processes/mechanisms when norms and rules are violated.
