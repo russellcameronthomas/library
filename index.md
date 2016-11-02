@@ -93,10 +93,10 @@ ____
 1. **Issues**
 
 <ol class="note">
-<ol>
-<li>Search functionality is currently inadequate. Switch to static search engine. <em>(10/29)</em></li>
-<li>Get the blog working, and add first post. <em>(10/29)</em></li>
-<li>Citation for book section omits book title and book editor. <em>(10/31)</em></li>
+<ol >
+<li style="list-style-type: decimal;">Search functionality is currently inadequate. Switch to static search engine. <em>(10/29)</em></li>
+<li style="list-style-type: decimal;">Get the blog working, and add first post. <em>(10/29)</em></li>
+<li style="list-style-type: decimal;">Citation for book section omits book title and book editor. <em>(10/31)</em></li>
 </ol>
 </ol>
 
