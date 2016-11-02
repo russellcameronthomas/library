@@ -5,7 +5,7 @@ description: "This model uses on-line probabilistic reasoning to perform a task 
 status: work-in-progress
 pct_complete: "90%"
 sort_order: 1
-last_modified: "2016-10-27 03:31"
+last_modified: "2016-10-27"
 is_section: true
 ---
 

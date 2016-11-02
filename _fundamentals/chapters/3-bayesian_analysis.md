@@ -2,7 +2,9 @@
 layout: chapter
 title: Bayesian Analysis
 description: "This chapter uses WebPPL to do Bayesian analysis, which could be useful background to readers who are less familiar with Bayesian methods. This chapter also shows the versatility of probabilistic programming."
-last_modified: "2016-10-26 16:43"
+last_modified: "2016-10-26"
+status: draft
+pct_complete: 100%
 is_section: true
 ---
 

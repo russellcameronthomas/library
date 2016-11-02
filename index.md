@@ -32,6 +32,7 @@ list-style-type: decimal;
 {% assign num_WIP = 0 %}
 {% assign num_draft = 0 %}
 {% assign num_stubs = 0 %}
+{% assign num_noStatus = 0 %}
 {% assign max_last_mod = "0" %}
 {% if col.title and col.index == true %}
 {% assign num_chap = col.docs | size  | minus: 1 %}
@@ -46,6 +47,9 @@ list-style-type: decimal;
 {% elsif d.status =='stub' %}
 {% assign num_stubs = num_stubs | plus:1 %}
 {% else %}
+{% if d.title != "Table of Contents" %}
+{% assign num_noStatus = num_noStatus | plus:1 %}
+{% endif %}
 {% endif %}
 {% endfor %}
 
@@ -68,7 +72,7 @@ list-style-type: decimal;
 {% assign sep = ": " %}
 
 1. {% if num_chap > 0 %}**<a class="chapter-link" href="/{{ col.label }}/index.html" target="_blank">{{ col.title }}</a>**<br>
-<span class="annotate">{{ num_chap }} chapters{% if num_draft > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_draft }} {{ draft_text  }}{% endif %}{% if num_WIP > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_WIP }} {{ WIP_text }}{% endif %}{% if num_stubs > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_stubs }} {{ stub_text }}{% endif %}{% if max_last_mod > "0" %}{{ sep }}{% assign sep = ", " %}last modified: {{ max_last_mod }}{% endif %}</span>{% else %}**{{ col.title }}** ⛔️{% endif %}<br/>
+<span class="annotate">{{ num_chap }} chapters{% if num_draft > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_draft }} {{ draft_text  }}{% endif %}{% if num_WIP > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_WIP }} {{ WIP_text }}{% endif %}{% if num_stubs > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_stubs }} {{ stub_text }}{% endif %}{% if num_noStatus > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_noStatus }} no status{% endif %}{% if max_last_mod > "0" %}{{ sep }}{% assign sep = ", " %}last mod.: {{ max_last_mod }}{% endif %}</span>{% else %}**{{ col.title }}** ⛔️{% endif %}<br/>
 {% endif %}
 {% endfor %}
 
