@@ -29,10 +29,46 @@ list-style-type: decimal;
 {% assign sorted_col = site.collections | sort : "sort_order" %}
 
 {% for col in sorted_col %}
+{% assign num_WIP = 0 %}
+{% assign num_draft = 0 %}
+{% assign num_stubs = 0 %}
+{% assign max_last_mod = "0" %}
 {% if col.title and col.index == true %}
 {% assign num_chap = col.docs | size  | minus: 1 %}
+{% for d in col.docs %}
+{% if d.last_modified > max_last_mod %}
+{% assign max_last_mod = d.last_modified %}
+{% endif %}
+{% if d.status == 'work-in-progress' %}
+{% assign num_WIP =  num_WIP | plus:1 %}
+{% elsif d.status == 'draft' %}
+{% assign num_draft =  num_draft | plus:1  %}
+{% elsif d.status =='stub' %}
+{% assign num_stubs = num_stubs | plus:1 %}
+{% else %}
+{% endif %}
+{% endfor %}
+
+{% if num_WIP == 1 %}
+{% assign WIP_text = "work-in-progress" %}
+{% else %}
+{% assign WIP_text = "works-in-progress" %}
+{% endif %}
+{% if num_draft == 1 %}
+{% assign draft_text = "completed draft" %}
+{% else %}
+{% assign draft_text = "completed drafts" %}
+{% endif %}
+{% if num_stubs == 1 %}
+{% assign stub_text = "stub" %}
+{% else %}
+{% assign stub_text = "stubs" %}
+{% endif %}
+
+{% assign sep = ": " %}
+
 1. {% if num_chap > 0 %}**<a class="chapter-link" href="/{{ col.label }}/index.html" target="_blank">{{ col.title }}</a>**<br>
-<span class="annotate">{{ col.docs | size  | minus: 1 }} chapters</span>{% else %}**{{ col.title }}** ⛔️{% endif %}<br/>
+<span class="annotate">{{ num_chap }} chapters{% if num_draft > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_draft }} {{ draft_text  }}{% endif %}{% if num_WIP > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_WIP }} {{ WIP_text }}{% endif %}{% if num_stubs > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_stubs }} {{ stub_text }}{% endif %}{% if max_last_mod > "0" %}{{ sep }}{% assign sep = ", " %}last modified: {{ max_last_mod }}{% endif %}</span>{% else %}**{{ col.title }}** ⛔️{% endif %}<br/>
 {% endif %}
 {% endfor %}
 
@@ -55,7 +91,7 @@ ____
 <ol class="note">
 <ol>
 <li>Search functionality is currently inadequate. Switch to static search engine. <em>(10/29)</em></li>
-<li>Need to add stats for each sub-book in this Table of Contents: a) count by status, and b) max last modified. <em>(10/29)</em></li>
+<li>Need to add stats for each sub-book in this Table of Contents: max last modified. <em>(10/29)</em></li>
 <li>Make blog functional. <em>(10/29)</em></li>
 <li>Citation for book section omits book title and book editor. <em>(10/31)</em></li>
 </ol>

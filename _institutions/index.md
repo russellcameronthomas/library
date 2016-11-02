@@ -25,6 +25,7 @@ list-style-type: decimal;
 {{ site.author_affiliation }}<br>
 </div>
 
+
 {% for p in sorted_pages %}
     {% if p.hidden %}
     {% else %}
