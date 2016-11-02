@@ -108,11 +108,11 @@ ____
             {% if p.is_section %}
                 {% if p.status == 'stub' %}
 1. **{{ p.title }}**<br>{% else %}
-1. **<a class="chapter-link" href="{{ site.baseurl }}{{ p.url }}" target="_blank">{{ p.title }}</a>**<br>{% endif %}
+1. **<a class="chapter-link" href="{{ site.baseurl }}{{ p.url }}" >{{ p.title }}</a>**<br>{% endif %}
             {% else %}
                 {% if p.status == 'stub' %}
 1. **{{ p.title }}**<br>{% else %}
-1. **<a class="chapter-link" href="{{ site.baseurl }}{{ p.url }}" target="_blank">{{ p.title }}</a>**<br>{% endif %}     
+1. **<a class="chapter-link" href="{{ site.baseurl }}{{ p.url }}" >{{ p.title }}</a>**<br>{% endif %}     
             {% endif %}
         {% endif %}
     {% endif %}
