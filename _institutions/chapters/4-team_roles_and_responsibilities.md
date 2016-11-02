@@ -13,6 +13,8 @@ This is a model of self-organizing teams -- specifically small teams of design e
 The goal of this model is to study the effects of team member migration.  Agents on a given team become aculturated to that team, including its institutions.  When an agent moves to a new team with different culture and institutions, conflicts can arise. Is this conflict positive or negative?  How does it affect team versatility and creativity?  Is it a temporary disturbance or a permanent change?  If new members challenge or reconfigure the team's 'institutions, are the effects positive, negative, or mixed?
 
 
+<div class="work_in_progress" markdown="1">
+
 ## Agent Reasoning about Capabilities, Tasks, and Affordances
 
 [TBD]
@@ -20,6 +22,8 @@ The goal of this model is to study the effects of team member migration.  Agents
 ## Basic Model
 
 [TBD]
+
+</div>
 
 ____
 

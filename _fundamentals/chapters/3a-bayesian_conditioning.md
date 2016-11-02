@@ -4,7 +4,7 @@ title: Bayesian Inference
 description: "Bayesian inference (a.k.a. conditioning) is a method for using observed/empirical data to improve your estimate of the probability distribution of a random variable."
 status: work-in-progress
 pct_complete: 70%
-last_modified: "2016-10-26"
+last_modified: "2016-11-01"
 is_section: false
 ---
 
@@ -203,7 +203,7 @@ viz.auto(generateXconditioned(4));
 
 But when the distributions aren't simple or "nice", the math gets messy real fast, looking something like this:
 
-<img class="resize" style="display:block;width:65%;" src="{{ site.baseurl }}/assets/img/integral_equation.png">
+<img class="resize" style="display:block;max-width:70%;" src="{{ site.baseurl }}/assets/img/integral_equation.png">
 
 In the next code window is essentially the same program, but with more complex distributions.  Notice that the program is not really much more complex, and the execution times (complile and run) are about the same.
 
@@ -256,3 +256,12 @@ print("Strong weight of observations");
 viz.auto(generateXconditioned(4));
 ~~~~
 
+<div class="work_in_progress" markdown="1">
+
+**To Do**
+
+1. Add a section on Bayesian model fitting, using the synthetic time series.
+2. Maybe add one or two models from the "Puppy Book".
+3. Add a Conclusion section.
+
+</div>

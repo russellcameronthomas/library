@@ -235,12 +235,16 @@ The fifth way is very important, because this is the state of agents who are *in
 
 ----
 
-With these foundational ideas established, we are now in a position to begin modeling. (*At long last!*)
 
+<div class="work_in_progress" markdown="1">
 # The Model
 
+With these foundational ideas established, we are now in a position to begin modeling. (*At long last!*)
 
+**To Do**
 
+1. Probably split this into three sub-chapters, with "Model" being the third.
+</div>
 
 
 ____

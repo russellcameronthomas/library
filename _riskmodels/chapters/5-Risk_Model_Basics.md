@@ -4,7 +4,7 @@ title: Basics of Risk Modeling
 description: "Presents a few basic models that arise in risk analysis and modeling.  These set the stage for the more sophisticated and realistic models in following chapters."
 status: work-in-progress
 pct_complete: "90%"
-last_modified: "2016-10-26"
+last_modified: "2016-11-01"
 is_section: true
 ---
 
@@ -290,3 +290,12 @@ viz.density(riskDist,{bounds:[400,10000]});
 //         are being drawn, in order to get decent estimates in the tail
 ~~~~
 
+
+<div class="work_in_progress" markdown="1">
+
+**To Do**
+
+1. Maybe add a Cost of Risk section, where the loss distributions above are aggregated into a single Cost of Risk
+2. Maybe add a sub-chapter on self-insurance, simulating ruin process to infer self-insurance premiums
+
+</div>

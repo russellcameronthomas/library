@@ -1,6 +1,6 @@
 ---
 layout: default
-last_modified: "2016-10-29"
+last_modified: "2016-11-01"
 
 ---
 <style type="text/css">
@@ -80,11 +80,11 @@ ____
 
 **Description**
 
-This site is primarily an authoring workbench. Documents here are in the process of being created and revised. Posts in the Blog are are a chronological journal of observations along the way, and thus more stable and cumulative. Overall, the goal of this site is to help us -- both you and me -- learn new topics and tools (e.g. probabilistic programming) and to explore interesting and challenging applications. 
+This site is primarily an authoring workbench related to my academic work (Computational Social Science: risk, innovation, institutions), and especially recent work using probabilistic programming with *WebPPL*. Documents here are in the process of being created and revised. Posts in the Blog are are a chronological journal of observations along the way, and thus more stable and cumulative. Overall, the goal of this site is to help us -- both you and me -- learn new topics and tools (e.g. probabilistic programming) and to explore interesting and challenging applications. 
 
 The intended audience both academia and industry.  The writing style is mostly tutorial and informal. References and citations are included for people who want to dive deeper. 
 
-Because the documents and pages are work-in-progress and perpetually changing, I recommend *against* citing to articles or hyperlinking to any specific web pages.  When they reach a point of completion, I'll post them in online archive services.
+Because the documents are perpetually changing, I recommend *against* citing them or hyperlinking to any specific web pages.  When they reach a point of completion, I'll post them in an online archive service.
 
 ____
 
@@ -95,7 +95,7 @@ ____
 <ol class="note">
 <ol>
 <li>Search functionality is currently inadequate. Switch to static search engine. <em>(10/29)</em></li>
-<li>Make blog functional. <em>(10/29)</em></li>
+<li>Get the blog working, and add first post. <em>(10/29)</em></li>
 <li>Citation for book section omits book title and book editor. <em>(10/31)</em></li>
 </ol>
 </ol>

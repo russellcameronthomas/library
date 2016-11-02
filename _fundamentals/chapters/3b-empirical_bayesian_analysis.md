@@ -4,7 +4,7 @@ title: Empirical Bayesian Analysis
 description: "Empirical Bayesian data analysis methods are an attractive alternative to frequentist methods -- e.g. Null Hypothesis Significance Testing -- to evaluate the results of experiments, etc."
 status: work-in-progress
 pct_complete: 50%
-last_modified: "2016-10-26"
+last_modified: "2016-11-01"
 is_section: false
 --- 
 
@@ -268,3 +268,10 @@ The main model uses `method : "MCMC"`, which stands for "Markov Chain Monte Carl
 
 The "fairTest" model uses `method : "forward"`, which simply means: "run the program a specified number of times (`samples : 1000`) and weight the likelihood traces by their frequency over those runs".  This is just a [Monte Carlo simulation](1b-big_picture.html#monte_carlo).  We choose this inference method because 1) there are no observations to condition the data and 2) the random variable $$p$$ is continuous.
 
+<div class="work_in_progress" markdown="1">
+
+**To Do**
+
+1. Not sure where to take this chapter or how to finish it up.
+
+</div>

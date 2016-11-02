@@ -361,9 +361,20 @@ print ("Average number of dependencies = " + listMean(dependenciesCounts));
 viz.line(mapN(function(t) {return t;},stepCount),results);
 ~~~~
 
+<div class="work_in_progress" markdown="1">
+
 ## Version 2: Organization and Design Adaptation 
 
 *UNDER CONSTRUCTION*
+
+**To Do**
+
+1. Implement stochastic/adaptive organization change process from reft:ethiraj_bounded_2004.
+
+</div>
+
+
+
 
 <!--
 

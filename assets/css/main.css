@@ -223,6 +223,43 @@ h3 {font-family: 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
     color: #AAAAAA;
 }
 
+.work_in_progress {
+    font-family: 'Kalam', cursive;
+    padding-top:15px;
+    padding-left:5px;
+    padding-right:5px;
+    padding-bottom:5px;
+    background: #F6F6F6;
+    background-repeat: no-repeat;
+    background-image: url("/assets/img/under_construction_icon2b.png");
+    background-size: 30px 25px;
+    background-position: 8px 4px;
+    box-shadow: inset 0px 5px 15px 0px #DDDDDD;
+    -webkit-box-shadow: inset 0px 0px 30px 0px #DDDDDD;
+    -moz-box-shadow: inset 0px 0px 30px 0px #DDDDDD;
+    border-style: dashed;
+    border-width: 5px;
+    border-color: #FF5522;
+    font-size: 105%;
+}
+
+.work_in_progress h1,.work_in_progress h2{
+    font-family: 'Kalam', cursive;
+    font-weight: bolder;
+}
+.work_in_progress h3 {
+    font-family: 'Kalam', cursive;
+    font-style: italic;
+}
+
+.work_in_progress .note {
+    font-family: 'Kalam', cursive;
+}
+
+.work_in_progress em {
+    font-style: italic;
+}
+
 .status {
     float:left;
     min-width: 200px;

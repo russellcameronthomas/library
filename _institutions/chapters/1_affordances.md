@@ -529,5 +529,13 @@ viz.auto(openings);
 ~~~~
 
 
+<div class="work_in_progress" markdown="1">
+
+**To Do**
+
+1. Add some analysis of these results, including comparison to the empirical results
+2. Maybe add an additional inference section, conditioned on the empirical results, in order to infer agent perception/valuation parameters.
+
+</div>
 
 
