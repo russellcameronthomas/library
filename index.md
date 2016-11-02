@@ -91,7 +91,6 @@ ____
 <ol class="note">
 <ol>
 <li>Search functionality is currently inadequate. Switch to static search engine. <em>(10/29)</em></li>
-<li>Need to add stats for each sub-book in this Table of Contents: max last modified. <em>(10/29)</em></li>
 <li>Make blog functional. <em>(10/29)</em></li>
 <li>Citation for book section omits book title and book editor. <em>(10/31)</em></li>
 </ol>
