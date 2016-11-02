@@ -18,7 +18,7 @@ The site has been designed to minimize security and privacy risks while still pr
 
 **Don't enter confidential or proprietary information** -- With all this said, it would be prudent for users to not enter any confidential or proprietary information (data or programs) into the codeboxes or interactive editor.  While this information stays within your browser (until you clear/erase history), there is a slight chance that an attacker could gain priviledged access to your browser, and therefore to the contents of the browser cache.
 
-<div class="work-in-progress" markdown = "1">
+<div class="work_in_progress" markdown="1">
 
 **Trackers** -- font services, content delivery networks (CDN), etc.
 
