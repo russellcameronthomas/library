@@ -2,7 +2,7 @@
 layout: chapter
 title: Colophon
 last_modified: "2016-11-02"
-description: "Information for anyone who wants to build a similar web site: layouts, fonts, authoring tools, javascript, etc."
+description: "How this web site is built and rendered: layouts, fonts, authoring tools, javascript, etc."
 status: draft
 is_section: true
 ---
