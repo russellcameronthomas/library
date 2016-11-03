@@ -8,10 +8,12 @@ version: "November 2, 2016"
 is_section: true
 ---
 
-**Russell Cameron Thomas** -- Data Scientist at a Financial Institution, a PhD Candidate in Computational Data Science at George Mason University, and a Research Assistant at University of North Carolina Charlotte.
+<img class="resize" src="/assets/img/rct-staring-at-screen2.png" style="float:left; padding-right:20px; max-width:35%; height:auto;">**Russell Cameron Thomas** -- Data Scientist at a Financial Institution, a PhD Candidate in Computational Data Science at George Mason University, and a Research Assistant at University of North Carolina Charlotte.
 
 Focus: risk analysis, innovation ecosystem analysis, and Agent-based Modeling (ABM). Shameless crosser of boundaries and mixer of metaphors.
 
+
+<div style="clear:both;" markdown="1">
 
 **Social Links** 
 
@@ -22,6 +24,8 @@ Focus: risk analysis, innovation ecosystem analysis, and Agent-based Modeling (A
 - [My ReserchGate page](https://www.researchgate.net/profile/Russell_Thomas3/?ev=hdr_xprf)
 - I only accepted LinkedIn requests from people I know personally. 
 - I'm not on Facebook.
+
+</div>
 
 ### Rights
 
