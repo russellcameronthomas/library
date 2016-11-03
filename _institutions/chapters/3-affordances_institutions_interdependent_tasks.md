@@ -14,7 +14,7 @@ Because the environment is open and evolving, we can't just pre-program our agen
 
 These are the subchapters:
 
-- **[Foundations](3a-foundations.html)**
-- **[Affordances as Emergent Computational Objects](3b-emergent-objects.html)**
-- **[Model](3c-model.html)**
+1. **[Foundations](3a-foundations.html)**
+1. **[Affordances as Emergent Computational Objects](3b-emergent-objects.html)**
+1. **[Model](3c-model.html)**
 
