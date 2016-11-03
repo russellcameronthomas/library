@@ -12,8 +12,9 @@ How can we understand agent performance in an open and evoloving environment (vs
 
 Because the environment is open and evolving, we can't just pre-program our agents with the rules, capabilities, and reasoning systems that fits a static environment.  And because of the complexity and interdependency between tasks, it will be no simple job even to figure out how to subdivide tasks, where to start, and how to gauge progress.  These conditions apply to many settings, but I have small engineering design teams in mind to start with.
 
-There are two subchapters:
+These are the subchapters:
 
 - **[Foundations](3a-foundations.html)**
-- **[Model](3b-model.html)**
+- **[Affordances as Emergent Computational Objects](3b-emergent-objects.html)**
+- **[Model](3c-model.html)**
 
