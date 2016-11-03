@@ -27,7 +27,7 @@ Focus: risk analysis, innovation ecosystem analysis, and Agent-based Modeling (A
 
 </div>
 
-### Rights
+## Rights
 
 All content on this site is my own and not derived from any content belonging to my employers.  There is no proprietary or confidential information on this site.
 

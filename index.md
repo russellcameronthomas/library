@@ -96,20 +96,24 @@ ____
 
 **[Site](/info/index.html)**
 
-
+{% assign sep = "" %}
+<div style="display:inline;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 {% for p in site.info %}
     {% if p.hidden %}
     {% else %}
         {% if p.layout == 'chapter' %}
             {% if p.is_section %}
                 {% if p.status == 'stub' %}
-1. **{{ p.title }}** ⛔️<br>{% else %}
-1. **<a class="chapter-link" href="{{ site.baseurl }}{{ p.url }}" >{{ p.title }}</a>**<br>{% endif %}
+{{ sep }}<strong>{{ p.title }}</strong> ⛔️{% assign sep = "&nbsp;&nbsp;&nbsp;&nbsp;" %}
+{% else %}
+{{ sep }}<strong><a class="chapter-link" href="{{ site.baseurl }}{{ p.url }}" >{{ p.title }}</a></strong>{% assign sep = "&nbsp;&nbsp;&nbsp;&nbsp;" %}{% endif %}
             {% else %}
                 {% if p.status == 'stub' %}
-1. **{{ p.title }}** ⛔️<br>{% else %}
-1. **<a class="chapter-link" href="{{ site.baseurl }}{{ p.url }}" >{{ p.title }}</a>**<br>{% endif %}     
+{{ sep }}**{{ p.title }}** ⛔️ {% assign sep = "&nbsp;&nbsp;&nbsp;&nbsp;" %}
+{% else %}{{ sep }}**<a class="chapter-link" href="{{ site.baseurl }}{{ p.url }}" >{{ p.title }}</a>**{% assign sep = "&nbsp;&nbsp;&nbsp;&nbsp;" %}{% endif %}     
             {% endif %}
         {% endif %}
     {% endif %}
 {% endfor %}
+</div>
