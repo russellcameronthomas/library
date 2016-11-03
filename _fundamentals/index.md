@@ -18,7 +18,7 @@ text-align:left;
 {% assign sorted_pages = site.fundamentals | sort:"name" %}
 
 <div class = "author-block">
-<a href="{{ site.author_url }}" target="_blank" style="font-weight: bold;font-size:120%;">{{ site.author }}</a><br>
+<a href="{{ site.author_url }}" style="font-weight: bold;font-size:120%;">{{ site.author }}</a><br>
 {{ site.author_title }}<br>
 {{ site.author_affiliation }}<br>
 </div>
