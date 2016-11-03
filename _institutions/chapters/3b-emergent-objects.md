@@ -1,20 +1,16 @@
 ---
 layout: chapter
-title: Model of Institutions Via Affordances
-description: "Model of interdependent tasks in an institutional field using the construct of affordances."
+title: Affordances as Emergent Computational Objects 
+description: "Abstracting from protein folding, we build up a computational model of affordances as emergent objects."
 status: work-in-progress
-pct_complete: "10%"
+pct_complete: "70%"
 last_modified: "2016-11-02"
 is_section: false
 ---
 
-## Computational Modeling of Affordances and Interrelations 
-
-### Affordances as Emergent Computational Objects 
-
 Our modeling strategy for Actors (i.e. agents in roles, with purposeful functions and interests), Capabilities, and Routines is to model these as *computational objects* ("object" here is used in programming sense, as in Object-oriented Programming (OOP)).
 
-Our strategy is to model affordances as *emergent objects* (as in OOP), meaning that they are created dynamically at runtime rather than at compile time, like the others which are created at compile time.  Therefore, we need a way to *compose*, *activate*, and *govern* affordances from the other objects in our computational model.
+Building on this, our strategy is to model affordances as *emergent objects* (as in OOP), meaning that they are created dynamically at runtime rather than at compile time, like the others which are created at compile time.  Therefore, we need a way to *compose*, *activate*, and *govern* affordances from the other objects in our computational model.
 
 <p class="note"><em>Note</em>: The meaning of "emergent" here is not exactly as it is used on Complexity Science, where there is an implied sense that what emerges is not pre-given in the components or the mechanisms of their interactions -- e.g. birds flocking with the overall shape of the flock being an emergent property.</p>
 
@@ -27,7 +23,7 @@ For any given Action between Actor and Object-of-Action, the "computational obje
 add an example here.
 </div>
 
-### Protein Folding as Role Model for Interrelations
+## Protein Folding as Role Model for Interrelations
 
 The ontological construct of *interrelation* encompases the "compose", "activate", and "govern" mechanisms. I like  protein folding as a rich role model for interrelations, though we abstract from the details of biochemistry.  
 
@@ -104,7 +100,7 @@ This is a *simplistic* example because `B` has *embedded knowledge* (i.e. hard c
 
 Notice that we prefaced all these aspects with *probabilistic*, meaning they can include random processes, including conditional random processes.  This allows us to implement fuzzy pattern matching, noisy influence, conditional activation/termination, and the like.
 
-### Signs and Signals
+## Signs and Signals
 
 The last piece of the affordance modeling puzzle
 

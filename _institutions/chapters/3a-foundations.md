@@ -1,7 +1,7 @@
 ---
 layout: chapter
 title: Foundations
-description: "Foundations: elements, definitions, and approach."
+description: "Definitions for 'tasks', 'performance', 'capabilities', 'affordance' as fit between agents and task', and informational resources provided by affordances."
 status: draft
 pct_complete: "100%"
 last_modified: "2016-10-31"
