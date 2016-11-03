@@ -3,12 +3,10 @@ layout: chapter
 title: "Security and Privacy"
 last_modified: "2016-11-02"
 description: "Description of the security and privacy features and policies for this site."
-status: draft
+status: version
 is_section: true
 version: "November 2, 2016"
 ---
-
-*(Version: {{ version }})*
 
 The site has been designed to minimize security and privacy risks while still providing useful content, especially interactive code demonstrations and visualizations.  This page will be updated periodically as the content and features change.
 
@@ -16,7 +14,9 @@ The site has been designed to minimize security and privacy risks while still pr
 
 **No user tracking** -- When you use this site, no user information goes to the web server, including programs you modify or create in the codeboxes or interactive editor.  We don't track any user activity while you are on the site. [Duckduckgo](https://duckduckgo.com/privacy) is used in the search bar under the header. There is no advertising or advertising-related user tracking. This site does not access any information on your computer outside of the browser.
 
-**HTTP rather than HTTPS** -- This site uses HTTP (unencrypted) rather than HTTPS (encrypted) protocol between your browser and the web server (hosted by Github). The reason is that GitHub does not yet support HTTP for   custom domain names like this one: "library.meritology.com".  This shouldn't be a big risk for most people because no information from you (e.g. real name, email, passswords, credit card numbers, etc.) is transmitted from your device, through the browser, to Github's servers.  There is a small chance that an advanced adversary could "sit in the middle" (a.k.a. "Man in the Middle" (MITM)) of the traffic between browser and server, and in doing so send some javascript malware to your computer.  There are easier attacks (e.g. phishing email), so most people don't have to worry about MITM.
+**HTTP rather than HTTPS** -- This site uses HTTP (unencrypted) rather than HTTPS (encrypted) protocol between your browser and the web server (hosted by Github). The reason is that GitHub does not yet support HTTP for   custom domain names like this one: "library.meritology.com".  
+
+<p class = "note">This shouldn't be a big risk for most people because no information from you (e.g. real name, email, passswords, credit card numbers, etc.) is collected from your device or sent through the browser to Github's servers.  There is a small chance that an *advanced* adversary could "sit in the middle" of the traffic between browser and server, and in doing so send some javascript malware to your computer.  There are easier attacks (e.g. phishing email), so most people don't have to worry about "man in the middle" attacks.</p>
 
 **Cookies** -- The only use of "cookies" (local files managed by your browser) is to record your preferences for font size.  If you disable cookies or browse in "private mode", the site will work just fine.
 

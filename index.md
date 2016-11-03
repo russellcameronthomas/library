@@ -29,6 +29,7 @@ list-style-type: decimal;
 {% assign sorted_col = site.collections | sort : "sort_order" %}
 
 {% for col in sorted_col %}
+{% assign num_version = 0 %}
 {% assign num_WIP = 0 %}
 {% assign num_draft = 0 %}
 {% assign num_stubs = 0 %}
@@ -42,6 +43,8 @@ list-style-type: decimal;
 {% endif %}
 {% if d.status == 'work-in-progress' %}
 {% assign num_WIP =  num_WIP | plus:1 %}
+{% elsif d.status == 'version' %}
+{% assign num_version =  num_version | plus:1  %}
 {% elsif d.status == 'draft' %}
 {% assign num_draft =  num_draft | plus:1  %}
 {% elsif d.status =='stub' %}
@@ -53,15 +56,18 @@ list-style-type: decimal;
 {% endif %}
 {% endfor %}
 
+
+{% assign version_text = "completed" %}
+
 {% if num_WIP == 1 %}
 {% assign WIP_text = "work-in-progress" %}
 {% else %}
 {% assign WIP_text = "works-in-progress" %}
 {% endif %}
 {% if num_draft == 1 %}
-{% assign draft_text = "completed draft" %}
+{% assign draft_text = "draft" %}
 {% else %}
-{% assign draft_text = "completed drafts" %}
+{% assign draft_text = "drafts" %}
 {% endif %}
 {% if num_stubs == 1 %}
 {% assign stub_text = "stub" %}
@@ -72,7 +78,7 @@ list-style-type: decimal;
 {% assign sep = ": " %}
 
 1. {% if num_chap > 0 %}**<a class="chapter-link" href="/{{ col.label }}/index.html">{{ col.title }}</a>**<br>
-<span class="annotate">{{ num_chap }} chapters{% if num_draft > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_draft }} {{ draft_text  }}{% endif %}{% if num_WIP > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_WIP }} {{ WIP_text }}{% endif %}{% if num_stubs > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_stubs }} {{ stub_text }}{% endif %}{% if num_noStatus > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_noStatus }} no status{% endif %}{% if max_last_mod > "0" %}{{ sep }}{% assign sep = ", " %}last mod.: {{ max_last_mod }}{% endif %}</span>{% else %}**{{ col.title }}** ⛔️{% endif %}<br/>
+<span class="annotate">{{ num_chap }} chapters{% if num_version > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_version }} {{ version_text  }}{% endif %}{% if num_draft > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_draft }} {{ draft_text  }}{% endif %}{% if num_WIP > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_WIP }} {{ WIP_text }}{% endif %}{% if num_stubs > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_stubs }} {{ stub_text }}{% endif %}{% if num_noStatus > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_noStatus }} no status{% endif %}{% if max_last_mod > "0" %}{{ sep }}{% assign sep = ", " %}last mod.: {{ max_last_mod }}{% endif %}</span>{% else %}**{{ col.title }}** ⛔️{% endif %}<br/>
 {% endif %}
 {% endfor %}
 

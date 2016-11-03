@@ -3,7 +3,8 @@ layout: chapter
 title: Colophon
 last_modified: "2016-11-02"
 description: "How this web site is built and rendered: layouts, fonts, authoring tools, javascript, etc."
-status: draft
+status: version
+version: "November 2, 2016"
 is_section: true
 ---
 

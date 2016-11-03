@@ -3,7 +3,8 @@ layout: chapter
 title: "Issues"
 last_modified: "2016-11-02"
 description: "To-Do list for the site overall"
-status: draft
+status: version
+version: "November 2, 2016"
 is_section: true
 ---
 
