@@ -26,11 +26,21 @@ collections:
     sort_order: 3
     index : true
     title: "Models of Teams, Institutions, and Innovation"
-  other:
+  cyberinsurance:
+    output: true
+    sort_order: 4
+    index : true
+    title: "Models of Cyber Insurance"
+  ecosystems:
+    output: true
+    sort_order: 5
+    index : true
+    title: "A Theory of Functional Ecosystems"
+  info:
     output: true
     sort_order: 10
     index : false
-    title: "Other"
+    title: "Site Information"
 author: "Russell Cameron Thomas"
 author_title: "PhD Candidate"
 author_dept: "Computational & Data Sciences"

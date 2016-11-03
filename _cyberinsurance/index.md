@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Table of Contents"
-last_modified: "2016-10-27 23:01"
+last_modified: "2016-11-02"
 
 ---
 <style type="text/css">
@@ -16,13 +16,14 @@ list-style-type: decimal;
 </style>
 
 
+
 <div class = "author-block">
 <a href="{{ site.author_url }}" target="_blank" style="font-weight: bold;font-size:120%;">{{ site.author }}</a><br>
 {{ site.author_title }}<br>
 {{ site.author_affiliation }}<br>
 </div>
 
-{% assign sorted_pages = site.financial | sort:"name" %}
+{% assign sorted_pages = site.cyberinsurance | sort:"name" %}
 
 {% for p in sorted_pages %}
     {% if p.hidden %}
@@ -42,6 +43,7 @@ list-style-type: decimal;
         {% endif %}
     {% endif %}
 {% endfor %}
+
 
 ### Other Resources
 

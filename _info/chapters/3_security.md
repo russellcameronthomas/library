@@ -2,9 +2,13 @@
 layout: chapter
 title: "Security and Privacy"
 last_modified: "2016-11-02"
+description: "Description of the security and privacy features and policies for this site."
+status: draft
+is_section: true
+version: "November 2, 2016"
 ---
 
-*(Updated: November 2, 2016)*
+*(Version: {{ version }})*
 
 The site has been designed to minimize security and privacy risks while still providing useful content, especially interactive code demonstrations and visualizations.  This page will be updated periodically as the content and features change.
 

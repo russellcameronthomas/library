@@ -1,7 +1,10 @@
 ---
 layout: chapter
 title: Colophon
-last_modified: "2016-10-26 16:56"
+last_modified: "2016-11-02"
+description: "Information for anyone who wants to build a similar web site: layouts, fonts, authoring tools, javascript, etc."
+status: draft
+is_section: true
 ---
 
 The following information might be useful for anyone who wants to create a web site and content similar to this Library.

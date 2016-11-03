@@ -88,30 +88,20 @@ Because the documents are perpetually changing, I recommend *against* citing the
 
 ____
 
-**Site**
-
-1. **Issues**
-
-<ol class="note">
-<ol >
-<li style="list-style-type: decimal;">Search functionality is currently inadequate. Switch to static search engine. <em>(10/29)</em></li>
-<li style="list-style-type: decimal;">Get the blog working, and add first post. <em>(10/29)</em></li>
-<li style="list-style-type: decimal;">Citation for book section omits book title and book editor. <em>(10/31)</em></li>
-</ol>
-</ol>
+**[Site](/info/index.html)**
 
 
-{% for p in site.other %}
+{% for p in site.info %}
     {% if p.hidden %}
     {% else %}
         {% if p.layout == 'chapter' %}
             {% if p.is_section %}
                 {% if p.status == 'stub' %}
-1. **{{ p.title }}**<br>{% else %}
+1. **{{ p.title }}** ⛔️<br>{% else %}
 1. **<a class="chapter-link" href="{{ site.baseurl }}{{ p.url }}" >{{ p.title }}</a>**<br>{% endif %}
             {% else %}
                 {% if p.status == 'stub' %}
-1. **{{ p.title }}**<br>{% else %}
+1. **{{ p.title }}** ⛔️<br>{% else %}
 1. **<a class="chapter-link" href="{{ site.baseurl }}{{ p.url }}" >{{ p.title }}</a>**<br>{% endif %}     
             {% endif %}
         {% endif %}
