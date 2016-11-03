@@ -12,7 +12,7 @@ is_section: false
 
 ### Affordances as Emergent Computational Objects 
 
-Our modeling strategy for Actors (i.e. agents in roles, with purposeful functions and interests), Capabilities, and Routines is to model these as *computational objects* (sense of the Object-oriented Programming (OOP)).
+Our modeling strategy for Actors (i.e. agents in roles, with purposeful functions and interests), Capabilities, and Routines is to model these as *computational objects* ("object" here is used in programming sense, as in Object-oriented Programming (OOP)).
 
 Our strategy is to model affordances as *emergent objects* (as in OOP), meaning that they are created dynamically at runtime rather than at compile time, like the others which are created at compile time.  Therefore, we need a way to *compose*, *activate*, and *govern* affordances from the other objects in our computational model.
 
