@@ -94,7 +94,7 @@ Because the documents are perpetually changing, I recommend *against* citing the
 
 ____
 
-**[Site](/info/index.html)**
+**[Site Information:](/info/index.html)**
 
 {% assign sep = "" %}
 <div style="display:inline;">
