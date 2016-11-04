@@ -59,6 +59,12 @@ list-style-type: decimal;
 
 {% assign version_text = "completed" %}
 
+{% if num_chap == 1 %}
+{% assign chap_text = "chapter" %}
+{% else %}
+{% assign chap_text = "chapters" %}
+{% endif %}
+
 {% if num_WIP == 1 %}
 {% assign WIP_text = "work-in-progress" %}
 {% else %}
@@ -78,7 +84,7 @@ list-style-type: decimal;
 {% assign sep = ": " %}
 
 1. {% if num_chap > 0 %}**<a class="chapter-link" href="/{{ col.label }}/index.html">{{ col.title }}</a>**<br>
-<span class="annotate">{{ num_chap }} chapters{% if num_version > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_version }} {{ version_text  }}{% endif %}{% if num_draft > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_draft }} {{ draft_text  }}{% endif %}{% if num_WIP > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_WIP }} {{ WIP_text }}{% endif %}{% if num_stubs > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_stubs }} {{ stub_text }}{% endif %}{% if num_noStatus > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_noStatus }} no status{% endif %}{% if max_last_mod > "0" %}{{ sep }}{% assign sep = ", " %}last mod.: {{ max_last_mod }}{% endif %}</span>{% else %}**{{ col.title }}** ⛔️{% endif %}<br/>
+<span class="annotate">{{ num_chap }} {{ chap_text }}{% if num_version > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_version }} {{ version_text  }}{% endif %}{% if num_draft > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_draft }} {{ draft_text  }}{% endif %}{% if num_WIP > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_WIP }} {{ WIP_text }}{% endif %}{% if num_stubs > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_stubs }} {{ stub_text }}{% endif %}{% if num_noStatus > 0 %}{{ sep }}{% assign sep = ", " %}{{ num_noStatus }} no status{% endif %}{% if max_last_mod > "0" %}{{ sep }}{% assign sep = ", " %}last mod.: {{ max_last_mod }}{% endif %}</span>{% else %}**{{ col.title }}** ⛔️{% endif %}<br/>
 {% endif %}
 {% endfor %}
 

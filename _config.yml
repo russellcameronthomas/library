@@ -26,14 +26,19 @@ collections:
     sort_order: 3
     index : true
     title: "Models of Teams, Institutions, and Innovation"
-  cyberinsurance:
+  incentives:
     output: true
     sort_order: 4
+    index : true
+    title: "Models of Intrinsic and Extrinsic Incentives"
+  cyberinsurance:
+    output: true
+    sort_order: 5
     index : true
     title: "Models of Cyber Insurance"
   ecosystems:
     output: true
-    sort_order: 5
+    sort_order: 6
     index : true
     title: "A Theory of Functional Ecosystems"
   info:

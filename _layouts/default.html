@@ -62,7 +62,7 @@
             {% if page.status == 'version' %}
                 <div class="status" >Version: {{ page.version }}</div>
             {% else %}
-                <div class="status" >Status: {{ page.status }}</div>
+                <div class="status" >Status: {{ page.status }}{% if page.status == "work-in-progress" %} - {{ page.pct_complete }} complete{% endif %}</div>
             {% endif %}
         {% endif %}
         {% if page.last_modified %}
