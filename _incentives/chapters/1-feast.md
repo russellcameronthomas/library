@@ -10,13 +10,19 @@ is_section: true
 
 ## Introduction
 
-This is a model of intrinsic and extrinsic rewards (a.k.a. incentives) modeled as a situational social + cognitive process which I will nickname "The Feasting Table" model.
+Is there any difference between intrinsic rewards -- those that a person defines and administers for themselves -- and extrinsic rewards -- those that come from some other person, organization, or institution?  
+
+Much of Economics, Game Theory, and Public Policy say "no, there is no meaningful difference", and therefore many of the interventions and improvement prescriptions are aimed at shifting the incentives for individuals by piling on external incentives.
+
+This chapter explores this question about intrinsic and extrinsic rewards using a model of situational social + cognitive processes which I will nickname "The Feasting Table" model, for reasons that become immediately obvious.
 
 ## Description
 
 Imagine that you are at a big feast (e.g. Thanksgiving in the US) where food is served communally. The norms of service are roughly: Each person picks up the nearest serving dish or platter, takes some food if they want, then passes the dish to someone next to them. Often, by habit or by declaration, the food dishes are passed in one direction.  Often, people make pleasant comments about the dishes as they arrive -- "Ooh, this looks good!" -- and other people might make comments like "Yes, it is. I've tried it." or "Save me some of that!" or "What is it?".  If the diners also made some or all of the food, people pay and receive complements to the chefs as the food is passed.
 
 We modify the feast norms this way:
+
+1. Every participant in the Feast is an Actor, i.e. an agent in a role with purposeful functions. Each Actor has some degree of pride in their own choices and preferences, relative to how much they defer to others.
 
 1. Every Actor starts with food ("my food") on their own plate which they selected (and perhaps made). "My food" represent the *intrinsic* rewards for each Actor.  The "my foods" for Actors may of the same type (e.g. "stuffing") but they will always be distinct in detail (seasoning, cooking style, non-allergenic, vegan, etc.).
 2. Some number of communal plates go around, some empty initially and some pre-loaded with a type of food not associated with any Actor.  These "other foods" represent *extrinsic* rewards for any Actor.
@@ -28,9 +34,9 @@ We modify the feast norms this way:
 
 In the end, "eating" is behavior that the food is rewarding, though there is also the social reward for being a good member of the Feast:
 
-1. For themselves: Get enough of the food types that they want/like.
-    1. If they don't like any of their food, they don't have to eat it.
-    1. Mostly honor their "my food" choice, as place of pride for each Actor
+1. For themselves: Get enough of the food types that you want/like.
+    1. If you don't like any of their food, you don't have to eat it.
+    1. Mostly honor your "my food" choice, as place of pride
 1. For themselves as members of the Feast: be a good member and help make it a good Feast for everyone. For example:
     1. Don't waste any food, if possible.
     1. Don't take food tagged for someone else
@@ -41,7 +47,9 @@ Crucially, there is an asymmetric relationship between "my food" and "other food
 
 In contrast, they will initially have much more limited information about "other food". Actors may ask themselves: "It may *look* familiar but is it?" "Was it properly cooked and (therefore) safe to eat?" "Will it violate any of my eating restrictions?" and so on.
 
-There is a vital social mechanism: What will other Actors think of me if they see me eating X or not eating Y?  Will they see me as a "good member" or not?
+Notice the social mechanism: What will other Actors think of me if they see me eating X or not eating Y?  Will they see me as a "good member" or not?  This social mechanism and associated interest is <em>also</em> an extrinsic reward, but it a "public good" -- collective and non-rival<sup>*</sup> -- in contrast to the "my + other food" on each Actor's plate, which are "private goods" by the time the eating starts.
+
+<p class="note"><sup>*</sup>"Non-rival" means that if one Actor "consumes" a public good, it doesn't diminish the value or availablilty for any other Actor. Beautiful natural scenary is a collective non-rival public good. The reverse is true for private goods, which are rivalrous.</p>
 
 ## Regimes of System Behavior
 
