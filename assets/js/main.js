@@ -25,7 +25,7 @@ function github_page_url(page_url) {
 // WebPPL editor
 
 $(function(){
-  var preEls = Array.prototype.slice.call(document.querySelectorAll("pre"));
+  var preEls = Array.prototype.slice.call(document.querySelectorAll("pre:not(.language-javascript, .language-css )")); // RCT modified 
   preEls.map(function(el) { wpEditor.setup(el, {language: 'webppl'}); });          
 });
 

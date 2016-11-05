@@ -1,5 +1,5 @@
 {
-  "name": "riskmodels.meritology.com",
+  "name": "library.meritology.com",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,20 +8,26 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/russellcameronthomas/riskmodels.git"
+    "url": "git+https://github.com/russellcameronthomas/library.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/russellcameronthomas/riskmodels/issues"
+    "url": "https://github.com/russellcameronthomas/library/issues"
   },
-  "homepage": "https://github.com/russellcameronthomas/riskmodels#readme",
+  "homepage": "https://github.com/russellcameronthomas/library#readme",
   "dependencies": {
     "webppl": "^0.9.1",
-    "webppl-agents": "github:russellcameronthomas/riskmodels/webppl-agents",
+    "webppl-agents": "github:agentmodels/webppl-agents",
     "webppl-dp": "^0.1.1",
     "webppl-editor": "github:probmods/webppl-editor",
-    "webppl-timeit": "^0.3.0"
+    "webppl-timeit": "^0.3.0",
+    "webppl-fs": "github:null-a/webppl-fs"
+  },
+  "webppl": {
+    "fs": ["src/webppl-fs.wppl"]
   }
 }
+
+

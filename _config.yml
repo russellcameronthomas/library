@@ -41,6 +41,11 @@ collections:
     sort_order: 6
     index : true
     title: "A Theory of Functional Ecosystems"
+  processing:
+    output: true
+    sort_order: 7
+    index : true
+    title: "Tutorial: Processing (p5.js) - A Javascript Tool for Generative Visualizations"
   info:
     output: true
     sort_order: 10

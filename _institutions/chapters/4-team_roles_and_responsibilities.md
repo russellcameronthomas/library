@@ -4,7 +4,7 @@ title: Negotiating Team Roles and Responsibilities
 description: "Actors self-organize into teams. The model uses recursive multi-actor reasoning and repeated social interaction in a somewhat non-cooperative game with incomplete and imperfect information."
 status: work-in-progress
 pct_complete: "5%"
-last_modified: "2016-10-31"
+last_modified: "2016-11-02"
 is_section: true
 ---
 
@@ -21,16 +21,88 @@ The goal of this model is to study the effects of team member migration.  Actors
 
 ## Actor Interests
 
-Contrary to Neo-classical Economics and modern Game Theory, we will *not* be modeling the interests of actors using a generalized/aggregate subjective utility metric.
+Contrary to Neo-classical Economics and modern Game Theory, we will *not* be modeling the interests of actors using a generalized/aggregate subjective utility metric.  Instead, we will adopt the model situational cognitive + social "interests", as developed in the [The Feast Table Model](/incentives/chapters/1-feast.html).  In some cases it will work like subjective utility maximization but other times it won't.
 
+## Constructs from Functional Ecosystems
 
+We'll use the definitions of constructs from Functional Ecology described in [Model of Institutions Via Affordances](3c-model.html).  These include (alphabetically):
 
+- Affordances
+- Capabilities
+- Functions
+- Routines
+- Situations
 
-## Actor Reasoning about Capabilities, Tasks, and Affordances
+## Actor Reasoning about their Functional Ecosystem
 
+The key feature of this model is Actor reasoning about their functional ecosystem in the situation of deciding division of responsibilities, i.e. assigning tasks to Actors.
+
+<div class="work_in_progress" markdown="1">
+
+**To Do**
+
+1. Add characteristics to each task.
+1. Add to actors: differential skills in performing tasks (capabilities + routines)
+1. Add to actors: conception of their capabilities + routines, related to "getting the job done"
+    * Maybe this could be in some mental frame construct
+1. Add memoization to performance landscape to save time on initialization and allow larger problems
+1. Add performance correlation between tasks according to the similarity of their characteristics.
+
+</div>
 
 
 ## Basic Model
+
+~~~~
+/*
+// Global parameters:
+var N = 30;  // number of team decisions; Best to keep this below 40 to avoid excess run times
+var K = 5;   // number of designers ("actors")
+var n = Math.round(N / K);  // number of decisions assigned to each actor
+
+// Helper functions:
+// binaryFlip(); arrayGet(arr,index); removeDups(arr); convertBinaryToInt(arr);
+// flatten1(); pickN();
+///fold:
+//###########################################
+var binaryFlip = function(){return flip() ? 1 : 0;}
+
+// The following is necessary because of WebPPL's rule against using 
+// Javascript libraries within WebPPL functions
+var power = function(x,y) {return Math.pow(x,y);}
+
+///
+
+/###########################################
+
+// Team decision variables
+// A is the array of team decisions, randomly initialized.
+var A = mapN(binaryFlip,N);
+
+/###########################################
+// An Actor consists of a map that holds current state: 
+//          1. decisions (indexes)
+var createActor = function(start, count){
+   var dIndexes = mapN(function(x){return x + start;},count);
+return {decisions : dIndexes};
+}
+*/
+
+//var fs = require('fs');
+
+fs.write("temp.txt","JUMP!");
+
+var d = fs.read("temp.txt");
+
+print(d);
+
+~~~~
+
+
+
+
+
+## Analysis
 
 <div class="work_in_progress" markdown="1">
 

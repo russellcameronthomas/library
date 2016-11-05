@@ -12,7 +12,7 @@ is_section: true
 
 Is there any difference between intrinsic rewards -- those that a person defines and administers for themselves -- and extrinsic rewards -- those that come from some other person, organization, or institution?  
 
-Much of Economics, Game Theory, and Public Policy say "no, there is no meaningful difference", and therefore many of the interventions and improvement prescriptions are aimed at shifting the incentives for individuals by piling on external incentives.
+Much of Economics, Game Theory, and Public Policy modeling the interests of actors using a generalized/aggregate subjective utility metric. In this model, there is no meaningful difference between intrinsict and extrinsic. This leads to interventions and improvement prescriptions that heavily rely on extrinsic incentives.
 
 This chapter explores this question about intrinsic and extrinsic rewards using a model of situational social + cognitive processes which I will nickname "The Feasting Table" model, for reasons that become immediately obvious.
 
