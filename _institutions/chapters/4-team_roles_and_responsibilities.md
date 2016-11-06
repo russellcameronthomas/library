@@ -3,8 +3,8 @@ layout: chapter
 title: Negotiating Team Roles and Responsibilities
 description: "Actors self-organize into teams. The model uses recursive multi-actor reasoning and repeated social interaction in a somewhat non-cooperative game with incomplete and imperfect information."
 status: work-in-progress
-pct_complete: "5%"
-last_modified: "2016-11-02"
+pct_complete: "25%"
+last_modified: "2016-11-06"
 is_section: true
 ---
 
@@ -199,7 +199,7 @@ Since any function $$f(x)=y$$ can be defined and implemented as a lookup table $
 
 <p class="note">Another approach you might imagine would be to define T(I,\Theta) as high degree polynomials with some noise terms.  While that might work, it imposes more experimentor bias/preference than I think is necessary.  We really want to be ignorant of the details of this (and other) performance landscapes, as long as those landscapes have the right general characteristics</p>
 
-I don't want to be specific about the nature of these Transformation processes, and therefore I'd like to treat the vector of process characteristics \Theta as abstractly as possible, while still preserving the notion that each characteristic has *some* semantic value to designers (Actors), and also enabling a mechanism for detecting degree of similarity $$\sigma$$ between any two characteristic vectors: $$\sigma = Similarity(\Theta_1, \Theta_2) = $$; $$0 \leq \sigma \leq 1$$.
+I don't want to be specific about the nature of these Transformation processes, and therefore I'd like to treat the vector of process characteristics \Theta as abstractly as possible, while still preserving the notion that each characteristic has *some* semantic value to designers (Actors), and also enabling a mechanism for detecting degree of similarity $$\sigma$$ between any two characteristic vectors: $$\sigma = Similarity(\Theta_1, \Theta_2)$$; $$0 \leq \sigma \leq 1$$.
 
 I going to try using [Sparse Distributed Representations](https://en.wikipedia.org/wiki/Sparse_distributed_memory)<sup>**</sup> (SDR) for product characteristic vectors.
 
