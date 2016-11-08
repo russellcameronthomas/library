@@ -1,65 +1,14 @@
 ---
 layout: chapter
-title: Negotiating Team Roles and Responsibilities
-description: "Actors self-organize into teams. The model uses recursive multi-actor reasoning and repeated social interaction in a somewhat non-cooperative game with incomplete and imperfect information."
+title: A Virtual World for Engineering Design Teams
+description: "Model of a virtual world that features products that are designed, produced, and consumed."
 status: work-in-progress
-pct_complete: "25%"
+pct_complete: "30%"
 last_modified: "2016-11-06"
 is_section: true
 ---
 
-This is a model of self-organizing teams -- specifically small teams of design engineers ("actors") -- but it could be any type of team doing any type of work. It draws on prevous models:
-
-- [Affordances as Probabilistic Interrelations](1_affordances.html)
-- [Evolving Team Structure](2-team_structure.html)
-- [Model of Institutions Via Affordances](3c-model.html)
-- [The Feast Table Model](/incentives/chapters/1-feast.html)
-
-However, the model here goes beyond them to include higher-order reasoning about the tasks, each actor's capabilities, and probable outcomes given ways of assigning roles and responsibilities.  The base model involves actors reasoning privately.  The extended model adds *institutions* -- norms and rules -- that influence and constrain actor choices and behaviors.
-
-The goal of this model is to study the effects of team member migration.  Actors on a given team become aculturated to that team, including its institutions.  When an actor moves to a new team with different culture and institutions, conflicts can arise. Is this conflict positive or negative?  How does it affect team versatility and creativity?  Is it a temporary disturbance or a permanent change?  If new members challenge or reconfigure the team's 'institutions, are the effects positive, negative, or mixed?
-
-## Actor Interests
-
-Contrary to Neo-classical Economics and modern Game Theory, we will *not* be modeling the interests of actors using a generalized/aggregate subjective utility metric.  Instead, we will adopt the model situational cognitive + social "interests", as developed in the [The Feast Table Model](/incentives/chapters/1-feast.html).  In some cases it will work like subjective utility maximization but other times it won't.
-
-## Constructs from Functional Ecosystems
-
-We'll use the definitions of constructs from Functional Ecology described in [Model of Institutions Via Affordances](3c-model.html).  These include (alphabetically):
-
-- Affordances
-- Capabilities
-- Functions
-- Routines
-- Situations
-
-## Actor Reasoning about their Functional Ecosystem
-
-The key feature of this model is Actor reasoning about their functional ecosystem in two situations: 1) negotiating a division of responsibilities (a mapping of to Actors) and 2) negotiating resolutions to design decision conflicts that arise during a design project.
-
-<div class="work_in_progress" markdown="1">
-
-**To Do**
-
-1. Add characteristics to each task.
-1. Add to actors: differential skills in performing tasks (capabilities + routines)
-1. Add to actors: conception of their capabilities + routines, related to "getting the job done"
-    * Maybe this could be in some mental frame construct
-1. Add memoization to performance landscape to save time on initialization and allow larger problems
-1. Add performance correlation between tasks according to the similarity of their characteristics.
-
-</div>
-
-<div class="work_in_progress" markdown="1">
-
-## Greneralized Capabilities from Design Thinking
-
-- Framing
-- Anticipating Implications (Benefits, Interests, Risk, Uncertainty, etc.)
-- Choices
-- Proposals (conceptual prototypes)
-
-</div>
+This chapter presents a model of a virtual world for small engineering design teams (one to five), centered on the product they are designing, including its subsystems and relevant 'physics', and also the way consumers interact with products during the course of consumption.
 
 ## Product Architecture
 
@@ -141,15 +90,15 @@ For inputs $$I$$ (a.k.a. raw material), we'll define four somewhat-idealized cla
 
 1. "Bio" $$B$$ -- natural substances harvested from nature and produced by biological processes (e.g. wood, sap, etc.)
 2. "Metal" $$M$$ -- refined metals that can be shaped and transformed
-3. "P-Synthetic" $$B$$ -- plastic-like materials 
+3. "P-Synthetic" $$P$$ -- plastic-like materials 
 4. "G-Sythetic $$G$$ -- crystaline materials (e.g. glass, graphite, etc)
 5. "Chemical" $$C$$-- reactive chemicals that modify, catalyize, or transform other materials through thermo-chemical reactions.
 
-To simplify, we'll assume that these inputs are binary -- present or not present -- and therefore there will be $$2^5 - 1 = 31$$ unique input combinations. (The "minus one" eliminates the empty input combination.) Example input sets:
+To simplify, we'll assume that these inputs are binary -- present or not present -- and therefore there will be $$2^5 - 1 = 31$$ unique input combinations. (The "minus one" eliminates the empty input combination.) Example input sets $$I$$:
 
-- Bio only = $$I=\{B\}$$
-- Bio + Metal = $$I=\{B,M\}$$
-- P-Synthetic + Chemical = $$I=\{P,C\}$$
+- Bio only: $$I=\{B\}$$
+- Bio + Metal: $$I=\{B,M\}$$
+- P-Synthetic + Chemical: $$I=\{P,C\}$$
 
 Further constraining the design process, Nature requires that Bond materials always include the Chemical input. Either the Chemical alone is "sticky" enough to bond, or it transforms the other material into something "sticky" and bond-like. Therefore, the number of unique combinations for Bond inputs are $$2^3=8$$, including Chemical alone.
 
@@ -157,7 +106,7 @@ We'll define the states of Nature for these inputs in two ways. First, we define
 
 > *Note*: There is a little shorthand in notation in the following rules. $$Pr(l \mid \hat l \rightarrow l_{min})$$ is short for $$Pr(l \geq \hat l \mid \hat l \rightarrow l_{min})$$, which reads:
 
-> <span style="font-size:88%;" markdown="1">"The probability of acheiving length $$l$$ greater than the target $$\hat l$$, given that the target length is very big (i.e. approaches the maximum length)."</span>
+> <span style="font-size:88%;" markdown="1">"The probability of acheiving length $$l$$ greater than the target $$\hat l$$, given that the target length is small (i.e. approaches the minimum length)."</span>
 
 - Length: $$Pr(l \mid \hat l \rightarrow l_{min}) \gg Pr(l \mid \hat l \rightarrow l_{max})$$
 - Thickness: $$Pr(t \mid \hat t \rightarrow t_{mid}) > Pr(t \mid \hat t \rightarrow t_{max}) \gg Pr(t \mid \hat t \rightarrow 0)$$
@@ -201,9 +150,15 @@ Since any function $$f(x)=y$$ can be defined and implemented as a lookup table $
 
 I don't want to be specific about the nature of these Transformation processes, and therefore I'd like to treat the vector of process characteristics \Theta as abstractly as possible, while still preserving the notion that each characteristic has *some* semantic value to designers (Actors), and also enabling a mechanism for detecting degree of similarity $$\sigma$$ between any two characteristic vectors: $$\sigma = Similarity(\Theta_1, \Theta_2)$$; $$0 \leq \sigma \leq 1$$.
 
+<div class="work_in_progress" markdown="1">
+
+**I am not so sure that SDR is the right way to go**
+
 I going to try using [Sparse Distributed Representations](https://en.wikipedia.org/wiki/Sparse_distributed_memory)<sup>**</sup> (SDR) for product characteristic vectors.
 
-<p class="note"><sup>**</sup><span markdown = "1">Going back a decade or so, SDRs have been used in human-centered AI to model how the human neocortex represent complex streams of "inputs", either sensory inputs or signals from other neural systems or biochemical systems. [Numenta](http://www.numenta.com), a privately held product and research company in Redwood City, CA, has been the most steadfast advocate, champion, and center of research on SDRs and cognitive systems built on top of them. See the book *[On Intelligence](https://en.wikipedia.org/wiki/On_Intelligence)* for an accessable description and motivation for SDRs</span></p>
+</div>
+
+<p class="note"><sup>**</sup><span markdown = "1">Since 1988 [add reference], SDRs have been used in human-centered AI to model how the human neocortex represent complex streams of "inputs", either sensory inputs or signals from other neural systems or biochemical systems. [Numenta](http://www.numenta.com), a privately held product and research company in Redwood City, CA, has been the most steadfast advocate, champion, and center of research on SDRs and cognitive systems built on top of them. See the book *[On Intelligence](https://en.wikipedia.org/wiki/On_Intelligence)* for an accessable description and motivation for SDRs</span></p>
 
 SDRs are very large binary vectors (from a few hundred to thousands of bits), where there are a fixed proportion of bits that are "on" for all valid encodings. (The formal term is "*Norm*" $$\mid x \mid$$ "The norm of point x is the number of ones in its binary representation."  Some implementations might have a *soft max* norm instead of *fixed*, but we will go with a fixed norm that we set to meet our needs).
 
@@ -223,11 +178,14 @@ What we will do is to generate a modestly-sized set of initialization points, wh
 
 We will store each SDR as an address concatentated with the output vector, where "address" is an integer list of vector indexes that are set to 1.  The address will always be a vector of 40 integers ($$0.2 \times 200$$).
 
+<div class="work_in_progress" markdown="1">
 
+Instead of this implementation, should probably use the Javascript library for SDR:
 
+- [https://github.com/lessc0de/sdm-1](https://github.com/lessc0de/sdm-1)
+- [Kanerva's sparse distributed memory (NASA)](https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19890017031.pdf)
 
 ~~~~
-
 var N = 200;
 var norm = 0.2;
 var num_ones = Math.round(N * norm);
@@ -238,6 +196,20 @@ var removeIndexed = function(i, arr){
     var first = arr.slice(0,i );
     var second = arr.slice(i + 1, arr.length );
     return Array.prototype.concat(first, second);
+}
+
+var isIn = function(y,arr){
+  if (arr.length > 0){
+    return any(function(x) { return x === y; }, arr);
+  } else {
+    return false;
+  }
+}
+
+// Remove duplicates from a sorted array
+var dedup = function(arr){
+  var nodup = reduce(function(z,acc){return isIn(z,acc) ? acc : [z].concat(acc); },[],arr);
+  return nodup;
 }
 
 var minArray = function(arr){
@@ -267,6 +239,48 @@ var addIfNotIn = function(arr, mask, result){
   
 }
 
+var drawAgain = function(n, results, count){
+  if (count <= 0){
+    return results;
+  } else {
+    var draw = sample(RandomInteger({n:n}));
+    var isNotNew = any(function(x){return draw==x;}, results);
+    var newResults = isNotNew 
+            ? results
+            : Array.prototype.concat(results, draw);
+    var newCount = isNotNew
+            ? count
+            : count - 1;
+    return drawAgain(n,newResults, newCount);
+  }
+}
+
+var drawN = function(n, arr){
+  // return n randomly selected elements from arr
+  var drawIndexes = drawAgain(arr.length, [ ],n);
+  return map(function(x){return arr[x];},drawIndexes);
+}
+
+/*
+var drawN = function(n, arr){
+  // return n randomly selected elements from arr
+  var allElements = mapN(function(x){return x;}, arr.length);
+  var drawCount = mapN(function(x){return x;}, n);
+  var result = reduce(
+    function(x, acc){
+       var drawIndex = sample(RandomInteger({n:arr.length}));
+       var element = arr[drawIndex];
+       var newElements = removeIndexed(drawIndex, acc.elements);
+       var newData = Array.prototype.concat(acc.data, element);
+       return {
+         elements: newElements,
+         data: newData
+       }
+    }, { elements: allElements, data :[ ] }, drawCount);
+  return result.data;
+ 
+}
+*/
 var drawRandom = function(arr, counter, result){
     if (counter <= 0){
         return result;
@@ -286,6 +300,101 @@ var genRandomSDRaddress = function(n,o){
     var allIndexes = mapN(function(x){return x;},n - 1);
     // draw o indexes randomly, without replacement
     return drawRandom(allIndexes, o, [ ]);
+}
+/*
+// recursive function OLD
+var genSDR = function(n,o,c, 
+                       unallocatedIndexes,
+                       allocatedIndexes,
+                       result,
+                       count){
+  if (count <= 0){
+    return result;
+  } else {
+      // first time through, only draw from unallocatedIndexes
+     var sdr1 = allocatedIndexes.length != 0
+      ? drawRandom(unallocatedIndexes, o - c, [ ])
+      : drawRandom(unallocatedIndexes, o, [ ]);
+    var sdr2 = (allocatedIndexes.length != 0) 
+      ? drawRandom(allocatedIndexes, c, [ ])
+      : [] ;
+    var sdr = sort(Array.prototype.concat(sdr1, sdr2));
+    var newUnallocatedIndexes = reduce(function(x,acc){ 
+      return remove(x,acc);}, unallocatedIndexes, sdr);
+    var newAllocatedIndexes = sort( 
+      Array.prototype.concat(allocatedIndexes,sdr ));
+    var newResult = Array.prototype.concat(result, [sdr]);
+    var  newCount = count - 1;
+    return genSDR(n,o,c,
+                  newUnallocatedIndexes,
+                  newAllocatedIndexes,
+                  newResult, 
+                  newCount)
+  }
+}
+
+var genCoupledSDRsOLD = function(k,n,o,c){
+    // generate k vectors of length o, each
+    //   consisting of random integers between 0 and n - 1
+    //   BUT with at least c common indexes between
+    // first, create an array of all possible indexes in the SDR
+    var unallocatedIndexes = mapN(function(x){return x;},n - 1);
+    return genSDR(n,o,c, unallocatedIndexes, [ ], [ ], k);
+}
+*/
+// recursive function
+var genUncoupledSDR = function(n,o,c, 
+                       unallocatedIndexes,
+                       allocatedIndexes,
+                       result,
+                       count){
+  if (count <= 0){
+    return result;
+  } else {
+    var sdr =  drawRandom(unallocatedIndexes, o - c, [ ]);
+    var newUnallocatedIndexes = reduce(function(x,acc){ 
+      return remove(x,acc);}, unallocatedIndexes, sdr);
+    var newAllocatedIndexes = sort( 
+      Array.prototype.concat(allocatedIndexes,sdr ));
+    var newResult = Array.prototype.concat(result, [sdr]);
+    var  newCount = count - 1;
+    return genUncoupledSDR(n,o,c,
+                  newUnallocatedIndexes,
+                  newAllocatedIndexes,
+                  newResult, 
+                  newCount);
+  }
+}
+
+
+var genCoupledSDRs = function(k,n,o,c){
+    // generate k vectors of length o, each
+    //   consisting of random integers between 0 and n - 1
+    //   BUT with at least c common indexes between
+    // first, create an array of all possible indexes in the SDR
+    var unallocatedIndexes = mapN(function(x){return x;},n - 1);
+    
+    // generate k vector of length o - c with no overlap
+    var uSDRs = genUncoupledSDR(n,o,c, unallocatedIndexes, [ ], [ ], k);
+    var allocated = dedup(sort(reduce(
+      function(x,acc){
+          return Array.prototype.concat(x,acc);},[ ], uSDRs)));
+    // now create an array, one for each SDR, removing it's own allocated
+    //   indexes.  (Selecting from self does not create coupling!)
+    var allocatedK = mapN(
+      function(x){
+        return map(function(y){
+          return remove(
+            function(z){return z==y;},allocated)},uSDRs[x]);
+      },k);
+    var cSDRs = mapN(
+      function(x){ 
+         return drawN(c,allocatedK[x])
+          ;},k);
+    var sdrs = map2(
+      function(x,y){
+          return Array.prototype.concat(x,y);},uSDRs,cSDRs);
+    return sdrs;
 }
 
 var modSDRaddress = function(sdr){
@@ -308,7 +417,7 @@ var similarityP = function(sdr1, sdr2){
 }
 
 // test for min and max similarity in an array of SDRs
-var similarity = function(arr){
+var similarityPairwise = function(arr){
   var allIndexes = mapN(function(x){return x;},arr.length - 1);
   var results = reduce(function(x,acc){
     var alterIndexes = mapN(function(y){return y + x + 1;},arr.length - x - 1);
@@ -319,76 +428,43 @@ var similarity = function(arr){
   return results;
 }
 
-var SDR = genRandomSDRaddress(N,num_ones);
-print (SDR.length);
-print(SDR);
-var mSDR = modSDRaddress(SDR);
-print(mSDR);
-
-var initialSDR = repeat(num_init,function(){ 
-  return genRandomSDRaddress(N,num_ones);});
-
-
-var model = function(SDRs){
-  var newSDRs = map(modSDRaddress,SDRs);
-  var sim = similarity(newSDRs);
-  var minSim = minArray(sim);
-  var maxSim = maxArray(sim);
-  return {sdr: newSDRs,
-          minSim: minSim,
-          maxSim: maxSim};
+// test for overall similarity in an array of SDRs,
+//  Where similarity for any SDR is the *max* overlap with *any* other SDR
+var similarity = function(arr){
+  var allElements = mapN(function(x){return x;},arr.length);
+  var results = reduce(function(x,acc){
+    var alterIndexes = remove(x,allElements);
+        //mapN(function(y){return y + x + 1;},arr.length - x - 1);
+    return 
+      Array.prototype.concat(acc,
+         maxArray(
+             map(function(z){
+               return similarityP(arr[x],arr[z]);},alterIndexes)
+         )
+      );
+  }, [], allElements);
+  return results;
 }
-                   
-var explore = function(SDRs, count ){
-  var sim = similarity(SDRs);
-  var minSim = minArray(sim);
-  var maxSim = maxArray(sim);
-  if (count <= 0 || (minSim >= 1 && maxSim <= 4) ) {
-    return {sdr: SDRs,
-       minSim: minSim,
-       maxSim: maxSim,
-       similarity: sim,
-       count: count};
-  } else {
-      var newCount = count - 1;
-      var newSDRs = map(modSDRaddress,SDRs);
-      return explore(newSDRs,newCount);
-    }
-}
-    
 
-var tango = explore(initialSDR,1000);
-print("min = " + tango.minSim + "; max = " + tango.maxSim + "; count = " + tango.count);
-
-
+var test = genCoupledSDRs(50,20000,20,3);
 
 ~~~~
+
+
+
 <div class="work_in_progress" markdown="1">
 
 **To Do**
 
-1. Modify modSDRaddress so that it works on the whole SDR set
-    - For any SDR with no similarity, pick a random SDR to pair, and a random index to swap
-    - For any SDR with too many similarities, pick one of the matched elements to drop, and a virgin element to add.
+1. Finish Materials Design
+1. Add Joints Design
+1. Add Assembly Design
+1. Add System Design
 
 </div>
 
-<div class="work_in_progress" markdown="1">
-
-## Basic Model
 
 
-
-
-
-
-## Analysis
-
-
-
-[TBD]
-
-</div>
 
 ____
 

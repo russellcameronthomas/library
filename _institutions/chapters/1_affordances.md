@@ -336,10 +336,11 @@ var findIndexed = function(arr, item){
 var getDiscretePr = function(distr,key){
   // "dist" must be an object with "params" and "supp"
   //   e.g. {"params":[1],"supp":["success"]}
-  var index = findIndexed(distr.supp,key,0);
-  if (index >= 0){
-    var dist = Object.values(distr.params.dist);
-    return dist[index].prob;
+
+  var inSupport = any(function(x){return x == key;},distr.supp);
+  if (inSupport){
+    var quoteKey = "\"" + key + "\"";
+    return distr.params.dist[quoteKey].prob;
   } else {
     return 0;
   }
@@ -496,6 +497,8 @@ print("Summary of " + K +  " runs with opening = " + o);
 var result = projection(o);
 viz.auto(result);
 
+print("----------------------");
+
 
 
 var openingsPrior = function(){
@@ -505,7 +508,7 @@ var openingsPrior = function(){
   return Math.max(d,draw);
 }
 
-var openings = Infer({method:"MCMC", kernal: "HMC", samples : 3000, burn: 100},
+var openings = Infer({method:"MCMC", kernal: "HMC", samples : 2000, burn: 100},
        function(){
            var op = openingsPrior();
            var state = projection(op);
@@ -522,9 +525,10 @@ var openings = Infer({method:"MCMC", kernal: "HMC", samples : 3000, burn: 100},
            factor(success >= 0.49 && success <= 0.51 ? 0 : penalty);
            return {o : op};
         });
-        
-viz.auto(openings);
 
+print('Probability distribution of success over door widths');
+print( "  given W = "+ w + "; D = "+ d);
+viz.auto(openings);
 
 ~~~~
 
