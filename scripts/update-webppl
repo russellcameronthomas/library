@@ -2,10 +2,11 @@
 set -e
 set -x
 
-npm install --save webppl@latest webppl-timeit@latest webppl-dp@latest agentmodels/webppl-agents
+npm install --save webppl@latest webppl-timeit@latest webppl-dp@latest agentmodels/webppl-agents null-a/webppl-fs
+
 cd node_modules/webppl
 npm install
-grunt bundle:../webppl-timeit:../webppl-dp:../webppl-agents
+grunt bundle:../webppl-timeit:../webppl-dp:../webppl-agents:../webppl-fs
 cp bundle/webppl.min.js ../../assets/js/webppl.min.js
 cd ../..
 echo "Success."

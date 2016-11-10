@@ -24,9 +24,6 @@
     "webppl-editor": "github:probmods/webppl-editor",
     "webppl-timeit": "^0.3.0",
     "webppl-fs": "github:null-a/webppl-fs"
-  },
-  "webppl": {
-    "fs": ["src/webppl-fs.wppl"]
   }
 }
 
