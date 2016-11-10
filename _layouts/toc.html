@@ -52,6 +52,16 @@
     
     <div class="page-content-wrapper">
       <div id="maincontent">
+      {% if page.status %}
+            {% if page.status == 'version' %}
+                <div class="status" >Version: {{ page.version }}</div>
+            {% else %}
+                <div class="status" >Status: {{ page.status }}{% if page.status == "work-in-progress" %} - {{ page.pct_complete }} complete{% endif %}</div>
+            {% endif %}
+        {% endif %}
+        {% if page.last_modified %}
+        <div class="last_modified" >Last modified: {{ page.last_modified }}</div>
+        {% endif %}
         {{ content }}
       </div>
          
