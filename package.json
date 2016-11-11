@@ -18,12 +18,12 @@
   },
   "homepage": "https://github.com/russellcameronthomas/library#readme",
   "dependencies": {
-    "webppl": "^0.9.1",
+    "webppl": "^0.9.4",
     "webppl-agents": "github:agentmodels/webppl-agents",
     "webppl-dp": "^0.1.1",
     "webppl-editor": "github:probmods/webppl-editor",
     "webppl-timeit": "^0.3.0",
-    "webppl-fs": "github:null-a/webppl-fs"
+    "webppl-csv": "github:mhtess/webppl-csv"
   }
 }
 

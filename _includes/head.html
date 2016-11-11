@@ -18,7 +18,21 @@
   <script src="{{ "/assets/js/jquery.cookie.js" | prepend: site.baseurl }}" type="text/javascript"></script>
   
   <link rel="manifest" href="manifest.json">
-
+  
+  <script type="text/javascript" src="{{ "/assets/js/browserfs.min.js" |  prepend: site.baseurl }}"></script>
+<script type="text/javascript">
+  // Installs globals onto window:
+  // * Buffer
+  // * require (monkey-patches if already defined)
+  // * process
+  // You can pass in an arbitrary object if you do not wish to pollute
+  // the global namespace.
+  BrowserFS.install(window);
+  // Constructs an instance of the LocalStorage-backed file system.
+  var lsfs = new BrowserFS.FileSystem.LocalStorage();
+  // Initialize it as the root file system.
+  BrowserFS.initialize(lsfs);
+</script>
 
  <!-- moved to TOC and Chapter template
 <script>
