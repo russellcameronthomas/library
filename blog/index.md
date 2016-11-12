@@ -12,14 +12,14 @@ last_modified: 2016-11-11
 {{ site.author_affiliation }}<br>
 </div>
 
-**General**
+**[General](/blog/general/index.html)**
 
 {% assign general = site.categories.general | sort: "date" %}
 
 <ol>
 {% for post in general limit: 6 %}
    {% if forloop.index == 6 %}
-<li style="list-style-type:none;"><em><a href="{{ page.url }}">previous...</a></em></li>
+<li style="list-style-type:none;"><em><a href="/blog/general/index.html">all...</a></em></li>
    {% else %}
    {% if post.status != "stub" %}
    {% assign fixedExerpt = "" %}
@@ -36,13 +36,13 @@ last_modified: 2016-11-11
 {% endfor %}
 </ol>
 
-**Academic**
+**[Academic](/blog/academic/index.html)**
 
 {% assign academic = site.categories.academic | sort: "date" %}
 <ol>
   {% for post in academic limit: 6 %}
    {% if forloop.index == 6 %}
-<li style="list-style-type:none;"><em><a href="{{ page.url }}">previous...</a></em></li>
+<li style="list-style-type:none;"><em><a href="/blog/academic/index.html">all...</a></em></li>
    {% else %}
    {% if post.status != "stub" %}
    {% assign fixedExerpt = "" %}
@@ -59,13 +59,13 @@ last_modified: 2016-11-11
   {% endfor %}
 </ol>
 
-**Author's Diary**
+**[Author's Diary](/blog/diary/index.html)**
 
 {% assign diary = site.categories.diary | sort: "date" %}
 <ol>
   {% for post in diary limit: 6 %}
    {% if forloop.index == 6 %}
-<li style="list-style-type:none;"><em><a href="{{ page.url }}">previous...</a></em></li>
+<li style="list-style-type:none;"><em><a href="/blog/diary/index.html">all...</a></em></li>
    {% else %}
    {% if post.status != "stub" %}
    {% assign fixedExerpt = "" %}
@@ -82,13 +82,13 @@ last_modified: 2016-11-11
   {% endfor %}
 </ol>
 
-**Journal: Thoughts on Website Security**
+**[Journal: Toward a Secure Website](/blog/security/index.html)**
 
 {% assign security = site.categories.security | sort: "date" %}
 <ol>
   {% for post in security limit: 6 %}
    {% if forloop.index == 6 %}
-<li style="list-style-type:none;"><em><a href="{{ page.url }}">previous...</a></em></li>
+<li style="list-style-type:none;"><em><a href="/blog/security/index.html">all...</a></em></li>
    {% else %}
    {% if post.status != "stub" %}
    {% assign fixedExerpt = "" %}

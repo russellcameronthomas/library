@@ -21,8 +21,11 @@ list-style-type: decimal;
 {{ site.author_affiliation }}<br>
 </div>
 
-**[Blog](/posts/index.html)** <!--⛔️ -->
+**[Blog](/blog/index.html)** &mdash; categories: <!--⛔️ -->
 
+> <!--<img src ="{{ site.baseurl }}/assets/img/new_small.png" style = "display:inline;height:18px;width:39px;vertical-align:-4px;"/> -->[General](/blog/general/index.html) &nbsp;&nbsp;&nbsp; [Academic](/blog/academic/index.html) &nbsp;&nbsp;&nbsp; [Author's Diary](/blog/diary/index.html) &nbsp;&nbsp;&nbsp; [Journal: Toward a Secure Website](/blog/security/index.html)
+
+____
 
 **Document Workbench**
 

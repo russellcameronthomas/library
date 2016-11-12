@@ -60,7 +60,7 @@ baseurl: ""
 url: "http://library.meritology.com"
 
 # Put blob posts in their own directory
-permalink: /blog/:year/:month/:title.html
+permalink: /:categories/:year/:month/:title.html
 
 # Build settings
 markdown: kramdown
