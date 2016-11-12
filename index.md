@@ -21,9 +21,9 @@ list-style-type: decimal;
 {{ site.author_affiliation }}<br>
 </div>
 
-**[Blog](/blog/index.html)** &mdash; categories: <!--⛔️ -->
+**[Blog](/blog/index.html)**: <!--⛔️ -->
 
-> <!--<img src ="{{ site.baseurl }}/assets/img/new_small.png" style = "display:inline;height:18px;width:39px;vertical-align:-4px;"/> -->[General](/blog/general/index.html) &nbsp;&nbsp;&nbsp; [Academic](/blog/academic/index.html) &nbsp;&nbsp;&nbsp; [Author's Diary](/blog/diary/index.html) &nbsp;&nbsp;&nbsp; [Journal: Toward a Secure Website](/blog/security/index.html)
+> <!--<img src ="{{ site.baseurl }}/assets/img/new_small.png" style = "display:inline;height:18px;width:39px;vertical-align:-4px;"/> --><span style="white-space: nowrap;">[General](/blog/general/index.html) &nbsp;&nbsp;&nbsp; [Academic](/blog/academic/index.html) &nbsp;&nbsp;&nbsp; [Author's_Diary](/blog/diary/index.html) &nbsp;&nbsp;&nbsp; [Security_Journal](/blog/security/index.html)</span>
 
 ____
 
