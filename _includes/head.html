@@ -28,8 +28,8 @@
   // You can pass in an arbitrary object if you do not wish to pollute
   // the global namespace.
   BrowserFS.install(window);
-  // Constructs an instance of the LocalStorage-backed file system.
-  var lsfs = new BrowserFS.FileSystem.LocalStorage();
+  // Constructs an instance of the InMemory (was LocalStorage-backed) file system.
+  var lsfs = new BrowserFS.FileSystem.InMemory();
   // Initialize it as the root file system.
   BrowserFS.initialize(lsfs);
 </script>
@@ -67,6 +67,27 @@
    <link rel='stylesheet' id='syntax-merriweather-css'  href='https://fonts.googleapis.com/css?family=Merriweather%3A400%2C300italic%2C300%2C400italic%2C700%2C700italic&#038;subset=latin%2Clatin-ext&#038;ver=4.4-alpha-34640' type='text/css' media='all' />
      <!-- RCT added -->
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kalam" />
+   <!-- RCT added -->
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.2/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.2/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "rgba(18, 0, 56, 0.8)"
+    },
+    "button": {
+      "background": "#f1d600"
+    }
+  },
+  "content": {
+    "message": "This website uses cookies for a few basic functions like preserving your site preferences between sessions.",
+    "dismiss": "Close and don't show again",
+    "href": "http://library.meritology.com/info/chapters/3_security"
+  }
+})});
+</script>
 
   {% if page.custom_css %}
     {% for stylesheet in page.custom_css %}
