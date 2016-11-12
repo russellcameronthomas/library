@@ -6,6 +6,22 @@
 <html>
 
   {% include head.html %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/p5.min.js"></script>
+    <script src="{{ "/assets/js/jquery.textresizer.js" | prepend: site.baseurl }}" type="text/javascript"></script>
+  <script>
+   $(function () {
+      $("#textsizer-classnames a").textresizer({
+         target: "#maincontent",
+         type: "cssClass",
+         sizes: [ 
+            "small-text", 
+            "medium-text", 
+            "large-text"
+         ],
+         selectedIndex: 1
+      });
+   });
+</script>
 
   <body>
 
@@ -37,7 +53,7 @@
     </div>
     
     <div class="page-content-wrapper">
-      <div id="pagecontent">
+      <div id="maincontent">
       {% if page.status %}
         <div class="status" >Status: {{ page.status }}</div>
         {% endif %}

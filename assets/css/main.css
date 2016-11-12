@@ -89,8 +89,12 @@ html {
         font-size: 160%;
         color: #444;
         margin: 1em 0 1.5em 0;
-        line-height: 1.5;
+        line-height: 1.0;
         text-align: left;
+    }
+    h1 .blog-title {
+        margin: 1em 0 0 0 !important;
+        line-height: 1;
     }
     
     h2 {
@@ -137,6 +141,11 @@ h1 {
     line-height: 1.0; /* 1.5; */
     text-align: center;
 }
+
+.blog-title {
+        margin: 1em 0 0 0 !important;
+        line-height: 1;
+    }
 
 h2 {
     font-family: 'Lucida Grande','Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;

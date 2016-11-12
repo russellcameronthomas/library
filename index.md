@@ -21,7 +21,7 @@ list-style-type: decimal;
 {{ site.author_affiliation }}<br>
 </div>
 
-**Blog<!--(/blog/index.html)-->** ⛔️
+**[Blog](/posts/index.html)** <!--⛔️ -->
 
 
 **Document Workbench**
