@@ -23,7 +23,7 @@ list-style-type: decimal;
 
 **[Blog](/blog/index.html)**: <!--⛔️ -->
 
-> <!--<img src ="{{ site.baseurl }}/assets/img/new_small.png" style = "display:inline;height:18px;width:39px;vertical-align:-4px;"/> --><span style="white-space: nowrap;">[General](/blog/general/index.html) &nbsp;&nbsp;&nbsp; [Academic](/blog/academic/index.html) &nbsp;&nbsp;&nbsp; [Author's_Diary](/blog/diary/index.html) &nbsp;&nbsp;&nbsp; [Security_Journal](/blog/security/index.html)</span>
+> <!--<img src ="{{ site.baseurl }}/assets/img/new_small.png" style = "display:inline;height:18px;width:39px;vertical-align:-4px;"/> --><span style="white-space: nowrap;">[General](/blog/general/index.html)</span> &nbsp;<span style="white-space: nowrap;">[Academic](/blog/academic/index.html)</span> &nbsp;<span style="white-space: nowrap;">[Author's_Diary](/blog/diary/index.html)</span> &nbsp;<span style="white-space: nowrap;">[Security_Journal](/blog/security/index.html)</span>
 
 ____
 
