@@ -21,9 +21,14 @@ list-style-type: decimal;
 {{ site.author_affiliation }}<br>
 </div>
 
+{% assign generalCount = site.categories.general.size %}
+{% assign diaryCount = site.categories.diary.size %}
+{% assign academicCount = site.categories.academic.size %}
+{% assign securityCount = site.categories.security.size %}
+
 **[Blog](/posts/index.html)**: <!--⛔️ -->
 
-> <!--<img src ="{{ site.baseurl }}/assets/img/new_small.png" style = "display:inline;height:18px;width:39px;vertical-align:-4px;"/> --><span style="white-space: nowrap;">[General](/posts/general/index.html)</span>  <span class="annotate">&mdash;</span>  <span style="white-space: nowrap;">[Author's_Diary](/posts/diary/index.html)</span>  <span class="annotate">&mdash;</span>  <span style="white-space: nowrap;">[Academic](/posts/academic/index.html)</span> <span class="annotate">&mdash;</span>  <span style="white-space: nowrap;">[Security_Journal](/posts/security/index.html)</span>
+> <!--<img src ="{{ site.baseurl }}/assets/img/new_small.png" style = "display:inline;height:18px;width:39px;vertical-align:-4px;"/> --><span style="white-space: nowrap;">[General](/posts/general/index.html)</span>  <span class="annotate">({{ generalCount }}) &mdash;</span>  <span style="white-space: nowrap;">[Author's_Diary](/posts/diary/index.html)</span>  <span class="annotate">({{ diaryCount }}) &mdash;</span>  <span style="white-space: nowrap;">[Academic](/posts/academic/index.html)</span> <span class="annotate">({{ academicCount }}) &mdash;</span>  <span style="white-space: nowrap;">[Security_by_Design](/posts/security/index.html)</span><span class="annotate">({{ securityCount }})</span>
 
 ____
 
