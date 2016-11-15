@@ -25,10 +25,7 @@ last_modified: 2016-11-11
    {% assign fixedExerpt = "" %}
    {% assign dots = "" %}
    {% if post.excerpt.size > 0 %}
-        {% assign fixedExerpt = post.excerpt | strip_html | slice: 0, 160 %}
-        {% if post.excerpt.size >= 160 %}
-           {% assign dots = "..." %}
-        {% endif %}
+        {% assign fixedExerpt = post.excerpt | strip_html | | truncatewords: 25 %}
    {% endif %}
 <li style="margin-bottom: 0.5em;"><strong><a href="{{ post.url }}">{{ post.title }}</a></strong><span class="annotate"> ({{ post.date | slice: 0, 10 }}) </span> &mdash; {{ fixedExerpt }}{{ dots }}</li>
 {% endif %}
