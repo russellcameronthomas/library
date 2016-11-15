@@ -13,7 +13,7 @@ last_modified: 2016-11-11
 </div>
 
 
-# Journal: Toward a Secure Website
+# Journal: Toward a Secure Website by Design
 
 {% assign security = site.categories.security | sort: "date" %}
 <ol>

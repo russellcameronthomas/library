@@ -21,9 +21,9 @@ list-style-type: decimal;
 {{ site.author_affiliation }}<br>
 </div>
 
-**[Blog](/blog/index.html)**: <!--⛔️ -->
+**[Blog](/posts/index.html)**: <!--⛔️ -->
 
-> <!--<img src ="{{ site.baseurl }}/assets/img/new_small.png" style = "display:inline;height:18px;width:39px;vertical-align:-4px;"/> --><span style="white-space: nowrap;">[General](/blog/general/index.html)</span>  <span class="annotate">&mdash;</span>  <span style="white-space: nowrap;">[Author's_Diary](/blog/diary/index.html)</span>  <span class="annotate">&mdash;</span>  <span style="white-space: nowrap;">[Academic](/blog/academic/index.html)</span> <span class="annotate">&mdash;</span>  <span style="white-space: nowrap;">[Security_Journal](/blog/security/index.html)</span>
+> <!--<img src ="{{ site.baseurl }}/assets/img/new_small.png" style = "display:inline;height:18px;width:39px;vertical-align:-4px;"/> --><span style="white-space: nowrap;">[General](/posts/general/index.html)</span>  <span class="annotate">&mdash;</span>  <span style="white-space: nowrap;">[Author's_Diary](/posts/diary/index.html)</span>  <span class="annotate">&mdash;</span>  <span style="white-space: nowrap;">[Academic](/posts/academic/index.html)</span> <span class="annotate">&mdash;</span>  <span style="white-space: nowrap;">[Security_Journal](/posts/security/index.html)</span>
 
 ____
 
