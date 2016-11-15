@@ -28,7 +28,7 @@ list-style-type: decimal;
 
 **[Blog](/posts/index.html)**: <!--⛔️ -->
 
-<!--<img src ="{{ site.baseurl }}/assets/img/new_small.png" style = "display:inline;height:18px;width:39px;vertical-align:-4px;"/> --><p style="text-align:left;margin-left:3em;" markdown = "1"><span style="white-space: nowrap;">[General](/posts/general/index.html)</span><span class="annotate">-{{ generalCount }}</span>  <span style="white-space: nowrap;">[Author's_Diary](/posts/diary/index.html)</span><span class="annotate">-{{ diaryCount }}</span>  <span style="white-space: nowrap;">[Academic](/posts/academic/index.html)</span><span class="annotate">-{{ academicCount }}</span>  <span style="white-space: nowrap;">[Website_Security](/posts/security/index.html)</span><span class="annotate">-{{ securityCount }}</span></p>
+<!--<img src ="{{ site.baseurl }}/assets/img/new_small.png" style = "display:inline;height:18px;width:39px;vertical-align:-4px;"/> --><p style="text-align:left;margin-left:3em;" markdown = "1"><span style="white-space: nowrap;">[General](/posts/general/index.html)</span><span class="annotate">&ndash;{{ generalCount }}</span>&nbsp;  <span style="white-space: nowrap;">[Author's_Diary](/posts/diary/index.html)</span><span class="annotate">&ndash;{{ diaryCount }}</span>&nbsp;  <span style="white-space: nowrap;">[Academic](/posts/academic/index.html)</span><span class="annotate">&ndash;{{ academicCount }}</span>&nbsp;  <span style="white-space: nowrap;">[Website_Security](/posts/security/index.html)</span><span class="annotate">&ndash;{{ securityCount }}</span></p>
 
 ____
 
