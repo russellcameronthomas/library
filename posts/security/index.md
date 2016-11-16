@@ -3,7 +3,7 @@ layout: blog
 title: Blog
 collection: posts 
 status: work-in-progress
-last_modified: 2016-11-11
+last_modified: 2016-11-15
 --- 
 
 <div class = "author-block">
@@ -15,7 +15,7 @@ last_modified: 2016-11-11
 
 # Journal: Toward a Secure Website by Design
 
-{% assign security = site.categories.security | sort: "date" %}
+{% assign security = site.categories.security | sort: "date" | reverse %}
 <ol>
   {% for post in security limit: 36 %}
    {% if forloop.index == 36 %}

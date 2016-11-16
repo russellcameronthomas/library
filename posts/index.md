@@ -3,7 +3,7 @@ layout: blog
 title: Blog
 collection: posts 
 status: work-in-progress
-last_modified: 2016-11-11
+last_modified: 2016-11-15
 --- 
 
 <div class = "author-block">
@@ -14,7 +14,7 @@ last_modified: 2016-11-11
 
 **[General](/posts/general/index.html)**
 
-{% assign general = site.categories.general | sort: "date" %}
+{% assign general = site.categories.general | sort: "date" | reverse %}
 
 <ol>
 {% for post in general limit: 6 %}
@@ -35,7 +35,7 @@ last_modified: 2016-11-11
 
 **[Academic](/posts/academic/index.html)**
 
-{% assign academic = site.categories.academic | sort: "date" %}
+{% assign academic = site.categories.academic | sort: "date" | reverse %}
 <ol>
   {% for post in academic limit: 6 %}
    {% if forloop.index == 6 %}
@@ -55,7 +55,7 @@ last_modified: 2016-11-11
 
 **[Author's Diary](/posts/diary/index.html)**
 
-{% assign diary = site.categories.diary | sort: "date" %}
+{% assign diary = site.categories.diary | sort: "date" | reverse %}
 <ol>
   {% for post in diary limit: 6 %}
    {% if forloop.index == 6 %}
@@ -75,7 +75,7 @@ last_modified: 2016-11-11
 
 **[Journal: Toward a Secure Website by Design](/posts/security/index.html)**
 
-{% assign security = site.categories.security | sort: "date" %}
+{% assign security = site.categories.security | sort: "date" | reverse %}
 <ol>
   {% for post in security limit: 6 %}
    {% if forloop.index == 6 %}

@@ -3,7 +3,7 @@ layout: blog
 title: Blog - Academic
 collection: posts 
 status: work-in-progress
-last_modified: 2016-11-11
+last_modified: 2016-11-15
 --- 
 
 <div class = "author-block">
@@ -14,7 +14,7 @@ last_modified: 2016-11-11
 
 # Academic
 
-{% assign academic = site.categories.academic | sort: "date" %}
+{% assign academic = site.categories.academic | sort: "date" | reverse %}
 <ol>
   {% for post in academic limit: 31 %}
    {% if forloop.index == 31 %}

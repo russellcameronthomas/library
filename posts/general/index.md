@@ -3,7 +3,7 @@ layout: blog
 title: Blog
 collection: posts 
 status: work-in-progress
-last_modified: 2016-11-11
+last_modified: 2016-11-15
 --- 
 
 <div class = "author-block">
@@ -14,7 +14,7 @@ last_modified: 2016-11-11
 
 # General
 
-{% assign general = site.categories.general | sort: "date" %}
+{% assign general = site.categories.general | sort: "date" | reverse %}
 
 <ol>
 {% for post in general limit: 36 %}
