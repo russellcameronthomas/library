@@ -541,6 +541,9 @@ header {
     color: #bbb;
     border-style: solid;
     border-bottom: medium solid #FFFF00;
+    border-top: none;
+    border-right: none;
+    border-left: none;
     min-height : 30px;
     max-height : 150px;
 }
