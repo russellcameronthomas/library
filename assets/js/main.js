@@ -192,11 +192,19 @@ function removeBraces (str){
 // RCT modified for HARVARD style
 function format_citation(citation) {
     var s = "";
-    s += toInitials(citation["AUTHOR"]) + " (" + extractYear(citation["YEAR"]) + ")";
+    s += toInitials(removeBraces(citation["AUTHOR"])) + " (" + extractYear(citation["YEAR"]) + ")";
     if (citation["entryType"] == "BOOK"){
-        s += ". <em>" + toTitleCase(citation["TITLE"]) + "</em>";
+        s += ". <em>" + toTitleCase(removeBraces(citation["TITLE"])) + "</em>";
     } else {
         s += ". " + toSentenceCase(citation["TITLE"]);
+    }
+    if (citation["entryType"]== "INCOLLECTION"){
+        s += ", in ";
+        if (citation["EDITOR"]){
+          s += toInitials(removeBraces(citation["EDITOR"])) + " (eds.) " + "<em>" + removeBraces(citation["BOOKTITLE"])+ "</em>";
+        } else {
+          s += "<em>" + removeBraces(citation["BOOKTITLE"])+ "</em>";
+        }
     }
     if (citation["JOURNAL"]) {
         s += ". <em>" + toTitleCase(citation["JOURNAL"]) + "</em>";
