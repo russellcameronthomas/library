@@ -45,7 +45,7 @@ html {
     .page-content-wrapper{
     background-image: none;
     }
-    #maincontent {
+    #maincontent, #maincontent2 {
      
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
@@ -645,7 +645,7 @@ ul.textresizer
    }
 
 
-#maincontent {
+#maincontent, #maincontent2 {
     line-height: 160%;
     padding-left: 25px;
     padding-right: 25px;
@@ -665,45 +665,45 @@ ul.textresizer
 }
 
 
-#maincontent.small-text
+#maincontent.small-text, #maincontent2.small-text
    {
       font-size: 13px;
    }
 
-#maincontent.small-text img.resize
+#maincontent.small-text img.resize, #maincontent2.small-text img.resize
    {
       width: 55% !important;
       height: auto;
    }
 
     
-#maincontent.medium-text
+#maincontent.medium-text, #maincontent2.medium-text
    {
       font-size: 14px;
    }
-#maincontent.medium-text img.resize
+#maincontent.medium-text img.resize, #maincontent2.medium-text img.resize
    {
       width: 77% !important;
       height: auto;
    }
     
-#maincontent.large-text
+#maincontent.large-text, #maincontent2.large-text
    {
       font-size: 16px;
    }
 
-#maincontent.large-text img.resize
+#maincontent.large-text img.resize, #maincontent2.large-text img.resize
    {
       width: 88% !important;
       height: auto;
    }
 
-#maincontent.larger-text
+#maincontent.larger-text, #maincontent2.larger-text
    {
       font-size: 18px;
    }
 
-#maincontent.larger-text img.resize
+#maincontent.larger-text img.resize, #maincontent2.larger-text img.resize
    {
       width: 100% !important;
       height: auto;
@@ -712,7 +712,7 @@ ul.textresizer
 
    /* Make errors less jarring */
 
-#maincontent .wpedit .result pre.error {
+#maincontent .wpedit .result pre.error{
     color: red;
     background-color: #fff;
 }
@@ -739,7 +739,7 @@ ul.textresizer
     margin: 5px;
 }
 
-#maincontent > p > img {
+#maincontent > p > img, #maincontent2 > p > img{
     display: block;
     margin: auto;
     padding: 20px;

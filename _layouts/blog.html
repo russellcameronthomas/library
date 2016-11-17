@@ -14,7 +14,7 @@ collection: blog
   <script>
    $(function () {
       $("#textsizer-classnames a").textresizer({
-         target: "#maincontent",
+         target: "#maincontent2",
          type: "cssClass",
          sizes: [ 
             "small-text", 
@@ -27,7 +27,7 @@ collection: blog
 </script>
 
   <body>
-    {% include header.html %}
+    {% include header_blog.html %}
     <div class="search-wrapper">
       <div class=search>
         <div style="margin:auto;width:100%;">
@@ -55,7 +55,7 @@ collection: blog
     </div>
     
     <div class="page-content-wrapper">
-      <div id="maincontent">
+      <div id="maincontent2">
       {% if page.status %}
         <div class="status" >Status: {{ page.status }}</div>
         {% endif %}

@@ -1,0 +1,112 @@
+{% if page.categories %}
+   {% assign myCategory = page.categories | last | capitalize %}
+{% endif %}
+
+{% for p in myCategory.docs %}
+{% if forloop.index > 0 %}
+{% assign len = unsorted_pages.size %}
+{% assign unsorted_pages[len] =  p %}
+{% endif %}
+{% endfor %}
+
+{% assign sorted_pages = myCategory.docs %}
+{% assign p_count = myCategory.docs | size %}
+
+{% assign currPageIndex = -1 %}
+{% for p in myCategory.docs %}
+{% if p.title == page.title  %}
+{% assign currPageIndex = forloop.index0 %}
+{% break %}
+{% endif %}
+{% endfor %}
+
+{% if currPageIndex >= 0 %}
+{% assign prevIndex = currPageIndex | minus: 1 %}
+{% if prevIndex < 0 %}
+{% assign prevIndex = prevIndex | plus : p_count %}
+{% endif %}
+
+{% assign nextIndex = currPageIndex | plus: 1 %}
+{% if nextIndex >= p_count %}
+{% assign nextIndex = nextIndex | minus : p_count %}
+{% endif %}
+
+{% for p in myCategory.docs %}
+{% if forloop.index0 == prevIndex %}
+{% assign prevURL = p.url %}
+{% assign prevTitle = p.title %}
+{% endif %}
+{% if forloop.index0 == nextIndex %}
+{% assign nextURL = p.url %}
+{% assign nextTitle = p.title %}
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{% if myCategory %}
+    {% assign thisTitle = site.title %}
+{% else %}
+    {% assign thisTitle = "site.title %}
+{% endif %}
+
+<header class="site-header">
+
+    <div class = "title">
+
+    <a  href="/" class="home"><img class="home-icon" src="{{ site.baseurl }}/assets/img/home-icon.png"/></a>
+
+        {% if myCategory %}
+
+            <a class="site-title" href="/posts/{{ page.category }}/index.html">Blog: {{ thisTitle }}</a>
+            <div class = "site-logo-right">
+            <img src="/assets/img/meritology_logo_small.svg"/>
+            </div>
+        {% else %}
+        <!--
+         <span class = "meritology-title">
+         <a class = "meritology" href="http://meritology.com">Meritology</a>
+         <span style="font-size: 70%;color: #bbb;">&nbsp; ▻ &nbsp;</span>
+         {{ thisTitle }}
+         </span>
+        <div class = "site-logo-right-full">
+        <img src="/assets/img/Meritology_logo.svg">
+        </div>
+        -->
+        <div>
+        <div class = "meritology-title">
+        <img src="/assets/img/meritology_logo_blog.svg" />
+        <!--<img src="/assets/img/meritology_logo_small.svg" align="middle"/>
+        <span class="meritology">Meritology</span> -->
+        <!-- <span style="font-size: 100%;color: #bbb;">&nbsp; ▻ &nbsp;</span>
+        {{ thisTitle }} -->
+        
+        </div>
+            <div class = "site-logo-right">
+            <img src="/assets/img/meritology_logo_small.svg"/>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <div class = "navLinks">
+        {% if page.title.size > 0 and p_count > 1 %}
+        {% if prevTitle.size > 0 %}
+            {% assign prevTitle = prevTitle | truncate: 20 %}
+                <div class ="prevLinks">
+                    <a href="{{ prevURL }}">◀︎ {{ prevTitle }}</a>
+                </div>
+        {% else %}
+            <div class ="prevLinks"><p></p></div>
+        {% endif %}
+        
+        {% if nextTitle.size > 0 %}
+            {% assign nextTitle = nextTitle | truncate: 20 %}
+                <div class ="nextLinks">
+                    <a href="{{ nextURL }}">{{ nextTitle }} ▶︎</a>
+                </div>
+        {% else %}
+                <div class ="nextLinks"><p></p></div>
+        {% endif %}
+    {% endif %}
+    </div>
+
+</header>

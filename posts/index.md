@@ -23,11 +23,12 @@ last_modified: 2016-11-15
    {% else %}
    {% if post.status != "stub" %}
    {% assign fixedExerpt = "" %}
-   {% assign dots = "" %}
    {% if post.excerpt.size > 0 %}
         {% assign fixedExerpt = post.excerpt | strip_html | | truncatewords: 25 %}
    {% endif %}
-<li style="margin-bottom: 0.5em;"><strong><a href="{{ post.url }}">{{ post.title }}</a></strong><span class="annotate"> ({{ post.date | slice: 0, 10 }}) </span> &mdash; {{ fixedExerpt }}{{ dots }}</li>
+<li style="margin-bottom: 0.5em;" markdown="1"><strong><a href="{{ post.url }}">{{ post.title }}</a></strong><span class="annotate"> ({{ post.date | slice: 0, 10 }}) </span> &mdash; {{ fixedExerpt }}
+
+</li>
 {% endif %}
 {% endif %}
 {% endfor %}
@@ -43,11 +44,12 @@ last_modified: 2016-11-15
    {% else %}
    {% if post.status != "stub" %}
    {% assign fixedExerpt = "" %}
-   {% assign dots = "" %}
    {% if post.excerpt.size > 0 %}
         {% assign fixedExerpt = post.excerpt | strip_html | | truncatewords: 25 %}
    {% endif %}
-<li style="margin-bottom: 0.5em;"><strong><a href="{{ post.url }}">{{ post.title }}</a></strong><span class="annotate"> ({{ post.date | slice: 0, 10 }}) </span> &mdash; {{ fixedExerpt }}{{ dots }}</li>
+<li style="margin-bottom: 0.5em;" markdown="1"><strong><a href="{{ post.url }}">{{ post.title }}</a></strong><span class="annotate"> ({{ post.date | slice: 0, 10 }}) </span> &mdash; {{ fixedExerpt }} 
+
+</li>
 {% endif %}
 {% endif %}
   {% endfor %}
@@ -63,11 +65,12 @@ last_modified: 2016-11-15
    {% else %}
    {% if post.status != "stub" %}
    {% assign fixedExerpt = "" %}
-   {% assign dots = "" %}
    {% if post.excerpt.size > 0 %}
         {% assign fixedExerpt = post.excerpt | strip_html | | truncatewords: 25 %}
    {% endif %}
-<li style="margin-bottom: 0.5em;"><strong><a href="{{ post.url }}">{{ post.title }}</a></strong><span class="annotate"> ({{ post.date | slice: 0, 10 }}) </span> &mdash; {{ fixedExerpt }}{{ dots }}</li>
+<li style="margin-bottom: 0.5em;" markdown="1"><strong><a href="{{ post.url }}">{{ post.title }}</a></strong><span class="annotate"> ({{ post.date | slice: 0, 10 }}) </span> &mdash; {{ fixedExerpt }} 
+
+</li>
 {% endif %}
 {% endif %}
   {% endfor %}
@@ -83,11 +86,12 @@ last_modified: 2016-11-15
    {% else %}
    {% if post.status != "stub" %}
    {% assign fixedExerpt = "" %}
-   {% assign dots = "" %}
    {% if post.excerpt.size > 0 %}
         {% assign fixedExerpt = post.excerpt | strip_html | | truncatewords: 25 %}
    {% endif %}
-<li style="margin-bottom: 0.5em;"><strong><a href="{{ post.url }}">{{ post.title }}</a></strong><span class="annotate"> ({{ post.date | slice: 0, 10 }}) </span> &mdash; {{ fixedExerpt }}{{ dots }}</li>
+<li style="margin-bottom: 0.5em;" markdown="1"><strong><a href="{{ post.url }}">{{ post.title }}</a></strong><span class="annotate"> ({{ post.date | slice: 0, 10 }}) </span> &mdash; {{ fixedExerpt }} 
+
+</li>
 {% endif %}
 {% endif %}
   {% endfor %}
