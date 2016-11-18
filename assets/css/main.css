@@ -544,8 +544,8 @@ header {
     border-top: none;
     border-right: none;
     border-left: none;
-    min-height : 30px;
-    max-height : 150px;
+    min-height : 50px;
+    max-height : 60px;
 }
 footer {
     padding-top: 10px;

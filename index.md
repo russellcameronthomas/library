@@ -119,15 +119,16 @@ ____
         {% if p.layout == 'chapter' %}
             {% if p.is_section %}
                 {% if p.status == 'stub' %}
-{{ sep }}<strong>{{ p.title }}</strong> ⛔️{% assign sep = "&nbsp;&nbsp;&nbsp;&nbsp;" %}
+{{ sep }}<strong>{{ p.title }}</strong> ⛔️{% assign sep = "&nbsp;&nbsp;&nbsp; " %}
 {% else %}
 {{ sep }}<strong><a class="chapter-link" href="{{ site.baseurl }}{{ p.url }}" >{{ p.title }}</a></strong>{% assign sep = "&nbsp;&nbsp;&nbsp;&nbsp;" %}{% endif %}
             {% else %}
                 {% if p.status == 'stub' %}
-{{ sep }}**{{ p.title }}** ⛔️ {% assign sep = "&nbsp;&nbsp;&nbsp;&nbsp;" %}
-{% else %}{{ sep }}**<a class="chapter-link" href="{{ site.baseurl }}{{ p.url }}" >{{ p.title }}</a>**{% assign sep = "&nbsp;&nbsp;&nbsp;&nbsp;" %}{% endif %}     
+{{ sep }}**{{ p.title }}** ⛔️ {% assign sep = "&nbsp;&nbsp;&nbsp; " %}
+{% else %}{{ sep }}**<a class="chapter-link" href="{{ site.baseurl }}{{ p.url }}" >{{ p.title }}</a>**{% assign sep = "&nbsp;&nbsp;&nbsp; " %}{% endif %}     
             {% endif %}
         {% endif %}
     {% endif %}
 {% endfor %}
+{{ sep }}<strong><a class="chapter-link" href="https://github.com/russellcameronthomas/library/issues">Issues</a></strong>
 </div>
