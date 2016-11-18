@@ -1,14 +1,14 @@
 html {
     font-family: Merriweather, Georgia, 'Times New Roman', serif;
     color: #fff;
-    background-color: #0f0035; /*#203; #333333;*/
+    background-color: #0a0026;/*#0f0035; /*#203; #333333;*/
 }
 
 @media screen {
     html {
         font-family: Merriweather, Georgia, 'Times New Roman', serif;
         color: #fff;
-        background-color: #0f0035;/*#333333;*/
+        background-color: #0a0026;/*#0f0035;/*#333333;*/
         }
     .page-break	{ display: none; }
 }
@@ -320,8 +320,8 @@ a.site-title:hover {
     height: 80px;
     z-index: -1;
     opacity: 0.4;
-    -webkit-filter: brightness(90%) contrast(50%) grayscale(100%); /* Safari 6.0 - 9.0 */
-    filter: brightness(90%) contrast(50%) grayscale(100%);
+    -webkit-filter: brightness(95%) contrast(60%) grayscale(60%); /* Safari 6.0 - 9.0 */
+    filter: brightness(95%) contrast(60%) grayscale(60%);
 }
 .site-logo-center-full {
     display:block;
