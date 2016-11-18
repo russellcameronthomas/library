@@ -1,14 +1,14 @@
 html {
     font-family: Merriweather, Georgia, 'Times New Roman', serif;
     color: #fff;
-    background-color: #0b003d; /*#0a0026;/*#0f0035; /*#203; #333333;*/
+    background-color: #110030; /*#0a0026;/*#0f0035; /*#203; #333333;*/
 }
 
 @media screen {
     html {
         font-family: Merriweather, Georgia, 'Times New Roman', serif;
         color: #fff;
-        background-color:  #0b003d; /*#0a0026;/*#0f0035;/*#333333;*/
+        background-color:  #110030; /*#0a0026;/*#0f0035;/*#333333;*/
         }
     .page-break	{ display: none; }
 }
