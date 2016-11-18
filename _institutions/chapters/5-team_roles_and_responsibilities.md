@@ -11,6 +11,7 @@ is_section: true
 This is a model of self-organizing teams -- specifically small teams of design engineers ("actors") -- but it could be any type of team doing any type of work. It draws on prevous models:
 
 - [Affordances as Probabilistic Interrelations](1_affordances.html)
+- [Individual Performance in a Functional Ecosystem](1a-individual_performance.html)
 - [Evolving Team Structure](2-team_structure.html)
 - [Model of Institutions Via Affordances](3c-model.html)
 - [The Feast Table Model](/incentives/chapters/1-feast.html)
@@ -18,6 +19,19 @@ This is a model of self-organizing teams -- specifically small teams of design e
 However, the model here goes beyond them to include higher-order reasoning about the tasks, each actor's capabilities, and probable outcomes given ways of assigning roles and responsibilities.  The base model involves actors reasoning privately.  The extended model adds *institutions* -- norms and rules -- that influence and constrain actor choices and behaviors.
 
 The goal of this model is to study the effects of team member migration.  Actors on a given team become aculturated to that team, including its institutions.  When an actor moves to a new team with different culture and institutions, conflicts can arise. Is this conflict positive or negative?  How does it affect team versatility and creativity?  Is it a temporary disturbance or a permanent change?  If new members challenge or reconfigure the team's 'institutions, are the effects positive, negative, or mixed?
+
+## Social Learning and Performance Cycle
+
+Here is a sketch of the cycle of learning and performance that we will be modeling:
+
+1. A team forms by recruiting and selecting individual designers based on their relevant skills and experience, compared to perceived needs and roles; 
+2. Team members decide on roles and responsibility by some governance/social process.
+3. The team starts working together and team members interact with each other, and also with any explicit rules and norms for the team; 
+4. Individual team members learn by doing as they perform their daily work, and also learn through explicit instruction and through social interaction.
+5. Gradually team members become acculturated in the team’s norms and patterns, which shape and are shaped by individual learning. 
+6. Along the way (i.e. during steps 1 through 5) one or more “interactional frames” are developed (maybe tacitly) that define an abstract structure and give meaning to the way the team works (both positive and negative aspects); 
+7. These interactional frames become institutionalized, and some team members become strongly affiliated with them (or against them, if they are perceived to be failures).
+8. Team members migrate to new teams (step 1), carrying with them everything they have learned and internalized from this team.
 
 ## Actor Interests
 
