@@ -112,7 +112,7 @@ ____
 
 {% assign sep = "" %}
 <div style="display:inline;">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;
 {% for p in site.info %}
     {% if p.hidden %}
     {% else %}
