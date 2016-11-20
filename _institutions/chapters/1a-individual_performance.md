@@ -3,12 +3,106 @@ layout: chapter
 title: Individual Performance in a Simple Functional Ecosystem
 description: "Model of interdependent tasks that are embedded in an institutional field, using the construct of affordances."
 status: work-in-progress
-pct_complete: "0%"
-last_modified: "2016-11-17"
+pct_complete: "30%"
+last_modified: "2016-11-19"
 is_section: false
 ---
 
 This is a model of individual performance in a functional ecosystem.  This is a *very simple* ecoystem, consisting of a single Actor and a "project" consisting of a small set of tasks.  The point of such a simple system is to use it as a stepping stone to more complex models.
+
+## Does This Qualify as a *Functional Ecosystem*?
+
+It is important to support claim that this qualifies as a *functional ecosystem*.  The nexus of any functional ecosystem is the set of affordances and the associated semoiotics in that system and their interrelations.  Those interrelations can be constitutive, informational, regulatory, or functional/operational.  Here are the three criteria for an functional ecosystem:
+
+1. *One or more Actors* -- All functional ecosystems need at least one Actor, where an "Actor" is an agent acting in a role). Otherwise there is no proper subjectivity, i.e. frames of reference to interpret/decode the sign systems and no capabilities to engage with affordances. To qualify as an Actor, the agent needs values (i.e. purposes, goals, evaluative criteria, etc.) and also semiotic capabilities (i.e. ability to engage usefully with sign systems).
+2. *One or more affordances* -- All functional ecosystems need at least one affordance, otherwise the Actor would not be able to purposefully engage in the system (except possibly through automaton-like behaviors or functionally "blind" perterbations). There may be multiple objects in a system (i.e. colored balls in an urn), but also just one or a few affordances (i.e. "drawable", "inspectable") that all objects share.
+3. *Interrelations must be autocatalytic* -- The interrelations in the system must be coherent and self-contained to a large degree. This means they must be able to function as a whole, filling in any "gaps", and must be self-reinforcing when being constituted or in operation.
+<p class="note"><em>Note</em>: This is the most subtle/powerful/conceptually challenging criteria!</p>
+
+This last criteria -- interrelations must be autocatalytic -- deserves more explanation. First let's understand the conceptual and theoretical background of "autocatalysis". reft:padgett_emergence_1997 and reft:padgett_emergence_2012 explain the concept in social systems by using close analogies from chemistry (where the terms "autocatalytic" and "hypercycle" originated) and and also computer systems. Regarding the later, (reft:padgett_emergence_2012, p 60, quoting Sewell: "Recursive relationships between rules (or schema) and resources, with rules transforming resources and resources reproducing rules. This is the same thing as autocatalysis..."). 
+
+### Instituional Analysis and Development Frameork (IAD)
+
+Let's get concrete, using Ostrom's [Institutional Analysis and Development (IAD) Framework](https://en.wikipedia.org/wiki/Institutional_analysis_and_development_framework)
+
+<img class="resize" src="/assets/img/640px-IAD_framework_diagram.png" style="width:100%;"/>
+<center markdown = "1">
+Source: <a href="https://commons.wikimedia.org/w/index.php?curid=38160613">Anupmehra - Own work, CC BY-SA 4.0</a>
+</center>
+
+Ostrom defined classes of rules that map to this framework:
+
+| Rule type  |  Description |
+|----------- | ------------|
+| Position | The number of possible "positions" actors in the action situation can assume. (In terms of formal positions these might be better described as job roles, while for informal positions these might rather be social roles of some capacity.) |
+| Boundary | Characteristics participants must have in order to be able to access a particular position |
+| Choice | The action capacity ascribed to a particular position |
+| Aggregation |  Any rules relating to how interactions between participants within the action situation accumulate to final outcomes (voting schemes etc.) |
+| Information |  The types and kinds of information and information channels available to participants in their respective positions |
+| Payoff |  The likely rewards or punishments for participating in the action situation |
+| Scope | Any criteria or requirements that exist for the final outcomes from the action situation |
+
+For any set of rules to be "autocatalytic" they must be interrelated in a self-reinforcing, self-reproducing sort of way.  Consider these three rules:
+
+1. Position Rule ::= an agent can act as "Controller" only if it has capabilities for a) goal setting, b) monitoring, and c) corrective action.
+2. Choice Rule ::= Member actors have the choice to "comply" or "not comply" with any decision or directive.
+3. Information Rule ::= Directives are messages from Controllers to all or specific Members that mandate actions.
+
+Are these three rules *alone* sufficiently autocatalytic?  *No!*  First, there is no position rule for "Member", even though Members are referenced in rules 2) and 3). Also there is no rule defining "actions" that Members might take, as referenced in 3).  Second, there is no Information rule for "decision", even thought it is referenced in 2).  Finally, there are no rules at all regarding outcomes or evaluative criteria.
+
+If these three rules were a computer program, they would generate "compile-time errors" because of the missing function/variable definitions.  They would also generate "run-time errors" because of missing outcomes and evaluative criteria -- as if a program function returned no values and there was no stopping condition for the program.
+
+### Minimum Viable Autocatalytic Set
+
+What is the *minimum* autocatalytic set in the IAD?  I would guess it would be *five rules*:
+
+1. One Position rule -- to define the Actor's role
+1. One Boundary rule -- to define the criteria for a agent to perform as this Actor, and also to define it relative to the action situation and also the environmental context.
+1. One Information rule -- to define the information that the Actor will take in
+1. One Choice rule -- for one type of action the Actor might take
+1. One Payoff rule -- that defines both outcome and evaluation
+
+Things like the Context and Action Situation are *not* part of the rule set, but they do provide the necessary substrate.
+
+By analogy to Object-oriented computer programs (OOP), we can translate this into a single class with two methods -- `decide` and `evaluate` -- and a single class variable `state`, which has possible values of `start`, `continue`, or `stop`:
+
+1. Class defintion $$\Leftrightarrow$$ Position rule + Boundary rule
+1. `decide` method $$\Leftrightarrow$$ Choice rule
+1. `decide` method parameters $$\Leftrightarrow$$ Information rule
+1. `decide` method return value $$\Leftrightarrow$$ Payoff rule
+1. `evaluate` method parameters $$\Leftrightarrow$$ Payoff rule
+
+It also needs two other features to be a running program: a "constructor" that instantiates the class with an initial value for `state`, and a `exec` method to put it into action.  But notice that these are minimum capabilities required for any *agent* program, so we do not include them here.
+
+Assuming we properly initialize this computer program in a Context and Action Situation (via a "constructor"), this program with run without compile time or run time errors, meaning there are no gaps in variable/function definitions and none of the operations return empty results (i.e. "null pointer exceptions", "divide by zero", etc.).
+
+We have just demonstrated that this 5-rule set is *functionally complete*. If you imagine leaving out any one of the OOP elements, above, the program wouldn't run. But is it *self-reinforcing* and *self-producing*, as the definition for autocatalysis proclaims?  What does it mean to "self-reinforce" and also to "self-produce"? Here we must part company with Chemistry, because rules (and norms) are not physical entities like molecules and they don't produce or catalyze each other in the same way.
+
+### What it Means to be "Self-reinforcing"
+
+When two rules (or norms) "reinforce" each other, they clarify, amplify, activate, regulate, or contextualize each other.  The minimum level of reinforcement is *definitional* and *constitutional*, that is, a set of rules reinforce each other minimally when they define each other without gaps.  In computer lingo, this means "no complile-time errors".  Also, at minimum, a set of self-reinforcing rules support each other *in action*, both during rule creation or modification (i.e. constitution) and also rule execution.  In computer lingo, this means "no run-time errors".
+
+### What it Means to be "Self-reproducing"
+
+That's pretty clear, but the notion of "self-producing" or "self-reproducing" rules (or norms) is a bit harder to conceptualize.  Here is an analogy that can help us think about this -- beach sand and ocean waves (small).  The ebb and flow of ocean water is analogous to social behavior, while valleys and channels in the beach sand are analogous to norms and rules that constitute institutions.  Every time the ocean flows up and down a given channel, it "reproduces" it in a way -- carving it by moving sand out, and adding to it by moving sand in.  Let's say there are two small sand formations near each other: 1) a circular lagoon and 2) a river-like channel.  What is the "meaning" of these two formations (institutions)?  In the first case, the meaning is "constrained circulation with eddys" while the second is "laminar flow in a constrained linear path".  Every time the ocean flows into these two formations, *the action of the ocean reproduces the material shape that gave rise to it*.  Now imagine that the tide is going out and these two sand formations are exposed to sun, wind, people and animals walking, etc.  They will gradually lose their shape, i.e. be "forgotten".  In this sense, they *depend* on the interaction of the ocean to *reproduce* those shapes.  They are functionally interrelated.
+
+Leaving the analogy, now consider institutions such as marriage.  Everytime two people get married they "reproduce" the institution, at least to a small degree.  Everytime those people are treated as married (i.e. when filing taxes, when running for political office, etc.) the institution of marriage gets "reproduced" a bit. If people stopped getting married, and if societey stopped treating married people in specific ways, then the institution of married would fade from society, even if it continued to exist in documents, language, and laws.
+
+Here is a *vital* point. This type of "reproduction" is **funamentally different** from biological reproduction, either *asexual or sexual reproduction* in the case of living beings (archaea, bacteria, and eukaryote domains), or *replication* in the case of non-cellular life (viruses and bio-active chemical systems). This distinction is why direct analogies with biological Darwinian evolution are not appropriate for studying the evolution of instituions.
+
+In biological reproduction or replication, there is always a *single* reproduction/replication event for every new individual -- its birth event. (Same could be said for death events.)  Everything leading up to that reproduction/replication event sets the conditions for it happening or not, and also directing who/what is "born" via mechanisms in the reproduction/replication process.  The "selective retention" aspect of Darwinian evolution happens both in death processes (likelihood, longevity) and also in birth processes (retaining traits during reproduction/replication), while the "blind variation" aspect happens mostly in reproduction/replication mechanisms and events leading up to it.
+
+But institutional reproduction is not a single event, but instead it is either continous (or nearly so), or episodic (and often repeated).  The variational and selective forces are potentially at work all this time, though the detailed sequence variation and selection matter. 
+
+<div class="work_in_progress" markdown="1">
+
+## To Do
+
+1. One or two more paragraphs describing how the continuous or episodice mechanism of institutional innovation leads to different dynamics than Darwinian evolution.
+1. Move this whole section to a different chapter, and reference it here.
+
+</div>
+
 
 ## Actor Learning and Performance Cycle
 
