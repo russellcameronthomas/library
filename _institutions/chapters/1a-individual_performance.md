@@ -42,27 +42,30 @@ Ostrom defined classes of rules that map to this framework:
 | Payoff |  The likely rewards or punishments for participating in the action situation |
 | Scope | Any criteria or requirements that exist for the final outcomes from the action situation |
 
-For any set of rules to be "autocatalytic" they must be interrelated in a self-reinforcing, self-reproducing sort of way.  Consider these three rules:
+For any set of rules to be "autocatalytic" they must be interrelated in a self-reinforcing, self-reproducing sort of way.  Consider these four rules as a system:
 
-1. Position Rule ::= an agent can act as "Controller" only if it has capabilities for a) goal setting, b) monitoring, and c) corrective action.
-2. Choice Rule ::= Member actors have the choice to "comply" or "not comply" with any decision or directive.
-3. Information Rule ::= Directives are messages from Controllers to all or specific Members that mandate actions.
+1. *Rule_1_Position* ::= an agent can be a "Contoller" or "Member", but not both
+1. *Rule_2_Boundary* ::= an agent can act as "Controller" only if it has capabilities for a) goal setting, b) monitoring, and c) corrective action.
+2. *Rule_3_Choice* ::= Member actors have the choice to "comply" or "not comply" with any decision or directive.
+3. *Rule_4_Information* ::= Directives are messages from Controllers to all or specific Members that mandate actions.
 
-Are these three rules *alone* sufficiently autocatalytic?  *No!*  First, there is no position rule for "Member", even though Members are referenced in rules 2) and 3). Also there is no rule defining "actions" that Members might take, as referenced in 3).  Second, there is no Information rule for "decision", even thought it is referenced in 2).  Finally, there are no rules at all regarding outcomes or evaluative criteria.
+Are these four rules *alone* autocatalytic?  The answer is: *no*.  
 
-If these three rules were a computer program, they would generate "compile-time errors" because of the missing function/variable definitions.  They would also generate "run-time errors" because of missing outcomes and evaluative criteria -- as if a program function returned no values and there was no stopping condition for the program.
+First, there is no boundary rule for "Member", even though Members are referenced in rules 1), 3) and 4). Also there is no rule defining "actions" that Members might take, as referenced in 4).  Second, there is no Information rule for "decision", even thought it is referenced in 3).  Finally, there are no rules at all regarding outcomes or evaluative criteria.
+
+If these four rules were a computer program, they would generate "compile-time errors" because of the missing function/variable definitions.  They would also generate "run-time errors" because of missing outcomes and evaluative criteria -- as if a program function returned no values and there was no stopping condition for the program.
 
 ### Minimum Viable Autocatalytic Set
 
 What is the *minimum* autocatalytic set in the IAD?  I would guess it would be *five rules*:
 
 1. One Position rule -- to define the Actor's role
-1. One Boundary rule -- to define the criteria for a agent to perform as this Actor, and also to define it relative to the action situation and also the environmental context.
+1. One Boundary rule -- to define the criteria to qualify as this Actor, and also to define it relative to the action situation and also the environmental context.
 1. One Information rule -- to define the information that the Actor will take in
 1. One Choice rule -- for one type of action the Actor might take
 1. One Payoff rule -- that defines both outcome and evaluation
 
-Things like the Context and Action Situation are *not* part of the rule set, but they do provide the necessary substrate.
+(Note that Context and Action Situation are *not* part of the rule set, but they do provide the necessary substrate.)
 
 By analogy to Object-oriented computer programs (OOP), we can translate this into a single class with two methods -- `decide` and `evaluate` -- and a single class variable `state`, which has possible values of `start`, `continue`, or `stop`:
 
@@ -93,6 +96,16 @@ Here is a *vital* point. This type of "reproduction" is **funamentally different
 In biological reproduction or replication, there is always a *single* reproduction/replication event for every new individual -- its birth event. (Same could be said for death events.)  Everything leading up to that reproduction/replication event sets the conditions for it happening or not, and also directing who/what is "born" via mechanisms in the reproduction/replication process.  The "selective retention" aspect of Darwinian evolution happens both in death processes (likelihood, longevity) and also in birth processes (retaining traits during reproduction/replication), while the "blind variation" aspect happens mostly in reproduction/replication mechanisms and events leading up to it.
 
 But institutional reproduction is not a single event, but instead it is either continous (or nearly so), or episodic (and often repeated).  The variational and selective forces are potentially at work all this time, though the detailed sequence variation and selection matter. 
+
+$$
+\forall(m,n \in \mathbb{Z}) : (m > n > 0) \wedge \neg \big( (m \text{ mod } 2 = 1 )  \wedge (n \text{ mod } 2 = 1 ) \big)
+$$
+
+$$
+ a = m^2 - n^2 ;\ \; b = 2mn ;\ \; c = m^2 + n^2
+$$
+
+
 
 <div class="work_in_progress" markdown="1">
 

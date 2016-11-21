@@ -5,7 +5,7 @@ collections:
     output: false
     sort_order: -1
     index: false
-    title: "Meritology Blog2"
+    title: "Meritology Blog"
   fundamentals:
     output: true
     sort_order: 0
@@ -25,7 +25,7 @@ collections:
     output: true
     sort_order: 3
     index : true
-    title: "Models of Teams, Institutions, and Innovation"
+    title: "Models of Teams and Innovation"
   incentives:
     output: true
     sort_order: 4
@@ -40,7 +40,7 @@ collections:
     output: true
     sort_order: 6
     index : true
-    title: "A Theory of Functional Ecosystems"
+    title: "Models of the Functional Ecology of Organizations and Institutions"
   processing:
     output: true
     sort_order: 7
