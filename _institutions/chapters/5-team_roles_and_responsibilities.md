@@ -114,7 +114,7 @@ ____
 
 ## References
 
-<p class="indent">
+<p class="hangingindent">
 cite:sosa_computational_2005
 </p>
 
