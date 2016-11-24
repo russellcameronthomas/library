@@ -23,7 +23,7 @@ ____
 <input type="checkbox" id="blog_check" name="c2" onclick='checkboxClick(this);' checked />
 <label for="blog_check" style="padding-bottom:3px;border:medium none black;border-bottom: thin solid #CCCCCC;"><span></span>Blog</label> &nbsp;
 <input type="checkbox" id="misc_check" name="c3"  />
-<label for="misc_check"><span></span>Index/Other pages</label>
+<label for="misc_check"><span></span>Index & Other</label>
 </div>
 <br/>
 <span style="color:#CCCCCC;">&nbsp;│&nbsp;</span>
