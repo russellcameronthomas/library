@@ -10,8 +10,8 @@ exclude_from_search: true
 
 <form action="get" id="site_search">
 <center>
-  <input type="text" id="search_box" placeholder="Search">
-  <input type="submit" value="Go">
+  <input type="text" id="search_box" size="28" placeholder="Search">
+  <input type="submit" value="🔍">
 </center>
 </form>
 ____
@@ -23,7 +23,7 @@ ____
 <input type="checkbox" id="blog_check" name="c2" onclick='checkboxClick(this);' checked />
 <label for="blog_check" style="padding-bottom:3px;border:medium none black;border-bottom: thin solid #CCCCCC;"><span></span>Blog</label> &nbsp;
 <input type="checkbox" id="misc_check" name="c3"  />
-<label for="misc_check"><span></span>Index & Other</label>
+<label for="misc_check"><span></span>Index & Misc.</label>
 </div>
 <br/>
 <span style="color:#CCCCCC;">&nbsp;│&nbsp;</span>
