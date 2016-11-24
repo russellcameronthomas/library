@@ -37,8 +37,18 @@
             <li class="control"><a href="#nogo" class="large-text" title="Large">L</a></li>
         </ul>
       </div>
+    {% if page.title != "Search" and page.title != "Advanced Search" %}
        <div class=search>
         <div style="margin:auto;width:100%;">
+       <!-- { % include search.html % } -->
+       <form action="/search.html" method="get">
+            <button>Search</button>
+        </form>
+        <!--
+        <form action="/search.html" method="get">
+          <input type="text" id="search-query" name="q" placeholder="Search" autocomplete="off">
+        </form>
+        
         <form class="ddg" name="x" action="//duckduckgo.com/">
             <input type="hidden" value="library.meritology.com" name="sites"></input>
             <input type="hidden" value="1" name="kh"></input>
@@ -47,8 +57,10 @@
             <input type="search" placeholder="Search" name="q"></input>
             <button class="button" type="submit">GO</button>
         </form>
+      -->
       </div>
       </div>
+     {% endif %}
     </div>
     
     
@@ -58,6 +70,13 @@
       </div>
          
     </div>
+    <!--<script src="/js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/assets/js/lunr.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/assets/js/mustache.js" type="text/javascript" charset="utf-8"></script>
+<script src="/assets/js/date.format.js" type="text/javascript" charset="utf-8"></script>
+<script src="/assets/js/URI.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/assets/js/jquery.lunr.search.js" type="text/javascript" charset="utf-8"></script>-->
+
 
     {% include footer.html %}
 

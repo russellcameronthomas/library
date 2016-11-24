@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="76"
+   height="19"
+   viewBox="0 0 75.999954 18.999989"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="check_box_radio_sprite.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="8"
+     inkscape:cx="37.853535"
+     inkscape:cy="21.428571"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1440"
+     inkscape:window-height="851"
+     inkscape:window-x="0"
+     inkscape:window-y="1"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-1033.3618)">
+    <g
+       id="g4224"
+       transform="matrix(1.6682592,0,0,1.6682592,-500.38556,7.2422617)">
+      <rect
+         y="616.49628"
+         x="301.00754"
+         height="8.7992182"
+         width="8.7992182"
+         id="rect4201"
+         style="opacity:0.97000002;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.79407716;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         transform="translate(0,-0.19657925)"
+         id="g4219">
+        <rect
+           y="616.59473"
+           x="312.79324"
+           height="8.7992182"
+           width="8.7992182"
+           id="rect4203"
+           style="opacity:0.97000002;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.79407716;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 313.03572,616.55863 8.48214,8.92857 0,0 0,0"
+           id="path4205"
+           inkscape:connector-curvature="0" />
+        <path
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 321.51786,616.64792 -8.57143,8.57143"
+           id="path4207"
+           inkscape:connector-curvature="0" />
+      </g>
+      <circle
+         r="4.5982141"
+         cy="620.89587"
+         cx="328.88391"
+         id="path4209"
+         style="opacity:0.97000002;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.79400003;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         transform="translate(0,0.09612109)"
+         id="g4215">
+        <circle
+           r="4.5982141"
+           cy="620.79974"
+           cx="340.13391"
+           id="circle4211"
+           style="opacity:0.97000002;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.79400003;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <circle
+           style="opacity:0.97000002;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.41081181;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="circle4213"
+           cx="340.13391"
+           cy="620.79974"
+           r="2.3790939" />
+      </g>
+    </g>
+  </g>
+</svg>

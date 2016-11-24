@@ -1,0 +1,31 @@
+---
+layout: null
+---
+{
+  {% for post in site.pages %}
+    {% if post.url %}
+    "{{ post.url | slugify }}": {
+      "title": "{% if post.title %}{{ post.title | xml_escape }}{% else %}[blank]{% endif %}",
+      "content"	 : "{{post.content | strip_html | strip_newlines | remove:  "	" | escape | remove: "\"}}",
+      "url": " {{ post.url | xml_escape }}",
+      "author": "{{ post.author | xml_escape }}",
+      "categories": "{% for category in post.categories %}{{ category }}{% unless forloop.last %}, {% endunless %}{% endfor %}",
+      "collection": "{{ post.collection }}"
+    }
+    ,
+    {% endif %}
+  {% endfor %}
+   {% for post in site.documents %}
+    {% if post.url %}
+    "{{ post.url | slugify }}": {
+      "title": "{% if post.title %}{{ post.title | xml_escape }}{% else %}[blank]{% endif %}",
+      "content"	 : "{{post.content | strip_html | strip_newlines | remove:  "	" | escape | remove: "\"}}",
+      "url": " {{ post.url | xml_escape }}",
+      "author": "{{ post.author | xml_escape }}",
+      "categories": "{% for category in post.categories %}{{ category }}{% unless forloop.last %}, {% endunless %}{% endfor %}",
+      "collection": "{{ post.collection }}"
+    }
+    {% unless forloop.last %},{% endunless %}
+    {% endif %}
+  {% endfor %}
+}

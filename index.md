@@ -1,7 +1,7 @@
 ---
 layout: default
 last_modified: "2016-11-16"
-
+title: Home Page
 ---
 <style type="text/css">
 ol li {
