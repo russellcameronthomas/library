@@ -29,10 +29,13 @@ collection: posts
   <body>
     {% include header_blog.html %}
     <div class="search-wrapper">
-   <!-- 
+
       <div class=search>
         <div style="margin:auto;width:100%;">
-    
+           <form action="/search.html" method="get">
+            <button>Search</button>
+        </form>
+        <!--
         <form class="ddg" name="x" action="//duckduckgo.com/">
             <input type="hidden" value="library.meritology.com" name="sites"></input>
             <input type="hidden" value="1" name="kh"></input>
@@ -41,9 +44,10 @@ collection: posts
             <input type="search" placeholder="Search" name="q"></input>
             <button class="button" type="submit">GO</button>
         </form>
+         -->
       </div>
       </div>
-      -->
+     
     <div id="textsizer-classnames">
         <p>Font:</p>
         <ul class="textresizer">
