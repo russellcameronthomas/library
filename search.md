@@ -28,7 +28,8 @@ ____
 <br/>
 <span style="color:#CCCCCC;">&nbsp;│&nbsp;</span>
 <br/>
-<div id="blog_categories" style="display:inline; padding-top:5px;border:medium none black;border-top: thin solid #CCCCCC;">
+<div style="padding:5px;border: thin solid #CCCCCC;">
+<div id="blog_categories" style="display:inline;">
 <input type="checkbox" id="general_blog_check" name="c4" checked />
 <label for="general_blog_check"><span></span>General</label> &nbsp; 
 <input type="checkbox" id="diary_blog_check" name="c5" checked />
@@ -37,6 +38,7 @@ ____
 <label for="academic_blog_check"><span></span>Academic</label>
 <input type="checkbox" id="security_blog_check" name="c7" checked/>
 <label for="security_blog_check"><span></span>Security</label>
+</div>
 </div>
 </center>
 ____
