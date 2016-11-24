@@ -18,26 +18,33 @@ ____
 
 <center>
 <div style="display:inline; ">
+<span style="white-space: nowrap;">
 <input type="checkbox" id="documents_check" name="c1" checked />
-<label for="documents_check"><span></span>Documents</label> &nbsp;
+<label for="documents_check"><span></span>Documents</label></span> &nbsp;
+<span style="white-space: nowrap;">
 <input type="checkbox" id="blog_check" name="c2" onclick='checkboxClick(this);' checked />
-<label for="blog_check" style="padding-bottom:3px;border:medium none black;border-bottom: thin solid #CCCCCC;"><span></span>Blog</label> &nbsp;
+<label for="blog_check" style="padding-bottom:3px;border:medium none black;border-bottom: thin solid #CCCCCC;"><span></span>Blog</label></span> &nbsp;
+<span style="white-space: nowrap;">
 <input type="checkbox" id="misc_check" name="c3"  />
-<label for="misc_check"><span></span>Index & Misc.</label>
+<label for="misc_check"><span></span>Index & Misc.</label></span>
 </div>
 <br/>
 <span style="color:#CCCCCC;">&nbsp;│&nbsp;</span>
 <br/>
 <div style="padding:5px;border: thin solid #CCCCCC;">
 <div id="blog_categories" style="display:inline;">
+<span style="white-space: nowrap;">
 <input type="checkbox" id="general_blog_check" name="c4" checked />
-<label for="general_blog_check"><span></span>General</label> &nbsp; 
+<label for="general_blog_check"><span></span>General</label></span> &nbsp;
+<span style="white-space: nowrap;"> 
 <input type="checkbox" id="diary_blog_check" name="c5" checked />
-<label for="diary_blog_check"><span></span>Diary</label> &nbsp; 
+<label for="diary_blog_check"><span></span>Diary</label></span> &nbsp;
+<span style="white-space: nowrap;"> 
 <input type="checkbox" id="academic_blog_check" name="c6" checked/>
-<label for="academic_blog_check"><span></span>Academic</label>
+<label for="academic_blog_check"><span></span>Academic</label></span> &nbsp;
+<span style="white-space: nowrap;">
 <input type="checkbox" id="security_blog_check" name="c7" checked/>
-<label for="security_blog_check"><span></span>Security</label>
+<label for="security_blog_check"><span></span>Security</label></span>
 </div>
 </div>
 </center>
