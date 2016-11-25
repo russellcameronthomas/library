@@ -31,9 +31,9 @@ Jekyll can also be run on my machine to create a local web server, accessible on
 
 I have used Google Blogger since 2012, and there are similar services hosted by Wordpress.  Here all the authoring is done on-line through their web pages, mostly in a What-You-See-Is-What-You-Get editor.  You can add *some* extra features via widgets, but most everything about the site is locked down and controlled by the service provider.
 
-These all-in-one services provide page templates, graphics, buttons in a point-and-click design mode.  Those are nice, but I do just fine with Jekyll templates, CSS, etc.
+I should add Linked-In as a possible all-in-one service.  They have been making a hard push to be the dominant *professional content and professional interaction* social network.  My work certainly qualifies as "professional content", but, after looking a year ago at what LinkedIn had to offer, I didn't see much advantage for someone like me, because I am not really after casual readers.  What I might do is extract some content from this site regularly and post it on LinkedIn as a traffic generator.
 
-Since I wanted to host interactive code widgets (i.e. with "Run" buttons and user-modifiable code), this option was not going to work.
+These all-in-one services provide page templates, graphics, buttons in a point-and-click design mode.  Those are nice, but I do just fine with Jekyll templates, CSS, etc. In fact I prefer the power and flexibility they provide over simpler templates. The key requirement is that I wanted to design and host Javascript widgets, including interactive code widgets (i.e. with "Run" buttons and user-modifiable code), this option was not going to work on any all-in-one service.
 
 ## The Decision
 
