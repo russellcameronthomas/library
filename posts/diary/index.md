@@ -1,7 +1,8 @@
 ---
 layout: blog
-title: Blog
+title: Blog - Diary
 collection: posts 
+categories: [ diary ]
 status: work-in-progress
 last_modified: 2016-11-15
 --- 
@@ -12,8 +13,7 @@ last_modified: 2016-11-15
 {{ site.author_affiliation }}<br>
 </div>
 
-
-# Author's Diary
+### Author's Diary
 
 {% assign diary = site.categories.diary | sort: "date" | reverse %}
 <ol>

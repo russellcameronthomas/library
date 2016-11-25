@@ -207,7 +207,8 @@ function format_citation(citation) {
         }
     }
     if (citation["JOURNAL"]) {
-        s += ". <em>" + toTitleCase(citation["JOURNAL"]) + "</em>";
+       // s += ". <em>" + toTitleCase(citation["JOURNAL"]) + "</em>";  // OLD
+        s += ". <em>" + citation["JOURNAL"] + "</em>";
     } else if (citation["entryType"]== "INPROCEEDINGS") {
         s += ". In <em>" + removeBraces(citation["BOOKTITLE"]) + "</em>, " + citation["YEAR"];
     }

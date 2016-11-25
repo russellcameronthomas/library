@@ -2,6 +2,7 @@
 layout: blog
 title: Blog - Academic
 collection: posts 
+categories: [ academic ]
 status: work-in-progress
 last_modified: 2016-11-15
 --- 
@@ -11,8 +12,6 @@ last_modified: 2016-11-15
 {{ site.author_title }}<br>
 {{ site.author_affiliation }}<br>
 </div>
-
-# Academic
 
 {% assign academic = site.categories.academic | sort: "date" | reverse %}
 <ol>

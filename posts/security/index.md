@@ -1,8 +1,9 @@
 ---
 layout: blog
-title: Blog
+title: Blog - Security
 collection: posts 
 status: work-in-progress
+categories: [ security ]
 last_modified: 2016-11-15
 --- 
 
@@ -12,8 +13,7 @@ last_modified: 2016-11-15
 {{ site.author_affiliation }}<br>
 </div>
 
-
-# Journal: Toward a Secure Website by Design
+### Journal: Toward a Secure Website by Design
 
 {% assign security = site.categories.security | sort: "date" | reverse %}
 <ol>

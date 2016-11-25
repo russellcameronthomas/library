@@ -32,7 +32,7 @@ list-style-type: decimal;
 
 ____
 
-**Document Workbench**
+**Author's Workbench**
 
 {% assign sorted_col = site.collections | sort : "sort_order" %}
 

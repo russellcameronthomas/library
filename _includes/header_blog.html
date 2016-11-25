@@ -1,5 +1,10 @@
 {% if page.categories %}
-   {% assign myCategory = page.categories | last | capitalize %}
+   {% if page.categories.length == 1 %}
+        {% assign myCategory = page.categories | capitalize %}
+    {% else %}
+        {% assign myCategory = page.categories | last | capitalize %}
+   {% endif %}
+
 {% endif %}
 
 {% for p in myCategory.docs %}
@@ -48,6 +53,7 @@
 {% else %}
     {% assign thisTitle = "site.title %}
 {% endif %}
+{% assign myCategorySmall = myCategory | downcase %}
 
 <header class="site-header">
 
@@ -57,7 +63,7 @@
 
         {% if myCategory %}
 
-            <a class="site-title" href="/posts/{{ page.category }}/index.html">Blog: {{ thisTitle }}</a>
+            <a class="site-title" href="/posts/{{ myCategorySmall }}/index.html">Blog: {{ thisTitle }}</a>
             <div class = "site-logo-right">
             <img src="/assets/img/meritology_logo_small.svg"/>
             </div>

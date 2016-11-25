@@ -1,7 +1,8 @@
 ---
 layout: blog
-title: Blog
+title: Blog - General
 collection: posts 
+categories: [ general ]
 status: work-in-progress
 last_modified: 2016-11-15
 --- 
@@ -11,8 +12,6 @@ last_modified: 2016-11-15
 {{ site.author_title }}<br>
 {{ site.author_affiliation }}<br>
 </div>
-
-# General
 
 {% assign general = site.categories.general | sort: "date" | reverse %}
 
