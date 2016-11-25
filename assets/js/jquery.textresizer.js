@@ -118,7 +118,10 @@ Documentation: http://angstrey.com/index.php/projects/jquery-text-resizer-plugin
     };
 
     TextResizerPlugin.prototype.buildCookieID = function (selector, target, prop) {
-        return "JQUERY.TEXTRESIZER[" + selector + "," + target + "]." + prop;
+        // RCT added document.location.hostname, removed selector and target, so it works across the site
+        //return "JQUERY.TEXTRESIZER[" + selector + "," + target + "]." + prop;
+  
+        return "JQUERY.TEXTRESIZER[" + document.location.hostname  + "]." + prop;
     };
 
     TextResizerPlugin.prototype.getCookie = function (selector, target, prop) {
