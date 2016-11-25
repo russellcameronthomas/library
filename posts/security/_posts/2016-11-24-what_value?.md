@@ -11,7 +11,7 @@ Aside from the specifics, there are two key points. *First*, for security to pro
 
 ## Value to Author
 
-There are four categories of value that I hope to get from this site and it's content.
+There are five categories of value that I hope to get from this site and it's content.
 
 ### 1. Authoring Workbench
 
@@ -34,6 +34,10 @@ This is speculative and aspirational, but I might use this site to offer service
 ### 4. Experiment in Secure Website Design
 
 Finally, as exemplified in this blog category, I am using this as a self-experiment in security-by-design.  By keeping a journal and also reflecting on events along the way, this self-experiment could serve as empirical data for research or industry publication.
+
+### 5. A Portfolio to Demonstrate My Skills
+
+More and more, technical and professional workers are being expected to show their skills through some sort of portfolio. For programmers, this can include their Github "repos" showing the work they have done on their own projects and contributions they have made to others.  For academics, this is new territory because the traditional portfolio consisted of published papers, and maybe working papers and presentations.  But with the growth in on-line learning, MOOCs, and similar, I think it is important for academics to demonstrate their research and teaching abilities through an interactive website like this one.
 
 
 ## Value to Reader
