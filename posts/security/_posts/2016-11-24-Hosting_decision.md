@@ -9,9 +9,9 @@ The first practical decision for any website is where and how to host it. Of cou
 
 ## The Options
 
-For simple websites, the base technical requirements to host a website are quite small.  You need 1) sufficient internet access; 2) a computer sufficient performance; 3) webserver software (e.g. Apache, NGINX, or other). People can and do host websites using small desktop machines in their proverbial basements<sup>*</sub>.  But there is no benefit to this pure do-it-yourself approach and plenty of negatives, so we'll consider the other main options.
+For simple websites, the base technical requirements to host a website are quite small.  You need 1) sufficient internet access; 2) a computer sufficient performance; 3) webserver software (e.g. Apache, NGINX, or other). People can and do host websites using small desktop machines in their proverbial basements<sup>*</sup>.  But there is no benefit to this pure do-it-yourself approach and plenty of negatives, so we'll consider the other main options.
 
-<p class="note"><sup>*</sub>Yes, Hillary Clinton's infamous email server falls into this do-it-yourself category.  It sent and received email, but it could have just as easily served web pages.</p>
+<p class="note"><sup>*</sup>Yes, Hillary Clinton's infamous email server falls into this do-it-yourself category.  It sent and received email, but it could have just as easily served web pages.</p>
 
 ### 1: Self-hosting at an Internet Service Provider (ISP)
 

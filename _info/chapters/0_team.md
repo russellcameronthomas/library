@@ -3,8 +3,8 @@ layout: chapter
 title: "Author"
 description: "Information about the author"
 status: version
-last_modified: "2016-11-02"
-version: "November 2, 2016"
+last_modified: "2016-11-24"
+version: "November 24, 2016"
 is_section: true
 ---
 
@@ -29,7 +29,7 @@ Focus: risk analysis, innovation ecosystem analysis, and Agent-based Modeling (A
 
 ## Rights
 
-All content on this site is my own and not derived from any content belonging to my employers.  There is no proprietary or confidential information on this site.
+All content on this site is my own and not derived from any content belonging to my employers.  There is no proprietary or confidential information on this site. (Exceptions: Meritology name and logo are trademarks of Russell C. Thomas.)
 
 This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).  No commercial uses allowed.  You can copy, reuse, or remix this content, but only if you give attribution to the original authors (see above), and also license under the same "share alike" terms.
 
