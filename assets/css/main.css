@@ -570,7 +570,7 @@ header a:hover, footer a:hover {
     text-decoration: underline;
 }
 
-#textsizer-classnames
+#textsizer-classnames, #textsizer-classnames2, .textsizer-selector
 {
    margin-bottom: 6px;
    float:left;
@@ -580,7 +580,7 @@ header a:hover, footer a:hover {
    padding-top: 5px;
 }
 
-#textsizer-classnames p
+#textsizer-classnames p, #textsizer-classnames2 p, .textsizer-selector p
    {
       display: inline;
    }

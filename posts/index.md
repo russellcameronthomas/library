@@ -19,7 +19,7 @@ last_modified: 2016-11-15
 <ol>
 {% for post in general limit: 6 %}
    {% if forloop.index == 6 %}
-<li style="list-style-type:none;"><em><a href="/posts/general/index.html">all...</a></em></li>
+<li style="list-style-type:none;"><em><a href="/posts/general/index.html">more...</a></em></li>
    {% else %}
    {% if post.status != "stub" %}
    {% assign fixedExerpt = "" %}
@@ -40,7 +40,7 @@ last_modified: 2016-11-15
 <ol>
   {% for post in academic limit: 6 %}
    {% if forloop.index == 6 %}
-<li style="list-style-type:none;"><em><a href="/posts/academic/index.html">all...</a></em></li>
+<li style="list-style-type:none;"><em><a href="/posts/academic/index.html">more...</a></em></li>
    {% else %}
    {% if post.status != "stub" %}
    {% assign fixedExerpt = "" %}
@@ -61,7 +61,7 @@ last_modified: 2016-11-15
 <ol>
   {% for post in diary limit: 6 %}
    {% if forloop.index == 6 %}
-<li style="list-style-type:none;"><em><a href="/posts/diary/index.html">all...</a></em></li>
+<li style="list-style-type:none;"><em><a href="/posts/diary/index.html">more...</a></em></li>
    {% else %}
    {% if post.status != "stub" %}
    {% assign fixedExerpt = "" %}
@@ -82,7 +82,7 @@ last_modified: 2016-11-15
 <ol>
   {% for post in security limit: 6 %}
    {% if forloop.index == 6 %}
-<li style="list-style-type:none;"><em><a href="/posts/security/index.html">all...</a></em></li>
+<li style="list-style-type:none;"><em><a href="/posts/security/index.html">more...</a></em></li>
    {% else %}
    {% if post.status != "stub" %}
    {% assign fixedExerpt = "" %}

@@ -35,11 +35,35 @@
 </script>
 
 
- <!-- moved to TOC and Chapter template
+ <!-- OLD, moved to TOC and Chapter template 
+ OLD
+       /* $("#textsizer-classnames a").textresizer({
+         target: ["#maincontent","#maincontent2" ],
+         type: "cssClass",
+         sizes: [ 
+            "small-text", 
+            "medium-text", 
+            "large-text"
+         ],
+         selectedIndex: 1
+  
+          $(".textsizer-selector a").textresizer({
+         target: ["#maincontent","#maincontent2" ],
+         type: "cssClass",
+         sizes: [ 
+            "small-text", 
+            "medium-text", 
+            "large-text"
+         ],
+         selectedIndex: 1
+      });
+      }); */
+ -->
+<script src="{{ "/assets/js/jquery.textresizer.js" | prepend: site.baseurl }}" type="text/javascript"></script>
 <script>
    $(function () {
-      $("#textsizer-classnames a").textresizer({
-         target: "#maincontent",
+   $(".textsizer-selector a").textresizer({
+         target: ["#maincontent","#maincontent2" ],
          type: "cssClass",
          sizes: [ 
             "small-text", 
@@ -50,7 +74,7 @@
       });
    });
 </script>
--->
+
 <!-- At the moment this conflicts with WebPPL editor
 <https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.js></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" rel="stylesheet" />

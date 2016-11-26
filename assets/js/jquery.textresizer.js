@@ -52,11 +52,13 @@ Documentation: http://angstrey.com/index.php/projects/jquery-text-resizer-plugin
         this.$elements = $elements;
         this.settings = options || TextResizerPlugin.defaults;
     };
+  
+    var defaultTarget = "body";    // RCT added
 
     TextResizerPlugin.defaults = {
         debugMode: true,                               // Disable debug mode.
         type: "fontSize",                               // Available options: fontSize, css, cssClass.
-        target: "body",                                 // The HTML element to which the new font size will be applied.
+        target: [defaultTarget],                         // The HTML element(s) to which the new font size will be applied.
         selectedIndex: -1,                              // No font size option selected by default.
         suppressClickThrough: true                      // Disables click-through of font size controls.
     };
@@ -202,20 +204,45 @@ Documentation: http://angstrey.com/index.php/projects/jquery-text-resizer-plugin
                 this.settings.type
             ].join(""));
         }
+  
+        // RCT added, to handle arrays of targets rather than one
+  
+        if (this.settings.target.length >= 1 ){
+            for(var i = 0; i < this.settings.target.length; i++){
+                var targ = this.settings.target[i];
+                var $targetElement = $(targ);
+                if ($targetElement != null) {  // test to see this target exists on this page
+                    switch (this.settings.type) {
+                        case "css":
+                            this.applyInlineCssProperties($targetElement, newSize);
+                            break;
 
-        var $targetElement = $(this.settings.target);
-        switch (this.settings.type) {
-            case "css":
-                this.applyInlineCssProperties($targetElement, newSize);
-                break;
+                        case "cssClass":
+                            this.applyCssClass($targetElement, newSize, this.settings.sizes);
+                            break;
 
-            case "cssClass":
-                this.applyCssClass($targetElement, newSize, this.settings.sizes);
-                break;
+                        default:
+                            this.applySpecificFontSize($targetElement, newSize);
+                            break;
+                    }
+                }
+            }
+  
+        } else {
+            var $targetElement = $(this.settings.target);
+            switch (this.settings.type) {
+                case "css":
+                    this.applyInlineCssProperties($targetElement, newSize);
+                    break;
 
-            default:
-                this.applySpecificFontSize($targetElement, newSize);
-                break;
+                case "cssClass":
+                    this.applyCssClass($targetElement, newSize, this.settings.sizes);
+                    break;
+
+                default:
+                    this.applySpecificFontSize($targetElement, newSize);
+                    break;
+            }
         }
     };
 
@@ -297,7 +324,7 @@ Documentation: http://angstrey.com/index.php/projects/jquery-text-resizer-plugin
             thisPlugin.markActive($resizeButton);    // RCT added, to clear this button when a new button clicked
         }
 
-        debug("attaching resizer to " + index);
+        debug("attaching resizer to " + index );
         // Apply the font size to target element when its 
         // corresponding resize button is clicked
         $resizeButton.on("click", { index: index }, function (e) {
