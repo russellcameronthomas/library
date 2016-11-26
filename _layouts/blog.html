@@ -29,7 +29,7 @@ collection: posts
 -->
   <body>
     {% include header_blog.html %}
-    <div class="search-wrapper">
+    <div id="search-wrap" class="search-wrapper">
 
       <div class=search>
         <div style="margin:auto;width:100%;">
@@ -48,7 +48,7 @@ collection: posts
          -->
       </div>
       </div>
-     
+     <!--
     <div id="textsizer-classnames2" class = "textsizer-selector">
         <p>Font:</p>
         <ul class="textresizer">
@@ -57,6 +57,7 @@ collection: posts
             <li><a href="#nogo" class="large-text" title="Large">L</a></li>
         </ul>
     </div>
+    -->
 
     </div>
     
@@ -74,6 +75,11 @@ collection: posts
     </div>
 
     {% include footer_blog.html %}
+<script>
+var content = document.querySelector('#resizer-template').content;
+document.querySelector('.search-wrapper').appendChild(
+        document.importNode(content, true));
+</script>
 
   </body>
 

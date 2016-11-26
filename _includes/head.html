@@ -62,7 +62,7 @@
 <script src="{{ "/assets/js/jquery.textresizer.js" | prepend: site.baseurl }}" type="text/javascript"></script>
 <script>
    $(function () {
-   $(".textsizer-selector a").textresizer({
+   $("#textsizer-classnames a").textresizer({
          target: ["#maincontent","#maincontent2" ],
          type: "cssClass",
          sizes: [ 
@@ -74,6 +74,18 @@
       });
    });
 </script>
+
+<template id="resizer-template">
+<div id="textsizer-classnames" class = "textsizer-selector">
+   <p>Font:</p>
+   <ul class="textresizer">
+     <li class="control"><a href="#nogo" class="small-text" title="Small">S</a></li>
+     <li class="control"><a href="#nogo" class="medium-text" title="Medium">M</a></li>
+     <li class="control"><a href="#nogo" class="large-text" title="Large">L</a></li>
+   </ul>
+</div>
+</template>
+
 
 <!-- At the moment this conflicts with WebPPL editor
 <https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.js></script>

@@ -31,14 +31,8 @@
    {% include header.html %}
   
     <div class="search-wrapper">
-       <div id="textsizer-classnames2" class = "textsizer-selector">
-        <p>Font:</p>
-        <ul class="textresizer">
-            <li class="control"><a href="#nogo" class="small-text" title="Small">S</a></li>
-            <li class="control"><a href="#nogo" class="medium-text" title="Medium">M</a></li>
-            <li class="control"><a href="#nogo" class="large-text" title="Large">L</a></li>
-        </ul>
-      </div>
+
+
     {% if page.title != "Search" and page.title != "Advanced Search" %}
        <div class=search>
         <div style="margin:auto;width:100%;">
@@ -81,6 +75,11 @@
 
 
     {% include footer.html %}
+    <script>
+var content = document.querySelector('#resizer-template').content;
+document.querySelector('.search-wrapper').appendChild(
+        document.importNode(content, true));
+</script>
 
   </body>
 

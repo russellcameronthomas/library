@@ -56,7 +56,7 @@ Documentation: http://angstrey.com/index.php/projects/jquery-text-resizer-plugin
     var defaultTarget = "body";    // RCT added
 
     TextResizerPlugin.defaults = {
-        debugMode: true,                               // Disable debug mode.
+        debugMode: false,                               // Disable debug mode.
         type: "fontSize",                               // Available options: fontSize, css, cssClass.
         target: [defaultTarget],                         // The HTML element(s) to which the new font size will be applied.
         selectedIndex: -1,                              // No font size option selected by default.
@@ -324,14 +324,11 @@ Documentation: http://angstrey.com/index.php/projects/jquery-text-resizer-plugin
             thisPlugin.markActive($resizeButton);    // RCT added, to clear this button when a new button clicked
         }
 
-        debug("attaching resizer to " + index );
         // Apply the font size to target element when its 
         // corresponding resize button is clicked
         $resizeButton.on("click", { index: index }, function (e) {
             var currentElement = this;
-
-            debug("Click " + index);
-    
+            
 
             if (settings.suppressClickThrough) {
                 e.preventDefault();
@@ -367,7 +364,7 @@ Documentation: http://angstrey.com/index.php/projects/jquery-text-resizer-plugin
         // Set up main options before element iteration
         this.settings = $.extend(
             {
-                selector: this.$elements.selector,
+                //selector: this.$elements.selector,  // RCT replaced in OPTIONS and default
                 sizes: this.buildDefaultFontSizes(numberOfElements)     // Default font sizes
                                                                         // based on number of resize buttons.
             },
