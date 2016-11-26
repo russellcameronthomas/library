@@ -15,7 +15,7 @@ For simple websites, the base technical requirements to host a website are quite
 
 ### 1: Self-hosting at an Internet Service Provider (ISP)
 
-Nearly all ISPs and other vendors will rent webservers that come pre-configured with the basics.  These webservers can be dedicated or shared with other customers.  Beyond the basics, all configuration and administration are up to us, the customer.  I've done this before on several types of websites.  It does take time and attention, and getting behind in patches and updates can lead to major security problems.  For me, there is no real upside to doing my own server administration.
+Nearly all ISPs and other vendors will rent webservers that come pre-configured with the bare essentials. Many also have point-and-click web site authoring software with templates.  These webservers can be dedicated to a single customer (you) or shared with other customers.  Beyond the basics, all configuration and administration are up to us, the customer.  I've done this before on several types of websites.  It does take time and attention, and getting behind in patches and updates can lead to major security problems.  For me, there is no real upside to doing my own server administration.
 
 ### 2: Hosting by an End-To-End Service Provider
 
