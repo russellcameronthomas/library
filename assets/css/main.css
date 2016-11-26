@@ -373,8 +373,12 @@ img.home-icon:hover {
     float:right;
     text-align: center;
 }
+
+.search button:hover{
+    background-color: #FFFFBB;
+}
 .search-wrapper {
-  background-color: #EEEEEE;
+  /* background-color: #EEEEEE; */
 
 }
 
