@@ -721,6 +721,13 @@ ul.textresizer
     background-color: #fff;
 }
 
+/* Make errors less jarring */
+
+#maincontent .wpedit pre.error{
+    color: red;
+    background-color: #FF8888;
+}
+
 /* Decrease line-height a bit, add padding to code and result box */
 
 #maincontent .CodeMirror-lines, #maincontent .wpedit .result {
