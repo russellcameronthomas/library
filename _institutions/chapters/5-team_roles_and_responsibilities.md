@@ -72,7 +72,8 @@ var marginOfError = 0.03;
 
 var maxLineLength = 1.41421356237 * (1 + marginOfError); // sqrt(2)
 
-// "Physics" of Materials (Lines)
+// "Physics" of Lines, Joints, and Assembled Products
+///fold:
 // Feasable line lengths
 var a = 1.41421356237 // sqrt(2) 
 var b = 1.20185042515 // sqrt(1 + (2/3)2)	
@@ -112,6 +113,64 @@ var maxD = 4;
 var maxE = 4;
 var maxF = 8;
 var maxG = 4;
+
+var convertToCannonical = function(arr){
+  var mapR1 = {
+    "A":"D",
+    "B":"E",
+    "C":"F",
+    "D":"G",
+    "E":"H",
+    "F":"I",
+    "G":"J",
+    "H":"K",
+    "I":"L",
+    "J":"A",
+    "K":"B",
+    "L":"C"
+  };
+  var mapR2 = {
+    "A":"G",
+    "B":"H",
+    "C":"I",
+    "D":"J",
+    "E":"K",
+    "F":"L",
+    "G":"A",
+    "H":"B",
+    "I":"C",
+    "J":"D",
+    "K":"E",
+    "L":"F"
+  }
+  var mapR3 = {
+    "A":"J",
+    "B":"K",
+    "C":"L",
+    "D":"A",
+    "E":"B",
+    "F":"C",
+    "G":"D",
+    "H":"E",
+    "I":"F",
+    "J":"G",
+    "K":"H",
+    "L":"I"
+  }
+  var result1 = sort(map(function(str){
+     return sort(map(function(x){return mapR1[x];},str.split(''))).join('');},
+    arr));
+  var result2 = sort(map(function(str){
+     return sort(map(function(x){return mapR2[x];},str.split(''))).join('');},
+    arr));
+  var result3 = sort(map(function(str){
+     return sort(map(function(x){return mapR3[x];},str.split(''))).join('');},
+    arr));
+  var cannonical = sort([arr,result1,result2,result3]);
+  return cannonical[0];
+}
+
+///
 
 // Helper functions
 ///fold:
@@ -182,61 +241,6 @@ var ChiSquare = function(n){
   // and scale parameter 2 is called the chi-square distribution 
   // with n degrees of freedom."
   return Gamma({scale: n/2, shape: 2})
-}
-var convertToCannonical = function(arr){
-  var mapR1 = {
-    "A":"D",
-    "B":"E",
-    "C":"F",
-    "D":"G",
-    "E":"H",
-    "F":"I",
-    "G":"J",
-    "H":"K",
-    "I":"L",
-    "J":"A",
-    "K":"B",
-    "L":"C"
-  };
-  var mapR2 = {
-    "A":"G",
-    "B":"H",
-    "C":"I",
-    "D":"J",
-    "E":"K",
-    "F":"L",
-    "G":"A",
-    "H":"B",
-    "I":"C",
-    "J":"D",
-    "K":"E",
-    "L":"F"
-  }
-  var mapR3 = {
-    "A":"J",
-    "B":"K",
-    "C":"L",
-    "D":"A",
-    "E":"B",
-    "F":"C",
-    "G":"D",
-    "H":"E",
-    "I":"F",
-    "J":"G",
-    "K":"H",
-    "L":"I"
-  }
-  var result1 = sort(map(function(str){
-     return sort(map(function(x){return mapR1[x];},str.split(''))).join('');},
-    arr));
-  var result2 = sort(map(function(str){
-     return sort(map(function(x){return mapR2[x];},str.split(''))).join('');},
-    arr));
-  var result3 = sort(map(function(str){
-     return sort(map(function(x){return mapR3[x];},str.split(''))).join('');},
-    arr));
-  var cannonical = sort([arr,result1,result2,result3]);
-  return cannonical[0];
 }
 ///
 //-------------------------------------
