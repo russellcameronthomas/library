@@ -120,7 +120,8 @@ Because *WebPPL* and other PPLs do their "magic" by rearranging your code to ins
 ## Tips
 
 1. [How to Apply Math Functions over Arrays](#apply_function)
-1. [Use Recursion to Conditionally Loop](#recursion)
+1. [Use Recursion to Conditionally Loop](#recursion_conditionally_loop)
+1. [Use Recursion and an Accumulator For 'Empty' Function Return Values](#recursion_empty_return)
 
 <!-- {% increment tipnum %} set to zero initially -->
 <a name="apply_function"></a>
@@ -161,7 +162,11 @@ This returns the right answer: `6`.
 
 **Lesson**: be cautious about using any Javascript functions that are "compound" (functions acting on functions).  In this case, it is `apply` acting on `Math.max`.  The *WebPPL* compilation process may reconfigure them in a way that produces incorrect results.
 
-<a name="recursion"></a>
+<a name="recursion_conditionally_loop"></a>
 
 ### Tip {% increment tipnum %}: Use Recursion to Conditionally Loop
+
+<a name="recursion_empty_return"></a>
+
+### Tip {% increment tipnum %}:Use Recursion and an Accumulator For 'Empty' Function Return Values
 
