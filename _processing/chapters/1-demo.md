@@ -12,13 +12,13 @@ This is just scratch code to show that ps.js works on this workbench.
 
 Normal WebPPL:
 
-~~~~
+<pre><code class="language-webppl">
 
 var d = "this is a test";
 
 print(d);
 
-~~~~
+</code></pre>
 
 Here is some formatted code:
 
