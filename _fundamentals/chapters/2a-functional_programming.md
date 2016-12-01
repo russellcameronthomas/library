@@ -69,15 +69,13 @@ print(x);
 
 This will print `4` because the assignments to `x` inside the `if` scope do not affect the orginal (immutable) `x`.
 
-This is important: the return values of functions can be functions, not just immutable variables. For example:
+This is important: the return values of functions can be functions, not just immutable variables. You just need to `apply` them. For example:
 
-<div class="work_in_progress" markdown="1">
+<div class = "work_in_progress">
+<p> fix this example to include "apply"</p>
+</div>
 
-**This doesn't work just yet**
-
-I am trying to include a function() in the `return` statement, but no go.
-
-~~~~
+<pre lang="web-ppl"><code>
 var arr = [1,1,1,1];
 var total = function(arr){
     return reduce(function(x,acc){return x + acc},0,arr);
@@ -89,10 +87,7 @@ print("The cummulative sum is " + total(arr));
 print("Compiled form of 'doubletotal' function:\n" + doubletotal);
 var test = reduce(doubletotal, 0, arr);
 print("Applying 'doubletotal' => " + test);
-~~~~
-
-</div>
-
+</code></pre>
 
 ## Why Are *WebPPL* and other PPLs Functional Languages?
 
@@ -108,8 +103,8 @@ Take the case of a simple *Java* `for` loop over an array, updating the array va
 `int [] arr = {1,1,1,1};`<br/>
 `int sum = 0;`<br/>
 `for (int i = 0; i < arr.length; i ++){`<br/>
-`......sum += arr[i];`<br/>
-`......arr[i] = sum ;`<br/>
+`______sum += arr[i];`<br/>
+`______arr[i] = sum;`<br/>
 `}`<br/>
 `System.out.println(arr.toString());`<br/>
 
