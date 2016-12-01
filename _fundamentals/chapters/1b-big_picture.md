@@ -49,7 +49,6 @@ If there is randomness, then each run ("realization") produces different outputs
 
 Here is an example of two simple programs, one deterministic and one stochastic. Click "run" several times and notice the changes in output.
 
-<pre><code class="language-webppl">
 
 <pre><code class="language-webppl">
 ///fold:
