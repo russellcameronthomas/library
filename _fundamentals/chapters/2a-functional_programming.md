@@ -124,7 +124,8 @@ Because *WebPPL* and other PPLs do their "magic" by rearranging your code to ins
 
 <!-- {% increment tipnum %} set to zero initially -->
 <a name="apply_function"></a>
-### Tip #{% increment tipnum %}: How to Apply Math Functions over Arrays
+
+### Tip {% increment tipnum %}: How to Apply Math Functions over Arrays
 
 
 Let's say you want to apply a math function (e.g. `max`) to all elements of an array.  *WebPPL* does not have an `apply(.)` function.
@@ -161,5 +162,6 @@ This returns the right answer: `6`.
 **Lesson**: be cautious about using any Javascript functions that are "compound" (functions acting on functions).  In this case, it is `apply` acting on `Math.max`.  The *WebPPL* compilation process may reconfigure them in a way that produces incorrect results.
 
 <a name="recursion"></a>
-### Tip #{% increment tipnum %}: Use Recursion to Conditionally Loop
+
+### Tip {% increment tipnum %}: Use Recursion to Conditionally Loop
 
