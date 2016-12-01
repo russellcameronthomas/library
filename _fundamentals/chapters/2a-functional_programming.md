@@ -8,7 +8,7 @@ pct_complete: 20%
 is_section: false
 ---
 
-If you have only ever programming in a procedural language (e.g. *Fortran*, *C*, *Pascal*, *Cobol*) or only in an object-oriented language (*Java, <em>C++</em>, etc.), you may find functional programming languages a bit jarring.  Many of your "go to" programming patterns won't work.  This chapter will help you reorient your thinking so you can be more productive and less frustrated.
+If you have only ever programming in a procedural language (e.g. *Fortran*, *C*, *Pascal*, *Cobol*) or only in an object-oriented language (*Java*, <em>C++</em>, etc.), you may find functional programming languages a bit jarring.  Many of your "go to" programming patterns won't work.  This chapter will help you reorient your thinking so you can be more productive and less frustrated.
 
 ## What is a Functional Language?
 
