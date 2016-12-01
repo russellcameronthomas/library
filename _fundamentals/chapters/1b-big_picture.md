@@ -49,7 +49,9 @@ If there is randomness, then each run ("realization") produces different outputs
 
 Here is an example of two simple programs, one deterministic and one stochastic. Click "run" several times and notice the changes in output.
 
-~~~~
+<pre><code class="language-webppl">
+
+<pre><code class="language-webppl">
 ///fold:
 var gauss_legendre_iteration = function(n, a,b,t,p){
 var a1 = (a + b) / 2;
@@ -84,7 +86,7 @@ print("Deterministic program: Gauss-Legendre algorithm for computing digits of p
 
 print("Stochastic program: A random draw from uniform distribution\n x =" + x);
 
-~~~~
+</code></pre>
 
 <a id="monte_carlo">The Monte Carlo method</a> involves running a stochastic program $$N$$ times and analyzing the distribution of outcomes.
 

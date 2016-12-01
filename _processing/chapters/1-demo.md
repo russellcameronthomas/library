@@ -22,9 +22,9 @@ print(d);
 
 Here is some formatted code:
 
-<pre class="language-javascript">
+<pre >
 <code class="language-javascript">var note = "this is formatted code!";</code></pre>   
-<pre class="language-css">
+<pre >
 <code class="language-css">p { color: red }</code></pre>
 
 Here is an iframe with p5.js embedded:

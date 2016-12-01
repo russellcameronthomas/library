@@ -37,7 +37,7 @@ In this case, we have four random variables: *cloudy*, *sprinklers*, *rain*, and
 
 *Bayesian Inference* is the process of using Bayes Rule over and over to modify the prior probabilities, given the actual (observed) values for some other random variables. The model can answer questions like "What is the probability that it is raining, given the grass is wet?" and "What is the probability that it is cloudy, given that the grass is not wet?".
 
-~~~~
+<pre><code class="language-webppl">
 // Implements the Bayesian Network, above
 var grassGetsWet = Infer({ method: 'enumerate' }, function(){
   var cloudy = flip(0.5);
@@ -55,9 +55,9 @@ var grassGetsWet = Infer({ method: 'enumerate' }, function(){
 
 print('Probability of wet grass, given cloudy = ' 
                + Math.exp(grassGetsWet.score(true)) );
-~~~~
+</code></pre>
 
-~~~~
+<pre><code class="language-webppl">
 // same model conditioned differently, with different return variables
 ///fold:
 // Version 1
@@ -126,7 +126,7 @@ print('Probability of rain, given the grass is wet = '
                 + Math.exp(grassGetsWet3.score(true)));
 print('Probability of rain, given the sprinkler was on = ' 
                 + Math.exp(grassGetsWet4.score(true)));
-~~~~
+</code></pre>
 
 Let's look at this program in detail, built up in steps starting in the middle. This will show you all the basic ingredients for *any* WebPPL probabilistic program.
 
@@ -157,7 +157,7 @@ Most examples and lessons on Bayesian Inference use point probabilities.  The sa
 
 First, let us look at a textbook example: a single random variable with prior uniform distribution that is conditioned by set of observations drawn from a (truncated) Gaussian.  You can find this example in textbooks because it admits to a "closed form solution".
 
-~~~~
+<pre><code class="language-webppl">
 // x is a random variable with a uniform prior distribution
 var genX = function(){
    return uniform(0,10);
@@ -199,7 +199,7 @@ print("Weak weight of observations");
 viz.auto(generateXconditioned(1));
 print("Strong weight of observations");
 viz.auto(generateXconditioned(4));
-~~~~
+</code></pre>
 
 But when the distributions aren't simple or "nice", the math gets messy real fast, looking something like this:
 
@@ -207,7 +207,7 @@ But when the distributions aren't simple or "nice", the math gets messy real fas
 
 In the next code window is essentially the same program, but with more complex distributions.  Notice that the program is not really much more complex, and the execution times (complile and run) are about the same.
 
-~~~~
+<pre><code class="language-webppl">
 // x is a random variable with a complex prior distribution
 var genX = function(){
 var y = gaussian({mu: -1, sigma: 1});
@@ -254,7 +254,7 @@ print("Weak weight of observations");
 viz.auto(generateXconditioned(1));
 print("Strong weight of observations");
 viz.auto(generateXconditioned(4));
-~~~~
+</code></pre>
 
 <div class="work_in_progress" markdown="1">
 

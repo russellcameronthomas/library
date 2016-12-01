@@ -185,7 +185,7 @@ Instead of this implementation, should probably use the Javascript library for S
 - [https://github.com/lessc0de/sdm-1](https://github.com/lessc0de/sdm-1)
 - [Kanerva's sparse distributed memory (NASA)](https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19890017031.pdf)
 
-~~~~
+<pre><code class="language-webppl">
 var N = 200;
 var norm = 0.2;
 var num_ones = Math.round(N * norm);
@@ -448,7 +448,7 @@ var similarity = function(arr){
 
 var test = genCoupledSDRs(50,20000,20,3);
 
-~~~~
+</code></pre>
 
 
 

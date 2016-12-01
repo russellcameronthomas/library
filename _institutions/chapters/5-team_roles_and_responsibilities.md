@@ -60,7 +60,7 @@ The key feature of this model is Actor reasoning about their functional ecosyste
    
    
    
-~~~~~
+<pre><code class="language-webppl">
 
 
 // batch sizes
@@ -491,7 +491,7 @@ viz.hist(prodLen,{numBins:maxLen});
 var prodStrings =map(function(x){return x.join("-");},sort(result.products));
 viz.hist(prodStrings);
 
-~~~~~
+</code></pre>
 
 ## More
 

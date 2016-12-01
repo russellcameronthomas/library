@@ -53,7 +53,8 @@ Notice what happens in each of these settings with the three cases of prior know
 
 <p class="note">Code and comments that are less important in understanding the experiment is hidden by the `///fold:` macro. To view this code, simply click on the <span class="buttonText" style="background-color: #FFC !important;
 background-image: none;font-weight: bold; border: 1px solid #000 !important;">. . .</span> button in the codebox.</p>
-~~~~
+
+<pre><code class="language-webppl">
 //************************
 // UTILITY FUNCTIONS
 //************************
@@ -232,7 +233,7 @@ print("C: Highly Informative prior = 'Nearly all coins are fair' "+ trialString)
 viz.auto(trialC);
 viz.auto(fairC);
 ///
-~~~~
+</code></pre>
 
 *Analysis of results* -- With the default parameters (7 of 10 tosses are "H"), you'll notice first that all three inference queries returned a mean estimate for $$p$$ that is above 0.5, suggesting that the coin is biased toward heads.  But the statistical test for fairness returns different results in all three.  Model A (Uninformative prior) puts most of the probability on $$fair? = false$$ (about 0.75).  Model B (Somewhat informative prior) is about the same.  But Model C (Very informative prior) returns the opposite result, where $$fair? = true$$ has probability of about 0.69. 
 

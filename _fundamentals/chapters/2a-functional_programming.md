@@ -16,15 +16,15 @@ This is the "for dummies" answer.
 
 **A.** *Pure* functional langagues use only *immutable* variables. Once a variable is created through an assignment, you can't change its value.  You can't do this:
 
-~~~~
+<pre><code class="language-webppl">
 var x = 4;
 x = 6;   // This won't run
 print(x);
-~~~~
+</code></pre>
 
 Any later assigments with the same variable name *in the same scope* will replace the old variable with a new variable, not modify the old one. 
 
-~~~~
+<pre><code class="language-webppl">
 var x = [0,3,6];
 var y = x[0] + x[1] + x[2];
 if (x[0] == 0){
@@ -33,7 +33,7 @@ if (x[0] == 0){
    
 }
 print(" x = "+ x + "; y = " + y);
-~~~~
+</code></pre>
 
 This prints `x = 0,3,6; y = 9` rather than `x = 1,2,3; y = 6`, because the assignments within the `if` statement scope (brackets) are local and don't affect the `x` and `y` variables outside.'
 
@@ -47,17 +47,17 @@ This prints `x = 0,3,6; y = 9` rather than `x = 1,2,3; y = 6`, because the assig
 1. *Simple assignments*: e.g. `var x = 6 + 4;` and `var total = total(arr);`, where `total` is a function and `arr` is an array.
 2. *Function assignments*: for example
 
-~~~~
+<pre><code class="language-webppl">
 var arr = [1,1,1,1];
 var total = function(arr){
     return reduce(function(x,acc){return x + acc},0,arr);
 }
 print(total(arr));
-~~~~
+</code></pre>
 
 3. *Flow control* statements like `if`-`else` that do not influence any variable out of their scope (scope = "inside a pair of brackets"). For example
 
-~~~~
+<pre><code class="language-webppl">
 var x = 4;
 if (x > 3){
     var x = 5;
@@ -65,7 +65,7 @@ if (x > 3){
     var x = 1;
 }
 print(x);
-~~~~
+</code></pre>
 
 This will print `4` because the assignments to `x` inside the `if` scope do not affect the orginal (immutable) `x`.
 
@@ -75,7 +75,7 @@ This is important: the return values of functions can be functions, not just imm
 <p> fix this example to include "apply"</p>
 </div>
 
-<pre lang="web-ppl"><code>
+<pre><code class="language-webppl">
 var arr = [1,1,1,1];
 var total = function(arr){
     return reduce(function(x,acc){return x + acc},0,arr);
@@ -100,15 +100,18 @@ Imagine if you used a purely procedural language (e.g. *C*).  Yes, you might be 
 
 Take the case of a simple *Java* `for` loop over an array, updating the array values to the cummulative sum:
 
-`int [] arr = {1,1,1,1};`<br/>
-`int sum = 0;`<br/>
-`for (int i = 0; i < arr.length; i ++){`<br/>
-`______sum += arr[i];`<br/>
-`______arr[i] = sum;`<br/>
-`}`<br/>
-`System.out.println(arr.toString());`<br/>
+<!-- Java -->
+~~~~  
+int [] arr = {1,1,1,1};
+int sum = 0;
+for (int i = 0; i < arr.length; i ++){
+       sum += arr[i];
+       arr[i] = sum;
+}
+System.out.println(arr.toString());
+~~~~
 
-This will print "1,2,3,4".  But you can't use the same pattern in a functional language.  Why? Because this loop depends on the variable `arr` being *mutable*, meaning you can change the values in memory after it is created, and do so at any time, over and over.  Inside the loop you are using the *original* value of each array element, and then modifying it with the cummulative sum.  This is, effectively, a *side effect* of the loop that fully depends on *where* each statement sits in the program.  
+This will print `1,2,3,4`.  But you can't use the same pattern in a functional language.  Why? Because this loop depends on the variable `arr` being *mutable*, meaning you can change the values in memory after it is created, and do so at any time, over and over.  Inside the loop you are using the *original* value of each array element, and then modifying it with the cummulative sum.  This is, effectively, a *side effect* of the loop that fully depends on *where* each statement sits in the program.  
 
 Because *WebPPL* and other PPLs do their "magic" by rearranging your code to insert their side effects, a complied PPL cannot operate safely on `for` loops and `if` - `then` structures where mutable variables are changed along the way.
 
@@ -128,28 +131,28 @@ Let's say you want to apply a math function (e.g. `max`) to all elements of an a
 
 First, you might test if the Javascript math function accepts an array object as an argument:
 
-~~~~
+<pre><code class="language-webppl">
 var arr = [0,2,4,6,3];
 Math.max(arr);
-~~~~
+</code></pre>
 
 Nope.  Returns `null`.
 
 With a web search, you find the [standard Javascript way](http://stackoverflow.com/questions/1669190/javascript-min-max-array-values) to apply a math function over an array, which looks like this:
 
-~~~~
+<pre><code class="language-webppl">
 var arr = [0,2,4,6,3];
 Math.max.apply(null,arr);
-~~~~
+</code></pre>
 
 Does this work? No. It compiles and runs, but gives the wrong answer. The answer should be `6` but this function returns `2`.  Why? Because *WebPPL* reconfigures this `apply` during its compilation process and does so that it no longer works as you'd expect in generic Javascript.
 
 **Solution**: use `reduce`, like this:
 
-~~~
+<pre><code class="language-webppl">
 var arr = [0,2,4,6,3];
 reduce(function(x,acc){return x > acc ? x : acc},-Infinity,arr);
-~~~
+</code></pre>
 
 This returns the right answer: `6`.
 

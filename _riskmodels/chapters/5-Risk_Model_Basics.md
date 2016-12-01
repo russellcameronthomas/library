@@ -30,7 +30,7 @@ over some time period, say one year (annualized).  If $$Frequency$$ is 4 times p
 
 Let's assume that the frequency of loss events is governed by a Poisson random process. (The Poisson process is perhaps the simplest model of arrival times and event frequencies.)  If the *average* (mean) number of events per year is 4, then the Poisson distribution looks like this:
 
-~~~~
+<pre><code class="language-webppl">
 var freqModel = Infer({method: "forward", samples: 1000},
     function(){ 
         var f = sample(Poisson({mu : 4}));
@@ -38,7 +38,7 @@ var freqModel = Infer({method: "forward", samples: 1000},
     });
 
 viz.auto(freqModel);
-~~~~
+</code></pre>
 
 Both the mode (most frequent) and mean (average) value is 4 per year, but 2 out of 100 years there are zero events, and more rarely there are 10 or more events per year.  
 
@@ -48,7 +48,7 @@ Let's assume that the magnitude of loss is governed by a lognormal distribution.
 
 Here is a model of lognormal loss magnitude, with $$\mu =log(100)$$ and and $$\sigma = log(3)$$.
 
-~~~~
+<pre><code class="language-webppl">
 var magnModel = Infer({method: "forward", samples: 10000},
     function(){ 
         var m = Math.exp(sample(Gaussian({mu : Math.log(100), sigma:Math.log(3)})));
@@ -61,13 +61,13 @@ print("Magnitude Probability Density Function; range: $0 to $200");
 viz.density(magnModel, {bounds: [0,200]});
 print("Magnitude Probability Density Function; range: $200 to $4,000");
 viz.density(magnModel, {bounds: [200,4000]});
-~~~~
+</code></pre>
 
 Here we see three visualizations of the magnitude distribution.  In the range of $0 to $200, we see that though the mean of this distribution is $100, the mode (most frequent) is a little less than $50. In the range of $200 to $4,000, we see that large losses are not uncommon.  Not "Black Swan" territory, but pretty big and a bit surprising if you are only budgeting for $100 per loss event.
 
 Let's multiply these together to calculate $$Risk$$, per our simple formula above.
 
-~~~~
+<pre><code class="language-webppl">
 var riskModel = Infer({method: "forward", samples: 10000},
     function(){ 
         var m = Math.exp(sample(Gaussian({mu : Math.log(100), sigma:Math.log(3)})));
@@ -82,7 +82,7 @@ print("Risk Probability Density Function; range: $0 to $400");
 viz.density(riskModel, {bounds: [0,400]});
 print("Risk Probability Density Function; range: $400 to $8,000");
 viz.density(riskModel, {bounds: [400,8000]});
-~~~~
+</code></pre>
 
 The probability density function for $$Risk$$ is a skew-right with a significant tail (if not actually "heavy"). Looking at the range of $0 to $500, we see the mean at $400, consistent with our previous calculations based on expected (average) values for each.  Again, the mode is lower, just below $200.  That means you'd see more years with $200 losses than $400, even though $400 is the average over many, many years.  The bottom chart show sthe range of $500 to $8,000, and this shows that losses of over $4,000 per year (10X average) are possible, though rare.
 
@@ -90,7 +90,7 @@ So far we have modeled the top three factors in the FAIR ontology, above.  Now l
 
 *Threat Event Frequency* (*TEF*) is the frequency (per year) for any event that *might* trigger the loss, if it succeeds. *Vulnerability*, in this simplistic model, is the proportion of threat events (a.k.a. attacks) that succeed.  Let's use a Poisson process to model *TEF* like we did above, with with $$mean = 40$$ -- 10X more frequent than above.  For *Vulnerability*, which must be between 0 and 1.0, let's use a [Beta distribution](https://en.wikipedia.org/wiki/Beta_distribution) rather than a point probability (i.e. $$v = 0.1$$) I chose this one because I'd like to model a vulnerability itself as a random process, which works well *most* of the time ($$ v \approx 0$$) but occassionally does not ($$ v >> 0$$).  Here, the parameters are Beta(1.05,10), which gives $$mean \approx 0.1$$ and $$s.d \approx 0.09$$.
 
-~~~~
+<pre><code class="language-webppl">
 var TEFModel = Infer({method: "forward", samples: 1000},
 function(){ 
 var f = sample(Poisson({mu : 40}));
@@ -110,13 +110,13 @@ var samps = repeat(1000,function(){return sample(vulnModel).vulnerability;});
 var mean = listMean(samps);
 var variance = listVar(samps,mean);
 print("Mean = " + mean + "; SD = " + Math.sqrt(variance));
-~~~~
+</code></pre>
 
 Now we'll combine these to create a new model for *Frequency*.  But we won't be multiplying these, as we did in the previous risk model.  Why? Because for each threat event (a.k.a. attack), it will either succeed or fail.  In this simplistic model, it can't succeed fractionally.  *One way* to do this: first draw from the *TEF* distribution to get a value for number of threat events in that simulated year, then we need to flip a biased coin (a.k.a. Bernoulli trial) that many times, with probability of "heads" (success) drawn from the *vulnerability* distribution.  Got it?  Maybe or maybe not.  Hopefully, the code below will make it more clear.
 
 This way is intuitve, but SLOW (notice only 5 samples):
 
-~~~~
+<pre><code class="language-webppl">
 
 var freqModel = Infer({method: "forward", samples: 5},
     function(){
@@ -134,7 +134,7 @@ var freqModel = Infer({method: "forward", samples: 5},
 
 viz.auto(freqModel);
 
-~~~~
+</code></pre>
 
 This may take a long time.  Feel free to click <span class="buttonText">cancel</span>.
 
@@ -142,7 +142,7 @@ The following model is much faster, because instead of a nested loop, we sample 
 
 There are three models here for comparison. The first repeats the *TEF* model. The second uses a point probability: $$Vulnerability = 0.1$$.  The third model uses a `Beta(...)` distribution for *Vulnerability*.
 
-~~~~
+<pre><code class="language-webppl">
 var TEFModel = Infer({method: "forward", samples: 1000},
     function(){ 
         var f = sample(Poisson({mu : 40}));
@@ -175,11 +175,11 @@ var freqModel = Infer({method: "forward", samples: 1000},
 print("Loss Event Frequencies - Beta Dist. for Vulnerabilities")
 viz.auto(freqModel);
 
-~~~~
+</code></pre>
 
 Switching to *Loss Magnitude*, we need to model *Primarily Loss* and *Secondary Risk*.  We need to decide on the random process for each and then to decide how to combine them. Starting with *Primary Loss*, let's assume this is a lognormal distribution, but with a much smaller standard deviation than we modeled above. 
 
-~~~~
+<pre><code class="language-webppl">
 var primaryLossModel = Infer({method: "forward", samples: 10000},
     function(){ 
         var m = Math.exp(sample(Gaussian({mu : Math.log(80), sigma:Math.log(1.5)})));
@@ -188,11 +188,11 @@ var primaryLossModel = Infer({method: "forward", samples: 10000},
 
 print("Primary Loss Probability Density Function");
 viz.auto(primaryLossModel);
-~~~~
+</code></pre>
 
 *Secondary Risk* is a *conditional probabilistic loss*.  In other words, in some loss events, there is no secondary loss, but with some probability there is a secondary loss, which is drawn from a distribution -- we'll assume it is lognormal.  Here's a model:
 
-~~~~
+<pre><code class="language-webppl">
 var secondaryRiskModel = Infer({method: "forward", samples: 10000},
     function(){ 
         var trigger = flip(0.4);
@@ -205,11 +205,11 @@ var secondaryRiskModel = Infer({method: "forward", samples: 10000},
 viz.auto(secondaryRiskModel);
 viz.density(secondaryRiskModel,{bounds:[0,100]});
 viz.density(secondaryRiskModel,{bounds:[100,5000]});
-~~~~
+</code></pre>
 
 Let's combine them with addition, and no dependency between them.
 
-~~~~
+<pre><code class="language-webppl">
 var lossMagnitude = Infer({method: "forward", samples: 10000},
     function(){ 
         // primarily loss
@@ -229,13 +229,13 @@ print("Loss Magnitude Probability Density");
 viz.auto(lossMagnitude);
 viz.density(lossMagnitude,{bounds:[0,400]});
 viz.density(lossMagnitude,{bounds:[400,10000]});
-~~~~
+</code></pre>
 
 ### Risk Model V2
 
 Finally, we combine the version 2 model of Loss Event Frequency and Loss Magnitude to get Risk V2.
 
-~~~~
+<pre><code class="language-webppl">
 
 var lossMagnitude = Infer({method: "forward", samples: 20000},
     function(){ 
@@ -288,7 +288,7 @@ viz.density(riskDist,{bounds:[0,400]});
 viz.density(riskDist,{bounds:[400,10000]});
 // NOTICE: This takes a lot of execution time because so many samples are
 //         are being drawn, in order to get decent estimates in the tail
-~~~~
+</code></pre>
 
 
 <div class="work_in_progress" markdown="1">

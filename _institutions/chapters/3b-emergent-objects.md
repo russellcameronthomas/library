@@ -44,7 +44,7 @@ You can think of "fit" as a lock-and-key system, but instead of a simple "unlock
 
 For the moment, imagine that protein functions are like computational functions. Let's say that protein $$A$$ performs this function in the context of three possible (numerical) paramters: 
 
-~~~
+<pre><code class="language-webppl">
 var A = function (a, b, c) {
     var a1 = (a == null) ? 0 : a;  // sets default value for a
     var b1 = (b == null) ? 0 : b;  // sets default value for b
@@ -56,14 +56,14 @@ print("Only c specified: A(_,_,2) = " + A(null,null,2)
                          + " (but 0 to any power is still 0)");
 print("Only a and b specified; c is missing: A(1,2,_) = " + A(1,2,null));
 
-~~~
+</code></pre>
 
 
 This function will run successfully if either `a` or `b` are omitted, but `c` is required or the function will return 'undefined' (i.e. it not functional).
 
  Now imagine that protein interaction is like filling in default parameter values or ranges (to generalize), or removing default values (to make specific). Protein $$B$$ might look something like this:
 
-~~~
+<pre><code class="language-webppl">
 
 var A = function (a, b, c) {
     var a1 = (a == null) ? 0 : a;  // sets default value for a
@@ -88,7 +88,7 @@ var params = {a : 1, b : 2, c : null};
 print("Only a and b specified; c is missing: B(A(1,2,_)) = " + B(A,params) 
                         + "  (Note: no longer 'undefined')" );
     
-~~~
+</code></pre>
 
 `B` makes `A` more general (less specific) because it can run even when parameter `c` is missing. Reverse the process to make a function more specific (and less general).  In addition to default values, this approach to specification and generalization can also involve bounds on the value of a given parameter, or conditional interactions between parameters.
 

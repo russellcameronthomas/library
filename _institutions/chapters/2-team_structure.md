@@ -89,7 +89,7 @@ This model implements "Level One" adaptation in reft:ethiraj_bounded_2004 (descr
 
 Try varying the two boolean experimental variables -- "hierarchical" and "tightlyCoupled" and notice the results.
 
-~~~~
+<pre><code class="language-webppl">
 // Global parameters:
 var N = 30;  // number of team decisions; Best to keep this below 40 to avoid excess run times
 var K = 5;   // number of designer agents ("agents")
@@ -359,7 +359,7 @@ print(hierarchicalVsNonH + " " + tightCoupleVsLoose + " Decisions");
 print("N = " + N + "; K = " + K + "; n = " + n);
 print ("Average number of dependencies = " + listMean(dependenciesCounts));
 viz.line(mapN(function(t) {return t;},stepCount),results);
-~~~~
+</code></pre>
 
 <div class="work_in_progress" markdown="1">
 
@@ -378,7 +378,7 @@ viz.line(mapN(function(t) {return t;},stepCount),results);
 
 <!--
 
-~~~~
+<pre><code class="language-webppl">
 // Global parameters:
 var N = 30;  // number of team decisions; Best to keep this below 40 to avoid excess run times
 var K = 5;   // number of designer agents ("agents")
@@ -648,7 +648,7 @@ print(hierarchicalVsNonH + " " + tightCoupleVsLoose + " Decisions");
 print("N = " + N + "; K = " + K + "; n = " + n);
 print ("Average number of dependencies = " + listMean(dependenciesCounts));
 viz.line(mapN(function(t) {return t;},stepCount),results);
-~~~~
+</code></pre>
 
 -->
 

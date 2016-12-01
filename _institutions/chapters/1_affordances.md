@@ -70,7 +70,7 @@ The agent's interaction with the "doorway affordance" is two-fold: 1) on-going v
 
 Here is a *reactive* version of this simple model, meaning that the agent only reacts to *immediate perceptions* and doesn't make inferences about the future.  Notice that I've set the size of the doorway $$o$$ to equal the agent's width $$w$$. This means that the agent must decide to turn sideways if it attempts to walk through the doorway, otherwise it will fail.
 
-~~~~
+<pre><code class="language-webppl">
 // Model Parameters
 var startX = 0;
 var startY = 10;
@@ -264,13 +264,13 @@ print("Doorway width = " + o + "; Agent w X d = " + w + " X " + d +
 print("Single Run:");
 printAll(singleRun,0);
 
-~~~~
+</code></pre>
 
 This verision makes slight additions to the model to make it *reflective*, meaning that the agent makes a forward inference (in time) to estimate the probabilities over final states.
 
 We'd like to find out what doorway opening $$o$$ would yield a $$Pr(success)=0.5$$.  We'll create a prior distribution on $$o$$, assuming a Gaussian with a mean is just above the agent's width $$w$$, and a minimum constraint of the agent's depth $$d$$.  The *sigma* will be $$d/2$$, which expresses our belief that the posterior for $$o$$ is most likely to be in the range 2 to 6 (two standard deviations above and below the mean of about 4).
 
-~~~~
+<pre><code class="language-webppl">
 
 var startX = 0;
 var startY = 10;
@@ -530,7 +530,7 @@ print('Probability distribution of success over door widths');
 print( "  given W = "+ w + "; D = "+ d);
 viz.auto(openings);
 
-~~~~
+</code></pre>
 
 
 <div class="work_in_progress" markdown="1">

@@ -36,7 +36,8 @@ Nearly all the code boxes are in *interactive* frames, meaning that you can both
 
 Here is a code example:
 
-~~~~
+
+<pre><code class="language-webppl">
 // These are a couple of very simple WebPPL statements
 
 var test = 2 + 4;
@@ -61,7 +62,7 @@ var test = function(x){
 // function test(x) = { return x * x;}
 
 print("The NEW immutable function 'test(4)' = " + test(4));
-~~~~
+</code></pre>
 
 Click the <span class="buttonText">run</span> button, and it will first compile WebPPL into Javascript, and then execute the Javascript -- in this case it prints two lines with results.
 
