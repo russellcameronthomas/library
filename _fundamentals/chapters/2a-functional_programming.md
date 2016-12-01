@@ -8,7 +8,7 @@ pct_complete: 20%
 is_section: false
 ---
 
-If you have only ever programming in a procedural language (e.g. Fortran, C, Pascal, Cobol) or only in an object-oriented language (Java, C++, etc.), you may find functional programming languages a bit jarring.  Many of your "go to" programming patterns won't work.  This chapter will help you reorient your thinking so you can be more productive and less frustrated.
+If you have only ever programming in a procedural language (e.g. *Fortran*, *C*, *Pascal, *Cobol*) or only in an object-oriented language (*Java, *C++*, etc.), you may find functional programming languages a bit jarring.  Many of your "go to" programming patterns won't work.  This chapter will help you reorient your thinking so you can be more productive and less frustrated.
 
 ## What is a Functional Language?
 
@@ -39,7 +39,7 @@ This prints `x = 0,3,6; y = 9` rather than `x = 1,2,3; y = 6`, because the assig
 
 **B.** *Every* function must have a *return value*, and the *only* effect of the function is through the return value. No side effects. 
 
-**C.** *Every operation* is a function call, even simple operators. In LISP, `1 + 3` (infix notation for addition) looks like this: `add(1 3)`.  Scala works the same way, but has transformation operations (a.k.a. "syntactic sugar") that allow you to use infix notation.
+**C.** *Every operation* is a function call, even simple operators. In *LISP*, `1 + 3` (infix notation for addition) looks like this: `add(1 3)`.  Scala works the same way, but has transformation operations (a.k.a. "syntactic sugar") that allow you to use infix notation.
 
 
 **D.** In *Pure* functional langagues there are only three types of statements:
@@ -101,9 +101,9 @@ The reason has nothing to do with the aesthetics of programming, usability, prod
 1. *WebPPL* and other PPLs do their "magic" of inference through **side effects**.  If *you*, the programmer, are also using side effects in your code, then the *WebPPL* compiler and runtime can no longer do its own side effects reliably.
 2. Functional languages do not permit side effects within functions.
 
-Imagine if you used a purely procedural language (e.g. C).  Yes, you might be a *nice* programmer and code your functions in such a way that their *only effects* were through return values.  But if there was a PPL built on top of C, there would be no way for the compiler and runtime to be *sure* this was the case.
+Imagine if you used a purely procedural language (e.g. *C*).  Yes, you might be a *nice* programmer and code your functions in such a way that their *only effects* were through return values.  But if there was a PPL built on top of C, there would be no way for the compiler and runtime to be *sure* this was the case.
 
-Take the case of a simple Java loop over an array, updating the array values to the cummulative sum:
+Take the case of a simple *Java* `for` loop over an array, updating the array values to the cummulative sum:
 
 `int [] arr = {1,1,1,1};`<br/>
 `int sum = 0;`<br/>
