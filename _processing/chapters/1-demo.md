@@ -4,7 +4,7 @@ title: Proof of Concept
 description: "Just some code proving that ps.js works on this workbench, along side WebPPL."
 status: work-in-progress
 pct_complete: "80%"
-last_modified: "2016-11-03"
+last_modified: "2016-12-01"
 is_section: true
 ---
 
