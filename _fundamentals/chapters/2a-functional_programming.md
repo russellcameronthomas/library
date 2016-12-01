@@ -8,7 +8,7 @@ pct_complete: 20%
 is_section: false
 ---
 
-If you have only ever programming in a procedural language (e.g. *Fortran*, *C*, *Pascal*, *Cobol*) or only in an object-oriented language (*Java, *C*++, etc.), you may find functional programming languages a bit jarring.  Many of your "go to" programming patterns won't work.  This chapter will help you reorient your thinking so you can be more productive and less frustrated.
+If you have only ever programming in a procedural language (e.g. *Fortran*, *C*, *Pascal*, *Cobol*) or only in an object-oriented language (*Java, <em>C++</em>, etc.), you may find functional programming languages a bit jarring.  Many of your "go to" programming patterns won't work.  This chapter will help you reorient your thinking so you can be more productive and less frustrated.
 
 ## What is a Functional Language?
 
@@ -101,7 +101,7 @@ The reason has nothing to do with the aesthetics of programming, usability, prod
 1. *WebPPL* and other PPLs do their "magic" of inference through **side effects**.  If *you*, the programmer, are also using side effects in your code, then the *WebPPL* compiler and runtime can no longer do its own side effects reliably.
 2. Functional languages do not permit side effects within functions.
 
-Imagine if you used a purely procedural language (e.g. *C*).  Yes, you might be a *nice* programmer and code your functions in such a way that their *only effects* were through return values.  But if there was a PPL built on top of C, there would be no way for the compiler and runtime to be *sure* this was the case.
+Imagine if you used a purely procedural language (e.g. *C*).  Yes, you might be a *nice* programmer and code your functions in such a way that their *only effects* were through return values.  But if there was a PPL built on top of *C*, there would be no way for the compiler and runtime to be *sure* this was the case.
 
 Take the case of a simple *Java* `for` loop over an array, updating the array values to the cummulative sum:
 
