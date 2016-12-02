@@ -114,9 +114,12 @@ This will print `1,2,3,4`.  But you can't use the same pattern in a functional l
 
 Because *WebPPL* and other PPLs do their "magic" by rearranging your code to insert their side effects, a complied PPL cannot operate safely on `for` loops and `if` - `then` structures where mutable variables are changed along the way.
 
+
+
 ## Tips
 
 1. [How to Apply Math Functions over Arrays](#apply_function)
+1. [Recursion Can Be Your Best Friend](#recursion_friend)
 1. [Use Recursion to Conditionally Loop](#recursion_conditionally_loop)
 1. [Use Recursion and an Accumulator For 'Empty' Function Return Values](#recursion_empty_return)
 
@@ -158,6 +161,92 @@ This returns the right answer: `6`.
 *Note*: The accumulator is initialized to `-Infinity` so that it will be replaced by any valid number in the array.  If you pick some other number, like `-1000000`, there is always a chance your array will have a bigger negative number.  Also, don't fall into the mental trap of initializing the accumulator to `0`, because you'll only get a valid `max` if one array value is positive.
 
 **Lesson**: be cautious about using any Javascript functions that are "compound" (functions acting on functions).  In this case, it is `apply` acting on `Math.max`.  The *WebPPL* compilation process may reconfigure them in a way that produces incorrect results.
+
+<a name="recursion_friend"></a>
+
+## Tip {% increment tipnum %}: Recursion Can Be Your Best Friend
+
+(*Note*: Experienced programmers can skip this section)
+
+*Recursion* is a programming pattern where a function calls it self. Specifically, in functional programming, a recursive function calls itself in the `return` statement, since the only effects of functions are through their return values.
+
+If you've never encountered this idea before, it might seem ghoulish -- like a snake eating it's own tail. Why wouldn't this lead to an infinite loop? And why would you ever want to do something like this?
+
+It *can* lead to an infinite loop if the programmer isn't careful. But there is the same risk in a *Javascript* `for` loop or `while` loop.  In all these cases, the programmer is responsible for including termination logic.
+
+The benefit of recursion: it is a good fit for algorithms that have identical sub-algorithms, where each sub-algorithm takes on a subset of the work, and the final resuts are nested inside of each other, like Russian dolls.
+<center>
+<img class="resize" src="/assets/img/Russian-Doll-1.jpg" />
+<p class="annotate" markdown="1">(Image by James Jordan, Source: [Photographyblogger.net](http://photographyblogger.net/17-picturesque-images-of-russian-nesting-dolls/))</p>
+</center>
+
+A classic example of such an algorithm is [depth-first search of graphs](https://en.wikipedia.org/wiki/Depth-first_search), used to find connected components in the graph and to solve mazes with only one solution path. Here is a `Java` implementation. Note that each iteration of the function prints a result rather than through a `return` statement.
+
+<pre><code class="language-java">// Recursive DFS 
+public void dfs(int adjacency_matrix[][], Node node) {
+    System.out.print(node.data + "\t"); 
+    ArrayList&lt;Node&gt; neighbours=findNeighbours(adjacency_matrix,node); 
+    for (int i = 0; i < neighbours.size(); i++) {
+        Node n=neighbours.get(i); 
+        if(n!=null && !n.visited) {
+            dfs(adjacency_matrix,n); n.visited=true; 
+        } 
+    }
+}</code></pre>
+
+<p class="annotate" markdown="1">(Source:[Java2blog](http://www.java2blog.com/2015/12/depth-first-search-in-java.html). See that web page for full code and explanations.)</p>
+
+### How Does the Computer Execute Recursion?
+
+Consider the following recursive function in *Java*:
+
+<div class="work_in_progress">
+<p>Modify this code so it is a better example of recursion and call stack effects</p>
+</div>
+
+<pre class="line-numbers"><code class="language-java">int [] data = {1,2,3};
+int index = 0;
+public void total(result){
+    index ++;
+    double sqrtTotal = Math.sqrt(result);     
+    if (index >= arr.length || sqrtTotal > 1.5){
+        return result;
+    } else {
+        return total(result + arr[index]);
+    }
+}
+System.out.println("Total = " + total(0));</code></pre>
+
+This function computes a cummulative sum, but stops when the square root of the total exceeds 1.5.  You'll notice that `index` is incremented and there is a local variable for square root in line 5. What happens to this every time you execute the function?  Is it overwritten (*Java* has mutable variables)? Or somehow preserved?
+
+The answer is that the state of each function is preserved in a data structure called "call stack". Everytime you make a function call, the current state is pushed on to the call stack (maintained by the operating system). When you exit the function, the state is "popped" off the top of the call stack, so you can continue executing just as before.
+
+As spiffy as this is, it has problems.  First, it takes execution time to push and pop the program stack. More worrying is that you can run out of stack space if you have a very large number of nested function calls, recursive or otherwise.
+
+For these two reasons, some programmers stay away from recursive functions.  However, these are not problems in functional languages. Because there are no mutable variables, there is no variable state that needs to be preserved.  And because of a pattern called "[tail recursion](https://en.wikipedia.org/wiki/Tail_call)", it can be implemented without a call stack that requires more and more memory with each recursive function call. *This means that recursive functions do not cost more (performance or memory) than non-recursive functions doing the same algorithm*. You can have *nearly infinite* depth of recursive function calls, limited only by the amount of CPU time you want to use.
+
+Here is the same recursive function in *WebPPL*:
+
+<pre><code class="language-webppl">
+var data = [1,2,3];
+var total = function(index, result, accData){
+    // a DIFFERENT "newIndex" and "sqrtTotal" is created every iteration of the function
+    var newIndex = index + 1;
+    var sqrtTotal = Math.sqrt(result);     
+    if (index >= data.length || sqrtTotal > 1.5){
+        return {result:result,
+                data : accData};
+    } else {
+        var newAccData = Array.prototype.concat(accData,data[index]);
+        return total(newIndex, result + data[index],newAccData);
+    }
+}
+
+var test = total(0,0,[]);
+print("Total of " + test.data + " is " + test.result);
+</code></pre>
+
+Here are two more tips that use recursion to solve common problems.
 
 <a name="recursion_conditionally_loop"></a>
 
