@@ -15,16 +15,20 @@ Normal WebPPL:
 <pre><code class="language-webppl">
 
 var d = "this is a test";
-
 print(d);
 
 </code></pre>
 
-Here is some formatted code:
+Here is some formatted code. 
 
+*Javascript*:
 <pre >
-<code class="language-javascript">var note = "this is formatted code!";</code></pre>   
-<pre >
+<code class="language-javascript">var note = "this is formatted code!";
+</code>
+</pre> 
+
+CSS:  
+<pre>
 <code class="language-css">p { color: red }</code></pre>
 
 Here is an iframe with p5.js embedded:

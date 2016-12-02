@@ -100,16 +100,15 @@ Imagine if you used a purely procedural language (e.g. *C*).  Yes, you might be 
 
 Take the case of a simple *Java* `for` loop over an array, updating the array values to the cummulative sum:
 
-<!-- Java -->
-~~~~  
-int [] arr = {1,1,1,1};
+<pre>
+<code class="language-java">int [] arr = {1,1,1,1};
 int sum = 0;
 for (int i = 0; i < arr.length; i ++){
        sum += arr[i];
        arr[i] = sum;
 }
-System.out.println(arr.toString());
-~~~~
+System.out.println(arr.toString());</code>
+</pre>
 
 This will print `1,2,3,4`.  But you can't use the same pattern in a functional language.  Why? Because this loop depends on the variable `arr` being *mutable*, meaning you can change the values in memory after it is created, and do so at any time, over and over.  Inside the loop you are using the *original* value of each array element, and then modifying it with the cummulative sum.  This is, effectively, a *side effect* of the loop that fully depends on *where* each statement sits in the program.  
 
@@ -167,4 +166,5 @@ This returns the right answer: `6`.
 <a name="recursion_empty_return"></a>
 
 ### Tip {% increment tipnum %}:Use Recursion and an Accumulator For 'Empty' Function Return Values
+
 
