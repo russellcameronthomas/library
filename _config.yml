@@ -45,7 +45,7 @@ collections:
     output: true
     sort_order: 7
     index : true
-    title: "Tutorial: Processing (p5.js) - A Javascript Tool for Generative Visualizations"
+    title: "Tutorial: P5.js - A Tool for Generative Visualizations"
   info:
     output: true
     sort_order: 10
