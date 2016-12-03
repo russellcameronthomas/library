@@ -35,7 +35,7 @@ if (x[0] == 0){
 print(" x = "+ x + "; y = " + y);
 </code></pre>
 
-This prints `x = 0,3,6; y = 9` rather than `x = 1,2,3; y = 6`, because the assignments within the `if` statement scope (brackets) are local and don't affect the `x` and `y` variables outside.'
+This prints `x = 0,3,6; y = 9` rather than `x = 1,2,3; y = 6`, because the assignments within the `if` statement scope (brackets) are local and don't affect the `x` and `y` variables outside.
 
 **B.** *Every* function must have a *return value*, and the *only* effect of the function is through the return value. No side effects. 
 

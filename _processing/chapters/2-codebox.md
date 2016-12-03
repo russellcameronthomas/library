@@ -13,17 +13,11 @@ Here is p5-widget embedded:
 
 <!-- this script only needs to get added once even if there are multiple widget instances -->
 
-<script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+<!-- OLD <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script> -->
+<script src="/assets/js/p5-widget.js"></script>
 
-<!--
-<style type="text/css">
-.CodeMirror.cm-s-p5-widget {
-   font-size: 80%;
-}
-</style>
--->
-
-<script type="text/p5">
+<pre>
+<script type="text/p5" data-height="600">
 function setup() {
   createCanvas(100, 100);
 }
@@ -32,6 +26,7 @@ function draw() {
   background(255, 0, 200);
 }
 </script>
+</pre>
 
 <div class="work_in_progress">
 
