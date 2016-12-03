@@ -1,10 +1,10 @@
 ---
 layout: chapter
 title: Interactive p5.js Codebox
-description: "Demonstrates an interactive codebox for p5.js. CAUTION: This page has a Cross-Site Scripting (XSS) vulnerability in the widget."
+description: "Demonstrates an interactive codebox for p5.js -- a Javascript version of Processing."
 status: work-in-progress
 pct_complete: "40%"
-last_modified: "2016-11-03"
+last_modified: "2016-12-03"
 is_section: true
 ---
 
@@ -28,11 +28,3 @@ function draw() {
 </script>
 </pre>
 
-<div class="work_in_progress">
-
-*To Do*
-
-1. Investigate and fix the XSS (through p5.js-widget creator)
-1. Find a way to adjust font sizes in the codebox.  Issue raised.
-
-</div>
