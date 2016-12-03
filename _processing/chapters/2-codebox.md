@@ -13,11 +13,11 @@ Here is p5-widget embedded:
 
 <!-- this script only needs to get added once even if there are multiple widget instances -->
 
-<script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script> 
-<!-- <script src="/assets/js/p5-widget.js"></script> -->
+<!-- <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script> -->
+<script src="/assets/js/p5-widget.js"></script> 
 
 <pre>
-<script type="text/p5" data-height="600">
+<script type="text/p5" data-height="500" data-preview-width="300">
 function setup() {
   createCanvas(100, 100);
 }
