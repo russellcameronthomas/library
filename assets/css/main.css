@@ -375,6 +375,7 @@ img.home-icon:hover {
 }
 
 .search button {
+    font-family: Tahoma, 'Arial', serif;
     padding: 0em 1em !important;
     background-color: #e0e0e0 !important;
     background-image: linear-gradient(to bottom,#fff 0,#e0e0e0 100%);
