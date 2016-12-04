@@ -11,7 +11,7 @@ exclude_from_search: true
 <form action="get" id="site_search">
 <center>
   <input type="text" id="search_box" size="28" placeholder="Search">
-  <input type="submit" style="background-color:#FFFFBB;" value="🔍">
+  <input type="submit" class= "search-submit-button" value="🔍">
 </center>
 </form>
 ____
