@@ -435,6 +435,7 @@ a.chapter-link {
 /* Prettier editor buttons */
 
 .wpedit button {
+    font-family: 'Arial', sans-serif;
     height: 26px !important;
     padding: 0em 1em !important;
     background-color: #e0e0e0 !important;
