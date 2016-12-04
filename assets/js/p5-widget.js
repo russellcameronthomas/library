@@ -226,8 +226,8 @@
 
 	"use strict";
 	exports.P5_VERSION = '0.4.23';
-	exports.PREVIEW_WIDTH = 150;
-	exports.HEIGHT = 300;
+	exports.PREVIEW_WIDTH = 648;
+	exports.HEIGHT = 600;
 
 
 /***/ }
