@@ -106,13 +106,16 @@
 <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.2/cookieconsent.min.css" />
 <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.2/cookieconsent.min.js"></script>
 
-<div style="display:none;">
-<iframe id="doNotTrack" style="border: 0; height: 200px; width: 600px;" src="http://meritology.com/analytics/index.php?module=CoreAdminHome&action=optOut&language=en"></iframe>
+<div id="doNotTrackDiv" style="display:none;">
+<p>Boo!</p>
+<!-- -->
 </div>
+
 <!-- "This website uses cookies for a few basic functions like preserving your site preferences between sessions.", -->
 <script>
-var x = document.getElementById("doNotTrack");
-var trackStatus = x.contentDocument || x.contentWindow.document;
+var trackStatus = navigator.doNotTrack == 1 
+   ? "We use 'web bugs' to anonymously monitor web site traffic. Your activity is NOT being tracked because you chose 'Do Not Track' in your browser."
+   : "We use 'web bugs' to anonymously monitor web site traffic. Your activity is being tracked because you did not set 'Do Not Track' in your browser.";
 window.addEventListener("load", function(){
 window.cookieconsent.initialise({
   "palette": {
@@ -126,7 +129,7 @@ window.cookieconsent.initialise({
   "content": {
     "message": "This website uses cookies for a few basic functions like preserving your site preferences between sessions. <br/> " + trackStatus,
     "dismiss": "Close and don't show again",
-    "href": "http://library.meritology.com/info/chapters/3_security"
+    "href": "http://library.meritology.com/info/chapters/2_security"
   }
 })});
 </script>
