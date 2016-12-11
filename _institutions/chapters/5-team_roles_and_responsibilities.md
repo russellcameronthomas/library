@@ -195,7 +195,226 @@ $$
 
 // scratch space
 
+var data = ["000111","110011"];
+
+var match = function(text,pattern){
+  return text.search(pattern) > -1 ? true : false;
+}
+var elements = ["0","1","."];
+
+
+
+var generateRandomPattern = function (len){
+  // random string of "1", "0", ".", of length len
+  var arr = repeat(len,function(){
+      return elements[sample(RandomInteger({n:3}))];
+      });
+  var str = reduce(
+    function(x,acc){return String.prototype.concat(acc,x );},"",arr);
+  return str;
+}
+
+var samp = generateRandomPattern(6);
+print(samp);
+
+
+var str = 'For more information, see Chapter 3.4.5.1';
+var re = /see (chapter \d)/i;
+var found = str.search(re);
+
+print("Match? " + match(str,re)); 
+
+var pat = RegExp.prototype.constructor("see chapter","g");
+
+print("Match? test: " + pat.exec(str) );
+print("Match? " + match(str,pat));
+print(pat.source + ",  " + pat.global + ", " + typeof pat);
+
 </code></pre>
+
+
+
+<pre> <code class="language-webppl">
+var xs = ["0011", "0011001", "110", "1100010101", "110111","0011"];
+var labels = [false, false, true, true, true,false];
+
+
+
+var model = function(){
+  var limitGaussian = function(mean,sd){
+    var draw = sample(Gaussian({mu:mean,sigma:sd}));
+    if (draw >= .8 || draw <= 0.2){
+      return limitGaussian(mean,sd);
+    } else {
+      return draw;
+    }
+  }
+  var p1 = beta(2,2);  //prefer Pr("0")=Pr("1")=0.5
+  var p2 = beta(2,3); // prefer shorter/simpler
+  var p3 = beta(1.5,1.5);
+  var c0 = uniform(0,1);
+  var c1 = uniform(0,1);
+  var c2 = uniform(0,1);
+  var c3 = uniform(0,1);
+  var cSum = c0 + c1 + c2 + c3 ;
+  var randInt4 = Categorical({ps: 
+                 [c0 / cSum,
+                  c1 / cSum,
+                  c2 / cSum,
+                  c3 / cSum]
+                  , vs: [0,1,2,3]});
+  var k0 = uniform(0,1);
+  var k1 = uniform(0,1);
+  var k2 = uniform(0,1);
+  var kSum = k0 + k1 + k2;
+  var randInt3 = Categorical({ps: 
+                 [k0 / kSum,
+                  k1 / kSum,
+                  k2 / kSum]
+                  , vs: [0,1,2]});
+  var p4 = 0.5; //limitGaussian(0.3,0.05); //beta(2,3);  // prefer shorter/simpler
+  var p5 = limitGaussian(0.3,0.05); //0.5; //beta(2,3);  // prefer shorter/simpler
+  var p6 = limitGaussian(0.3,0.05); //0.5; //beta(2,3);  // prefer shorter/simpler
+  var n0 = beta(5,2); // prefer re only
+  var n1 = beta(1.5,1.5); //  then ^re$ 
+  var n2 = beta(2,4);     //  then re$ 
+  var n3 = beta(2,4);     //  or ^re 
+  var nSum = n0 + n1 + n2 + n3;
+  var randInt4a = Categorical({ps: 
+                 [n0 / nSum,
+                  n1 / nSum,
+                  n2 / nSum,
+                  n3 / nSum
+                 ]
+                  , vs: [0,1,2,3]});
+
+// <char> ::= "0" | "1"  // BTW there are no meta char, so no "\" escape
+var char = function(){return flip(p1)  ? "0" : "1";}
+//<range>	::=	<char> "-" <char>
+//var range = function(){return char() + "-" + char()};
+//<set-item>	::=	<range> | <char>
+//var set_item = function(){return flip() ? range() : char();}
+var set_item = function(){return char();}
+//<set-items>	::=	<set-item> | <set-item> <set-items>
+var set_items = function(counter){
+  if (counter <= 0){
+    return set_item();
+  } else {
+    return flip(p2) ? set_item() : set_item() + set_items(counter - 1);
+  }
+}
+//<negative-set>	::=	[^ <set-items> "]"
+var negative_set = function(){return "[^" + set_items(3) + "]";}
+//<positive-set>	::=	[ <set-items> "]"
+var positive_set = function(){return "[" + set_items(3) + "]";}
+//<set>	::=	<positive-set> | <negative-set>
+var set = function(){return flip(p3) ? positive_set() : negative_set() ;}
+//<eos>	::=	$
+var eos = "$";
+//<any>	::=	.
+var any = ".";
+var sos = "^";
+
+//<elementary-RE>	::=	<group> | <any> | <char> | <set>
+var elementary_re = function() {
+  var draw = sample(randInt4);
+  return draw == 0 ? group(1)
+    : draw == 1 ? any
+    : draw == 2 ? char()
+    : draw == 3 ? set()
+    : "";
+}
+
+//<plus>	::=	<elementary-RE> "+"
+var plus = function(){return elementary_re() + "+";}
+//<star>	::=	<elementary-RE> "*"
+var star = function(){return elementary_re() + "*"};
+//<basic-RE>	::=	<star> | <plus> | <elementary-RE>
+var basic_re = function(){
+   var draw = sample(randInt3);
+   return draw == 0 ? star()
+        : draw == 1 ? plus()
+        : draw == 2 ? elementary_re()
+        : "";
+}
+//<concatenation>	::=	<simple-RE> <basic-RE>
+//<simple-RE>	::=	<concatenation> | <basic-RE>
+var simple_re = function(counter){
+    if (counter <= 0){
+      return basic_re();
+  } else {
+      return flip(p4) ?  basic_re()  : simple_re(counter - 1) + basic_re();
+  }
+}
+
+//<union>	::=	<RE> "|" <simple-RE>
+//<RE>	::=	<union> | <simple-RE>
+var re = function(counter){
+  if (counter <= 0){
+    return simple_re(7);
+  } else {
+  return flip(p5)  
+     ?  simple_re(7)  
+     : flip(p6) ?  simple_re(7)  : re(counter - 1);
+  }
+}
+//<group>	::=	( <RE> ")"
+var group = function(counter){
+  if (counter <= 0){
+    return "";
+  } else {
+  return "(" + re(counter - 1) + ")";
+  }
+}
+
+var regex = function(counter){
+  var draw = sample(randInt4a);
+  return draw == 0 ? re(counter)
+    : draw == 1 ? sos + re(counter) + eos 
+    : draw == 2 ? sos + re(counter)
+    : draw == 3 ? re(counter) + eos : ""; 
+}
+  var pattern =  regex(3);
+  var pat = RegExp.prototype.constructor(pattern,"g");
+  
+/*  
+   map2(
+    function(x, label) {
+      factor(pat.test(x) == label ? - pattern.length : -Infinity);
+    },
+    xs,
+    labels);
+*/    
+/*
+  factor(pat.test(xs[0]) == labels[0]  ? - pattern.length / 3 : -1000);
+  factor(pat.test(xs[1]) == labels[1]  ? - pattern.length / 3  : -1000);
+  factor(pat.test(xs[2]) == labels[2]  ? - pattern.length / 3  : -1000);
+  factor(pat.test(xs[3]) == labels[3]  ? - pattern.length / 3  : -1000);
+  factor(pat.test(xs[4]) == labels[4]  ? - pattern.length / 3  : -1000);
+  //factor(pat.test(xs[5]) == labels[5]  ? - pattern.length / 3  : -1000);
+*/
+return pattern;
+}
+
+//var result = Infer({method: 'MCMC', samples: 100, burn: 10}, model);
+
+var run = model();
+print(run);
+var pat = RegExp.prototype.constructor(run,"g");
+print(xs[0] + " match? " + pat.test(xs[0]));
+print(pat.source + ",  " + pat.global + ", " + typeof pat);
+
+var flags = "g"  ;
+var flags = pat.ignoreCase ? flags + "i" : flags;
+var flags = pat.multiline ? flags + "m" : flags;
+
+var pat2 = RegExp.prototype.constructor("^1?.?..1$","g");
+
+print(xs[0] + " <=> " + pat2.source + "  match? " + pat2.test(xs[0]));
+
+//viz.auto(result);
+</code></pre>
+
 
 ### Full Model
 
