@@ -193,6 +193,14 @@ $$
 
 <pre> <code class="language-webppl">
 
+// scratch space
+
+</code></pre>
+
+### Full Model
+
+<pre> <code class="language-webppl">
+
 // First design project
 // initialize perceptions
 
