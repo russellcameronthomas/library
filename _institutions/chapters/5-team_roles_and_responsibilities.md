@@ -192,8 +192,14 @@ $$
 ## Computational Model
 
 <pre> <code class="language-webppl">
-
 // scratch space
+
+</code></pre>
+
+<pre> <code class="language-webppl">
+
+// regex tests
+
 
 var data = ["000111","110011"];
 
