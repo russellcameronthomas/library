@@ -97,15 +97,6 @@ In biological reproduction or replication, there is always a *single* reproducti
 
 But institutional reproduction is not a single event, but instead it is either continous (or nearly so), or episodic (and often repeated).  The variational and selective forces are potentially at work all this time, though the detailed sequence variation and selection matter. 
 
-$$
-\forall(m,n \in \mathbb{Z}) : (m > n > 0) \wedge \neg \big( (m \text{ mod } 2 = 1 )  \wedge (n \text{ mod } 2 = 1 ) \big)
-$$
-
-$$
- a = m^2 - n^2 ;\ \; b = 2mn ;\ \; c = m^2 + n^2
-$$
-
-
 
 <div class="work_in_progress" markdown="1">
 

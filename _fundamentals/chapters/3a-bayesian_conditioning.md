@@ -3,8 +3,8 @@ layout: chapter
 title: Bayesian Inference
 description: "Bayesian inference (a.k.a. conditioning) is a method for using observed/empirical data to improve your estimate of the probability distribution of a random variable."
 status: work-in-progress
-pct_complete: 70%
-last_modified: "2016-11-01"
+pct_complete: 80%
+last_modified: "2016-12-11"
 is_section: false
 ---
 
@@ -149,6 +149,135 @@ The last statement is a return statement, which is the posterior distribution yo
 <img class="resize" style="display:block;width:95%;" src="{{ site.baseurl }}/assets/img/grassGetsWet4.png">
 
 The final ingredient to a WebPPL program is the `Infer(...);` statement.  **This function does the "magic" of conditioning the random variables on the observations**.  It takes two parameters: 1) an inference method (e.g. "Enumerate"); and 2) the generative function that encompasses your model plus observed data (via `condition` statements.)
+
+## A Better Version
+
+The following model is the same as above, but instead of four separate functions with different conditions for evidence, we combine them into one function that takes any combination of evidence and outputs the all marginal probabilities.
+
+You can enter your own evidence combination where it says "ENTER EVIDENCE HERE".
+
+<pre> <code class="language-webppl">
+// Wet Grass causal model
+
+///fold:
+// Helper function
+var mapToString = function(map){
+  var keys = Object.keys(map);
+  var mapString = reduce(function(x,acc){
+    var sep = acc.length == 0 ? "" : ", "
+    return acc.concat(sep + x + " : " + map[x] )
+  },"",keys );
+  return "{" + mapString + "}";
+}
+
+// Generative model
+var grassGetsWet = function(){
+  var cloudy = flip(0.5);
+  var rain = cloudy ? flip(0.8) : flip(0.2);
+  var sprinkler = cloudy ? flip(0.1) : flip(0.5);
+  var wetGrass = rain && sprinkler 
+                   ? flip(.99)  
+                   : (rain && !sprinkler) || (!rain && sprinkler) 
+                        ? flip(0.9) 
+                        : flip(0.0001); // what is the prob. of some 
+                                        //   other cause, not in model?
+                              // was flip(0.0); // impossibility
+  return {wetGrass: wetGrass,
+          rain: rain,
+          sprinkler: sprinkler,
+          cloudy: cloudy};
+}
+
+// Generalized inference function given any combination of evidence
+var inference = function(evidence){
+  var applyEvidence = Infer({ method: 'enumerate' }, function(){
+  var trial = grassGetsWet();
+   if ("sprinkler" in evidence){
+      condition(trial.sprinkler === evidence.sprinkler);
+   }
+   if ("rain" in evidence){
+      condition(trial.rain === evidence.rain);
+   }
+   if ("cloudy" in evidence){
+      condition(trial.cloudy === evidence.cloudy);
+   }
+   if ("wetGrass" in evidence){
+      condition(trial.wetGrass === evidence.wetGrass);
+   }
+   return {rain: trial.rain,
+           cloudy: trial.cloudy,
+           sprinkler: trial.sprinkler,
+           wetGrass: trial.wetGrass,
+          };
+});
+  
+  return applyEvidence;
+}
+///
+
+// ENTER EVIDENCE HERE in this form:
+//      { cloudy : true,
+//          rain : false }
+// Leave out any entry where there is no evidence
+
+var evidence = {cloudy : false,
+               wetGrass: true};
+
+var evidenceString = mapToString(evidence);
+
+// Output
+print("Given evidence = " + mapToString(evidence) + " =>");
+var allCombinations = inference(evidence);
+
+// Extract marginal probabilities:
+///fold:
+var results = {
+  rain: Math.exp(
+                 Infer({method: 'enumerate'},
+                   function(){
+                      var trial = sample(allCombinations);
+                      return trial.rain;
+                   }
+                 ).score(true) 
+               ),
+  cloudy: Math.exp(
+                 Infer({method: 'enumerate'},
+                   function(){
+                      var trial = sample(allCombinations);
+                      return trial.cloudy;
+                   }
+                 ).score(true) 
+               ),
+  wetGrass: Math.exp(
+                 Infer({method: 'enumerate'},
+                   function(){
+                      var trial = sample(allCombinations);
+                      return trial.wetGrass;
+                   }
+                 ).score(true) 
+               ),
+  sprinkler: Math.exp(
+                 Infer({method: 'enumerate'},
+                   function(){
+                      var trial = sample(allCombinations);
+                      return trial.sprinkler;
+                   }
+                 ).score(true) 
+               )
+}
+///
+  
+print(" => Pr(rain) = " + results.rain);
+print("    Pr(cloudy) = " + results.cloudy);
+print("    Pr(wetGrass) = " + results.wetGrass);
+print("    Pr(sprinkler) = " + results.sprinkler);
+
+print("\nAll state combinations");
+
+viz.table(allCombinations);
+</code></pre>
+
+It's worth looking at the code below "Extract marginal probabilities".  Since our `inference(evidence)` function is we are returning all four state variables rather than one, and because `Infer` returns a distribution object, what we get is a distribution over all state combinations. Therefore, to eextract the marginal distributions (i.e. unconditioned), e.g. $$Pr(rain)$$ regardless of other states, we need to apply `Infer` to `allCombinations`, each time returning a different state variable, converting that to a score (log value), then transforming it into probability via exponential function.
 
 
 ## Bayesian Inference With Continuous Distributions

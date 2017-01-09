@@ -192,9 +192,416 @@ $$
 ## Computational Model
 
 <pre> <code class="language-webppl">
-// scratch space
+// Wet Grass causal model
+
+///fold:
+// Helper function
+var mapToString = function(map){
+  var keys = Object.keys(map);
+  var mapString = reduce(function(x,acc){
+    var sep = acc.length == 0 ? "" : ", "
+    return acc.concat(sep + x + " : " + map[x] )
+  },"",keys );
+  return "{" + mapString + "}";
+}
+
+// Generative model
+var grassGetsWet = function(){
+  var cloudy = flip(0.5);
+  var rain = cloudy ? flip(0.8) : flip(0.2);
+  var sprinkler = cloudy ? flip(0.1) : flip(0.5);
+  var wetGrass = rain && sprinkler 
+                   ? flip(.99)  
+                   : (rain && !sprinkler) || (!rain && sprinkler) 
+                        ? flip(0.9) 
+                        : flip(0.0001); // what is the prob. of some 
+                                        //   other cause, not in model?
+                              // was flip(0.0); // impossibility
+  return {wetGrass: wetGrass,
+          rain: rain,
+          sprinkler: sprinkler,
+          cloudy: cloudy};
+}
+
+// Generalized inference function given any combination of evidence
+var inference = function(evidence){
+  var applyEvidence = Infer({ method: 'enumerate' }, function(){
+  var trial = grassGetsWet();
+   if ("sprinkler" in evidence){
+      condition(trial.sprinkler === evidence.sprinkler);
+   }
+   if ("rain" in evidence){
+      condition(trial.rain === evidence.rain);
+   }
+   if ("cloudy" in evidence){
+      condition(trial.cloudy === evidence.cloudy);
+   }
+   if ("wetGrass" in evidence){
+      condition(trial.wetGrass === evidence.wetGrass);
+   }
+   return {rain: trial.rain,
+           cloudy: trial.cloudy,
+           sprinkler: trial.sprinkler,
+           wetGrass: trial.wetGrass,
+          };
+});
+  
+  return applyEvidence;
+}
+///
+
+// ENTER EVIDENCE HERE in this form:
+//      { cloudy : true,
+//          rain : false }
+// Leave out any entry where there is no evidence
+
+var evidence = {cloudy : false,
+               wetGrass: true};
+
+var evidenceString = mapToString(evidence);
+
+// Output
+print("Given evidence = " + mapToString(evidence) + "...");
+var allCombinations = inference(evidence);
+
+viz.table(allCombinations);
+
+// Extract marginal probabilities:
+///fold:
+var results = {
+  rain: Math.exp(
+                 Infer({method: 'enumerate'},
+                   function(){
+                      var trial = sample(allCombinations);
+                      return trial.rain;
+                   }
+                 ).score(true) 
+               ),
+  cloudy: Math.exp(
+                 Infer({method: 'enumerate'},
+                   function(){
+                      var trial = sample(allCombinations);
+                      return trial.cloudy;
+                   }
+                 ).score(true) 
+               ),
+  wetGrass: Math.exp(
+                 Infer({method: 'enumerate'},
+                   function(){
+                      var trial = sample(allCombinations);
+                      return trial.wetGrass;
+                   }
+                 ).score(true) 
+               ),
+  sprinkler: Math.exp(
+                 Infer({method: 'enumerate'},
+                   function(){
+                      var trial = sample(allCombinations);
+                      return trial.sprinkler;
+                   }
+                 ).score(true) 
+               )
+}
+///
+  
+print("... Pr(rain) = " + results.rain);
+print("    Pr(cloudy) = " + results.cloudy);
+print("    Pr(wetGrass) = " + results.wetGrass);
+print("    Pr(sprinkler) = " + results.sprinkler);
+</code></pre>
+
+### Updating Model Parameters
+
+
+
+
+
+
+<pre><code class="language-webppl">
+
+// Wet Grass causal model 2
+
+// In this setting, evidence arrives in a time sequence
+// As evidence arrives, we want to adjust to the model parameters.
+// This is basically like estimating the bias in a coin after each toss.
+
+// Step 1. Make an inference based on the current model + evidence
+// Step 2. Update model parameters conditioned on the 
+//    cumulative to that point in time
+
+//************************
+// UTILITY FUNCTIONS
+//************************
+//   count(item,arr); takeN(n, arr); shuffle(arr) 
+///fold:
+// count: count the number of "item" in "arr"
+var count = function(item,arr){
+    if (arr.length === 0 || item.length === 0){
+       return 0;
+    } else {
+      return filter(function(x){return x == item;},arr).length;
+    }
+}
+
+// takeN: return the first "n" elements of "arr"
+var takeN = function(n, arr){
+    return n <= 0 || arr.length === 0
+        ? 0
+        : remove(null, mapIndexed(function(i,x){
+                                  return i < n ? x : null},arr));
+}
+
+var removeIndexed = function(i, arr){
+    return remove(null,mapIndexed(function(j,x){
+                                  return j === i ? null : x;}, arr));
+}
+
+// add random elements from array to an accumulator
+//  This is a recursive function, with safety counter
+var addRandomElement = function(arr,acc,count){
+    if (count >= 0 && arr.length > 0){
+        var x = sample(RandomInteger({n:arr.length}));
+        var newAcc = acc.concat(arr[x]);
+        var newArr = removeIndexed(x,arr);
+        var newCount = count - 1;
+        addRandomElement(newArr,newAcc,newCount);
+    } else {
+        return acc;
+    }
+}
+
+// shuffle: return an array in random order
+var shuffle = function(arr){
+    return addRandomElement(arr,[],arr.length);
+}
+///
+
+//************************
+// EXPERIMENT PARAMETERS
+//************************
+
+var K = 10; // total number of observations in sequence
+var numH = 7; // number of Heads in all observations in the trial
+var N = 10; // number of (randomly selected) observations in observedData
+
+//************************
+// OBSERVED DATA ("EVIDENCE")
+//************************
+var trial = mapN(function(x){return x < numH ? "H": "T";},K);
+var observations = shuffle(trial);
+var observedData = takeN(N,observations);
+var obsH = count("H", observedData);
+
+//************************
+// PRIOR KNOWLEDGE
+//************************
+// Prior distribution over (0,1), 
+//  with mean and "informativeness" parameter in (0,1)
+///fold:
+// Uses a Beta distribution, we smoothly transition from uniform distribution
+//  (uninformative) to Gaussian-like (informative), with the middle ground
+//  being "somewhat informative" Beta(2,2), assuming mean of 0.5
+// Mean is adjusted by informativeness parameter if < 0.5
+
+// First shape parameter "a" ranges from 1 to 3, 
+//       where 1 = uniform distribution
+// Second shape parameter is derived from "a" and "mean"
+///
+var priorPr = function(mean,informative){
+  var a = 1 + informative * 2
+  var adjMean = informative < 0.5 
+      ? (1 - (informative * 2)) * 0.5 + (informative * 2) * mean
+      : mean;
+  var b = (a * ( 1 - adjMean ) ) / adjMean;
+  return beta(a,b);
+}
+
+
+//************************
+// MODEL and INFERENCE
+//************************
+
+// toss: function that returns "H" with probability r, otherwise "T"
+var toss = function(r) {return flip(r) ? "H" : "T";}
+
+// We'll use MCMC inference, since our variable of interest is continuous with
+//  finite support (0,1), and without multiple modes or other complications.
+var mcmcParms = {method: 'MCMC', kernal : "MH", samples:1000, burn: 200};
+var posterior = function(prior) {
+    return Infer(mcmcParms,
+        function () {
+            //  p is defined as the probability of "H" on a single toss, 
+            //  in the range (0,1). p is our variable of interest 
+            var p = prior();
+            // data: N random draws from toss(p), given random draw of p
+            var data = repeat(N,function(){return toss(p);});
+            // Count the number of heads, since we don't care about the order
+            var dataH = count("H",data);
+            // Upweight likelihood when # of "H" in data = # of "H" in observed
+    //        observe(Gaussian({mu: dataH, sigma: 0.2}), obsH);
+            // ^^^^^ try commenting this out, and uncomment "factor(...)" below
+
+    // "factor()" is a second method for weighting likelihood.
+    //   This is a "softer" method because it downweights non-matching
+    //   execution traces by an amount proportional to the number 
+    //   of tosses, as opposed to downweight by -Infinity, 
+    //   as in condition() and observe().
+    //   The justification is that with few tosses, you have 
+    //   less justification for modifying your prior beliefs
+     factor (dataH == obsH ? 0 : -( N / 2.5));
+    //  ^^^^^ try uncommenting this, 
+    //          while also commenting out "observe(...)" above
+            return {p: p};
+        });
+}
+
+
+///fold:
+// Helper function
+var mapToString = function(map){
+  var keys = Object.keys(map);
+  var mapString = reduce(function(x,acc){
+    var sep = acc.length == 0 ? "" : ", "
+    return acc.concat(sep + x + " : " + map[x] )
+  },"",keys );
+  return "{" + mapString + "}";
+}
+
+///
+
+// Generative model
+var grassGetsWet = function(prC,prRC,prSC,prSnC,prGRS, prGRoS, prO){
+  
+  var cloudy = flip(prC); // 0.5
+  var rain = cloudy ? flip(prRC) : flip(1 - prRC); //flip(0.8) : flip(0.2);
+  var sprinkler = cloudy ? flip(prSC) : flip(prSnC); //flip(0.1) : flip(0.5);
+  var wetGrass = rain && sprinkler 
+                   ? flip(prGRS)    // 0.99
+                   : (rain && !sprinkler) || (!rain && sprinkler) 
+                        ? flip(prGRoS)    //  flip(0.9)
+                        : flip(prO); // 0.0001 = prob. of some 
+                                        //   other cause, not in model?
+                              // was flip(0.0); // impossibility
+  return {wetGrass: wetGrass,
+          rain: rain,
+          sprinkler: sprinkler,
+          cloudy: cloudy};
+}
+var informed = 0.5;  // somewhat informed, midway between 0 and 1
+var prC = listMean(repeat(500,function(){return priorPr(0.5,informed);}));
+var prRC = listMean(repeat(500,function(){return priorPr(0.8,informed);}));
+var prSC = listMean(repeat(500,function(){return priorPr(0.1,informed);}));
+var prSnC = listMean(repeat(500,function(){return priorPr(0.5,informed);}));
+var prGRS = listMean(repeat(500,function(){return priorPr(0.99,informed);}));
+var prGRoS = listMean(repeat(500,function(){return priorPr(0.9,informed);}));
+var prO = listMean(repeat(500,function(){return priorPr(0.0001,informed);}));
+
+// Generalized inference function given any combination of evidence
+var inference = function(evidence){
+  var applyEvidence = Infer({ method: 'enumerate' }, function(){
+  var trial = grassGetsWet(prC,prRC,prSC,prSnC,prGRS, prGRoS, prO);
+   if ("sprinkler" in evidence){
+      condition(trial.sprinkler === evidence.sprinkler);
+   }
+   if ("rain" in evidence){
+      condition(trial.rain === evidence.rain);
+   }
+   if ("cloudy" in evidence){
+      condition(trial.cloudy === evidence.cloudy);
+   }
+   if ("wetGrass" in evidence){
+      condition(trial.wetGrass === evidence.wetGrass);
+   }
+   return {rain: trial.rain,
+           cloudy: trial.cloudy,
+           sprinkler: trial.sprinkler,
+           wetGrass: trial.wetGrass,
+          };
+});
+  
+  return applyEvidence;
+}
+
+
+// ENTER EVIDENCE HERE in this form:
+//      { cloudy : true,
+//          rain : false }
+// Leave out any entry where there is no evidence
+
+var evidence = {cloudy : false,
+               wetGrass: true};
+
+var evidenceString = mapToString(evidence);
+
+// Output
+print("Model parameters:");
+///fold:
+print("Pr(cloudy) = " + prC);
+print("Pr(rain|cloudy) = " + prRC);
+print("Pr(sprinkler|cloudy) = " + prSC);
+print("Pr(sprinkler| not cloudy) = " + prSnC);
+print("Pr(wetGrass| rain AND sprinkler) = " + prGRS);
+print("Pr(wetGrass| rain XOR sprinkler) = " + prGRoS);
+print("Pr(wetGrass| other) = " + prO + "\n");
+///
+print("Given evidence = " + mapToString(evidence) + " =>");
+var allCombinations = inference(evidence);
+
+//viz.table(allCombinations);
+
+// Extract marginal probabilities:
+///fold:
+var results = {
+  rain: Math.exp(
+                 Infer({method: 'enumerate'},
+                   function(){
+                      var trial = sample(allCombinations);
+                      return trial.rain;
+                   }
+                 ).score(true) 
+               ),
+  cloudy: Math.exp(
+                 Infer({method: 'enumerate'},
+                   function(){
+                      var trial = sample(allCombinations);
+                      return trial.cloudy;
+                   }
+                 ).score(true) 
+               ),
+  wetGrass: Math.exp(
+                 Infer({method: 'enumerate'},
+                   function(){
+                      var trial = sample(allCombinations);
+                      return trial.wetGrass;
+                   }
+                 ).score(true) 
+               ),
+  sprinkler: Math.exp(
+                 Infer({method: 'enumerate'},
+                   function(){
+                      var trial = sample(allCombinations);
+                      return trial.sprinkler;
+                   }
+                 ).score(true) 
+               )
+}
+///
+  
+print("=>  Pr(rain) = " + results.rain);
+print("    Pr(cloudy) = " + results.cloudy);
+print("    Pr(wetGrass) = " + results.wetGrass);
+print("    Pr(sprinkler) = " + results.sprinkler);
+
+
+
+
 
 </code></pre>
+
+
+
+
+### RegEx Test
 
 <pre> <code class="language-webppl">
 
@@ -239,6 +646,10 @@ print(pat.source + ",  " + pat.global + ", " + typeof pat);
 </code></pre>
 
 
+<pre> <code class="language-webppl">
+
+
+</code></pre>
 
 <pre> <code class="language-webppl">
 var xs = ["0011", "0011001", "110", "1100010101", "110111","0011"];
